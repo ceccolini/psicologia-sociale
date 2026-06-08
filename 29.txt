@@ -1,0 +1,182 @@
+Benvenuti in questa sessione di studio.
+
+Oggi esploreremo insieme i fondamenti della psicologia criminologica e una delle sue applicazioni più affascinanti: il criminal profiling. Mettetevi comodi, perché iniziamo un viaggio nella mente di chi commette un reato e negli strumenti che la scienza psicologica mette a disposizione degli investigatori.
+
+Partiremo dalle diverse branche della psicologia applicata al diritto e al crimine. Vedremo cosa si intende per criminogenesi e criminodinamica. Poi, entreremo nel vivo del criminal profiling, ripercorrendone la storia, dai pionieri come Thomas Bond e James Brussel fino agli approcci moderni. Infine, ci metteremo nei panni del profiler, seguendo passo dopo passo il suo iter investigativo.
+
+Non tralasceremo nessun concetto. E ogni volta che un termine sarà troppo tecnico, lo accompagneremo con un esempio o un’analogia tratta dalla vita di tutti i giorni. L’obiettivo è chiaro: trasformare questi contenuti in un apprendimento solido e memorabile.
+
+Allora, iniziamo.
+
+
+ 1. La psicologia applicata alla criminologia
+
+Quando parliamo di crimine, tendiamo a pensare subito al fatto, al gesto violento o all’illecito. Ma la psicologia criminologica ci invita a guardare molto più a fondo. Ci chiede: chi è la persona che ha compiuto quell’atto? Quali processi mentali, emotivi e relazionali l’hanno portata a farlo?
+
+In ambito criminologico esistono diverse proposte psicologiche che affrontano il fenomeno da prospettive differenti. Ognuna fornisce una chiave di lettura alternativa. E tutte convergono verso un obiettivo comune: aiutare a comprendere, prevenire e, in alcuni casi, perseguire il comportamento criminale.
+
+In particolare, ci sono quattro branche principali che si occupano di questi aspetti. Attenzione, perché è facile confonderle. Parliamo della psicologia legale, della psicologia criminale, della psicologia giudiziaria o forense, e infine della psicologia rieducativa o penitenziaria.
+
+Prendiamole una per una.
+
+La psicologia legale è una branca della psicologia il cui scopo è quello di volgere uno sguardo oltre il mero confine legato alla psiche. Cioè, cerca di affacciarsi sul mondo forense. Perché realtà così eterogenee, come quelle che circondano tutti noi, possano essere riunite in una lettura condivisa. In pratica, la psicologia legale riguarda l’insieme delle nozioni psicologiche che intervengono nell’applicazione delle leggi. Studia le dimensioni psicologiche presenti nelle norme. E fornisce un contributo all’elaborazione normativa, sia in ambito civile che penale. Per questo, a volte viene chiamata anche psicologia legislativa.
+
+Passiamo ora alla psicologia criminale. Questa è volta allo studio dei comportamenti criminali attraverso un sistema di competenze adeguato. Cosa significa? Significa occuparsi della psiche degli autori di reati. Si indaga quali comportamenti hanno scaturito l’atto criminale. La psicologia criminale non si ferma alla superficie. Va dentro i meccanismi che generano la devianza.
+
+In particolare, possiamo identificare quattro ambiti di studio principali. Sono quattro aree di intervento ben precise.
+
+Il primo ambito è lo studio della persona in quanto autrice di reato. Qui l’attenzione è tutta sull’individuo che ha commesso il crimine.
+
+Il secondo ambito è la criminogenesi. Questo termine suona tecnico, ma è semplice. La criminogenesi studia l’origine, la nascita del comportamento criminale. Cioè, quali processi genetici o ambientali possono indurre una persona a compiere atti antisociali.
+
+Il terzo ambito è la criminodinamica. Mentre la criminogenesi guarda all’inizio, la criminodinamica guarda allo sviluppo e al mutamento degli atti criminali. Si cerca di capire come un fatto criminale evolve nel tempo. Si valutano i vari elementi costitutivi che lo caratterizzano.
+
+Infine, il quarto ambito riguarda le carriere devianti. Non tutti i criminali iniziano allo stesso modo, e non tutti seguono la stessa traiettoria. Alcuni smettono, altri peggiorano, altri ancora si specializzano. Studiare le carriere devianti significa proprio tracciare questi percorsi nel tempo.
+
+Proseguiamo con la psicologia giudiziaria, che viene spesso chiamata anche psicologia forense. In questo caso, l’ambito di studio e intervento riguarda individui e gruppi pensati all’interno di contesti giuridici. La psicologia giudiziaria si propone anche di connettere le scienze psicologiche, le scienze umane e il diritto.
+
+Di cosa si occupa concretamente? Si occupa dei processi cognitivi, emotivi e comportamentali che possono essere implicati e analizzati nell’amministrazione della giustizia. E facendo questo, si riferisce agli individui in diverse vesti: sia come autori di reato, sia come soggetti imputabili, sia come testimoni o parti lese.
+
+Questa branca della psicologia, quindi, attiene al processo. Alla persona nella sua qualità di imputata. Ma anche alle altre figure che interagiscono nel corso della procedura. Pensiamo ai giudici, ai testimoni, ai difensori, ai consulenti tecnici e ai periti. La psicologia giudiziaria esamina l’interazione tra la persona e i sistemi giudiziari. Lo fa in ambito civile, penale e minorile. E concentra l’attenzione sullo studio scientifico di costrutti e processi psicologici di rilievo giuridico. Secondo i paradigmi della psicologia cognitiva, sociale, evolutiva, dinamica e della personalità.
+
+Infine, arriviamo alla psicologia penitenziaria. Questa rappresenta un sottoinsieme della psicologia giuridica e forense, con cui condivide parte delle basi teoriche e metodologiche. Ma la sua specificità è chiara: riguarda il contesto in cui viene applicata, cioè l’ambito penitenziario.
+
+Nello specifico, la psicologia penitenziaria si interessa della persona condannata. Si occupa dell’esecuzione penale. Analizza i trattamenti attuati all’interno degli istituti. Studia gli ambienti intramurari. Lavora sulla prevenzione della recidiva. E, aspetto molto importante, si occupa anche della Restorative Justice, ovvero la Giustizia Riparativa.
+
+Ora che abbiamo chiarito queste quattro aree, dobbiamo parlare di un autore fondamentale. Parlando di profili criminogeni complessi, è necessario citare David Canter. Canter è del Centro Internazionale di Psicologia Investigativa di Liverpool, ed è considerato il fondatore della Psicologia investigativa.
+
+Provate a immaginare cosa fa la psicologia investigativa. Da un lato, si occupa di attività di studio diretto sul luogo dell’omicidio. Attraverso immagini, foto, riprese del sopralluogo. Dall’altro lato, svolge anche attività di studio indiretto. Che significa? Significa condurre un’analisi critica, svincolata dalla sequenza temporale rigida del sopralluogo. In questa fase, si ricercano le cosiddette tracce caratteristiche indicative della scena. E infine, la psicologia investigativa si prefissa di attuare una ricostruzione processuale delle tracce psicologiche e cognitive dell’autore.
+
+Secondo questa prospettiva, il crimine non è un evento caotico o senza senso. Al contrario, viene letto come un insieme di comportamenti dotati di significato. Quindi come una transazione interpersonale. Perché ogni criminale produce azioni significative all’interno di un determinato contesto sociale.
+
+Una caratteristica importante dell’iter della psicologia investigativa è l’analisi vittimologica. Ecco un passaggio cruciale. L’analisi vittimologica consiste nello stilare un elenco completo riguardante tutte le caratteristiche della vittima. E anche dei processi interattivi che collegano la vittima all’autore. Perché è solo attraverso questa comprensione che si può procedere, successivamente, con la cosiddetta autopsia psicologica.
+
+Fermiamoci un attimo su questo concetto. L’autopsia psicologica non è un’autopsia fisica, ma un’analisi approfondita della personalità e della vita della vittima. Si sottolineano tutte le inferenze deduttive circa ipotesi di movente, dinamiche precipitanti, modus operandi e determinazione della firma. Questo percorso investigativo permette di ridurre la tipologia degli ipotetici criminali. E non solo: suggerisce anche strategie per l’interrogatorio di un sospettato. Inoltre, svolge una funzione di prevenzione, perché permette di individuare la tipologia di possibili ulteriori vittime a rischio e quindi intervenire tempestivamente.
+
+Quanto detto finora si riflette in due macro-aree della psicologia criminologica. Le abbiamo già nominate: criminogenesi e criminodinamica. Ricordiamo: criminogenesi sono tutti i processi genetici o ambientali che possono indurre a compiere atti antisociali. Criminodinamica è lo sviluppo e il mutamento degli atti criminali attraverso la ricerca e la valutazione dei vari elementi costitutivi.
+
+A questo punto, è evidente come l’oggetto della moderna criminologia appare piuttosto diversificato. E questo è dovuto alla grande complessità del comportamento umano e, di riflesso, di quello criminale.
+
+Nel tentativo di spiegare l’insorgenza e le cause del crimine, la criminologia si avvale di studi con diversi approcci. In particolare, troviamo un approccio antropologico, uno sociologico e uno multifattoriale.
+
+Spieghiamoli bene.
+
+L’approccio antropologico si fonda sulla considerazione della persona, in quanto autrice del reato. Si investigano i fattori organici, psicologici e motivazionali che possono aver determinato la condotta antisociale e criminale. Da qui è nata quella che viene definita antropologia criminale. Questa disciplina si occupa di studiare da un punto di vista biologico l’uomo delinquente. E lo fa affermando che il delinquente non è pienamente responsabile e libero nella sua condotta, ma se ne sottolinea la pericolosità sociale.
+
+L’approccio sociologico, invece, rivolge la propria attenzione a quelli che sono i fattori macro-sociali che influenzano notevolmente il sorgere del crimine. Qui non si guarda tanto all’individuo in sé, quanto al contesto sociale, alle disuguaglianze, alle pressioni ambientali.
+
+Infine, l’approccio multifattoriale ingloba, oltre agli aspetti antropologici e sociali, anche altre proposte. In particolare, si basa su tre prospettive: una prospettiva biologico-deterministica, una prospettiva psicologica e una prospettiva sociologica-deterministica.
+
+Nel primo caso, siamo davanti a un tipo di approccio di marca lombrosiana. Cioè, è rivolto nello specifico al corpo dell’uomo, per individuare al suo interno elementi che ne abbiano determinato la condotta criminale. Si ricorre poi alla psicologia con l’intento di penetrare nella mente dell’uomo e scovare le motivazioni che hanno mosso il comportamento criminale. Infine, attraverso l’approccio sociologico-deterministico, si amplia la chiave di lettura del crimine, pensandolo anche come un fenomeno sociale.
+
+Ora che abbiamo chiarito le basi teoriche e i diversi approcci, possiamo entrare nel cuore del tema: il criminal profiling.
+
+
+
+ 2. Il criminal profiling
+
+Che cos’è esattamente il criminal profiling? Possiamo definirlo come l’elaborazione del profilo psicologico e comportamentale di un criminale sconosciuto. E come si ottiene questo profilo? Si parte da ogni dettaglio presente sulla scena del crimine. Da ogni notizia sulla vittima. E da qualsiasi altra informazione utile all’indagine.
+
+In altre parole, il profiling è uno strumento investigativo che permette di ridurre progressivamente la cerchia dei sospettati. Alla fine, si considerano solo coloro che presentano particolari caratteristiche e comportamenti che rispecchiano il presunto colpevole. L’obiettivo primario è quindi fornire agli inquirenti tutte le informazioni valide e necessarie all’identificazione e alla cattura di un criminale.
+
+La storia del criminal profiling ha alcuni momenti chiave che vale la pena ricordare.
+
+Il primo contributo tangibile, anche se a quel tempo non esisteva ancora il profiling a livello scientifico, ci arriva dal dottor Thomas Bond. Bond cercò di tracciare il profilo criminale di Jack lo Squartatore. Provate a immaginare la scena: durante l’autopsia dell’ultima vittima, Mary Jane Kelly, il dottor Bond analizzò i segni sul corpo. Voleva carpire il modus operandi dell’assassino e, da lì, tracciare un profilo del criminale. Le sue osservazioni permisero di restringere il campo di indagine e di focalizzarsi su individui conformi al profilo proposto.
+
+Ecco un estratto di quello che fu il rapporto del dottor Bond. Diceva testualmente: “L’assassino deve essere un uomo di forza fisica non comune, audace e dotato di grande calma. Non c’è alcuna indicazione che abbia utilizzato un complice. Deve trattarsi, a mio avviso, di un uomo soggetto ad attacchi periodici di follia omicida ed erotica. Il tipo di mutilazioni indica che l’uomo potrebbe trovarsi nella condizione sessuale detta satiriasi. L’assassino è probabilmente un uomo dall’aspetto inoffensivo, di mezza età e vestito in modo sobrio e rispettabile. Penso che abbia l’abitudine di indossare un mantello o un soprabito. Non sarebbe passato inosservato per le strade se il sangue sulle sue mani o sui suoi vestiti fosse stato visibile. Probabilmente egli è anche un solitario ed eccentrico nelle sue abitudini. È inoltre un uomo senza un’occupazione regolare con una piccola rendita o una pensione. È possibile che viva tra persone rispettabili che hanno qualche nozione del suo carattere e delle sue abitudini e che possono avere motivi di sospettare che non sia del tutto sano di mente, almeno in certi momenti.”
+
+Questo rapporto, andato perduto nel 1987, fu poi ritrovato e spedito anonimamente a Scotland Yard. Un pezzo di storia investigativa.
+
+Un altro caso celebre riguarda il “Mad Bomber”, l’attentatore dinamitardo che tra il 1940 e il 1956 seminò il panico a New York. In quell’occasione, venne incaricato il dottor James Brussel. Brussel collaborò con le forze dell’ordine utilizzando le informazioni raccolte durante le indagini, unite all’analisi dei contesti. E stilò un profilo preciso dell’attentatore. Grazie alle sue osservazioni, la polizia arrestò George Metesky. E le caratteristiche di Metesky risultarono quasi totalmente fedeli al profilo stilato da Brussel.
+
+Il dottor Brussel, infatti, aveva elencato undici punti relativi alle peculiarità del presunto colpevole. E riuscì persino a prevedere quale tipo di abito avrebbe indossato al momento della cattura. Ascoltate alcuni dei punti più rilevanti. Terzo punto: l’attentatore costituisce un classico esempio di paranoie. Egli crede che la Con Edison e in generale la società complottino contro di lui. Sesto punto: l’attentatore è ipersensibile alla critica. Questo è un classico sintomo della paranoia. Ottavo punto: l’attentatore ha frequentato quantomeno le scuole superiori, senza tuttavia accedere a un’istruzione di più alto livello. Vi è traccia di una formazione da autodidatta nel linguaggio usato nelle lettere e nell’abilità dimostrata nella costruzione delle bombe. Nono punto: l’attentatore è probabilmente di origini slave e di religione cattolica romana. L’utilizzo delle bombe come arma è più tipico delle zone dell’Europa centrale e orientale. Gli slavi sono per maggioranza di religione cattolica. Probabilmente abita nel Connecticut e non a New York, perché molte lettere sono state spedite dal Westchester Country e perché nel Connecticut vivono molte comunità di europei dell’est. Undicesimo punto: il soggetto al momento della cattura indosserà un doppiopetto scuro, accuratamente abbottonato. E così fu.
+
+Ora, vent’anni più tardi, un altro nome diventa centrale: Howard Teten. Teten era un agente istruttore dell’FBI. Egli propose un approccio diametralmente opposto a quello del suo predecessore Brussel. Secondo Teten, il metodo per identificare l’autore di un reato si deve basare sull’analisi della natura del crimine e del modo in cui questo è stato commesso. Il suo presupposto era chiaro: vari aspetti della personalità dell’autore si riflettono nelle azioni che sceglie di compiere, prima, durante e dopo il crimine.
+
+Quindi, riassumendo: da una parte abbiamo il metodo di Brussel, in cui si parte dallo stato mentale e psicologico del criminale per poi sovrapporlo e rapportarlo alla scena del crimine. Dall’altra parte abbiamo il metodo di Teten, secondo il quale, invece, è necessario esaminare globalmente la scena del crimine per giungere alla definizione dello stato mentale del criminale.
+
+Questa differenza non è solo teorica. Ha conseguenze pratiche importanti. Entrambi gli approcci presentano pregi e difetti, relativi proprio alla metodologia e all’iter di indagine.
+
+Da un lato, abbiamo il metodo induttivo. Il metodo induttivo, oltre ad essere aperto a diversi background di formazione accademica, permette una rapida elaborazione dei profili. Perché utilizza un approccio con un impatto scientifico più incisivo grazie all’uso della statistica. Tuttavia, c’è un rovescio della medaglia. I risultati ottenuti con il metodo induttivo si riducono spesso a un elenco di attributi generici e poco qualificati. Inoltre, poiché si basa sulle caratteristiche di criminali noti già reclusi, le informazioni ottenute non rappresentano una adeguata stima della popolazione criminale ancora libera.
+
+Dall’altro lato, abbiamo il metodo deduttivo. Il metodo deduttivo richiede una buona formazione psico-forense. Permette di ottenere un’analisi completa degli elementi e una continua crescita professionale degli investigatori e degli operatori. Però, i tempi necessari all’elaborazione dei dati si allungano. E il margine di errore diventa più elevato, a causa del considerevole numero di elementi da valutare.
+
+Quindi, non esiste un metodo perfetto. Ogni profiler deve scegliere in base al contesto, alle risorse e alle informazioni disponibili.
+
+
+
+ 3. Dal punto di vista del profiler
+
+Ora spostiamo il punto di vista. Mettiamoci nei panni del profiler. Come spiegano De Leo e Patrizi nel 1992, la devianza è un percorso. Non è un effetto o un prodotto di fattori e cause antecedenti. È piuttosto un processo organizzatore. Questo processo è sia attivo che costruttivo. E si sviluppa producendo e riorganizzando connessioni tra dimensioni e prestazioni situazionali, relazionali, temporali, simboliche.
+
+A partire da questo concetto, l’azione antisociale può definirsi come un contesto ordinatore della realtà sociale del crimine. Cioè, un luogo all’interno del quale è possibile ricostruire processualmente il senso delle anticipazioni future, recuperando la storia soggettiva e intersistemica nella sintesi rappresentata dalle emergenze contestuali.
+
+Un profiler preparato deve riuscire a tenere a mente tutto questo. E deve procedere sistematicamente attraverso un particolare iter investigativo che si sviluppa in sei fasi distinte. Le sei fasi sono: profile input, decision process model, crime assessment, criminal profiling, investigation e apprehension.
+
+Vediamole una per una.
+
+La prima fase è il profile input. In questa fase, il profiler raccoglie tutto il materiale disponibile. Cosa rientra nel profile input? Rientrano i fascicoli fotografici, le riprese video della scena del crimine, le planimetrie della scena del crimine, i verbali di Polizia Giudiziaria, il referto autoptico con annesso fascicolo fotografico e video, i referti delle indagini tecniche criminalistiche, l’esame vittimologico e ulteriori elementi che possano rilevarsi utili come fonti di informazione.
+
+La seconda fase è il decision process model. Qui il profiler inizia a organizzare i dati raccolti, a formulare ipotesi e a prendere decisioni su come procedere.
+
+La terza fase è il crime assessment. In questa fase si valuta il crimine nella sua interezza. Si cerca di comprendere la dinamica, il modus operandi, la firma.
+
+La quarta fase è il criminal profiling vero e proprio. Cioè, la stesura del profilo psicologico e comportamentale del soggetto sconosciuto.
+
+La quinta fase è l’investigation. È il momento in cui viene redatto un rapporto scritto, che viene successivamente consegnato agli investigatori. Questi ultimi possono utilizzare il report per ridurre la rosa dei sospetti. Attenzione: se in questa fase dovessero emergere nuovi elementi di prova, è necessario aggiornare il report e rielaborarlo sulla base delle nuove informazioni emerse.
+
+Infine, la sesta fase è l’apprehension, ovvero la fase finale di individuazione e cattura. L’obiettivo principale di ogni investigazione è rappresentato proprio dalla individuazione e dalla cattura dell’offender. Pertanto, in questa fase l’attività di profiling può rivelarsi di notevole utilità per concepire la strategia di interrogatorio più idonea, in base a quelle che sono le caratteristiche psicologiche del criminale individuate.
+
+L’azione criminale, dunque, va riletta considerando diversi livelli interpretativi. Possiamo identificarne quattro.
+
+Il primo livello è quello dell’agire istituzionale giudiziario.
+
+Il secondo livello è quello delle dimensioni psicologiche e relazionali dell’attore.
+
+Il terzo livello è quello del senso che l’azione attrae e produce in termini di identità privata e sociale.
+
+Il quarto livello è quello dei sistemi di referenza simbolica e sociale che orientano e producono significati e valore intersoggettivo dell’azione.
+
+Queste azioni, poi, vanno inserite all’interno di tre distinte categorie, a seconda della modalità e dell’intenzione con cui vengono commesse. Troviamo gli atti obbligati, gli atti istintivi e gli atti auto-conservatori.
+
+Nel primo caso, gli atti obbligati, si intendono tutti gli elementi strumentali necessari per commettere il crimine. Ad esempio, l’uso di un’arma o di un mezzo di trasporto.
+
+Nel secondo caso, gli atti istintivi, si intendono tutti gli elementi relativi alla sfera inconscia del criminale. Pulsioni, desideri, paure che emergono senza un controllo razionale.
+
+Nell’ultimo caso, gli atti auto-conservatori, si intendono tutti gli elementi relativi a comportamenti legati all’istinto di sopravvivenza. Come nascondere le tracce o fuggire.
+
+Ma veniamo a un aspetto pratico e concreto. Cosa fare e non fare nello specifico una volta giunti sulla scena del crimine?
+
+È una domanda fondamentale per qualsiasi operatore.
+
+Sicuramente è necessario delimitare la scena del crimine utilizzando l’apposito nastro bicolore. Poi, bisogna cercare di individuare i possibili percorsi utilizzati dal responsabile del delitto. Perché? Per proteggere la scena e gli elementi presenti da agenti esterni che potrebbero inquinare le prove.
+
+È altrettanto importante evitare alcune azioni che potrebbero compromettere l’intera indagine. Per esempio, evitare di consentire l’accesso a personale non autorizzato. Non trascurare di annotare cambiamenti o contaminazioni varie della scena del crimine. Non permettere la dispersione o l’alterazione delle tracce da parte degli eventi naturali. E, infine, non compiere attività che possano alterare lo stato dei luoghi.
+
+Naturalmente, il percorso analitico che abbiamo appena descritto rappresenta il punto di partenza di uno strumento investigativo che, negli ultimi trent’anni, ha avuto modo di evolvere e crescere notevolmente. E lo ha fatto seppur con grande fatica. Sia sotto l’aspetto dell’efficacia sul campo, sia in termini di validazione scientifica dei vari approcci utilizzati.
+
+
+
+ Conclusione e riassunto dei punti chiave
+
+Siamo arrivati alla fine di questo percorso. Facciamo un rapido riassunto per fissare i concetti principali.
+
+Abbiamo iniziato distinguendo le quattro branche della psicologia applicata alla criminologia: la psicologia legale, che si occupa dell’applicazione delle leggi; la psicologia criminale, che studia la psiche dell’autore di reato e i processi di criminogenesi e criminodinamica; la psicologia giudiziaria o forense, che analizza i processi cognitivi ed emotivi all’interno del sistema giudiziario; e la psicologia penitenziaria, focalizzata sul contesto carcerario e sulla prevenzione della recidiva.
+
+Abbiamo incontrato David Canter e la psicologia investigativa, con la sua attenzione all’analisi vittimologica e all’autopsia psicologica.
+
+Abbiamo esplorato i tre approcci allo studio del crimine: antropologico, sociologico e multifattoriale.
+
+Poi siamo entrati nel vivo del criminal profiling. Lo abbiamo definito come l’elaborazione di un profilo psicologico e comportamentale a partire dalla scena del crimine. Abbiamo visto i casi storici: Thomas Bond e Jack lo Squartatore, James Brussel e il Mad Bomber. E abbiamo contrapposto il metodo di Brussel, che partiva dallo stato mentale, a quello di Teten, che partiva dalla scena del crimine.
+
+Abbiamo compreso la differenza tra metodo induttivo e metodo deduttivo, con i rispettivi vantaggi e limiti.
+
+Abbiamo quindi seguito l’iter del profiler attraverso le sei fasi: profile input, decision process model, crime assessment, criminal profiling, investigation e apprehension. E abbiamo classificato le azioni criminali in atti obbligati, istintivi e auto-conservatori.
+
+Infine, abbiamo ricordato le buone pratiche sulla scena del crimine: delimitare, proteggere, non contaminare.
+
+La psicologia criminologica e il criminal profiling sono strumenti complessi, in continua evoluzione. Non offrono certezze assolute, ma forniscono agli investigatori una bussola per navigare nel buio del comportamento deviante.
+
+Spero che questa sessione di studio vi sia stata utile. Ora avete una mappa chiara dei concetti fondamentali. Riascoltate i passaggi che vi sono meno chiari, prendete appunti e ricordate: ogni dettaglio, ogni comportamento, ogni traccia può raccontare una storia. Sta al profiler saperla leggere.
+
+Alla prossima sessione. E buon lavoro.

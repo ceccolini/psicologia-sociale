@@ -1,0 +1,105 @@
+Benvenuti in questa sessione di studio dedicata alla Psicologia Sociale.
+
+Oggi esploreremo insieme un tema affascinante e centrale per comprendere il comportamento umano: l'influenza sociale e il conformismo.
+
+Preparatevi a scoprire perché, spesso, tendiamo a pensare e ad agire come gli altri. Vedremo cosa dicono gli esperimenti classici di psicologia sociale, a partire dagli studi pionieristici di Muzafer Sherif e Solomon Asch. Analizzeremo i meccanismi che ci spingono verso l'uniformità e cercheremo di capire la differenza tra conformarsi a una norma implicita e obbedire a un ordine diretto.
+
+Questo percorso vi aiuterà a gettare uno sguardo diverso sulle dinamiche dei gruppi sociali in cui viviamo ogni giorno. Prendete appunti mentali, e cominciamo.
+
+Parte 1: Introduzione storica e definizioni.
+
+L’influenza sociale rappresenta un punto focale nella formazione dell’identità della persona.
+
+Provate a immaginare la vostra giornata tipo. Quante delle vostre opinioni, o dei vostri comportamenti, pensate siano davvero solo vostri? E quanti, invece, sono influenzati da chi vi sta intorno? La formazione dei giudizi personali non può difatti essere esente dai comportamenti e dalle opinioni appartenenti alle persone che ci circondano in una data situazione, o ai componenti del gruppo di appartenenza.
+
+Nel corso di questa lezione, illustreremo i numerosi esperimenti di psicologia sociale che hanno permesso di giungere a una conclusione importante: l'esistenza di una tendenza umana all'uniformità.
+
+In questa direzione, ci concentreremo sull’influenza esercitata dalla maggioranza sulle singole persone. A sua volta, la maggioranza reagisce spesso con il rifiuto verso coloro che non si conformano. Ci riferiamo in primis ai gruppi sociali all'interno dei quali la persona nasce, cresce e vive.
+
+Ma cos’è esattamente l’influenza sociale? In realtà, possiamo definirla come il cambiamento che si verifica nei pensieri, nei giudizi e nei comportamenti di una persona in presenza di altre persone. Si tratta di un termine generale che si riferisce a qualunque effetto, esercitato da una persona o da un gruppo, sugli atteggiamenti e i comportamenti del singolo. Come sostengono gli studiosi Crisp e Turner nel loro manuale del 2017.
+
+È fondamentale, a questo punto, distinguere tra due tipi di influenza sociale: il conformismo e l’obbedienza. Il conformismo descrive un cambiamento di atteggiamento o di comportamento in reazione a una norma sociale implicita, anziché esplicita. Non c'è nessuno che ci dà un ordine diretto. Semplicemente, ci adeguiamo. Mentre l’obbedienza consiste in un cambiamento di atteggiamento o comportamento in risposta a un ordine diretto o esplicito. Qualcuno ci dice specificamente cosa fare.
+
+Già all’inizio del diciannovesimo secolo, il comportamento uniforme e l’imitazione venivano considerati un istinto umano da parte di molti studiosi. Ma il primo ad occuparsi della ricerca sui processi di influenza sociale in modo sperimentale è stato lo psicologo turco Muzafer Sherif, vissuto tra il 1906 e il 1988. Sherif è considerato uno dei padri fondatori della psicologia sociale, e si occupò dell'emergenza delle norme in gruppi posti in situazioni ambigue.
+
+Successivamente, grande rilevanza hanno avuto gli studi di Solomon Asch, psicologo polacco naturalizzato statunitense, che visse tra il 1907 e il 1996. Asch indagò il conformismo, ma questa volta nel giudizio di situazioni non ambigue, cioè chiare e definite.
+
+Più avanti, due autori di nome Deutsch e Gerard, nel 1955, collegarono poi il paradigma dello psicologo Asch alle ricerche sulla dinamica di gruppo. La loro intuizione fu che maggioranze e minoranze possono influenzarsi reciprocamente. La psicologia odierna è ormai concorde sull’esistenza di fattori determinanti la tendenza all'uniformità.
+
+Parte 2: L'esperimento di Sherif e l'influenza informativa.
+
+Partiamo dal primo grande esperimento. Muzafer Sherif viene considerato il primo psicologo che concentrò la sua attenzione sull’azione dell’influenza sociale sul giudizio della singola persona, quando questa è posta di fronte a uno stimolo sensoriale ambiguo.
+
+Nel suo studio del 1935, l’autore decise di analizzare come viene percepito uno stimolo ambiguo. E precisamente: un punto luminoso all'interno di una stanza buia. In assenza di punti di riferimento, quel punto luminoso sembra essere in movimento. Si tratta di un'illusione ottica, nota come effetto autocinetico. Provate a immaginarvi in una stanza completamente al buio. Un unico puntino di luce appare davanti a voi. Dopo pochi secondi, vi sembrerà che si muova, anche se in realtà è perfettamente fermo.
+
+Nella prima fase dell’esperimento, ogni persona veniva fatta sedere a una distanza di circa quattro metri e mezzo dal punto luminoso. E le veniva chiesto di quanti centimetri, secondo la sua percezione, si spostasse il puntino. In assenza di altri punti di riferimento, il punto luminoso sembrava spostarsi. Poiché in effetti il punto era fisso, l'effetto autocinetico costituiva un eccellente controllo sperimentale. Il che significa che qualsiasi effetto osservato sulle valutazioni dei partecipanti riguardo agli spostamenti del punto luminoso, poteva essere attribuito a fattori psicologici, e non alla realtà fisica. Il movimento espresso in centimetri variava da persona a persona, anche se diventava sempre più stabile per ogni soggetto all'aumentare del numero delle prove.
+
+Dopo qualche giorno, le persone venivano poste all'osservazione del puntino luminoso non più singolarmente, ma in gruppi di tre. E veniva loro chiesto nuovamente di valutare di quanto si spostasse. Si osservò così che, dopo un certo numero di prove, il giudizio sullo spostamento dato da ogni singola persona si uniformava a quello degli altri membri del gruppo. Emergeva, dunque, una certa norma di gruppo.
+
+Infine, nella terza fase, le persone venivano chiamate al giudizio sullo spostamento del puntino isolatamente, da sole. E il loro giudizio rimaneva uguale a quello espresso nella fase di gruppo. Risultava diverso, invece, da quello che avevano stabilizzato da soli nella prima fase.
+
+Da questi risultati, Sherif ha dedotto che la convergenza verso una stima comune nella fase di gruppo è spiegata dal fatto che, in una situazione dove gli stimoli sensoriali sono ambigui e non si sa bene come interpretarli, il giudizio degli altri viene preso come un’ulteriore informazione. In pratica, quando non siamo sicuri di ciò che vediamo o pensiamo, tendiamo a pensare che il gruppo debba avere ragione. Il contatto con gli altri influenza la percezione della singola persona, creando una sorta di norma percettiva.
+
+Inoltre, secondo Rohrer e colleghi, in uno studio del 1954, queste norme percettive vengono interiorizzate tanto da essere utilizzate nei giudizi individuali anche a distanza di un anno dalla situazione di gruppo in cui sono state indotte. E quindi, in assenza delle persone che avevano influenzato il giudizio. Questo è un effetto potentissimo: la pressione sociale cambia il nostro modo di vedere il mondo, anche quando siamo soli.
+
+Parte 3: L'esperimento di Asch e l'influenza normativa.
+
+Passiamo ora a un altro capitolo fondamentale. Solomon Asch si occupò di studiare i parametri dell’influenza sociale normativa e approfondì le condizioni che inducono le persone a restare indipendenti o a cedere alle pressioni di un gruppo, anche quando questo va in senso contrario ai fatti.
+
+La situazione sperimentale messa a punto da Asch differisce dagli studi precedenti in un punto cruciale: non risulta essere ambigua, ma chiara. Con due sole scelte possibili: quella giusta e quella sbagliata. In questo modo, la forza dell’influenza sociale poteva essere messa ancora più in evidenza. A differenza dell'esperimento di Sherif, qui non era difficile per i partecipanti individuare la risposta giusta.
+
+Immaginate la scena. Le persone venivano fatte accomodare attorno a un tavolo dove erano già seduti altri sei soggetti. Ma questi sei, in realtà, erano complici dello sperimentatore. Veniva mostrata loro una linea, chiamata linea standard, e successivamente altre tre linee di lunghezza differente. Poi, seguendo un ordine fisso, tutti i partecipanti a turno dovevano dire quale delle tre linee mostrate fosse della stessa lunghezza della linea standard. La risposta corretta era talmente ovvia che, in condizioni normali, le persone sbagliavano meno dell'1% delle volte.
+
+Ora, ecco il trucco. I sei complici, nei turni a loro assegnati, davano all'unanimità una risposta palesemente sbagliata. Il vero partecipante, che era stato messo in fondo all'ordine di risposta, si trovava così di fronte a un conflitto: le sue percezioni sensoriali gli dicevano una cosa, ma l'intero gruppo ne diceva un'altra. Nonostante Asch si aspettasse che le persone non si lasciassero condizionare da risposte così palesemente errate, i risultati dell'esperimento non confermarono le sue aspettative. Il 76% dei partecipanti si conformò almeno una volta alla maggioranza, dando come risposta una risposta errata nonostante le proprie perplessità.
+
+Asch ha interpretato questi risultati deducendo che, di fronte a una situazione di conflitto tra le informazioni che pervengono da percezioni sensoriali e le informazioni derivanti dalla situazione sociale, la persona andrà a definire il proprio comportamento, e quindi anche il suo giudizio, non solo secondo le coordinate personali, ma tenendo conto del messaggio che il gruppo le dà su quella situazione. In questo caso, la pressione a conformarsi è dovuta non a un bisogno di informazioni, ma a un bisogno di approvazione sociale e alla paura di essere esclusi.
+
+Parte 4: I fattori della tendenza all'uniformità.
+
+Ora vedremo più da vicino quali sono le modalità secondo cui quest’influenza si realizza. Dopo molti anni di studi, la psicologia concorda sull’esistenza di fattori che, più di altri, determinano la tendenza all’uniformità.
+
+Il primo fattore sono le norme sociali. Le relazioni sociali tra le persone sono agevolate da norme o regole informali, apprese sin dall’infanzia, tanto da sembrarci naturali. Come ci dimostra un importante studioso della sociologia americana, Garfinkel, le regole sottostanti ai nostri comportamenti sono messe in evidenza solo quando vengono infrante. Fate un esempio: la gente non ci pensa due volte prima di restituire un saluto o indossare abiti in pubblico. Se qualcuno non facesse una di queste cose, ci sembrerebbe assurdo.
+
+Il secondo fattore sono i modelli. Le persone adottano comportamenti che, più di altri, si dimostrano efficaci e adatti in una data situazione. Prendono a modello o imitano il comportamento altrui. Pensate a un sistema per risparmiare tempo o energia. Quando lo stesso comportamento è adottato da un gran numero di persone, si tratta del fenomeno definito "contagio sociale".
+
+Il terzo fattore è il confronto sociale. In base al consenso ottenuto e all’osservazione degli altri, giudichiamo valido o meno il nostro comportamento. Quindi, ogni qual volta un elemento induce a dubitare delle proprie opinioni o azioni, le persone ricorrono a un confronto sociale, grazie al quale cercano di percepire in maniera corretta il mondo che le circonda. In questo senso, si potrebbe dire che uniformarsi agli altri solleva dal dubbio. È più rassicurante essere come gli altri che restare soli con le proprie incertezze.
+
+Il quarto fattore è il senso di autoconsapevolezza, che comincia a svilupparsi già dai diciotto mesi di vita. Questo senso riveste una grande importanza nello sviluppo psicosociale dell'individuo e, col tempo, si differenzierà in autoconsapevolezza privata, cioè la capacità di riflettere su se stessi, e autoconsapevolezza pubblica, cioè la consapevolezza di come veniamo visti dagli altri.
+
+A questo punto, sorge una domanda: qual è il ruolo del gruppo in tutto questo? Secondo Kelley, nel 1952, il gruppo fissa dei criteri che, primo, definiscono atteggiamenti, credenze e comportamenti appropriati. E secondo, distribuisce premi e punizioni a seconda che ci si adegui o meno a tali standard. In tal senso, il confronto sociale serve proprio a fissare questi punti di riferimento, rispetto ai quali la persona può valutare se stessa e gli altri.
+
+Parte 5: La teoria della dipendenza di Deutsch e Gerard.
+
+Seguendo questa linea di ragionamento, nel 1955 Deutsch e Gerard collegarono in modo più esplicito il lavoro di Asch alle ricerche sulla dinamica di gruppo. Idearono la teoria della dipendenza. Secondo questa teoria, i membri di un gruppo sono cognitivamente e socialmente dipendenti tra loro e dalle norme che il gruppo difende.
+
+Nella situazione sperimentale da loro ideata, una parte dei partecipanti esprimeva il proprio giudizio percettivo in una condizione faccia a faccia, come avevano fatto i soggetti di Asch. Un’altra parte dava il proprio parere senza essere vista. E una terza parte esprimeva la propria opinione senza essere vista, ma facendo parte di un gruppo che perseguiva uno scopo condiviso.
+
+I risultati dimostrarono non solo la tendenza al conformismo delle persone quando sperimentano il conflitto cognitivo tra dati percettivi e fattori sociali. Dimostrarono anche che questo conformismo è maggiore quando il partecipante esprime i suoi giudizi di fronte agli altri, rispetto a quando è isolato. E dimostrarono inoltre che il conformismo è più forte quando la persona agisce in quanto membro di un gruppo, piuttosto che singolarmente.
+
+Secondo Deutsch e Gerard, la dipendenza all'interno del gruppo avviene per due motivazioni principali.
+
+La prima è l'influenza normativa. Questa è la spinta a conformarsi per ottenere da chi esercita l'influenza conseguenze positive e per evitare quelle negative. Pensate a chi si veste in un certo modo per essere accettato in un gruppo. Questo tipo di influenza produce spesso cambiamenti finalizzati ad evitare il conflitto. Produce un’acquiescenza conformistica, cioè un conformismo di facciata. Si cambia il comportamento in pubblico, ma non necessariamente la propria opinione privata.
+
+La seconda è l'influenza informativa. Qui si utilizza il pensiero e il comportamento degli altri per trarre informazioni sulla realtà. È ciò che abbiamo visto nell'esperimento di Sherif. Quando non sappiamo cosa fare, guardiamo gli altri come fonte di conoscenza. Questo tipo di influenza dà luogo a cambiamenti più profondi e duraturi, perché porta a un'effettiva modifica delle convinzioni della persona.
+
+Parte 6: Applicazioni e conclusioni.
+
+Ora, è importante notare che non tutte le società funzionano allo stesso modo. In alcune culture, le persone sono strettamente tenute a rispettare il sistema di norme e di obblighi sociali del gruppo di appartenenza. In altre, invece, le persone sono relativamente libere di fare quello che pensano. Questa differenza può causare conflitti sociali, sia all'interno della propria comunità di appartenenza e della propria famiglia, sia a livello individuale.
+
+Prendiamo nota di un esempio concreto, tratto dagli studi di Villano del 2016. Pensiamo ai tanti minori migranti di seconda generazione. Questi ragazzi e ragazze si trovano a dover fronteggiare una costante oscillazione. Da un lato, l'accettazione della cultura e dei valori del paese di provenienza dei genitori. Dall'altro, le richieste della società di accoglienza. Quest'ultima spesso interrompe e modifica i legami relazionali, sociali e affettivi precedentemente instaurati con i genitori.
+
+Questo conflitto tra norme culturali diverse esemplifica perfettamente la tensione tra il bisogno di conformarsi al proprio gruppo di origine e il bisogno di integrarsi in un nuovo contesto sociale.
+
+Facciamo ora un passo indietro e riassumiamo i punti chiave di questa lezione.
+
+Abbiamo visto che l'influenza sociale è un cambiamento di pensieri o comportamenti dovuto alla presenza altrui. Abbiamo distinto due forme principali: il conformismo, che è una risposta a norme sociali implicite, e l'obbedienza, che è una risposta a ordini diretti.
+
+Abbiamo esplorato due esperimenti classici. Sherif, con l'illusione ottica autocinetica, ci ha mostrato come, in situazioni ambigue, tendiamo a usare il giudizio degli altri come fonte di informazione, interiorizzando quella norma di gruppo. Asch, con il suo test delle linee, ci ha mostrato come, anche in situazioni chiare, possiamo arrivare a negare l'evidenza dei nostri sensi per non andare contro il gruppo, spinti dall'influenza normativa.
+
+Abbiamo poi identificato i quattro fattori che determinano la tendenza all'uniformità: le norme sociali, i modelli o contagio sociale, il confronto sociale e l'autoconsapevolezza.
+
+E abbiamo concluso con la teoria della dipendenza di Deutsch e Gerard, che distingue tra un conformismo basato sul desiderio di essere accettati, influenza normativa, e un conformismo basato sul bisogno di avere informazioni corrette, influenza informativa.
+
+Questi meccanismi agiscono costantemente nella nostra vita quotidiana, modellando le nostre scelte, spesso senza che ne siamo pienamente consapevoli. Comprenderli è il primo passo per riconoscere quando stiamo agendo in autonomia e quando, invece, stiamo semplicemente seguendo la corrente.
+
+Grazie per l'attenzione. Alla prossima sessione di studio.

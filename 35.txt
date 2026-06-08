@@ -1,0 +1,190 @@
+Benvenuti in questa sessione di studio dedicata alla psicologia sociale.
+
+Oggi esploreremo un tema affascinante e complesso: l’interazione sociale e le relazioni tra gruppi. Preparatevi a immergervi nei meccanismi che spiegano perché a volte “noi” e “loro” entrano in conflitto, e come invece possiamo costruire ponti anziché muri.
+
+Sarà un viaggio attraverso le teorie dei grandi psicologi sociali, con esperimenti classici e scoperte recenti. Non tralasceremo nessun concetto importante: dal pregiudizio alla categorizzazione sociale, dall’aggressività intergruppi fino alle strategie per migliorare la convivenza.
+
+Prendete un quaderno per gli appunti, oppure accomodatevi comodamente. Iniziamo.
+
+INTRODUZIONE: LE RADICI DEL PREGIUDIZIO
+
+Per comprendere le relazioni tra gruppi, dobbiamo partire da un concetto fondamentale: il pregiudizio.
+
+Ora, attenzione: non stiamo parlando solo di un atteggiamento negativo generico. Il pregiudizio, in psicologia sociale, è strettamente legato a due processi mentali: la categorizzazione sociale e la rappresentazione psicologica della relazione tra “noi” e “loro”.
+
+Provate a immaginare la vostra mente come un archivio. Per non essere sopraffatti dalla complessità del mondo, il nostro cervello tende a sistemare le persone in cassetti, in categorie. Questa è la categorizzazione sociale. È un processo automatico e utile. Ma ha un rovescio della medaglia.
+
+Quando le relazioni tra gruppi non funzionano, quando la visione di “loro” diventa negativa rispetto a “noi”, il conflitto nasce proprio da questo semplice riconoscimento: alcune persone appartengono alla nostra stessa categoria sociale, altre no. Come affermano gli studiosi Crisp e Turner nel 2017, è il confine tra dentro e fuori a generare la tensione.
+
+Ora, pensate alle dinamiche interpersonali. A livello individuale, tutti viviamo una tensione tra il desiderio di fondersi con l’altro, di essere uniti, e il bisogno di rimanere individui separati, unici. Ecco, la stessa tensione esiste tra i gruppi: da un lato la cooperazione, dall’altro la competizione.
+
+Un altro aspetto interessante riguarda l’omogeneità. In certe relazioni tra gruppi, più i membri del proprio gruppo sono simili tra loro, più si tende a vedere l’altro gruppo come un blocco uniforme, tutto uguale. E viceversa: quando la differenza tra i gruppi è forte, anche la differenziazione all’interno di ciascun gruppo diventa marcata.
+
+Molte teorie sostengono che la solidarietà dentro il gruppo aumenta quando c’è un conflitto in corso con un altro gruppo. Sembra quasi che avere un nemico esterno faccia bene alla coesione interna. Questa idea ha radici lontane.
+
+Il padre della psicanalisi, Sigmund Freud, sosteneva che per tenere unito un gruppo e liberarlo dai conflitti interni, è necessario individuare un nemico al di fuori. In pratica, si tratterebbe di un meccanismo difensivo: l’aggressività che nasce dentro il gruppo, anziché esplodere all’interno, viene proiettata verso l’esterno. Un modo per scaricare la tensione senza distruggere il gruppo stesso.
+
+Anche il grande psicologo Kurt Lewin, negli anni Trenta, notò un fenomeno simile. Secondo Lewin, è tipico dei regimi dittatoriali “inventare” un nemico esterno. Perché? Per convogliare su di esso l’aggressività che si genera naturalmente all’interno della società che governano. Un trucco psicologico antico quanto il mondo. Questa prospettiva sarà ripresa e ampliata in seguito anche da Philip Zimbardo, lo studioso del famoso esperimento carcerario di Stanford.
+
+Ma attenzione: la competizione tra gruppi non sempre rafforza la solidarietà interna. A questo proposito, è fondamentale citare lo studioso Muzafer Sherif. Lui condusse una ricerca celebre sui campi estivi, con ragazzi divisi in due gruppi. Quando i gruppi competevano in giochi come il tiro alla fune, la vittoria aumentava l’orgoglio di gruppo. Ma la sconfitta produceva l’effetto opposto: aumentavano tensioni e conflitti all’interno del gruppo stesso, fino a causare disorganizzazione e litigi tra i compagni.
+
+Quindi, attenzione a non generalizzare: il conflitto intergruppi non è una medicina che funziona sempre per l’unità del proprio gruppo.
+
+Ora parliamo di un meccanismo molto interessante: l’effetto pecora nera. Avete mai sentito qualcuno criticare aspramente un membro del proprio stesso gruppo, magari definendolo “non un vero italiano” o “un cattivo esempio per la nostra comunità”? Ecco, questo è l’effetto pecora nera.
+
+È possibile, infatti, disidentificarsi da un gruppo criticandolo pubblicamente e svalutando la scarsa performance di un suo membro. Questa reazione, studiata da Marquez e colleghi nel 1992, mette in evidenza che chi critica lo fa proprio per difendere l’immagine del gruppo. Dice in sostanza: “Quella persona non rappresenta veramente noi. Noi siamo migliori.”
+
+L’effetto pecora nera illustra un processo più generale di differenziazione all’interno del gruppo, specialmente quando ci si confronta con altri gruppi. Per dimostrare la superiorità del proprio gruppo, gli attori sociali tendono a svalutare i membri devianti, marginali, quelli che non possiedono le caratteristiche positive dei membri più prototipici. Solo i membri esemplari, quelli che incarnano al meglio i valori del gruppo, sono considerati importanti per definire un’identità positiva nei confronti degli altri gruppi.
+
+Insomma, teniamo a mente: non tutti i membri dell’ingroup sono uguali, e talvolta i peggiori giudizi arrivano proprio da chi vuole proteggere l’immagine del gruppo.
+
+Chiudiamo questa introduzione e apriamo il secondo capitolo, dedicato all’aggressività e ai conflitti tra gruppi.
+
+
+AGGRESSIVITÀ E CONFLITTI INTERGRUPPI:
+
+Sentimenti ed emozioni che non riusciamo a gestire spesso sfociano in rapporti conflittuali. Ma non solo. Fattori come l’ignoranza, la rigidità cognitiva, una cattiva comunicazione o interessi opposti alimentano i conflitti sociali.
+
+Per capire meglio, dobbiamo introdurre il concetto di **identità sociale**.
+
+Immaginate un continuum. A un estremo c’è la situazione interpersonale pura, dove interagiamo con persone una a una, senza pensare ai gruppi di appartenenza. All’estremo opposto c’è la situazione intergruppi pura, dove ci sentiamo prima di tutto membri di una categoria sociale.
+
+Più una situazione si avvicina all’estremo intergruppi, più i membri del nostro gruppo mostreranno uniformità di comportamento verso i membri dell’altro gruppo. E, allo stesso tempo, più tenderemo a considerare i membri dell’outgroup come elementi indifferenziati, tutti uguali, a cui poi attribuiamo giudizi di valore. È il meccanismo dello stereotipo: “le donne sono…”, “gli immigrati fanno…”, “i giovani d’oggi…”. Dall’altra parte, se siamo all’estremo interpersonale, riconosciamo le caratteristiche individuali delle persone, senza generalizzare.
+
+Spiegare le caratteristiche e le conseguenze dei conflitti è da sempre uno dei temi centrali della psicologia sociale.
+
+Definiamo cosa intendiamo per conflitto. In psicologia sociale, un conflitto esiste quando uno o più gruppi percepiscono i propri obiettivi o interessi in netta contrapposizione con quelli di altri gruppi, e reagiscono sulla base di questa percezione.
+
+Quindi, attenzione: non basta che gli interessi siano oggettivamente opposti. È la percezione della contrapposizione che conta. E poi, naturalmente, la reazione.
+
+Ci sono due condizioni essenziali perché un conflitto abbia luogo. La prima è l’identificazione della contrapposizione: devo rendermi conto che l’altro gruppo ha obiettivi incompatibili con i miei. La seconda condizione riguarda la decisione di agire. Ed è proprio quest’ultima la variabile decisiva. Perché un conflitto può rimanere latente per lungo tempo, anche per anni. È necessario che almeno una delle due parti decida di agire per affrontare queste contrapposizioni e farle venire alla luce, anche solo a parole.
+
+Il conflitto, quindi, non è un evento istantaneo. È un processo che si dispiega nel tempo, e può trasformarsi in intensità e valenza. Sì, perché non tutti i conflitti hanno valenza negativa. Attenzione a questo punto: talvolta i conflitti possono avere una funzione positiva. Possono essere generatori di cambiamento, possono favorire transizioni, possono rompere situazioni stagnanti.
+
+Conflitti sociali estremi:
+
+Tra i conflitti sociali, dobbiamo distinguere tra conflitti risolvibili e conflitti intrattabili. Questa distinzione è utile per capire l’interazione conflittuale tra gruppi, e anche per progettare eventuali interventi.
+
+I conflitti risolvibili hanno una durata relativamente breve. Gli obiettivi in gioco non sono vitali per le parti, e quindi è possibile trovare una soluzione condivisa, magari attraverso il compromesso.
+
+I conflitti intrattabili, invece, sono ben più gravi. Si protraggono nel tempo, a volte per generazioni. Non c’è possibilità di compromesso tra le parti, e si arriva all’uso estremo della violenza. Pensiamo ai conflitti religiosi, etnici, territoriali come quello tra israeliani e palestinesi.
+
+Quali sono le caratteristiche di questi conflitti intrattabili?
+
+Primo: hanno un effetto totalizzante. Le persone coinvolte li percepiscono come molto gravi, come se toccassero tutto il senso della vita.
+
+Secondo: sono a somma zero. In pratica, se uno vince, l’altro perde tutto. Non c’è spazio per una vittoria condivisa.
+
+Terzo: toccano parti importanti della vita delle persone coinvolte, come l’identità, la religione, la sopravvivenza fisica.
+
+Quarto: la violenza usata viene giustificata dall’ideologia di base. Ogni atrocità è permessa perché ritenuta necessaria per la sopravvivenza del gruppo.
+
+Quinto: l’immagine del nemico è completamente stereotipata e distorta. L’altro non è più un essere umano complesso, ma un mostro, un diavolo.
+
+Ora analizziamo alcuni meccanismi sociali che alimentano i conflitti, sia dentro i gruppi che tra gruppi.
+
+Delegittimazione:
+
+Il primo meccanismo è la delegittimazione. Che cosa significa? Ad alcuni gruppi vengono attribuite categorie estremamente negative, talmente negative che quei gruppi vengono sistematicamente esclusi dalla vita sociale. Perché? Perché li si considera non congrui alle norme vigenti, non allineati ai valori dominanti. La delegittimazione avviene soprattutto quando un gruppo si sente minacciato, e quindi cerca di eliminare la fonte di tale percezione: l’outgroup.
+
+Deumanizzazione:
+
+Poi c’è la deumanizzazione. Questo è un meccanismo ancora più radicale. Albert Bandura, famoso per la sua teoria del determinismo triadico reciproco, ha identificato la deumanizzazione come uno dei meccanismi di disimpegno morale. In pratica, si attiva un processo che sottrae alle persone le due qualità che le definiscono come tali: l’identità e la comunità.
+
+Un gruppo deumanizzato viene escluso in modo totale. Non gli si attribuiscono nemmeno sentimenti umani, né emozioni, né capacità di ragionare. Pensate alla propaganda di guerra che descrive il nemico come “scarafaggi” o “vermi”. Ecco, quella è deumanizzazione. Non si tratta più di un avversario, ma di qualcosa di sub-umano, e quindi eliminarlo diventa moralmente accettabile.
+
+Orientamento alla dominanza sociale (SDO):
+
+Un altro approccio molto influente è quello dell’orientamento alla dominanza sociale, spesso abbreviato con la sigla SDO. Questo costrutto è stato sviluppato da Sidanius e Pratto, e rappresenta il nucleo centrale della teoria della dominanza sociale.
+
+Ma che cos’è l’orientamento alla dominanza sociale? È una tendenza individuale, una sorta di personalità, a considerare l’esistenza come caratterizzata dalla competizione tra gruppi. Le persone con alto SDO desiderano sostenere il dominio dei gruppi superiori su quelli inferiori. Credono che sia giusto, naturale, e persino desiderabile che alcuni gruppi comandino e altri obbediscano.
+
+Secondo Sidanius, le società post-industriali sono sistemi di gerarchie fondate sui gruppi. E gli atteggiamenti sociali sono determinati dalle credenze degli individui su come i gruppi dovrebbero relazionarsi l’uno con l’altro.
+
+La SDO riflette proprio questa tendenza individuale: classificare i gruppi sociali lungo la dimensione “inferiore” contro “superiore”, e favorire le politiche che contribuiscono a mantenere la disuguaglianza sociale. In parole povere, chi ha alto orientamento alla dominanza sociale è favorevole alle gerarchie, non vuole l’uguaglianza.
+
+I gruppi dominanti, secondo questa teoria, condividono valori sociali positivi: potere, autorità, qualità di vita superiore. Hanno migliori accessi alle risorse e ai benefici sociali. I gruppi subordinati, invece, sono caratterizzati da valori sociali negativi, opposti ai primi.
+
+Il legame tra orientamento alla dominanza sociale e pregiudizio è evidente. Se voi ritenete che alcuni gruppi siano “naturalmente” e “necessariamente” inferiori, e che solo i gruppi dominanti meritino benefici, avete una base solida per sviluppare atteggiamenti pregiudiziali, come sottolinea lo studioso Villano nel 2016. La SDO, in altre parole, è una delle radici psicologiche del razzismo e della discriminazione.
+
+Abbiamo visto come nascono e si alimentano i conflitti. Passiamo ora alla terza e ultima sezione, la più costruttiva: come migliorare le relazioni tra gruppi.
+
+
+MIGLIORARE LE RELAZIONI INTERGRUPPI:
+
+Se i conflitti sono così radicati nella psicologia umana, esiste una via d’uscita? La psicologia sociale dice di sì, e offre diverse strategie.
+
+La prima strategia viene dalla **teoria del conflitto realistico**. Secondo questa teoria, una soluzione efficace consiste nell’individuare per i gruppi in conflitto degli **obiettivi sovraordinati**. Che cosa sono? Sono obiettivi che sono importanti per entrambi i gruppi, ma che nessuno dei due può raggiungere da solo. Per raggiungerli, hanno bisogno di cooperare. Invece, gli obiettivi reciprocamente esclusivi – quello che vince io perde tu – vanno evitati.
+
+Il contributo più autorevole per la riduzione del pregiudizio è senza dubbio **l’ipotesi del contatto**. L’idea è semplice, quasi intuitiva: la semplice interazione tra persone appartenenti a gruppi diversi, a determinate condizioni, riduce il pregiudizio etnico e la tensione tra i gruppi.
+
+Questa idea sembra così ovvia che è stata alla base delle politiche di desegregazione razziale negli Stati Uniti degli anni Sessanta. Ma attenzione: non basta mettere persone diverse nella stessa stanza. Il solo contatto non garantisce l’accordo e la diminuzione del pregiudizio. Lo ha affermato chiaramente Gordon Allport, uno dei padri della psicologia sociale, nel suo celebre libro del 1954, “La natura del pregiudizio”.
+
+Secondo Allport, perché il contatto abbia effetti positivi, devono essere soddisfatte tre condizioni.
+
+Prima condizione: il contatto deve essere prolungato, non episodico. E deve richiedere, da parte dei gruppi coinvolti, il raggiungimento di **obiettivi comuni**. Non basta incontrarsi al bar; bisogna lavorare insieme per qualcosa.
+
+Seconda condizione: i partecipanti devono avere uno **status simile**. Se il contatto prolungato avviene tra membri di due gruppi che sono diversi per status e potere, è probabile che il pregiudizio venga rafforzato. Il gruppo dominante diventerà più arrogante, il gruppo subordinato più risentito. Quindi, attenzione: contatto tra disuguali può peggiorare le cose.
+
+Terza condizione: i partecipanti al contatto devono essere sorretti da un **aiuto sociale e istituzionale**. In altre parole, leggi, costumi, opinione comune devono sostenere il contatto. Non basta che due individui si parlino; serve che l’intera società dica che è giusto così.
+
+Quando queste condizioni sono soddisfatte, la qualità del contatto permette alle persone di scoprire la somiglianza di molti valori e atteggiamenti. E questo conduce a una maggiore comprensione e simpatia reciproca, e a una riduzione dell’ansia. L’ansia, non dimentichiamolo, è spesso provocata dalle preoccupazioni circa le conseguenze negative del contatto con altri gruppi. “Cosa diranno di me? E se mi rifiutano? E se mi fanno del male?”. Il contatto positivo riduce queste paure.
+
+Tuttavia, c’è un problema importante: la **generalizzazione**. Spesso, atteggiamenti più positivi si sviluppano nei confronti dei singoli partecipanti alla situazione di contatto. Diventi amico di Maria, che è di un altro gruppo. Ma i cambiamenti nei confronti degli altri membri dell’outgroup in generale sono molto limitati. Insomma, ami Maria, ma non è detto che tu ami tutti i suoi compagni di gruppo.
+
+Contatto immaginato:
+
+Studi recenti hanno dimostrato che può funzionare anche solo il **contatto immaginato**. Provate a pensare a questo: immaginare una situazione di contatto con un membro di un altro gruppo può essere efficace quanto il contatto reale. Come funziona? Un po’ come avviene per gli sportivi, che si immaginano mentre compiono una gara proprio per migliorare la loro prestazione nelle prove successive.
+
+In un esperimento del 2010 condotto da Husnu e Crisp, i partecipanti dovevano immaginare un contatto con un inglese musulmano, rispetto a un inglese non musulmano. Ebbene, il solo immaginare l’interazione ha attivato le stesse risposte che si avrebbero nella situazione reale, riducendo il pregiudizio. Incredibile, no? La nostra mente non distingue sempre nettamente tra reale e immaginato.
+
+Cooperazione e ricategorizzazione:
+
+Un altro processo fondamentale è la **cooperazione**. Cooperare ha effetti positivi perché rompe la percezione dicotomica “Noi” contro “Loro”. Quando lavoriamo insieme per uno scopo comune, iniziamo a sviluppare una categoria cognitiva più ampia, quella del “gruppo singolo”. Ad esempio, non più “italiani” e “francesi”, ma “la classe intera” o “il team di progetto”.
+
+E poi c’è l’**empatia**. Comprendere l’altro, mettersi nei suoi panni. In questo ambito di ricerche, si è pensato che indurre uno stato empatico nei confronti di un membro di un gruppo stigmatizzato possa essere un modo efficace per ridurre il pregiudizio. Se riesco a sentire il dolore di un rifugiato, mi sarà più difficile discriminarlo.
+
+Ora, facciamo un passo indietro e parliamo di due modelli teorici importanti.
+
+Il primo è il **modello di decategorizzazione**, proposto da Brewer e Miller nel 1984. Questo modello enfatizza il ruolo della percezione interpersonale durante il contatto. Secondo questi autori, possiamo ottenere effetti positivi in quelle situazioni in cui le relazioni sociali basate sulle categorie vengono sostituite da relazioni interpersonali. In pratica, cerchiamo di vedere la persona come individuo unico, non come membro di una categoria. Ma la domanda sorge spontanea: nelle nostre relazioni possiamo davvero fare a meno delle categorie? Probabilmente no, perché le categorie sono utili. Ma possiamo ridurne l’importanza.
+
+Il secondo modello è il **modello della ricategorizzazione**, o modello dell’identità comune, proposto da Gaertner e colleghi nel 1989. Questi autori suggeriscono che il bias intergruppi, cioè la tendenza a favorire il proprio gruppo e discriminare l’altro, sarà più difficile da ridurre se la distinzione tra i gruppi rimane molto saliente. La soluzione? Ricategorizzare. Incoraggiare le persone a considerare i membri sia dell’ingroup che dell’outgroup come appartenenti a una categoria sovraordinata più ampia.
+
+Facciamo un esempio: italiani e francesi possono ricategorizzarsi come “europei”. In questo modo, il favoritismo per il proprio gruppo originale diventa meno probabile. Naturalmente, la categoria originale non scompare del tutto, ma il gruppo acquista una nuova identità che sostituisce o coesiste con quella originale.
+
+Questo modello è efficace perché fa leva sulla natura cooperativa delle relazioni intergruppi e facilita la percezione di un’identità comune inclusiva. Non siamo più “noi” contro “loro”, ma tutti insieme “noi”.
+
+Educare alla tolleranza:
+
+Concludiamo con un tema cruciale: l’educazione alla tolleranza.
+
+Di fronte a una realtà molteplice, spesso caratterizzata da legami sociali e comunitari fragili, e alla presenza costante e incarnata di forme di pregiudizio e razzismo persistenti, è necessario pensare ad alternative reali, volte a un possibile cambiamento.
+
+Alcuni autori, tra cui Villano, sostengono che il pregiudizio si basa in parte sull’ignoranza. Non ignoranza intesa come stupidità, ma come mancanza di conoscenza dell’altro, delle sue culture, delle sue storie. Un’educazione che sappia promuovere tolleranza e rispetto può ridurre la chiusura mentale, specialmente nelle giovani generazioni. Insegnare ai bambini e ai ragazzi che la diversità non è una minaccia, ma una ricchezza, è forse l’investimento più importante che possiamo fare per il futuro.
+
+
+Siamo arrivati alla fine di questo viaggio nell’interazione sociale e nelle relazioni tra gruppi.
+
+Riassumiamo i punti chiave che abbiamo esplorato.
+
+Primo: il pregiudizio nasce dalla categorizzazione sociale, dal distinguere “noi” da “loro”. Questo processo è automatico, ma può portare a conflitti.
+
+Secondo: la solidarietà interna al gruppo non sempre aumenta con il conflitto esterno. A volte la sconfitta genera tensioni interne, come dimostrato da Sherif.
+
+Terzo: esiste l’effetto pecora nera, per cui i membri devianti del proprio gruppo vengono criticati aspramente per difendere l’immagine del gruppo.
+
+Quarto: i conflitti possono essere risolvibili o intrattabili. Quelli intrattabili sono totalizzanti, a somma zero, e giustificano la violenza attraverso la delegittimazione e la deumanizzazione dell’altro.
+
+Quinto: l’orientamento alla dominanza sociale, o SDO, è una tendenza individuale a favorire le gerarchie tra gruppi, ed è fortemente correlato al pregiudizio.
+
+Sesto: per migliorare le relazioni intergruppi, possiamo usare obiettivi sovraordinati che richiedono cooperazione.
+
+Settimo: il contatto tra gruppi riduce il pregiudizio, ma solo a determinate condizioni: contatto prolungato, status simile, e supporto istituzionale.
+
+Ottavo: anche il solo contatto immaginato può essere efficace. E modelli come la ricategorizzazione, che crea un’identità comune più ampia, aiutano a superare la dicotomia Noi-Loro.
+
+Nono: infine, l’educazione alla tolleranza e all’empatia è fondamentale per ridurre l’ignoranza che alimenta il pregiudizio.
+
+Speriamo che questo approfondimento vi sia stato utile per comprendere meglio i meccanismi psicologici che regolano le relazioni tra i gruppi sociali.
+
+Vi ringrazio per l’attenzione e vi do appuntamento al prossimo episodio di questa serie dedicata alla psicologia sociale. Continuate a studiare, a porvi domande, e a guardare il mondo con occhi curiosi. Alla prossima.
