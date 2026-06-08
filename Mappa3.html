@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Mappe Mentali – Psicologia Sociale</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="PsicoSociale">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0d1117">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{background:#0d1117;color:#e6edf3;font-family:'Courier New',monospace;display:flex;height:100vh;height:100dvh;overflow:hidden;padding-top:env(safe-area-inset-top);padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+#chapter-list,#ap-body,#ep-body{-webkit-overflow-scrolling:touch}
+@media (pointer:coarse){.ch-btn{padding:10px 12px;min-height:44px}.author-toggle{padding:10px 9px;min-height:44px}.concept-btn{padding:8px 8px;min-height:38px}#ep-close{padding:4px 8px;font-size:22px}#search{padding:8px 9px;font-size:13px}}
+#sidebar{width:220px;min-width:220px;background:#161b22;border-right:1px solid #21262d;display:flex;flex-direction:column}
+#sidebar-header{padding:14px 12px 10px;border-bottom:1px solid #21262d}
+#sidebar-title{color:#58a6ff;font-weight:bold;font-size:13px;margin-bottom:8px}
+#search{width:100%;background:#0d1117;border:1px solid #21262d;border-radius:5px;padding:5px 9px;color:#e6edf3;font-family:monospace;font-size:11px;outline:none}
+#chapter-list{overflow-y:auto;flex:1}
+.ch-btn{display:block;width:100%;text-align:left;padding:7px 12px;border:none;background:transparent;cursor:pointer;border-left:3px solid transparent;transition:all .12s}
+.ch-btn:hover{background:#1f6feb22}
+.ch-btn.active{background:#1f6feb22;border-left-color:#58a6ff}
+.ch-num{color:#8b949e;font-size:10px;display:block;font-family:monospace}
+.ch-title{color:#8b949e;font-size:11px;display:block;font-family:monospace}
+.ch-btn.active .ch-title{color:#e6edf3;font-weight:bold}
+.ch-btn.active .ch-num{color:#58a6ff}
+.ch-authors{color:#484f58;font-size:9px;display:block;font-family:monospace}
+#main{flex:1;display:flex;flex-direction:column;min-width:0}
+#top-bar{padding:11px 18px;border-bottom:1px solid #21262d;background:#161b22;display:flex;align-items:center;gap:10px;flex-shrink:0}
+#cap-badge{background:#1f6feb44;border:1px solid #58a6ff;border-radius:5px;padding:2px 9px;color:#58a6ff;font-weight:bold;font-size:11px;white-space:nowrap}
+#cap-title{color:#e6edf3;font-weight:bold;font-size:14px}
+#cap-stats{margin-left:auto;color:#8b949e;font-size:10px;white-space:nowrap}
+#hint{padding:5px 18px;background:#0d1117;border-bottom:1px solid #21262d;color:#484f58;font-size:10px;flex-shrink:0}
+#canvas-wrap{flex:1;position:relative;min-height:0}
+canvas{width:100%;height:100%;display:block}
+#legend{padding:8px 14px;background:#161b22;border-top:1px solid #21262d;display:flex;flex-wrap:wrap;gap:5px 12px;flex-shrink:0}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:10px;color:#8b949e}
+.legend-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+#author-panel{width:250px;min-width:250px;background:#161b22;border-left:1px solid #21262d;display:flex;flex-direction:column;overflow:hidden}
+#ap-header{padding:12px 12px 6px;border-bottom:1px solid #21262d;flex-shrink:0}
+#ap-title{color:#e3b341;font-weight:bold;font-size:11px;margin-bottom:3px}
+#ap-hint{color:#484f58;font-size:9.5px}
+#ap-body{overflow-y:auto;flex:1;padding:8px}
+.author-block{margin-bottom:6px}
+.author-toggle{width:100%;display:flex;align-items:center;gap:7px;border:1px solid #21262d;border-radius:7px;padding:7px 9px;cursor:pointer;background:transparent;transition:all .18s}
+.author-toggle:hover{opacity:.85}
+.author-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0}
+.author-name{font-family:monospace;font-size:11.5px;font-weight:bold;flex:1;text-align:left}
+.author-count{color:#484f58;font-size:10px}
+.concepts-list{margin-top:4px;padding-left:6px;display:none}
+.concepts-list.open{display:block}
+.concept-btn{display:block;width:100%;text-align:left;background:transparent;border:none;border-left:3px solid transparent;padding:5px 8px;cursor:pointer;border-radius:0 5px 5px 0;margin-bottom:4px;transition:all .13s;outline:none}
+.concept-btn:hover{filter:brightness(1.2)}
+.concept-text{color:#8b949e;font-family:monospace;font-size:10.5px;line-height:1.4;display:block}
+.concept-btn.selected .concept-text{color:#e6edf3;font-weight:bold}
+.concept-exam{font-family:monospace;font-size:9px;margin-top:2px;display:block;opacity:.8}
+#explain-panel{width:310px;min-width:310px;display:flex;flex-direction:column;overflow:hidden;transition:all .22s;background:#0d1117}
+#explain-panel.hidden{width:0;min-width:0}
+#ep-inner{width:310px;display:flex;flex-direction:column;height:100%;overflow:hidden;background:#0d1117}
+#ep-header{padding:12px 12px 10px;flex-shrink:0;background:#161b22}
+#ep-author-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+#ep-author-name{font-weight:bold;font-size:11.5px;font-family:monospace;display:flex;align-items:center;gap:6px;color:#e6edf3}
+#ep-close{background:transparent;border:none;cursor:pointer;color:#8b949e;font-size:18px;line-height:1;padding:0 2px}
+#ep-concept-box{border-radius:6px;padding:7px 10px;background:#21262d}
+#ep-concept-text{font-family:monospace;font-size:11.5px;font-weight:bold;line-height:1.4;color:#e6edf3}
+#ep-concept-exam{font-family:monospace;font-size:9.5px;margin-top:3px;opacity:.8}
+#ep-body{flex:1;overflow-y:auto;padding:14px;background:#0d1117}
+#ep-label{color:#3fb950;font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px;display:flex;align-items:center;gap:5px}
+#ep-label-dot{width:6px;height:6px;border-radius:50%;background:#3fb950}
+#ep-text{color:#c9d1d9;font-family:'Courier New',monospace;font-size:12.5px;line-height:1.8;white-space:pre-wrap}
+#ep-footer{padding:9px 14px;border-top:1px solid #21262d;color:#484f58;font-size:9.5px;flex-shrink:0;background:#161b22}
+#tooltip{position:fixed;background:#161b22;border-radius:7px;padding:7px 11px;pointer-events:none;z-index:999;max-width:260px;display:none;box-shadow:0 4px 20px #00000088}
+#tooltip-exam{font-weight:bold;font-size:10px;margin-bottom:3px}
+#tooltip-text{color:#e6edf3;font-size:11px;line-height:1.45}
+
+/* ── AUDIO PLAYER ─────────────────────────────────────────────────────────── */
+#audio-bar{background:#161b22;border-top:1px solid #21262d;padding:10px 16px;flex-shrink:0;display:flex;flex-direction:column;gap:8px}
+#audio-bar-title{color:#e3b341;font-family:monospace;font-size:10px;font-weight:bold;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+.audio-track{display:flex;align-items:center;gap:10px}
+.audio-label{font-family:monospace;font-size:10px;width:56px;flex-shrink:0}
+.audio-label.lec{color:#58a6ff}
+.audio-label.pod{color:#3fb950}
+.audio-btn{background:transparent;border:none;cursor:pointer;font-size:15px;padding:0;line-height:1;flex-shrink:0;opacity:.85;transition:opacity .15s}
+.audio-btn:hover{opacity:1}
+.audio-btn.playing{animation:pulse-play .8s ease-in-out infinite alternate}
+@keyframes pulse-play{from{opacity:.7}to{opacity:1}}
+.audio-progress{flex:1;height:3px;background:#21262d;border-radius:2px;cursor:pointer;position:relative;overflow:hidden}
+.audio-fill{height:100%;border-radius:2px;width:0%;transition:width .3s linear}
+.audio-fill.lec{background:#58a6ff}
+.audio-fill.pod{background:#3fb950}
+.audio-time{font-family:monospace;font-size:9.5px;color:#484f58;width:36px;text-align:right;flex-shrink:0}
+</style>
+</head>
+<body>
+<div id="sidebar">
+  <div id="sidebar-header">
+    <div id="sidebar-title">🧠 Psicologia Sociale</div>
+    <input id="search" type="text" placeholder="Cerca capitolo o autore…">
+  </div>
+  <div id="chapter-list"></div>
+</div>
+<div id="main">
+  <div id="top-bar">
+    <span id="cap-badge">Cap. 1</span>
+    <span id="cap-title">Definizioni e origini</span>
+    <span id="cap-stats"></span>
+    <div style="display:flex;gap:6px;margin-left:12px">
+      <button id="btn-view-map" onclick="setView('map')" style="background:#1f6feb44;border:1px solid #58a6ff;border-radius:5px;padding:3px 10px;color:#58a6ff;font-family:monospace;font-size:11px;cursor:pointer">🗺 Mappa</button>
+      <button id="btn-view-text" onclick="setView('text')" style="background:transparent;border:1px solid #21262d;border-radius:5px;padding:3px 10px;color:#8b949e;font-family:monospace;font-size:11px;cursor:pointer">📄 Riassunto</button>
+    </div>
+  </div>
+  <div id="hint">⬤ Hover sui nodi della mappa · Clicca un concetto nel pannello → spiegazione dal libro · 100% offline</div>
+  <div id="canvas-wrap"><canvas id="cv"></canvas></div>
+  <div id="text-wrap" style="display:none;flex:1;overflow-y:auto;padding:24px 28px;background:#0d1117;-webkit-overflow-scrolling:touch">
+    <div id="chapter-summary-title" style="color:#58a6ff;font-family:monospace;font-weight:bold;font-size:16px;margin-bottom:16px"></div>
+    <div id="chapter-summary-body" style="color:#c9d1d9;font-family:Georgia,serif;font-size:14px;line-height:1.85;white-space:pre-wrap"></div>
+  </div>
+  <div id="legend"></div>
+  <!-- AUDIO PLAYER -->
+  <div id="audio-bar">
+    <div id="audio-bar-title">🎧 Cap. <span id="audio-cap-num">1</span> — <span id="audio-cap-short"></span></div>
+    <div class="audio-track">
+      <span class="audio-label lec">📚 Lezione</span>
+      <button class="audio-btn" id="btn-lec" title="Play/Pausa lezione">▶</button>
+      <div class="audio-progress" id="prog-lec">
+        <div class="audio-fill lec" id="fill-lec"></div>
+      </div>
+      <span class="audio-time" id="time-lec">0:00</span>
+    </div>
+    <div class="audio-track">
+      <span class="audio-label pod">🎙 Podcast</span>
+      <button class="audio-btn" id="btn-pod" title="Play/Pausa podcast">▶</button>
+      <div class="audio-progress" id="prog-pod">
+        <div class="audio-fill pod" id="fill-pod"></div>
+      </div>
+      <span class="audio-time" id="time-pod">0:00</span>
+    </div>
+  </div>
+
+</div>
+<div id="author-panel">
+  <div id="ap-header">
+    <div id="ap-title">AUTORI DEL CAPITOLO</div>
+    <div id="ap-hint">Tocca un concetto → spiegazione →</div>
+  </div>
+  <div id="ap-body"></div>
+</div>
+<div id="explain-panel" class="hidden">
+  <div id="ep-inner" style="border-left:1px solid #21262d;background:#0d1117">
+    <div id="ep-header">
+      <div id="ep-author-row">
+        <div id="ep-author-name"><span id="ep-dot" style="width:10px;height:10px;border-radius:50%;display:inline-block"></span><span id="ep-aname"></span></div>
+        <button id="ep-close">×</button>
+      </div>
+      <div id="ep-concept-box">
+        <div id="ep-concept-text"></div>
+        <div id="ep-concept-exam"></div>
+      </div>
+    </div>
+    <div id="ep-body">
+      <div id="ep-label"><span id="ep-label-dot"></span>Spiegazione dal libro</div>
+      <div id="ep-text"></div>
+    </div>
+    <div id="ep-footer">💡 Clicca un altro concetto per aggiornare</div>
+  </div>
+</div>
+<div id="tooltip"><div id="tooltip-exam"></div><div id="tooltip-text"></div></div>
+
+<script>
+const AUTHOR_COLORS=["#58a6ff","#3fb950","#e3b341","#bc8cff","#f85149","#ff8500","#39d353","#ff79c6","#56d364","#79c0ff","#ffa657","#d2a8ff"];
+const CHAPTERS = [
+  {
+    n: 1, title: "Definizioni e origini",
+    authors: [
+      { name: "Allport", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Def. psicologia sociale", exam: "D.492, 542" },
+        { text: "Presenza reale/immaginaria/implicita degli altri", exam: "D.551" },
+        { text: "Atteggiamenti come stati inferibili", exam: "D.157" },
+      ]},
+      { name: "Norman Triplett", color: AUTHOR_COLORS[1], concepts: [
+        { text: "1° esperimento di psicologia sociale", exam: "D.7" },
+        { text: "Social labouring / facilitazione sociale", exam: "D.7" },
+      ]},
+      { name: "Ringelmann", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Pigrizia sociale (social loafing)", exam: "D.8, 203" },
+        { text: "In gruppo → sforzo individuale ridotto", exam: "D.203" },
+      ]},
+      { name: "Le Bon", color: AUTHOR_COLORS[3], concepts: [
+        { text: "La psicologia delle folle", exam: "D.6" },
+        { text: "Suggestione come ipnosi collettiva", exam: "D.265" },
+      ]},
+      { name: "Bentham", color: AUTHOR_COLORS[4], concepts: [
+        { text: "Approccio centrato sulla persona", exam: "D.4" },
+        { text: "Principio di utilità: piacere vs dolore", exam: "D.4" },
+      ]},
+      { name: "Hegel", color: AUTHOR_COLORS[5], concepts: [
+        { text: "Approccio centrato sul sociale", exam: "D.5" },
+        { text: "Stato = incarnazione della mente sociale", exam: "D.5" },
+      ]},
+      { name: "McDougall", color: AUTHOR_COLORS[6], concepts: [
+        { text: "Introduction to Social Psychology (1908)", exam: "D.9" },
+        { text: "Comportamenti sociali da istinti innati", exam: "D.9" },
+      ]},
+      { name: "Ross", color: AUTHOR_COLORS[7], concepts: [
+        { text: "Social Psychology (1908)", exam: "D.10" },
+        { text: "L'influenza del sociale sul comportamento", exam: "D.10" },
+      ]},
+    ]
+  },
+  {
+    n: 2, title: "L'interazionismo simbolico",
+    authors: [
+      { name: "G.H. Mead", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Padre dell'interazionismo simbolico", exam: "D.31, 541" },
+        { text: "Comportamento mediato dai significati", exam: "D.32" },
+        { text: "Sé = interazione tra Io (I) e Me", exam: "D.39" },
+        { text: "Altro generalizzato (ego-alter)", exam: "D.40" },
+        { text: "L'atto = unità funzionale della condotta", exam: "D.37" },
+        { text: "Linguaggio = strumento dell'atto sociale", exam: "D.63" },
+      ]},
+      { name: "Watson", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Psicologia studia condizioni obiettive del comportamento", exam: "D.11" },
+        { text: "Comportamentismo orientato all'oggettività", exam: "D.13" },
+        { text: "Teorico del versante comportamentista", exam: "D.333" },
+      ]},
+      { name: "Pavlov", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Condizionamento classico", exam: "D.14" },
+        { text: "Riflesso condizionato", exam: "D.15" },
+        { text: "Stimolo incondizionato + stimolo condizionato", exam: "D.16" },
+      ]},
+      { name: "Skinner", color: AUTHOR_COLORS[3], concepts: [
+        { text: "Condizionamento operante", exam: "D.17" },
+        { text: "Processo di selezione adattativa", exam: "D.18" },
+      ]},
+      { name: "Markus & Zajonc", color: AUTHOR_COLORS[4], concepts: [
+        { text: "Modello O-S-O-R (1985)", exam: "D.25" },
+        { text: "Gli stati interni hanno ruolo attivo", exam: "D.26" },
+      ]},
+    ]
+  },
+  {
+    n: 3, title: "La teoria dell'apprendimento sociale",
+    authors: [
+      { name: "Bandura", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Padre della teoria dell'apprendimento sociale", exam: "D.51" },
+        { text: "Bobo Doll Experiment (3 gruppi)", exam: "D.52, 53" },
+        { text: "Apprendimento osservativo/vicariante", exam: "D.54" },
+        { text: "Acquisizione tramite elaborazione cognitiva", exam: "D.55" },
+        { text: "Simbolizzazione come capacità chiave", exam: "D.60" },
+        { text: "Determinismo triadico reciproco", exam: "D.88" },
+      ]},
+      { name: "Piaget", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Cooperazione sociale → sviluppo morale", exam: "D.61, 555" },
+        { text: "Fase senso-motoria: 0-24 mesi", exam: "D.62" },
+        { text: "Imitazione nello stadio sensomotorio", exam: "D.266" },
+        { text: "A 2 mesi: superamento egocentrismo radicale", exam: "D.308" },
+      ]},
+      { name: "Erikson", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Ogni fase = crisi cognitivo-sociale", exam: "D.64" },
+        { text: "8 stadi dello sviluppo psicosociale", exam: "D.64" },
+      ]},
+      { name: "Bronfenbrenner", color: AUTHOR_COLORS[3], concepts: [
+        { text: "Modello ecologico dello sviluppo", exam: "D.65" },
+        { text: "Microsistema famiglia = primo mediatore", exam: "D.66" },
+        { text: "Esosistema: aree in cui la persona non partecipa", exam: "D.67" },
+      ]},
+    ]
+  },
+  {
+    n: 4, title: "La nascita del Sé sociale",
+    authors: [
+      { name: "Bowlby", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Padre della teoria dell'attaccamento", exam: "D.41, 554" },
+        { text: "Ispiratori: Darwin, Harlow, Lorenz", exam: "D.42, 545" },
+        { text: "Scopo dell'attaccamento: protezione dai pericoli", exam: "D.43" },
+        { text: "Primi legami → modelli operativi interni", exam: "D.50" },
+      ]},
+      { name: "Ainsworth", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Strange Situation: valutazione attaccamento", exam: "D.47" },
+        { text: "Attaccamento sicuro = Tipo B", exam: "D.48" },
+        { text: "Stile insicuro-evitante: il bambino evita la madre", exam: "D.49" },
+      ]},
+      { name: "James", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Sé come conoscitore + Sé come oggetto", exam: "D.69" },
+        { text: "Egocentralità: focalizzazione sul Sé nei giudizi", exam: "D.70" },
+        { text: "Self-serving bias: successi interni, fallimenti esterni", exam: "D.74" },
+      ]},
+      { name: "Festinger", color: AUTHOR_COLORS[3], concepts: [
+        { text: "Teoria del confronto sociale (1954)", exam: "D.71, 72" },
+        { text: "Ci definiamo confrontandoci con chi ci circonda", exam: "D.71" },
+        { text: "Convinzioni e comportamenti sono soggettivi", exam: "D.72" },
+      ]},
+      { name: "Bronfenbrenner", color: AUTHOR_COLORS[4], concepts: [
+        { text: "Modello ecologico", exam: "D.65-67" },
+        { text: "Micro/eso/macro/cronosistema", exam: "D.65-67" },
+      ]},
+      { name: "Brewers & Gardner", color: AUTHOR_COLORS[5], concepts: [
+        { text: "Sé individuale, relazionale e collettivo (1996)", exam: "D.73" },
+      ]},
+    ]
+  },
+  {
+    n: 5, title: "Il mantenimento del Sé sociale",
+    authors: [
+      { name: "Festinger", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Confronto sociale: verso l'alto e verso il basso", exam: "D.71-72" },
+        { text: "Punto di riferimento esterno oggettivo", exam: "D.72" },
+      ]},
+      { name: "Baumeister", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Autostima = aspetto valutativo della coscienza riflessiva", exam: "D.104" },
+      ]},
+      { name: "Bandura", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Autoefficacia (capacità) ≠ autostima (valore)", exam: "D.107, 552" },
+        { text: "Self-handicapping: strategia di autoimpedimento", exam: "D.78" },
+      ]},
+      { name: "Brewers & Gardner", color: AUTHOR_COLORS[3], concepts: [
+        { text: "Sé individuale, relazionale, collettivo", exam: "D.73" },
+      ]},
+    ]
+  },
+  {
+    n: 6, title: "Autoregolazione e autocontrollo",
+    authors: [
+      { name: "Bandura", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Cognitive self-management", exam: "D.81" },
+        { text: "Autoregolazione = metacognizione in azione", exam: "D.82" },
+        { text: "Distingue: controllare / controllo / convinzioni di controllo", exam: "D.84" },
+        { text: "Convinzioni di contingenza + competenza", exam: "D.86" },
+        { text: "Sistema cognitivo autoregolativo", exam: "D.89-90" },
+        { text: "Determinismo Triadico Reciproco", exam: "D.88" },
+        { text: "Condizionamento = esperienza di contingenza", exam: "D.87" },
+      ]},
+    ]
+  },
+  {
+    n: 7, title: "L'autoefficacia",
+    authors: [
+      { name: "Bandura", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Autoefficacia = credenza contesto/compito specifica", exam: "D.91, 105" },
+        { text: "Importante mediatore della motivazione", exam: "D.92" },
+        { text: "Non innata: si costruisce gradatamente", exam: "D.93, 544" },
+        { text: "Fonti: successi/fallimenti passati", exam: "D.94" },
+        { text: "Grandezza, forza, generalizzazione", exam: "D.95-96" },
+        { text: "Autoefficacia collettiva: motiva i gruppi", exam: "D.97" },
+        { text: "Predice % problemi risolti a scuola", exam: "D.98-99" },
+        { text: "Capacità immaginativa come fonte", exam: "D.546" },
+        { text: "Si sviluppa in adolescenza e declina in maturità", exam: "D.544" },
+      ]},
+    ]
+  },
+  {
+    n: 8, title: "L'autostima",
+    authors: [
+      { name: "Baumeister", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Autostima = aspetto valutativo della coscienza riflessiva", exam: "D.104" },
+      ]},
+      { name: "Bandura", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Autostima = giudizi di valore personale", exam: "D.107, 552" },
+        { text: "Vs autoefficacia = giudizi di capacità", exam: "D.107" },
+      ]},
+      { name: "James", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Self-serving bias", exam: "D.74" },
+        { text: "Affiliazione mirata per sentirsi più sicuri di sé", exam: "D.75" },
+      ]},
+    ]
+  },
+  {
+    n: 9, title: "Il disimpegno morale",
+    authors: [
+      { name: "Bandura", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Agentività + autoefficacia + disimpegno morale", exam: "D.111" },
+        { text: "Agentività = atti compiuti intenzionalmente", exam: "D.112-113" },
+        { text: "Disimpegno morale: strategie per svincolarsi dalle norme", exam: "D.115" },
+        { text: "Giustificazione morale → ridefinizione della condotta", exam: "D.116" },
+        { text: "Attribuzione di colpa → rivalutazione vittima", exam: "D.117" },
+        { text: "Minimizzazione delle conseguenze", exam: "D.118" },
+        { text: "Scala del Disimpegno Morale = 32 item", exam: "D.120" },
+        { text: "Incoraggiare ammissione degli errori contrasta disimpegno", exam: "D.317" },
+      ]},
+    ]
+  },
+  {
+    n: 10, title: "Attribuzione causale e locus of control",
+    authors: [
+      { name: "Heider", color: AUTHOR_COLORS[0], concepts: [
+        { text: "'Psicologia Ingenua' (senso comune)", exam: "D.121" },
+        { text: "Errore fondamentale di attribuzione (FAE)", exam: "D.122, 237" },
+        { text: "Attribuzione causale = individuare cause", exam: "D.124" },
+        { text: "Forze personali = potere + tentare", exam: "D.130" },
+      ]},
+      { name: "Weiner", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Criteri: stabilità e controllabilità", exam: "D.123" },
+      ]},
+      { name: "Jones & Davis", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Teoria dell'inferenza corrispondente", exam: "D.126" },
+        { text: "Si riferisce solo all'eteroattribuzione", exam: "D.126" },
+        { text: "Inferenze sull'intenzione: libertà di scelta", exam: "D.129" },
+      ]},
+      { name: "Rotter", color: AUTHOR_COLORS[3], concepts: [
+        { text: "Locus of control: interno ed esterno", exam: "D.127" },
+        { text: "Locus esterno → tratti depressivi", exam: "D.125" },
+      ]},
+    ]
+  },
+  {
+    n: 11, title: "La cognizione sociale",
+    authors: [
+      { name: "Lewin", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Padre della teoria del campo", exam: "D.139" },
+        { text: "C = S(PA): comportamento = spazio di vita", exam: "D.131-132" },
+        { text: "I dittatori inventano un nemico esterno", exam: "D.244" },
+      ]},
+      { name: "Markus & Zajonc", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Euristiche = scorciatoie di pensiero", exam: "D.133" },
+        { text: "Euristica della rappresentatività", exam: "D.134" },
+        { text: "Euristica della disponibilità → frequenza", exam: "D.136" },
+        { text: "Euristica della simulazione: scenari ipotetici", exam: "D.135" },
+        { text: "Effetto Primacy: prime informazioni guidano la percezione", exam: "D.137" },
+      ]},
+    ]
+  },
+  {
+    n: 12, title: "Le rappresentazioni sociali",
+    authors: [
+      { name: "Moscovici", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Ancoraggio e oggettivazione", exam: "D.144" },
+        { text: "Le RS ricostruiscono la realtà", exam: "D.148" },
+        { text: "Sistema integrato di valori, nozioni e pratiche", exam: "D.150" },
+        { text: "L'oggettivazione evidenzia l'aspetto iconico", exam: "D.147" },
+      ]},
+      { name: "Abric & Tafani", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Metodo della messa in discussione", exam: "D.142" },
+        { text: "Nucleo centrale: funzione stabilizzatrice", exam: "D.143" },
+        { text: "Funzione generatrice: crea significati periferici", exam: "D.145" },
+        { text: "Elementi periferici = concretizzazioni del nucleo", exam: "D.146" },
+      ]},
+      { name: "Thomas & Znaniecki", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Atteggiamenti = stato mentale verso un valore", exam: "D.151" },
+      ]},
+    ]
+  },
+  {
+    n: 13, title: "Gli atteggiamenti sociali",
+    authors: [
+      { name: "Fishbein & Ajzen", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Teoria dell'azione ragionata", exam: "D.156" },
+      ]},
+      { name: "Allport", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Atteggiamenti come stati inferibili", exam: "D.157" },
+      ]},
+      { name: "LaPiere", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Atteggiamenti = disposizioni mentali decontestualizzate", exam: "D.155" },
+      ]},
+      { name: "Billig", color: AUTHOR_COLORS[3], concepts: [
+        { text: "Atteggiamenti e contesto strettamente legati", exam: "D.160" },
+      ]},
+      { name: "Thomas & Znaniecki", color: AUTHOR_COLORS[4], concepts: [
+        { text: "Atteggiamenti = stato mentale verso un valore", exam: "D.151" },
+        { text: "Due modi di interazione: situati e culturalmente connotati", exam: "D.152" },
+      ]},
+    ]
+  },
+  {
+    n: 14, title: "I pregiudizi",
+    authors: [
+      { name: "Allport", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Teoria del contatto", exam: "D.250" },
+        { text: "Pregiudizio pone la vittima in svantaggio", exam: "D.383" },
+        { text: "Fasi del rifiuto: verbale → evitamento → sterminio", exam: "D.383" },
+      ]},
+      { name: "Dollard & Miller", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Teoria frustrazione-aggressività", exam: "D.167, 260" },
+        { text: "Frustrazione e aggressività: rapporto biunivoco", exam: "D.260" },
+      ]},
+      { name: "Krech", color: AUTHOR_COLORS[2], concepts: [
+        { text: "3 componenti del pregiudizio (cognitiva, affettiva, comportamentale)", exam: "D.161-162" },
+      ]},
+      { name: "Mazzara", color: AUTHOR_COLORS[3], concepts: [
+        { text: "Irrazionalità del pregiudizio: prospettiva psicodinamica", exam: "D.163" },
+      ]},
+      { name: "Anderson", color: AUTHOR_COLORS[4], concepts: [
+        { text: "'Benign bigotry': miti del pregiudizio sottile", exam: "D.168-170" },
+      ]},
+    ]
+  },
+  {
+    n: 15, title: "Gli stereotipi",
+    authors: [
+      { name: "Lippmann", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Primo a trattare gli stereotipi (1922)", exam: "D.171" },
+        { text: "Stereotipi: generalizzazioni per classificare gruppi", exam: "D.174" },
+      ]},
+      { name: "Tajfel", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Stereotipo = processo cognitivo neutro, presente in tutti", exam: "D.177" },
+        { text: "Accentuazione somiglianza intracategoriale", exam: "D.234" },
+        { text: "Accentuazione differenza intercategoriale", exam: "D.235" },
+      ]},
+      { name: "Fiske & Neuberg", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Modello del continuum: stereotipo → individuazione", exam: "D.176" },
+      ]},
+      { name: "Bargh et al.", color: AUTHOR_COLORS[3], concepts: [
+        { text: "Priming a livello inconscio (1996)", exam: "D.172" },
+      ]},
+      { name: "Rudman & Borgida", color: AUTHOR_COLORS[4], concepts: [
+        { text: "2 gruppi: sperimentale e di controllo (1995)", exam: "D.173" },
+      ]},
+    ]
+  },
+  {
+    n: 16, title: "Influenza sociale e conformismo",
+    authors: [
+      { name: "Sherif", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Primo ricercatore sull'influenza sociale", exam: "D.182" },
+        { text: "Effetto autocinetico: norma percettiva di gruppo", exam: "D.184-185" },
+        { text: "Distanza da frustrazione-aggressività", exam: "D.239" },
+        { text: "Ricerche nei campi estivi 1948-52", exam: "D.240" },
+      ]},
+      { name: "Asch", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Conformismo in situazioni non ambigue", exam: "D.183, 298" },
+        { text: "Situazione sperimentale chiara (linee)", exam: "D.186" },
+        { text: "Il gruppo dà il messaggio alla persona", exam: "D.187" },
+        { text: "Campo reciprocamente condiviso", exam: "D.208" },
+      ]},
+      { name: "Lewin, Lippit & White", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Stile autoritario, democratico, laissez-faire", exam: "D.230" },
+      ]},
+      { name: "Moscovici", color: AUTHOR_COLORS[3], concepts: [
+        { text: "Distingue tra potere e influenza", exam: "D.224" },
+        { text: "Influenza minoritaria: coerenza nel tempo", exam: "D.224" },
+      ]},
+    ]
+  },
+  {
+    n: 17, title: "L'obbedienza e l'autorità",
+    authors: [
+      { name: "Milgram", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Scopo: quanto si spinge nell'infliggere punizioni", exam: "D.194" },
+        { text: "Sesso dei soggetti è irrilevante", exam: "D.195" },
+        { text: "Incapacità di contrastare i desideri del 'capo'", exam: "D.196" },
+        { text: "Reazione automatica all'autorità = scorciatoia", exam: "D.197" },
+        { text: "Presenza fisica dell'autorità → più obbedienza", exam: "D.198" },
+        { text: "Libertà di scelta riduce l'intensità della scossa", exam: "D.199" },
+        { text: "Sostegno sociale → maggiore opposizione agli ordini", exam: "D.200" },
+        { text: "Stato eteronomico: assenza di autonomia", exam: "D.269, 290-291" },
+        { text: "Gente normale può rendersi complice di distruzione", exam: "D.268" },
+        { text: "Potere della situazione → atti antisociali", exam: "D.299" },
+      ]},
+      { name: "Zimbardo", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Esperimento carcerario di Stanford", exam: "D.284-289" },
+        { text: "Abbigliamento = deindividuazione", exam: "D.284" },
+        { text: "I soggetti dimenticarono la propria identità", exam: "D.286" },
+        { text: "Ruolo istituzionale → adozione delle norme", exam: "D.289" },
+        { text: "Eterodirezione: comportamento percepito come non proprio", exam: "D.300" },
+      ]},
+    ]
+  },
+  {
+    n: 18, title: "I gruppi sociali",
+    authors: [
+      { name: "Lewin", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Gruppo: interdipendenza e totalità dinamica", exam: "D.201" },
+        { text: "Dinamiche di gruppo: campo sociale", exam: "D.201" },
+      ]},
+      { name: "DeGrada", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Alta gruppalità = sentimenti positivi tra membri", exam: "D.202" },
+      ]},
+      { name: "Pruitt & Kimmel", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Dilemma del prigioniero", exam: "D.204" },
+      ]},
+      { name: "Campbell", color: AUTHOR_COLORS[3], concepts: [
+        { text: "Teoria del conflitto realistico", exam: "D.209" },
+      ]},
+      { name: "Asch", color: AUTHOR_COLORS[4], concepts: [
+        { text: "Campo reciprocamente condiviso", exam: "D.208" },
+      ]},
+      { name: "Janis", color: AUTHOR_COLORS[5], concepts: [
+        { text: "Pensiero di gruppo: guardiani della mente", exam: "D.210" },
+      ]},
+    ]
+  },
+  {
+    n: 19, title: "Il gruppo dei pari",
+    authors: [
+      { name: "Bruner", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Apprendimento = attività in comune (1984)", exam: "D.214" },
+        { text: "Costruzione sociale della conoscenza", exam: "D.214" },
+      ]},
+      { name: "Damon", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Verifica i principi del peer learning (1984)", exam: "D.215" },
+      ]},
+      { name: "Johnson et al.", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Modello 'learning together' (1996)", exam: "D.217" },
+        { text: "Interdipendenza positiva + interazione costruttiva", exam: "D.217" },
+        { text: "Abilità sociali + responsabilità individuale", exam: "D.217" },
+      ]},
+    ]
+  },
+  {
+    n: 20, title: "La leadership",
+    authors: [
+      { name: "Lewin, Lippit & White", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Stili: autoritario, democratico, laissez-faire", exam: "D.230" },
+      ]},
+      { name: "Bales & Slater", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Leader socio-emozionale", exam: "D.228" },
+      ]},
+      { name: "Stogdill", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Leader: fiducia in sé e forte senso d'identità", exam: "D.223" },
+      ]},
+      { name: "Moscovici", color: AUTHOR_COLORS[3], concepts: [
+        { text: "Distingue potere e influenza", exam: "D.224" },
+      ]},
+      { name: "Fiedler", color: AUTHOR_COLORS[4], concepts: [
+        { text: "Modello della contingenza (punteggi LCP)", exam: "D.222" },
+      ]},
+    ]
+  },
+  {
+    n: 21, title: "Categorizzazione e relazioni intergruppi",
+    authors: [
+      { name: "Tajfel", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Docente Bristol: studi sui rapporti intergruppi", exam: "D.231" },
+        { text: "Esperimento con 8 linee di diversa lunghezza", exam: "D.232" },
+        { text: "Accentuazione somiglianza intracategoriale", exam: "D.234" },
+        { text: "Accentuazione differenza intercategoriale", exam: "D.235" },
+        { text: "Favoritismo per il proprio gruppo", exam: "D.236" },
+        { text: "I conflitti sono una dimensione naturale", exam: "D.373" },
+        { text: "Continuum interpersonale/intergruppi → identità", exam: "D.374-375" },
+      ]},
+      { name: "Turner", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Senso del Noi = gruppo psicologico", exam: "D.376" },
+      ]},
+      { name: "Allport", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Ipotesi del contatto", exam: "D.250" },
+      ]},
+    ]
+  },
+  {
+    n: 22, title: "Interazione sociale e relazioni intergruppi",
+    authors: [
+      { name: "Freud", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Bisogno di un nemico fuori dal gruppo", exam: "D.243" },
+        { text: "Aggressività: tensione eros vs thanatos", exam: "D.253" },
+        { text: "Relazioni sociali = frustrazione civile", exam: "D.254" },
+      ]},
+      { name: "Lewin", color: AUTHOR_COLORS[1], concepts: [
+        { text: "I dittatori inventano un nemico esterno", exam: "D.244" },
+        { text: "Convegliano l'aggressività interna verso l'esterno", exam: "D.244" },
+      ]},
+      { name: "Allport", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Ipotesi/teoria del contatto", exam: "D.250" },
+      ]},
+      { name: "Tajfel", color: AUTHOR_COLORS[3], concepts: [
+        { text: "Conflitti = dimensione naturale", exam: "D.373" },
+      ]},
+      { name: "Sherif", color: AUTHOR_COLORS[4], concepts: [
+        { text: "La sconfitta non rafforza sempre la solidarietà intra-gruppo", exam: "D.239-240" },
+        { text: "Ricerche nei campi estivi", exam: "D.240" },
+      ]},
+    ]
+  },
+  {
+    n: 23, title: "Aggressività",
+    authors: [
+      { name: "Berkowitz", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Tutti i sentimenti negativi possono indurre aggressività", exam: "D.261" },
+        { text: "Aggressività predomina con stimoli associati a connotazione negativa", exam: "D.262" },
+        { text: "Esperimento del fucile/racchetta", exam: "D.263" },
+        { text: "Dolore fisico → più aggressività (acqua gelata)", exam: "D.281" },
+      ]},
+      { name: "Dollard & Miller", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Teoria frustrazione-aggressività", exam: "D.167, 260" },
+        { text: "Rapporto biunivoco frustrazione-aggressività", exam: "D.260" },
+      ]},
+      { name: "Le Bon", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Prima teoria della deindividuazione", exam: "D.282" },
+        { text: "Suggestione come ipnosi collettiva", exam: "D.265" },
+        { text: "Perdita controllo razionale nella folla", exam: "D.283" },
+      ]},
+      { name: "Tarde", color: AUTHOR_COLORS[3], concepts: [
+        { text: "Imitazione = principio base del comportamento sociale nei grandi gruppi", exam: "D.264" },
+      ]},
+      { name: "Hobbes", color: AUTHOR_COLORS[4], concepts: [
+        { text: "Ontologia deterministica e materialistica", exam: "D.251" },
+      ]},
+      { name: "Rousseau", color: AUTHOR_COLORS[5], concepts: [
+        { text: "La società corrompe l'uomo", exam: "D.252" },
+      ]},
+      { name: "Lombroso", color: AUTHOR_COLORS[6], concepts: [
+        { text: "Teoria della 'degenerazione'", exam: "D.258" },
+      ]},
+      { name: "Schneider", color: AUTHOR_COLORS[7], concepts: [
+        { text: "Classificazione della Personalità Psicopatica", exam: "D.259" },
+      ]},
+    ]
+  },
+  {
+    n: 24, title: "Il comportamento antisociale",
+    authors: [
+      { name: "Berkowitz", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Stimoli cue aggressivi + frustrazione previa → aggressività", exam: "D.263" },
+      ]},
+      { name: "Milgram", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Gente normale complice di distruzione", exam: "D.268" },
+        { text: "Stato eteronomico", exam: "D.269" },
+      ]},
+      { name: "Le Bon", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Teoria della deindividuazione", exam: "D.282-283" },
+      ]},
+      { name: "Zimbardo", color: AUTHOR_COLORS[3], concepts: [
+        { text: "Esperimento carcerario: i soggetti dimenticarono la propria identità", exam: "D.286" },
+        { text: "Deindividuazione indebolisce i processi inibitori", exam: "D.288-289" },
+      ]},
+    ]
+  },
+  {
+    n: 25, title: "Il bullismo",
+    authors: [
+      { name: "Olweus", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Principale esponente degli studi sul bullismo", exam: "D.271" },
+        { text: "Bullismo = esposizione ripetuta ad azioni offensive", exam: "D.271" },
+        { text: "Vittima può essere sottomessa", exam: "D.279" },
+        { text: "Tutte le ripetività sempre presente nel bullo", exam: "D.277" },
+      ]},
+      { name: "Fonzi", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Le bulle prediligono calunnie e ricatti", exam: "D.278" },
+      ]},
+      { name: "Farrington", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Definizione completa di bullismo (1991)", exam: "D.271" },
+        { text: "Oppressione ripetuta da chi è più potente verso il più debole", exam: "D.271" },
+      ]},
+    ]
+  },
+  {
+    n: 26, title: "La deindividuazione",
+    authors: [
+      { name: "Le Bon", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Prima teoria della deindividuazione", exam: "D.282" },
+        { text: "Perdita dell'identità personale nella folla", exam: "D.283" },
+        { text: "Suggestione = sorta di ipnosi collettiva", exam: "D.265" },
+      ]},
+      { name: "Zimbardo", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Esperimento carcerario di Stanford", exam: "D.284-289" },
+        { text: "Abbigliamento = condizione di deindividuazione", exam: "D.284" },
+        { text: "Soggetti dimenticarono identità personali", exam: "D.286" },
+        { text: "Ruolo istituzionale → adozione delle norme dell'istituzione", exam: "D.289" },
+      ]},
+      { name: "Festinger et al.", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Deindividuazione = ridotto senso di individualità e responsabilità", exam: "D.287" },
+        { text: "Indebolisce i processi inibitori verso i comportamenti distruttivi", exam: "D.288" },
+      ]},
+    ]
+  },
+  {
+    n: 27, title: "L'effetto Lucifero",
+    authors: [
+      { name: "Zimbardo", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Effetto Lucifero = errore di attribuzione", exam: "D.292" },
+        { text: "Sistema politico/economico con forti ideologie", exam: "D.294" },
+        { text: "10 passi per costruire resistenza all'influenza", exam: "D.319" },
+        { text: "Non sacrificare libertà personali per sicurezza", exam: "D.320" },
+      ]},
+      { name: "Milgram", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Studi sull'obbedienza all'autorità", exam: "D.293" },
+        { text: "Eterodirezione: comportamento percepito come non proprio", exam: "D.300" },
+      ]},
+      { name: "Heider", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Errore fondamentale di attribuzione (FAE) alla base", exam: "D.292" },
+      ]},
+      { name: "Arendt", color: AUTHOR_COLORS[3], concepts: [
+        { text: "Assenza di responsabilità = incapacità di elaborare il proprio agire", exam: "D.454" },
+      ]},
+      { name: "Simon", color: AUTHOR_COLORS[4], concepts: [
+        { text: "Gli stati mentali per atti crudeli evolvono da processi psicologici comuni", exam: "D.458" },
+      ]},
+    ]
+  },
+  {
+    n: 28, title: "Il comportamento prosociale",
+    authors: [
+      { name: "Latané & Darley", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Primo esperimento sul comportamento prosociale", exam: "D.301" },
+        { text: "Probabilità di aiutare dipende dalla situazione", exam: "D.302" },
+        { text: "Diffusione della responsabilità", exam: "D.303" },
+      ]},
+      { name: "Hoffman", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Ruolo dell'empatia nel comportamento prosociale", exam: "D.305" },
+        { text: "Empatia = fattore motivante separante altruismo da prosocialità", exam: "D.314" },
+      ]},
+      { name: "Cialdini et al.", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Comportamenti prosociali = motivazione fondamentalmente egoistica", exam: "D.307" },
+      ]},
+    ]
+  },
+  {
+    n: 29, title: "Eroismo",
+    authors: [
+      { name: "Zimbardo", color: AUTHOR_COLORS[0], concepts: [
+        { text: "10 passi per costruire resistenza all'influenza sociale", exam: "D.319" },
+        { text: "Non sacrificare libertà personali per sicurezza astratta", exam: "D.320" },
+        { text: "Evitare situazioni totalizzanti (perdita del supporto sociale)", exam: "D.318" },
+      ]},
+      { name: "Milgram", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Insegnare ai bambini a disobbedire all'autorità ingiusta", exam: "D.315" },
+        { text: "Incoraggiare rispetto delle diversità: riduzione in-group biases", exam: "D.316" },
+      ]},
+    ]
+  },
+  {
+    n: 30, title: "Comunicazione sociale: approccio strategico",
+    authors: [
+      { name: "Watzlawick", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Pragmatica della comunicazione (1967)", exam: "D.344-345" },
+        { text: "Parallelismo comunicazione-matematica", exam: "D.345" },
+        { text: "1° assioma: non si può non comunicare", exam: "D.348" },
+        { text: "4° assioma: comunicazione digitale o analogica", exam: "D.350" },
+        { text: "Presupposto: impossibilità di non avere comportamento", exam: "D.346" },
+        { text: "Concetto di retroazione (cibernetica)", exam: "D.347" },
+        { text: "Disconferma = messaggio 'tu non esisti'", exam: "D.349" },
+      ]},
+      { name: "Erickson", color: AUTHOR_COLORS[1], concepts: [
+        { text: "L'approccio strategico deve i suoi natali a Erickson", exam: "D.343" },
+      ]},
+    ]
+  },
+  {
+    n: 31, title: "L'approccio strategico alla comunicazione",
+    authors: [
+      { name: "Watzlawick", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Linguaggio = mezzo per favorire il cambiamento", exam: "D.351" },
+        { text: "Obiettivo: de-strutturazione del sintomo", exam: "D.352" },
+        { text: "Tecnica della ristrutturazione: cornice alternativa", exam: "D.355" },
+        { text: "Tecnica del paradosso: modifica la rigidità percettiva", exam: "D.356" },
+        { text: "Linguaggio suggestivo e ingiuntivo", exam: "D.353" },
+        { text: "Tecnica del ricalco: linguaggio e autorappresentazione", exam: "D.354" },
+        { text: "Dichiarazione di impotenza: con soggetti che vanificano la terapia", exam: "D.357" },
+      ]},
+      { name: "Von Cranach & Harré", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Goal-directed-action: triangolo concettuale gerarchico", exam: "D.358" },
+      ]},
+      { name: "De Leo", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Cognizioni coscienti: piani, scopi, strategie", exam: "D.359" },
+        { text: "Aspetti trascurati dalla GDA: pragmatico-strumentali ed espressivo-comunicativi", exam: "D.360" },
+      ]},
+    ]
+  },
+  {
+    n: 32, title: "L'azione deviante comunicativa",
+    authors: [
+      { name: "De Leo", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Devianza = forma potente ed estrema di comunicazione", exam: "D.364" },
+        { text: "Analisi dell'azione deviante: tipo sequenziale", exam: "D.365" },
+        { text: "Il reo = attivo generatore di significati", exam: "D.368" },
+        { text: "L'azione comunicativa: sunto passato/presente/futuro del reo", exam: "D.370" },
+        { text: "Funzione espressivo-comunicazionale", exam: "D.366" },
+        { text: "Effetti di relazione: ruoli, obiettivi, poteri", exam: "D.367" },
+      ]},
+      { name: "Von Cranach", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Goal-directed-action (GDA)", exam: "D.358" },
+        { text: "Cognizioni coscienti guidano il comportamento", exam: "D.359" },
+      ]},
+      { name: "Van Dijk", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Il discorso = azione sociale compiuta attraverso il linguaggio", exam: "D.391" },
+      ]},
+    ]
+  },
+  {
+    n: 33, title: "I confronti sociali",
+    authors: [
+      { name: "Tajfel", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Conflitti = dimensione naturale", exam: "D.373" },
+        { text: "Continuum interpersonale/intergruppi", exam: "D.374" },
+        { text: "Meccanismo: identità collega i due estremi", exam: "D.375" },
+      ]},
+      { name: "Turner", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Senso del Noi e solidarietà = gruppo psicologico", exam: "D.376" },
+      ]},
+      { name: "Bar-Tal", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Delegittimazione: desiderio di elevare e differenziare il proprio gruppo", exam: "D.379" },
+      ]},
+      { name: "Freud", color: AUTHOR_COLORS[3], concepts: [
+        { text: "Aggressività inevitabile: eros vs thanatos", exam: "D.253" },
+        { text: "Relazioni sociali = frustrazione civile", exam: "D.254" },
+      ]},
+    ]
+  },
+  {
+    n: 34, title: "Le nuove forme di pregiudizio",
+    authors: [
+      { name: "Allport", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Pregiudizio manifesto: rifiuto esplicito degli altri gruppi", exam: "D.387" },
+        { text: "Pregiudizio pone la vittima in svantaggio", exam: "D.383" },
+      ]},
+      { name: "Pettigrew & Meertens", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Pregiudizio sottile: freddezza e distanza", exam: "D.386" },
+      ]},
+      { name: "McConahay", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Razzismo riluttante: forma indiretta", exam: "D.384" },
+        { text: "Le persone rinnegano il vecchio razzismo ma non sono egualitarie", exam: "D.385" },
+      ]},
+      { name: "Sidanius & Pratto", color: AUTHOR_COLORS[3], concepts: [
+        { text: "Orientamento alla dominanza sociale (SDO)", exam: "D.388" },
+        { text: "Tendenza a sostenere il dominio dei gruppi superiori sugli inferiori", exam: "D.388" },
+      ]},
+      { name: "Devine", color: AUTHOR_COLORS[4], concepts: [
+        { text: "Modello della dissociazione", exam: "D.381-382" },
+        { text: "Stereotipo (cogn.) + pregiudizio (emotivo) → discriminazione (comportamento)", exam: "D.381-382" },
+      ]},
+    ]
+  },
+  {
+    n: 35, title: "Psicologia ambientale e architettonica",
+    authors: [
+      { name: "Eysenck", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Ricerca: colore blu preferito dalla maggioranza", exam: "D.406" },
+      ]},
+      { name: "Carruthers et al.", color: AUTHOR_COLORS[1], concepts: [
+        { text: "72% valuta positivo il colore giallo (2010)", exam: "D.407" },
+      ]},
+      { name: "Valdez & Mehrabian", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Le donne più sensibili alle variazioni di colore (1994)", exam: "D.408" },
+      ]},
+      { name: "Hill & Barton", color: AUTHOR_COLORS[3], concepts: [
+        { text: "Completo rosso può incentivare alla vittoria (2005)", exam: "D.409" },
+      ]},
+      { name: "Baker", color: AUTHOR_COLORS[4], concepts: [
+        { text: "Influenzare il comportamento del consumatore tramite l'ambiente (1986)", exam: "D.412" },
+      ]},
+    ]
+  },
+  {
+    n: 36, title: "Buone prassi per ambienti interni",
+    authors: [
+      { name: "Baker", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Studi su influenza dell'ambiente sul consumatore", exam: "D.412" },
+      ]},
+      { name: "Lammers", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Musica a ritmo sostenuto → consumare di più e più velocemente", exam: "D.413" },
+      ]},
+      { name: "Cain-Smith & Curnow", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Volume alto della musica → meno tempo nel negozio", exam: "D.414" },
+      ]},
+      { name: "McCraty et al.", color: AUTHOR_COLORS[3], concepts: [
+        { text: "Le donne trovano il negozio più piacevole con musica lenta", exam: "D.416" },
+        { text: "La musica è un antistress rapido ed economico", exam: "D.417" },
+      ]},
+      { name: "Malaguzzi", color: AUTHOR_COLORS[4], concepts: [
+        { text: "Ambiente scolastico = 'terzo insegnante'", exam: "D.420" },
+      ]},
+      { name: "Hui & Dube", color: AUTHOR_COLORS[5], concepts: [
+        { text: "Musica come antistress: impatto positivo sull'emozione del cliente", exam: "D.415" },
+      ]},
+    ]
+  },
+  {
+    n: 37, title: "Spazi verdi e aree blu",
+    authors: [
+      { name: "Wilson", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Introduce il termine 'biofilia'", exam: "D.421" },
+        { text: "Amore e sensibilità verso la natura: patrimonio evolutivo", exam: "D.421" },
+      ]},
+      { name: "Kaplan & Kaplan", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Restorativeness: rigenerazione cognitiva degli ambienti", exam: "D.422" },
+        { text: "Salutogenesi: interazione biolog./psicol./socio-culturale/ecologica", exam: "D.423" },
+      ]},
+      { name: "MacKerron & Mourato", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Correlazione positiva: ambienti naturali → benessere soggettivo (2013)", exam: "D.424" },
+      ]},
+    ]
+  },
+  {
+    n: 38, title: "Caratteristiche funzionali del workplace",
+    authors: [
+      { name: "Küller et al.", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Intensità luminosa → influenza fortemente l'umore (2006)", exam: "D.432" },
+      ]},
+      { name: "Areni & Kim", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Fonte di luce può canalizzare l'attenzione (1994)", exam: "D.433" },
+      ]},
+      { name: "Bonaiuto et al.", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Arredi disposti lungo le pareti, non al centro (2004)", exam: "D.435" },
+      ]},
+      { name: "Gifford", color: AUTHOR_COLORS[3], concepts: [
+        { text: "QI di 26 punti in più in stanze con colori brillanti (2007)", exam: "D.436" },
+      ]},
+      { name: "Pellegrini", color: AUTHOR_COLORS[4], concepts: [
+        { text: "Variazioni tonali del colore → aumento comportamenti cooperativi (1985)", exam: "D.437" },
+      ]},
+    ]
+  },
+  {
+    n: 39, title: "I profili criminogeni complessi",
+    authors: [
+      { name: "Douglas", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Distingue criminale organizzato e disorganizzato", exam: "D.443" },
+      ]},
+      { name: "Ward-Gannon & Keown", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Modello del giudizio delle distorsioni cognitive", exam: "D.444" },
+      ]},
+      { name: "Arendt", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Assenza di responsabilità = incapacità di elaborare il proprio agire", exam: "D.454" },
+      ]},
+      { name: "Simon", color: AUTHOR_COLORS[3], concepts: [
+        { text: "Atti crudeli evolvono da processi psicologici comuni", exam: "D.458" },
+      ]},
+      { name: "Cleckley", color: AUTHOR_COLORS[4], concepts: [
+        { text: "Gli psicopatici agiscono per manipolare gli altri", exam: "D.459" },
+        { text: "Nucleo centrale della psicopatia: la maschera", exam: "D.456" },
+      ]},
+    ]
+  },
+  {
+    n: 40, title: "Gli autori di reato a sfondo sessuale",
+    authors: [
+      { name: "Canter", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Inventore della psicologia investigativa", exam: "D.455" },
+        { text: "Ogni comportamento criminale = transazione interpersonale", exam: "D.457" },
+      ]},
+      { name: "Teten", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Il metodo: analisi della natura del crimine per identificare l'autore", exam: "D.482" },
+      ]},
+      { name: "Brussell", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Dallo stato mentale del criminale → scena del crimine", exam: "D.489" },
+      ]},
+      { name: "Wilson", color: AUTHOR_COLORS[3], concepts: [
+        { text: "Si rifà ai bisogni progressivi di Maslow", exam: "D.451" },
+      ]},
+    ]
+  },
+  {
+    n: 41, title: "Il minore deviante",
+    authors: [
+      { name: "De Leo", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Devianza come forma estrema di comunicazione", exam: "D.364" },
+        { text: "Analisi sequenziale dell'azione deviante", exam: "D.365" },
+        { text: "Reo = attivo generatore di significati", exam: "D.368" },
+      ]},
+    ]
+  },
+  {
+    n: 42, title: "Il danno psichico ed esistenziale",
+    authors: [
+      { name: "Carver", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Teoria della dissonanza cognitiva applicata alle relazioni violente (2002)", exam: "D.519" },
+        { text: "Investimento emozionale trattiene la donna nel rapporto disfunzionale", exam: "D.520" },
+      ]},
+      { name: "Cupach & Spitzeberg", color: AUTHOR_COLORS[1], concepts: [
+        { text: "5 strategie di coping della vittima di violenza (2004)", exam: "D.533" },
+      ]},
+    ]
+  },
+  {
+    n: 43, title: "La psicologia criminologica",
+    authors: [
+      { name: "Canter", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Inventore della psicologia investigativa", exam: "D.455" },
+        { text: "Ogni comportamento criminale = transazione interpersonale", exam: "D.457" },
+      ]},
+      { name: "Douglas", color: AUTHOR_COLORS[1], concepts: [
+        { text: "Criminale organizzato vs disorganizzato", exam: "D.443" },
+      ]},
+      { name: "Brussell", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Dallo stato mentale del criminale → scena del crimine", exam: "D.489" },
+      ]},
+      { name: "Teten", color: AUTHOR_COLORS[3], concepts: [
+        { text: "Analisi della natura del crimine per identificare l'autore", exam: "D.482" },
+      ]},
+      { name: "Bond", color: AUTHOR_COLORS[4], concepts: [
+        { text: "Primo contributo sul criminal profiling", exam: "D.485" },
+      ]},
+    ]
+  },
+  {
+    n: 44, title: "La violenza di genere",
+    authors: [
+      { name: "Carver", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Dissonanza cognitiva applicata alle relazioni violente (2002)", exam: "D.519" },
+        { text: "Investimento emozionale trattiene la donna", exam: "D.520" },
+      ]},
+      { name: "Cupach & Spitzeberg", color: AUTHOR_COLORS[1], concepts: [
+        { text: "5 strategie di coping della vittima (2004)", exam: "D.533" },
+        { text: "Ossessività come precursore dello stalking", exam: "D.532" },
+      ]},
+      { name: "Walker", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Ciclo della violenza: tensione → esplosione → luna di miele", exam: "D.511" },
+      ]},
+    ]
+  },
+  {
+    n: 45, title: "Relazione autore-vittima nella violenza di genere",
+    authors: [
+      { name: "Carver", color: AUTHOR_COLORS[0], concepts: [
+        { text: "Dissonanza cognitiva nella relazione violenta", exam: "D.519-520" },
+      ]},
+      { name: "Cupach & Spitzeberg", color: AUTHOR_COLORS[1], concepts: [
+        { text: "5 strategie di coping della vittima", exam: "D.533" },
+      ]},
+      { name: "Walker", color: AUTHOR_COLORS[2], concepts: [
+        { text: "Ciclo della violenza (fase luna di miele → attaccamento paradossale)", exam: "D.511" },
+      ]},
+      { name: "Seligman", color: AUTHOR_COLORS[3], concepts: [
+        { text: "Impotenza appresa nelle vittime di violenza", exam: "D.525" },
+      ]},
+    ]
+  },
+];
+
+
+const EXPLANATIONS={"1|Allport|Def. psicologia sociale": "Allport (1985): studia come pensieri, sentimenti e comportamenti degli individui siano influenzati dalla presenza reale, immaginaria o implicita di altri. È la definizione fondamentale. D.492/D.542: chi ha dato questa definizione → risposta: Allport.", "1|Allport|Presenza reale/immaginaria/implicita degli altri": "Allport distingue tre forme: presenza reale (fisica), immaginaria (nella mente), implicita (basta sapere che esistono). Gli altri ci influenzano anche quando non ci sono fisicamente. D.551 chiede esattamente questa tripartizione.", "1|Allport|Atteggiamenti come stati inferibili": "D.157: Allport considera gli atteggiamenti come stati mentali di prontezza organizzati tramite l'esperienza, non osservabili direttamente ma inferibili dal comportamento. Variabile interveniente stimolo→risposta.", "1|Norman Triplett|1° esperimento di psicologia sociale": "D.7: Triplett (1897) — i ciclisti pedalano più veloci in gara che da soli. Replica in laboratorio con bambini che avvolgono lenze in coppia: vanno più veloci. È il primo esperimento sistematico di psicologia sociale.", "1|Norman Triplett|Social labouring / facilitazione sociale": "D.7: social labouring o facilitazione sociale — la presenza di altri che svolgono lo stesso compito migliora la prestazione su compiti semplici o già appresi. Opposto del social loafing di Ringelmann.", "1|Ringelmann|Pigrizia sociale (social loafing)": "D.8/D.203: Ringelmann (1880) — più persone tirano una fune insieme, ognuna tira con meno forza. Social loafing: in gruppo l'impegno individuale cala perché ci si sente anonimi. L'individuo riduce il proprio sforzo circa la sua singola prestazione.", "1|Ringelmann|In gruppo → sforzo individuale ridotto": "D.203: conclusione di Ringelmann — nel gruppo il contributo del singolo si riduce. Contrasto con Triplett: presenza altrui MIGLIORA la prestazione quando il contributo è identificabile (Triplett), PEGGIORA quando ci si sente parte anonima (Ringelmann).", "1|Le Bon|La psicologia delle folle": "D.6: Le Bon pubblica nel 1895 \"La psicologia delle folle\" — analizza come nella folla le persone vengano dominate da una mentalità collettiva primitiva. Precursore della ricerca sull'influenza sociale.", "1|Le Bon|Suggestione come ipnosi collettiva": "D.265: Le Bon spiega il comportamento della folla con la suggestione, ritenuta una sorta di ipnosi collettiva. Le persone perdono senso critico e responsabilità individuale nella folla.", "1|Bentham|Approccio centrato sulla persona": "D.4: Bentham (1748-1832) è il fondatore dell'approccio centrato sulla persona, basato sul principio di utilità — le azioni umane servono a produrre piacere e ad evitare il dolore (edonismo utilitaristico).", "1|Bentham|Principio di utilità: piacere vs dolore": "D.4: il principio di utilità di Bentham — si fa ciò che produce più piacere e meno dolore. Anticipa le moderne teorie della motivazione individuale. Mnemonico: Bentham = Bilancio piacere-dolore.", "1|Hegel|Approccio centrato sul sociale": "D.5: Hegel (1770-1831) è il fondatore dell'approccio centrato sul sociale — lo Stato è l'incarnazione della mente sociale, l'individuo si comprende solo nel contesto collettivo. Il Tutto precede le parti.", "1|Hegel|Stato = incarnazione della mente sociale": "D.5: per Hegel lo Stato è l'espressione concreta della mente collettiva di un popolo. Anticipa il concetto di «mente di gruppo». Contrasto con Bentham: Hegel → il sociale precede l'individuale.", "1|McDougall|Introduction to Social Psychology (1908)": "D.9: McDougall (1908) — \"Introduction to Social Psychology\". Oggetto: l'individuo e come si pone col mondo esterno. Tesi: i comportamenti sociali derivano da istinti innati. Prima delle due opere fondative con il testo di Ross.", "1|McDougall|Comportamenti sociali da istinti innati": "D.9: McDougall — i comportamenti sociali derivano da tendenze innate o istinti biologicamente determinati. Posizione opposta a Ross. Mnemonico: McDougall → biologico → tutto innato.", "1|Ross|Social Psychology (1908)": "D.10: Ross (1908) — \"Social Psychology\". Oggetto: l'influenza del sociale sul comportamento degli individui. Opposto a McDougall. Mnemonico: Ross → ruolo della società → contesto sociale determina il comportamento.", "1|Ross|L'influenza del sociale sul comportamento": "D.10: per Ross le altre persone, anche non fisicamente presenti, hanno un potere determinante sul comportamento. Anticipa i temi dell'influenza sociale del Novecento. Contesto sociale >> biologia per Ross.", "2|G.H. Mead|Padre dell'interazionismo simbolico": "D.31/D.541: George Herbert Mead (1863-1931) è il fondatore dell'interazionismo simbolico. Il comportamento individuale è mediato dai significati che i soggetti attribuiscono alla situazione, non dagli stimoli diretti.", "2|G.H. Mead|Comportamento mediato dai significati": "D.32: presupposto centrale di Mead — gli esseri umani non reagiscono agli stimoli direttamente, ma attraverso la mediazione dei significati. Prima interpretano il significato dello stimolo, poi agiscono. Distingue l'interazionismo dal behaviorismo.", "2|G.H. Mead|Sé = interazione tra Io (I) e Me": "D.39: per Mead il Sé è un dialogo interno tra Io (I) — la parte spontanea e creativa — e Me — la parte interiorizzata delle aspettative sociali (il giudice interno). Mnemonico: I = Impulso; Me = immagine degli altri interiorizzata.", "2|G.H. Mead|Altro generalizzato (ego-alter)": "D.40: l'altro generalizzato è la rappresentazione interiorizzata delle aspettative della collettività — «la società nella mia mente». Si costruisce attraverso il gioco organizzato (game) quando il bambino considera il punto di vista di tutti.", "2|G.H. Mead|L'atto = unità funzionale della condotta": "D.37: per Mead l'atto è l'unità minima del comportamento intenzionale. Fasi: impulso → percezione → manipolazione → consumazione. L'atto termina con la consumazione (D.38).", "2|G.H. Mead|Linguaggio = strumento dell'atto sociale": "D.63: per Mead l'acquisizione del linguaggio è lo strumento che permette di partecipare a un atto sociale. Attraverso i simboli linguistici condivisi si coordinano le azioni e si costruiscono significati comuni.", "2|Watson|Psicologia studia condizioni obiettive del comportamento": "D.11: Watson fonda il comportamentismo — la psicologia ha il compito di studiare le condizioni obiettive che determinano il comportamento, non la coscienza. Motto behaviourista: stimolo → risposta, niente altro.", "2|Watson|Comportamentismo orientato all'oggettività": "D.13: il comportamentismo di Watson è orientato verso l'oggettività — studia solo stimoli e risposte osservabili, esclusa la mente. Rende la psicologia rigorosa ma ignora i processi cognitivi.", "2|Watson|Teorico del versante comportamentista": "D.333/D.334: Watson è il teorico del versante comportamentista della psicolinguistica. Il pensiero è «discorso subvocalico» — attività motoria interiorizzata al di sotto dell'espressione vocale, del tutto interiorizzato.", "2|Pavlov|Condizionamento classico": "D.14: Pavlov mette a punto il condizionamento classico. Uno stimolo neutro (campanella) associato ripetutamente allo stimolo naturale (cibo) produce da solo la risposta (salivazione). Meccanismo base dell'apprendimento associativo.", "2|Pavlov|Riflesso condizionato": "D.15: il riflesso condizionato — associazione appresa tra stimolo condizionato e risposta che prima era prodotta solo dallo stimolo naturale. Il cane saliva alla campanella dopo averla associata al cibo.", "2|Pavlov|Stimolo incondizionato + stimolo condizionato": "D.16: il condizionamento si verifica con l'associazione di uno stimolo incondizionato (naturale: cibo) a uno condizionato (artificiale: campanella) in un organismo. Dopo ripetizioni, lo stimolo artificiale produce da solo la risposta naturale.", "2|Skinner|Condizionamento operante": "D.17: Skinner mette a punto il condizionamento operante — il comportamento è modellato dalle sue conseguenze. Rinforzo positivo → il comportamento si ripete; punizione → si estingue. L'organismo opera attivamente sull'ambiente.", "2|Skinner|Processo di selezione adattativa": "D.18: il condizionamento operante è visto come un processo di selezione adattativa — i comportamenti con conseguenze positive vengono selezionati, quelli negativi eliminati. Analogia con la selezione naturale darwiniana.", "2|Markus & Zajonc|Modello O-S-O-R (1985)": "D.25: Markus e Zajonc (1985) propongono il modello O-S-O-R — Organismo-Stimolo-Organismo-Risposta. Il primo O = stato iniziale (conoscenze, aspettative); il secondo O = elaborazione cognitiva. Supera il semplice S-R behaviourista aggiungendo i processi interni.", "2|Markus & Zajonc|Gli stati interni hanno ruolo attivo": "D.26: nel modello O-S-O-R gli stati interni dell'organismo (credenze, aspettative, schemi) hanno un ruolo attivo — compiono una selezione sia degli stimoli che delle risposte. Non siamo macchine passive: la mente media l'esperienza.", "3|Bandura|Padre della teoria dell'apprendimento sociale": "D.51: Bandura è il fondatore della teoria dell'apprendimento sociale, basata sul determinismo triadico reciproco: ambiente, persona (cognitiva, fisica, affettiva) e comportamento si influenzano reciprocamente. L'apprendimento avviene anche per osservazione e imitazione.", "3|Bandura|Bobo Doll Experiment (3 gruppi)": "D.52/53: Bobo Doll Experiment (1961) — 3 gruppi: adulto aggressivo / adulto pacifico / controllo senza adulto. I bambini esposti al modello aggressivo mostrano più aggressività e usano più giocattoli violenti. Dimostra l'apprendimento osservativo senza rinforzo diretto.", "3|Bandura|Apprendimento osservativo/vicariante": "D.54: l'apprendimento vicariante (osservativo) di Bandura — si apprende osservando le conseguenze del comportamento degli altri (modelli), senza sperimentarle direttamente. «Vicariante» = al posto di qualcun altro.", "3|Bandura|Acquisizione tramite elaborazione cognitiva": "D.55: per Bandura l'apprendimento consiste nell'acquisizione di conoscenze attraverso l'elaborazione cognitiva delle informazioni osservate. Non è meccanico come nel condizionamento: la mente elabora attivamente.", "3|Bandura|Simbolizzazione come capacità chiave": "D.60: la simbolizzazione è la capacità chiave per l'apprendimento sociale — rappresentare internamente esperienze tramite immagini e parole consente di imparare anche in assenza del modello e di riprodurre il comportamento in seguito.", "3|Bandura|Determinismo triadico reciproco": "D.88: il determinismo triadico reciproco di Bandura — comportamento, persona (cognitiva/biologica/affettiva) e ambiente si influenzano reciprocamente in rete circolare. L'autoregolazione opera attraverso un set di sottofunzioni psicologiche secondo questa teoria.", "3|Piaget|Cooperazione sociale → sviluppo morale": "D.61/D.555: Piaget — la cooperazione sociale è il motore dello sviluppo morale. Attraverso l'interazione con i pari (non con gli adulti) il bambino supera l'egocentrismo morale e capisce che le regole sono accordi tra persone.", "3|Piaget|Fase senso-motoria: 0-24 mesi": "D.62: la fase senso-motoria (0-24 mesi) è il primo stadio di Piaget — il bambino conosce il mondo tramite sensi e azioni motorie, senza simboli o linguaggio. È il periodo in cui si sviluppa la permanenza dell'oggetto.", "3|Piaget|Imitazione nello stadio sensomotorio": "D.266: Piaget — lo sviluppo dell'imitazione avviene all'interno dello stadio sensomotorio. Il bambino prima imita solo movimenti già nel proprio repertorio, poi impara a imitare movimenti nuovi osservandoli.", "3|Piaget|A 2 mesi: superamento egocentrismo radicale": "D.308: secondo la teoria dello sviluppo di Piaget, a circa 2 mesi inizia il superamento dell'egocentrismo radicale — il bambino comincia a distinguere sé stesso dall'ambiente e ad avere prime interazioni contingenti.", "3|Erikson|Ogni fase = crisi cognitivo-sociale": "D.64: Erikson identifica 8 fasi dello sviluppo psicosociale, ciascuna caratterizzata da una crisi cognitivo-sociale — tensione tra due forze opposte (es. fiducia vs sfiducia) che se risolta positivamente produce crescita psicologica.", "3|Erikson|8 stadi dello sviluppo psicosociale": "D.64: i famosi 8 stadi di Erikson coprono tutto l'arco della vita: fiducia/sfiducia → autonomia/vergogna → iniziativa/colpa → industriosità/inferiorità → identità/confusione → intimità/isolamento → generatività/stagnazione → integrità/disperazione.", "3|Bronfenbrenner|Modello ecologico dello sviluppo": "D.65: Bronfenbrenner propone il modello ecologico — lo sviluppo avviene in sistemi concentrici: microsistema (famiglia, scuola), mesosistema (interazioni tra microsistemi), esosistema (contesti indiretti come il lavoro dei genitori), macrosistema (cultura).", "3|Bronfenbrenner|Microsistema famiglia = primo mediatore": "D.66: il microsistema famiglia è il primo elemento di mediazione tra la persona e il mondo circostante. È nel contesto familiare che il bambino fa le prime esperienze relazionali e costruisce i primi schemi di interazione.", "3|Bronfenbrenner|Esosistema: aree in cui la persona non partecipa": "D.67: l'esosistema comprende aree della vita sociale alle quali la persona non partecipa direttamente, ma che la influenzano comunque — es. il posto di lavoro dei genitori, il consiglio scolastico.", "4|Bowlby|Padre della teoria dell'attaccamento": "D.41/D.554: Bowlby è il padre della teoria dell'attaccamento — spiega il legame emotivo tra bambino e caregiver. Si ispirò a Darwin (valore evolutivo di sopravvivenza), Harlow (scimmie e madri artificiali) e Lorenz (imprinting).", "4|Bowlby|Ispiratori: Darwin, Harlow, Lorenz": "D.42/D.545: Bowlby si ispirò a Darwin (il legame ha valore evolutivo di sopravvivenza), Harlow (le scimmie preferiscono la madre morbida alla madre-cibo), Lorenz (l'imprinting dimostra la criticità dei legami precoci).", "4|Bowlby|Scopo dell'attaccamento: protezione dai pericoli": "D.43: lo scopo primario del sistema di attaccamento è la protezione dai pericoli esterni. Il bambino cerca la vicinanza della figura di attaccamento (base sicura) quando si sente minacciato. Non è solo bisogno di nutrimento ma di sicurezza.", "4|Bowlby|Primi legami → modelli operativi interni": "D.50: i primi legami vengono interiorizzati come modelli operativi interni (MOI) — rappresentazioni mentali di sé, degli altri e delle relazioni che guidano le aspettative nelle relazioni future. Attaccamento sicuro o insicuro si riflette nei rapporti adulti.", "4|Ainsworth|Strange Situation: valutazione attaccamento": "D.47: Ainsworth mette a punto la Strange Situation — procedura standardizzata (laboratorio, madre, bambino, estraneo, separazioni e riunioni) per classificare lo stile di attaccamento del bambino in Tipo A, B o C.", "4|Ainsworth|Attaccamento sicuro = Tipo B": "D.48: lo stile di attaccamento sicuro è classificato come Tipo B — il bambino usa la madre come base sicura per esplorare, protesta alla separazione ma si calma facilmente al ritorno. È lo stile più adattivo.", "4|Ainsworth|Stile insicuro-evitante: il bambino evita la madre": "D.49: nello stile insicuro-evitante (Tipo A) il bambino evita la madre al ritorno — non piange alla separazione e la ignora quando torna. Ha imparato che la madre non risponde ai suoi bisogni e ha soppresso le espressioni di attaccamento.", "4|James|Sé come conoscitore + Sé come oggetto": "D.69: William James (1890) distingue due aspetti del Sé: il Sé come conoscitore (I/Io) — la parte che esperisce — e il Sé come oggetto di conoscenza (Me) — le caratteristiche che ci si attribuisce. Mnemonico: I = chi conosce; Me = ciò che conosce di sé.", "4|James|Egocentralità: focalizzazione sul Sé nei giudizi": "D.70: l'egocentralità permette alla persona di mantenere la focalizzazione sui contenuti del Sé durante i processi di giudizio e memoria. Valutiamo gli eventi in relazione a noi stessi e ricordiamo meglio ciò che ci riguarda.", "4|James|Self-serving bias: successi interni, fallimenti esterni": "D.74: il self-serving bias — tendenza ad attribuire i successi a cause interne (abilità, impegno) e i fallimenti a cause esterne (sfortuna). Protegge l'autostima. Mnemonico: mi prendo il merito dei successi, do la colpa agli altri dei fallimenti.", "4|Festinger|Teoria del confronto sociale (1954)": "D.71/72: Festinger (1954) — le persone hanno bisogno di valutare le proprie opinioni e abilità e lo fanno confrontandosi con gli altri in assenza di standard oggettivi. Il confronto sociale è il meccanismo principale per definire il Sé.", "4|Festinger|Ci definiamo confrontandoci con chi ci circonda": "D.71: secondo Festinger, non sappiamo se siamo bravi o intelligenti in assoluto — lo sappiamo solo rispetto agli altri. I confronti possono essere verso l'alto (motivante) o verso il basso (protegge l'autostima).", "4|Festinger|Convinzioni e comportamenti sono soggettivi": "D.72: per Festinger, convinzioni, sentimenti e comportamenti sono soggettivi — non hanno validità oggettiva assoluta. Per questo abbiamo bisogno degli altri per valutarli: il confronto sociale fornisce il punto di riferimento esterno.", "4|Bronfenbrenner|Modello ecologico": "D.65-67: il modello ecologico di Bronfenbrenner vede lo sviluppo del Sé come progressivo adattamento tra individuo in crescita e sistemi ambientali concentrici: microsistema, mesosistema, esosistema, macrosistema, cronosistema.", "4|Bronfenbrenner|Micro/eso/macro/cronosistema": "D.65-67: microsistema (famiglia, classe — contatti diretti), esosistema (lavoro dei genitori — contesti indiretti), macrosistema (cultura e valori societari), cronosistema (cambiamenti nel tempo: divorzi, crisi). Ogni livello influenza lo sviluppo.", "4|Brewers & Gardner|Sé individuale, relazionale e collettivo (1996)": "D.73: Brewers e Gardner (1996) propongono tre livelli del Sé: individuale (tratti personali unici), relazionale (definito dalle relazioni intime), collettivo (definito dall'appartenenza a gruppi). Il contesto attiva quale forma del Sé è più saliente.", "5|Festinger|Confronto sociale: verso l'alto e verso il basso": "D.71-72: Festinger identifica due direzioni del confronto: verso l'alto (con chi è migliore — motivante ma può abbassare l'autostima) e verso il basso (con chi è peggio — protegge l'autostima). Nelle prestazioni scolastiche/lavorative entrambi si attivano.", "5|Festinger|Punto di riferimento esterno oggettivo": "D.72: il confronto sociale fornisce un punto di riferimento esterno oggettivo. Quando non esiste uno standard fisico misurabile, gli altri diventano il nostro termometro. Trasforma le valutazioni soggettive in qualcosa di più ancorato.", "5|Baumeister|Autostima = aspetto valutativo della coscienza riflessiva": "D.104: Baumeister (1998) — l'autostima è un aspetto valutativo della coscienza riflessiva, la dimensione in cui valutiamo il nostro valore come persone. Non è descrittiva (\"sono alto\") ma valutativa (\"sono degno di essere amato\").", "5|Bandura|Autoefficacia (capacità) ≠ autostima (valore)": "D.107/D.552: Bandura distingue autoefficacia (giudizi di capacità personale — \"sono in grado di fare X?\") da autostima (giudizi di valore personale — \"sono una persona valida?\"). Si può avere alta autoefficacia in matematica e bassa autostima globale.", "5|Bandura|Self-handicapping: strategia di autoimpedimento": "D.78: il self-handicapping è una strategia difensiva del Sé — si creano deliberatamente ostacoli alla propria prestazione per avere una scusa in caso di fallimento (\"ho fallito perché ero stanco\"). È classificato come strategia di autoimpedimento.", "5|Brewers & Gardner|Sé individuale, relazionale, collettivo": "D.73: tripartizione di Brewers e Gardner — Sé individuale (tratti unici), Sé relazionale (definito dalle relazioni importanti), Sé collettivo (definito dall'appartenenza a gruppi). Culture individualiste enfatizzano il Sé individuale, collettiviste il collettivo.", "6|Bandura|Cognitive self-management": "D.81: l'autoregolazione e l'autocontrollo costituiscono il processo del cognitive self-management — la gestione cognitiva di se stessi. È la metacognizione in azione: usare la propria mente per orchestrare e dirigere il comportamento verso obiettivi.", "6|Bandura|Autoregolazione = metacognizione in azione": "D.82: l'autoregolazione è la metacognizione in azione — pensare al proprio pensiero e usarla per pianificare, monitorare e correggere il comportamento. Chi sa autoregolarsi ottiene risultati scolastici migliori e maggiore resistenza alle difficoltà.", "6|Bandura|Distingue: controllare / controllo / convinzioni di controllo": "D.84: Bandura distingue tre livelli: (1) il controllare = la regolazione effettiva in atto; (2) il controllo = la possibilità potenziale; (3) le convinzioni di controllo = la credenza soggettiva di essere capace di controllare. Tre cose diverse che non sempre coincidono.", "6|Bandura|Convinzioni di contingenza + competenza": "D.86: le convinzioni di controllo si compongono di convinzioni di contingenza (\"se faccio X, accadrà Y\" — aspettative sui risultati) e convinzioni di competenza (\"sono in grado di fare X\" — aspettative di efficacia). Entrambe sono necessarie per l'azione efficace.", "6|Bandura|Sistema cognitivo autoregolativo": "D.89-90: il sistema cognitivo autoregolativo include la capacità di individuare obiettivi soddisfacenti e la capacità di riaggiustare e ridefinire le aspirazioni sulla base dei propri standard di prestazione. È un sistema di feedback continuo tra obiettivi, prestazioni e standard.", "6|Bandura|Determinismo Triadico Reciproco": "D.88: il DTR di Bandura — l'autoregolazione opera attraverso l'interazione reciproca tra fattori personali cognitivi/biologici/affettivi, comportamento e ambiente. Non è lineare causa→effetto ma una rete di influenze bidirezionali.", "6|Bandura|Condizionamento = esperienza di contingenza": "D.87: l'abituazione, il condizionamento classico e quello strumentale sono esperienze di contingenza — l'organismo apprende le relazioni causali tra eventi. Le convinzioni di contingenza si formano attraverso queste esperienze di apprendimento.", "7|Bandura|Autoefficacia = credenza contesto/compito specifica": "D.91/D.105: l'autoefficacia percepita (Bandura, 1986) è una credenza specifica per contesto e compito — non una valutazione globale delle proprie capacità ma la percezione di essere competenti in quel contesto specifico con quel compito specifico.", "7|Bandura|Importante mediatore della motivazione": "D.92: l'autoefficacia è un importante mediatore della motivazione — se credi di poter riuscire, sei più motivato a impegnarti; se non ci credi, rinunci prima. Catena: alta autoefficacia → maggiore motivazione → maggiore impegno → migliore prestazione.", "7|Bandura|Non innata: si costruisce gradatamente": "D.93/D.544: l'autoefficacia non è presente dalla nascita ma si costruisce gradatamente nel corso della vita attraverso esperienze dirette, osservazione di modelli, feedback verbale e stati emotivi. Cresce in adolescenza e declina in tarda maturità.", "7|Bandura|Fonti: successi/fallimenti passati": "D.94: la prima e più potente fonte dell'autoefficacia sono i successi e i fallimenti passati — i successi la aumentano, i fallimenti ripetuti la diminuiscono. Le altre 5 fonti: esperienze vicarie, capacità immaginativa, persuasione verbale, stato fisiologico, stato emotivo.", "7|Bandura|Grandezza, forza, generalizzazione": "D.95-96: l'autoefficacia varia lungo tre dimensioni — grandezza (quante difficoltà crescenti si ritiene di affrontare), forza (quanto si è convinti, correlata alla persistenza), generalizzazione (in quante situazioni simili si estende la credenza di efficacia).", "7|Bandura|Autoefficacia collettiva: motiva i gruppi": "D.97: l'autoefficacia collettiva è la credenza condivisa dai membri di un gruppo di poter raggiungere obiettivi comuni con elevati standard di competenza. Permette di motivare i gruppi verso traguardi ambiziosi. Mnemonico: team efficace = team che crede in sé come unità.", "7|Bandura|Predice % problemi risolti a scuola": "D.98-99: le convinzioni degli studenti circa la propria efficacia predicono la percentuale di problemi risolti e l'incremento delle abilità di studio. Non è solo la capacità reale ma la credenza nella propria capacità a determinare il successo scolastico.", "7|Bandura|Capacità immaginativa come fonte": "D.546: la capacità immaginativa è una delle sei fonti dell'autoefficacia — permette di anticipare mentalmente situazioni, proprie reazioni ed emozioni, e conseguenze delle azioni. Simulare mentalmente un successo aumenta l'autoefficacia percepita.", "7|Bandura|Si sviluppa in adolescenza e declina in maturità": "D.544: l'autoefficacia tendenzialmente si sviluppa e cresce dalla prima alla tarda adolescenza e declina dalla prima alla tarda maturità. Il picco coincide con il periodo di massima acquisizione di competenze e identità.", "8|Baumeister|Autostima = aspetto valutativo della coscienza riflessiva": "D.104: Baumeister (1998) — l'autostima è un aspetto valutativo della coscienza riflessiva: la dimensione in cui valutiamo il nostro valore come persone. Non è descrittiva ma valutativa: quanto mi piaccio, quanto mi reputo degno.", "8|Bandura|Autostima = giudizi di valore personale": "D.107/D.552: per Bandura l'autoefficacia riguarda i giudizi di capacità personale (\"posso fare X?\"), mentre l'autostima riguarda i giudizi di valore personale (\"sono una persona che vale?\"). Costrutti distinti: autoefficacia è compito-specifica, autostima è globale.", "8|Bandura|Vs autoefficacia = giudizi di capacità": "D.107: distinzione chiave per l'esame — autoefficacia = \"sono capace di?\" (giudizi di capacità, specifici per compito); autostima = \"valgo come persona?\" (giudizi di valore, globali). Entrambi influenzano la motivazione ma in modo diverso.", "8|James|Self-serving bias": "D.74: il self-serving bias — tendenza ad attribuire i successi a cause interne (abilità, impegno) e i fallimenti a cause esterne (sfortuna, difficoltà). Serve a proteggere e mantenere alta l'autostima. Distorsione attributiva sistematica.", "8|James|Affiliazione mirata per sentirsi più sicuri di sé": "D.75: l'affiliazione mirata permette di frequentare altri che aiuteranno a sentirsi più sicuri di sé — si scelgono amici e partner che valorizzano. È una strategia di protezione dell'autostima attraverso la selezione delle relazioni.", "9|Bandura|Agentività + autoefficacia + disimpegno morale": "D.111: Bandura — la spiegazione della condotta si articola in tre elementi: agentività umana (capacità di agire intenzionalmente), autoefficacia percepita (credere di essere in grado) e disimpegno morale (meccanismi per disattivare i propri standard morali).", "9|Bandura|Agentività = atti compiuti intenzionalmente": "D.112-113: l'agentività umana (human agency) è la facoltà di generare azioni mirate a determinati scopi in modo intenzionale. Si distingue dagli effetti non intenzionali delle proprie azioni: molte azioni producono conseguenze non previste.", "9|Bandura|Disimpegno morale: strategie per svincolarsi dalle norme": "D.115: il disimpegno morale è un insieme di strategie cognitive-sociali per svincolarsi dalle norme e dalla responsabilità morale — meccanismi mentali che disattivano i propri standard etici per giustificare comportamenti che altrimenti si disapproverebbero.", "9|Bandura|Giustificazione morale → ridefinizione della condotta": "D.116: la giustificazione morale ridefinisce la condotta — un comportamento immorale viene presentato come moralmente giusto perché serve a fini elevati. Classico esempio: \"la violenza è necessaria per difendere la patria\".", "9|Bandura|Attribuzione di colpa → rivalutazione vittima": "D.117: l'attribuzione di colpa provoca una rivalutazione della vittima — si afferma che la vittima ha provocato o meritato il danno, alleggerendo la responsabilità dell'aggressore. La vittima diventa \"colpevole della propria sventura\".", "9|Bandura|Minimizzazione delle conseguenze": "D.118: la minimizzazione delle conseguenze determina una distorsione nel rapporto causa-effetto — si nega o minimizza il danno causato (\"non era poi così grave\"). Rompe il nesso causale tra azione e conseguenze.", "9|Bandura|Scala del Disimpegno Morale = 32 item": "D.120: la Scala del Disimpegno Morale è composta da 32 item che misurano i diversi meccanismi di disimpegno. È lo strumento standardizzato per valutare la propensione agli 8 meccanismi individuati da Bandura.", "9|Bandura|Incoraggiare ammissione degli errori contrasta disimpegno": "D.317: incoraggiare l'ammissione degli errori aiuta a contrastare il disimpegno morale — chi riconosce i propri errori non può ricorrere ai meccanismi di giustificazione o attribuzione di colpa. È uno dei 10 passi di Zimbardo.", "10|Heider|'Psicologia Ingenua' (senso comune)": "D.121: Heider introduce il concetto di Psicologia Ingenua o del Senso Comune — la tendenza umana quotidiana a cercare le cause degli eventi e costruire una teoria implicita della realtà sociale. Agiamo come scienziati naif della vita quotidiana.", "10|Heider|Errore fondamentale di attribuzione (FAE)": "D.122/D.237: il FAE è il bias più importante — tendenza sistematica a sopravvalutare i fattori disposizionali (carattere, personalità) e sottovalutare i fattori situazionali nel spiegare il comportamento altrui. Esempio: \"è aggressivo per carattere\" invece di \"è frustrato per la situazione\".", "10|Heider|Attribuzione causale = individuare cause": "D.124: l'attribuzione causale è il processo mediante cui individuiamo le cause di azioni ed eventi. Tre elementi cardine: l'evento (cosa è successo), l'attore (chi ha agito), l'osservatore (chi interpreta). Molte analisi causali avvengono in modo implicito.", "10|Heider|Forze personali = potere + tentare": "D.130: le forze personali si compongono di potere (la capacità effettiva di compiere l'azione) e tentare (la motivazione/sforzo profuso). Sono in relazione moltiplicativa: se uno dei due è zero, l'effetto delle forze personali è zero.", "10|Weiner|Criteri: stabilità e controllabilità": "D.123: Weiner propone due criteri per classificare le cause di successi e fallimenti: stabilità (la causa è stabile o variabile nel tempo?) e controllabilità (è sotto il controllo della persona?). Incrociati con il locus (interno/esterno) formano una griglia classificatoria.", "10|Jones & Davis|Teoria dell'inferenza corrispondente": "D.126: Jones e Davis — dall'osservazione del comportamento altrui inferiamo le intenzioni e le disposizioni stabili dell'attore. Limite: la teoria si riferisce solo all'eteroattribuzione (spiegare il comportamento degli altri), non all'autoattribuzione.", "10|Jones & Davis|Si riferisce solo all'eteroattribuzione": "D.126: limite chiave della teoria — si applica solo all'eteroattribuzione (spiegare il comportamento degli ALTRI), non all'autoattribuzione. Le inferenze sulle intenzioni dipendono dalla libertà di scelta dell'attore (D.129).", "10|Jones & Davis|Inferenze sull'intenzione: libertà di scelta": "D.129: le inferenze sull'intenzione dell'attore riguardano la libertà di scelta — più l'azione è stata scelta liberamente, più ci dice qualcosa di stabile sulla persona. Un'azione forzata dalla situazione ci dice poco sul carattere.", "10|Rotter|Locus of control: interno ed esterno": "D.127: Rotter introduce il locus of control — tendenza a percepire i propri risultati come controllati internamente (proprie capacità e impegno) o esternamente (fortuna, destino, altri). Predice molti comportamenti e stati psicologici.", "10|Rotter|Locus esterno → tratti depressivi": "D.125: chi ha locus of control esterno tende a manifestare tratti depressivi — si sente impotente, senza controllo sulla propria vita, con ridotta motivazione al cambiamento. Il locus interno si associa a maggiore benessere e proattività.", "11|Lewin|Padre della teoria del campo": "D.139: Lewin è il padre della teoria del campo psicologico — il comportamento (C) è funzione della persona (P) e dell'ambiente (A) come sistema dinamico: C = S(PA). Approccio gestaltico che rifiuta le spiegazioni lineari in favore di un sistema di forze interagenti.", "11|Lewin|C = S(PA): comportamento = spazio di vita": "D.131-132: la formula di Lewin C = S(PA) — il Comportamento è funzione dello Spazio di vita, che dipende dalla Persona e dall'Ambiente. Lo spazio di vita è la realtà come percepita soggettivamente dall'individuo, non quella fisica oggettiva.", "11|Lewin|I dittatori inventano un nemico esterno": "D.244: Lewin afferma che è tipico dei dittatori \"inventare\" un nemico esterno per convogliare su di esso l'aggressività generata all'interno del gruppo che governano. Il nemico esterno è uno strumento politico di coesione interna.", "11|Markus & Zajonc|Euristiche = scorciatoie di pensiero": "D.133: le euristiche sono scorciatoie di pensiero — strategie cognitive rapide e automatiche che permettono di prendere decisioni veloci senza elaborare tutte le informazioni disponibili. Economiche cognitivamente ma producono errori sistematici.", "11|Markus & Zajonc|Euristica della rappresentatività": "D.134: l'euristica della rappresentatività valuta velocemente l'appartenenza a una categoria in base alla somiglianza al prototipo. Esempio: \"Steve sembra più un bibliotecario che un contadino\" → si stereotipa in base alla rappresentatività.", "11|Markus & Zajonc|Euristica della disponibilità → frequenza": "D.136: l'euristica della disponibilità valuta la frequenza — si stima la frequenza di eventi in base a quanto facilmente esempi vengono in mente. Ciò che è più disponibile mentalmente ci sembra più frequente (es. sovrastimiamo il rischio di incidenti aerei dopo notizie).", "11|Markus & Zajonc|Euristica della simulazione: scenari ipotetici": "D.135: l'euristica della simulazione serve per formulare ipotesi o immaginare scenari ipotetici sulle possibili evoluzioni di un evento — si simula mentalmente come sarebbe andata diversamente (pensiero controfattuale: \"se avessi...allora\").", "11|Markus & Zajonc|Effetto Primacy: prime informazioni guidano la percezione": "D.137: l'effetto Primacy — le prime informazioni ricevute guidano la percezione e la valutazione della personalità. La prima impressione organizza l'elaborazione delle informazioni successive, che vengono integrate nella cornice già formata.", "12|Moscovici|Ancoraggio e oggettivazione": "D.144: Moscovici individua i due processi generatori delle RS — ancoraggio (rendere familiare l'estraneo inserendolo in categorie esistenti) e oggettivazione (tradurre idee astratte in immagini concrete). Lo studio delle RS passa attraverso l'analisi di questi due processi.", "12|Moscovici|Le RS ricostruiscono la realtà": "D.148: le RS non costruiscono la realtà da zero ma la ricostruiscono — partono da fenomeni rilevanti già esistenti e riorganizzano ciò che è stato formulato da altri. Sono lenti attraverso cui reinterpretiamo il già noto.", "12|Moscovici|Sistema integrato di valori, nozioni e pratiche": "D.150: le RS sono un sistema integrato di valori, nozioni e pratiche — non solo conoscenze astratte ma orientamenti per l'azione quotidiana. Permettono ai membri di un gruppo di comportarsi e comunicare in modo comprensibile.", "12|Moscovici|L'oggettivazione evidenzia l'aspetto iconico": "D.147: l'oggettivazione evidenzia l'aspetto iconico di una categoria — traduce concetti astratti in immagini concrete. Esempio: la psicanalisi → immagine iconica del lettino del terapeuta. È il processo che rende visibile l'invisibile.", "12|Abric & Tafani|Metodo della messa in discussione": "D.142: il metodo della messa in discussione di Abric e Tafani — si chiede di immaginare l'oggetto della RS senza una delle sue caratteristiche e valutare se cambia fondamentalmente la rappresentazione. Se sì, quella caratteristica è nel nucleo centrale.", "12|Abric & Tafani|Nucleo centrale: funzione stabilizzatrice": "D.143: il nucleo centrale svolge la funzione stabilizzatrice — è il sistema di elementi condivisi, stabili e resistenti al cambiamento che conferisce identità e continuità alla RS. Senza il nucleo, la rappresentazione si disgrega.", "12|Abric & Tafani|Funzione generatrice: crea significati periferici": "D.145: la funzione generatrice del nucleo centrale crea o trasforma il significato degli altri elementi periferici della RS. È il nucleo che dà senso agli elementi periferici, non il contrario.", "12|Abric & Tafani|Elementi periferici = concretizzazioni del nucleo": "D.146: gli elementi periferici sono le concretizzazioni del significato astratto del nucleo centrale — più flessibili, legati al contesto individuale, proteggono il nucleo dall'impatto con la realtà. Possono variare senza disgregare la RS.", "12|Thomas & Znaniecki|Atteggiamenti = stato mentale verso un valore": "D.151: Thomas e Znaniecki — gli atteggiamenti sono processi mentali individuali che determinano le risposte di ogni essere umano al suo mondo sociale: uno stato mentale dell'individuo verso un valore.", "13|Fishbein & Ajzen|Teoria dell'azione ragionata": "D.156: Fishbein e Ajzen propongono la Teoria dell'Azione Ragionata — il comportamento è determinato dall'intenzione, che dipende dall'atteggiamento verso il comportamento (valutazione personale) e dalla norma soggettiva (aspettative altrui percepite).", "13|Allport|Atteggiamenti come stati inferibili": "D.157: Allport (1920) — gli atteggiamenti sono stati mentali di prontezza organizzati tramite l'esperienza, non osservabili direttamente ma inferibili dal comportamento. Sono variabili interveniente tra stimolo e risposta.", "13|LaPiere|Atteggiamenti = disposizioni mentali decontestualizzate": "D.155: LaPiere — gli atteggiamenti come disposizioni mentali decontestualizzate: valutazioni generali verso oggetti, senza considerare il contesto specifico. Il suo famoso studio dimostrò che atteggiamenti dichiarati e comportamenti reali spesso non corrispondono.", "13|Billig|Atteggiamenti e contesto strettamente legati": "D.160: Billig — atteggiamenti e contesto sono strettamente legati. Gli atteggiamenti non sono entità stabili nella mente ma vengono costruiti e espressi nelle pratiche discorsive, variando con il contesto interazionale.", "13|Thomas & Znaniecki|Atteggiamenti = stato mentale verso un valore": "D.151: Thomas e Znaniecki — gli atteggiamenti sono stati mentali dell'individuo verso un valore. Prima definizione sociologica degli atteggiamenti: qualsiasi realtà con contenuto empirico accessibile ai membri di un gruppo e con un significato.", "13|Thomas & Znaniecki|Due modi di interazione: situati e culturalmente connotati": "D.152: Thomas e Znaniecki identificano due modi di interazione degli atteggiamenti con il contesto: modi situati (legati alla situazione specifica) e modi connotati culturalmente (legati ai valori e norme culturali condivisi del gruppo).", "14|Allport|Teoria del contatto": "D.250: Allport (1954) propone l'ipotesi del contatto — il pregiudizio si riduce attraverso il contatto tra gruppi, ma solo in condizioni ottimali: parità di status, obiettivi comuni, cooperazione, supporto istituzionale. Senza queste condizioni il contatto può aumentare i pregiudizi.", "14|Allport|Pregiudizio pone la vittima in svantaggio": "D.383: l'effetto ultimo del pregiudizio è porre l'oggetto in una posizione di svantaggio non giustificata dalla sua condotta — la persona viene discriminata non per quello che ha fatto ma per il gruppo di appartenenza.", "14|Allport|Fasi del rifiuto: verbale → evitamento → sterminio": "D.383: Allport individua le fasi progressive del rifiuto dell'outgroup — rifiuto verbale (insulti, slur) → evitamento → segregazione → aggressione fisica → sterminio. Il pregiudizio può degenerare in violenza sistematica.", "14|Dollard & Miller|Teoria frustrazione-aggressività": "D.167/D.260: Dollard e Miller — la frustrazione (blocco di un obiettivo) produce sempre aggressività, e l'aggressività è sempre prodotta dalla frustrazione. Questa aggressività può spostarsi verso un capro espiatorio, spiegando il pregiudizio.", "14|Dollard & Miller|Frustrazione e aggressività: rapporto biunivoco": "D.260: per Dollard e Miller frustrazione e aggressività hanno un rapporto biunivoco — ogni frustrazione produce aggressività E ogni aggressività presuppone una frustrazione previa. Doppia implicazione.", "14|Krech|3 componenti del pregiudizio (cognitiva, affettiva, comportamentale)": "D.161-162: Krech e colleghi identificano 3 componenti del pregiudizio: cognitiva (stereotipi e credenze), affettiva (sentimenti di avversione), comportamentale (discriminazione e evitamento). La \"componente di ostilità\" NON è una delle tre nominate da Krech.", "14|Mazzara|Irrazionalità del pregiudizio: prospettiva psicodinamica": "D.163: Mazzara spiega l'irrazionalità del pregiudizio con una prospettiva psicodinamica — il pregiudizio è un meccanismo di difesa, una proiezione delle proprie angosce sull'outgroup. Questa base irrazionale lo rende molto resistente al cambiamento razionale.", "14|Anderson|'Benign bigotry': miti del pregiudizio sottile": "D.168-170: Anderson (2010) analizza i miti del pregiudizio sottile, etichettandolo come \"benign bigotry\" (fanatismo benevolo) — forme di pregiudizio che si nascondono dietro miti apparentemente positivi (es. \"le società multietniche funzionano\") ma che in realtà escludono.", "15|Lippmann|Primo a trattare gli stereotipi (1922)": "D.171: Walter Lippmann (1922) è il primo autore ad usare il termine \"stereotipo\" in senso psicologico nel saggio \"Opinione Pubblica\". Il termine viene dalla tipografia (stampo rigido che non cambia). Descrive come le preconcezioni determinino la percezione.", "15|Lippmann|Stereotipi: generalizzazioni per classificare gruppi": "D.174: Lippmann — gli stereotipi sono generalizzazioni, spesso improprie e insensate, utili a classificare vari gruppi sociali attribuendo a chiunque faccia parte di quella categoria le stesse identiche caratteristiche. È classificazione automatica.", "15|Tajfel|Stereotipo = processo cognitivo neutro, presente in tutti": "D.177: Tajfel — lo stereotipo è un processo cognitivo neutro, né positivo né negativo, presente in ciascun individuo. È il modo in cui la mente categorizza la realtà per renderla gestibile. Il problema non è lo stereotipo in sé ma il suo contenuto e le sue conseguenze.", "15|Tajfel|Accentuazione somiglianza intracategoriale": "D.234: effetto della categorizzazione di Tajfel — aumento della somiglianza percepita tra elementi della stessa categoria. I membri dell'outgroup ci sembrano \"tutti uguali\" anche quando non lo sono. È uno dei meccanismi alla base degli stereotipi distorcenti.", "15|Tajfel|Accentuazione differenza intercategoriale": "D.235: l'altro effetto della categorizzazione di Tajfel — percepiamo le differenze tra ingroup e outgroup come più grandi di quanto siano realmente. Insieme all'accentuazione intracategoriale produce distorsioni percettive sistematiche.", "15|Fiske & Neuberg|Modello del continuum: stereotipo → individuazione": "D.176: Fiske e Neuberg propongono il Modello del Continuum — i processi dalla categorizzazione automatica (stereotipizzazione) all'individuazione della persona specifica si dispongono lungo un continuum. Si usa più o meno stereotipo a seconda della motivazione e capacità di elaborare le informazioni.", "15|Bargh et al.|Priming a livello inconscio (1996)": "D.172: Bargh e colleghi (1996) studiano il priming inconscio — l'attivazione automatica di categorie stereotipate avviene al di sotto della soglia di consapevolezza. Esporre brevemente immagini di un gruppo influenzava i giudizi successivi senza consapevolezza da parte dei soggetti.", "15|Rudman & Borgida|2 gruppi: sperimentale e di controllo (1995)": "D.173: Rudman e Borgida (1995) suddividono il campione in 2 gruppi: sperimentale (esposto a materiale stereotipato) e di controllo. Dimostrano l'influenza dell'esposizione agli stereotipi sui giudizi successivi.", "16|Sherif|Primo ricercatore sull'influenza sociale": "D.182: Muzafer Sherif (1906-1988) è il primo a occuparsi della ricerca sui processi di influenza sociale. Usa l'effetto autocinetico (punto di luce immobile in stanza buia che sembra muoversi) per studiare come emergono le norme di giudizio in gruppo.", "16|Sherif|Effetto autocinetico: norma percettiva di gruppo": "D.184-185: nell'esperimento di Sherif con l'effetto autocinetico — i soggetti prima esprimono giudizi molto variabili individualmente, poi in gruppo convergono verso una norma condivisa. Conclusione: il contatto con gli altri influenza la percezione del singolo creando una norma percettiva.", "16|Sherif|Distanza da frustrazione-aggressività": "D.239: Sherif prende le distanze dagli studiosi della personalità e dalla scuola della frustrazione-aggressività per studiare le relazioni intergruppi empiricamente. Ha fondato le proprie teorie su ricerche svolte in campi estivi per ragazzi tra il 1948 e il 1952.", "16|Sherif|Ricerche nei campi estivi 1948-52": "D.240: le ricerche di Sherif nei campi estivi (1948-52) — divide i ragazzi in gruppi e osserva come si sviluppino conflitti e cooperazione intergruppi attraverso attività competitive e cooperative (esperimento di Robbers Cave). Fondamentali per la psicologia intergruppi.", "16|Asch|Conformismo in situazioni non ambigue": "D.183/D.298: Asch (1907-1996) indaga il conformismo in situazioni non ambigue — a differenza di Sherif, usa il giudizio di lunghezze di linee con risposta obiettivamente chiara. Nonostante la chiarezza, il 33% dei soggetti si conforma alle risposte errate della maggioranza.", "16|Asch|Situazione sperimentale chiara (linee)": "D.186: la situazione sperimentale di Asch è chiara e non ambigua: confronto di lunghezze di linee con risposta ovvia. I complici danno risposte palesemente errate. Molti si conformano nonostante l'evidenza oggettiva. È la chiave di differenza rispetto a Sherif.", "16|Asch|Il gruppo dà il messaggio alla persona": "D.187: la deduzione di Asch — la persona definisce il proprio comportamento e il suo giudizio tenendo conto del messaggio che il gruppo le dà su quella situazione. Il giudizio altrui diventa informazione sociale a cui si dà peso anche quando contraddice l'evidenza sensoriale.", "16|Asch|Campo reciprocamente condiviso": "D.208: il campo reciprocamente condiviso di Asch — le persone in interazione condividono uno spazio psicologico comune che rende possibile l'influenza reciproca. È la base della coesione sociale e dell'influenza normativa nel gruppo.", "16|Lewin, Lippit & White|Stili: autoritario, democratico, laissez-faire": "D.230: Lewin, Lippit e White (1939) classificano gli stili di leadership: autoritario (il leader decide tutto, impartisce ordini), democratico (decisioni prese con il gruppo, leader che facilita), laissez-faire (leadership permissiva — nominale ma non sostanziale).", "16|Moscovici|Distingue potere e influenza": "D.224: Moscovici distingue potere (capacità di imporre attraverso risorse e coercizione) da influenza (capacità di cambiare atteggiamenti e comportamenti senza coercizione). Le minoranze influenzano attraverso coerenza nel tempo, non attraverso potere formale.", "16|Moscovici|Influenza minoritaria: coerenza nel tempo": "D.224: Moscovici studia l'influenza minoritaria — le minoranze possono influenzare la maggioranza attraverso coerenza, certezza e persistenza nel tempo. La minoranza produce conversione (cambiamento privato profondo) anziché sola compliance (conformismo superficiale).", "17|Milgram|Scopo: quanto si spinge nell'infliggere punizioni": "D.194: lo scopo dell'esperimento di Milgram era verificare fino a che punto un essere umano si spinge nell'infliggere punizioni dolorose a un innocente per obbedienza all'autorità scientifica. Risultato sconvolgente: il 65% arriva alle scosse massime (450V).", "17|Milgram|Sesso dei soggetti è irrilevante": "D.195: in esperimenti successivi è stato dimostrato che il sesso dei soggetti è irrilevante — sia uomini che donne obbediscono allo stesso modo. L'obbedienza all'autorità non è un fenomeno di genere ma un meccanismo psicologico universale.", "17|Milgram|Incapacità di contrastare i desideri del 'capo'": "D.196: nella situazione di Milgram, tutto dipenderebbe dall'incapacità dei soggetti di contrastare i desideri del \"capo\" (lo sperimentatore) — la struttura gerarchica e l'autorità percepita inibiscono la capacità di resistenza individuale.", "17|Milgram|Reazione automatica all'autorità = scorciatoia": "D.197: la reazione automatica all'autorità è la tendenza inconsapevole a usare le informazioni di un'autorità riconosciuta come scorciatoia per decidere come comportarsi. È un'euristica: si delega la decisione a chi si considera esperto e legittimo.", "17|Milgram|Presenza fisica dell'autorità → più obbedienza": "D.198: la presenza fisica dell'autorità impatta significativamente — se il leader è fisicamente presente si obbedisce di più; se controlla qualcuno senza potere legittimo, si obbedisce meno. Prossimità e legittimità sono i due fattori chiave.", "17|Milgram|Libertà di scelta riduce l'intensità della scossa": "D.199: la libertà di scelta impatta — l'intensità della scossa somministrata diminuiva se al soggetto veniva lasciato libero di scegliere quale scossa somministrare. Il senso di responsabilità personale aumenta quando si ha potere di scelta.", "17|Milgram|Sostegno sociale → maggiore opposizione agli ordini": "D.200: il sostegno sociale impatta — se c'è sostegno sociale (altri che si ribellano), il soggetto riesce a fare una maggiore opposizione verso l'ordine impartitogli. La presenza di dissenso altrui legittima il proprio dissenso.", "17|Milgram|Stato eteronomico: assenza di autonomia": "D.269/290-291: nello stato eteronomico di Milgram i soggetti perdono la propria autonomia comportamentale — una condizione in cui si estinguono le caratteristiche intellettive in funzione della propagazione del pensiero dell'autorità. L'individuo percepisce il comportamento come non suo (eterodirezione, D.300).", "17|Milgram|Gente normale può rendersi complice di distruzione": "D.268: conclusione fondamentale di Milgram — \"gente normale può, da un momento all'altro, rendersi complice di un processo di distruzione\". Non servono persone patologicamente malvagie: basta un sistema autoritario che crea lo stato eteronomico.", "17|Milgram|Potere della situazione → atti antisociali": "D.299: Milgram afferma che il potere della situazione induce le persone a compiere atti antisociali — non è la personalità del singolo ma le forze situazionali (sistema, autorità, contesto) a produrre obbedienza distruttiva.", "17|Zimbardo|Esperimento carcerario di Stanford": "D.284-289: Zimbardo (1971) — 24 studenti sani assegnati casualmente ai ruoli di guardie e prigionieri in una prigione simulata. Dopo pochi giorni le guardie diventano sadiche e i prigionieri sviluppano crisi emotive. Interrotto al 6° giorno (previsto il 14°).", "17|Zimbardo|Abbigliamento = deindividuazione": "D.284: nell'esperimento di Stanford, l'abbigliamento — uniforme per le guardie, camice senza nome per i prigionieri — poneva entrambi i gruppi in una condizione di deindividuazione: l'identità individuale veniva soppressa a favore dell'identità di ruolo.", "17|Zimbardo|I soggetti dimenticarono la propria identità": "D.285-286: le persone di Stanford entrarono così profondamente nei ruoli da dimenticare le loro identità personali e il proprio senso di umanità. I soggetti assunsero così rapidamente i rispettivi ruoli da costringere i ricercatori a sospendere l'esperimento.", "17|Zimbardo|Ruolo istituzionale → adozione delle norme": "D.289: assumere un ruolo istituzionale induce ad assumere le norme e le regole dell'istituzione come unico valore guida — il ruolo diventa più potente della persona. Spiega gli abusi nelle istituzioni totali (carceri, ospedali psichiatrici).", "17|Zimbardo|Eterodirezione: comportamento percepito come non proprio": "D.300: l'eterodirezione — l'individuo percepisce il proprio comportamento come non suo, dettato dall'esterno dall'autorità. Meccanismo di deresponsabilizzazione centrale: «stavo solo seguendo gli ordini». Base psicologica dell'obbedienza distruttiva.", "18|Lewin|Gruppo: interdipendenza e totalità dinamica": "D.201: Lewin definisce il gruppo attraverso due concetti — interdipendenza (ogni membro modifica gli altri e a sua volta viene modificato) e totalità dinamica (la struttura del gruppo si modifica continuamente). Non è la somiglianza ma l'interdipendenza a definire il gruppo.", "18|Lewin|Dinamiche di gruppo: campo sociale": "D.201: Lewin introduce il termine «dinamiche di gruppo» — come la persona e il suo ambiente formano un campo psicologico, così il gruppo e il suo ambiente formano un campo sociale. Le forze all'interno di questo campo determinano i comportamenti dei membri.", "18|DeGrada|Alta gruppalità = sentimenti positivi tra membri": "D.202: De Grada definisce un gruppo come ad alta gruppalità se i componenti nutrono sentimenti positivi nei confronti degli altri membri — la coesione emotiva è il segno di un gruppo ben funzionante con forte identità collettiva.", "18|Pruitt & Kimmel|Dilemma del prigioniero": "D.204: il dilemma del prigioniero di Pruitt e Kimmel — due soggetti devono scegliere se cooperare o tradire senza conoscere la scelta dell'altro. Il risultato ottimale per entrambi è la cooperazione, ma la razionalità individuale spinge al tradimento. Modello base dei conflitti cooperazione/competizione.", "18|Campbell|Teoria del conflitto realistico": "D.209: Campbell propone la teoria del conflitto realistico di gruppo — i conflitti intergruppi nascono dalla competizione reale per risorse limitate (territorio, potere, risorse economiche). Non è solo un problema di percezione o pregiudizio, ma di interessi concreti in conflitto.", "18|Asch|Campo reciprocamente condiviso": "D.208: il campo reciprocamente condiviso di Asch — in un gruppo le persone condividono un campo psicologico comune che rende possibile l'influenza reciproca. È la base su cui si costruisce la norma di gruppo e il conformismo.", "18|Janis|Pensiero di gruppo: guardiani della mente": "D.210: Irving Janis descrive il groupthink (pensiero di gruppo) — in gruppi molto coesi la pressione alla conformità porta a decisioni irrazionali. Elemento caratteristico: i «guardiani della mente» (mindguards) proteggono il gruppo da informazioni che metterebbero in discussione le decisioni già prese.", "19|Bruner|Apprendimento = attività in comune (1984)": "D.214: Bruner (1984) — l'apprendimento è essenzialmente un'attività che si svolge in comune e coinvolge la costruzione sociale della conoscenza. Non si apprende da soli ma insieme agli altri, costruendo significati condivisi.", "19|Bruner|Costruzione sociale della conoscenza": "D.214: la costruzione sociale della conoscenza di Bruner — la conoscenza non è ricevuta passivamente ma costruita attivamente nell'interazione sociale. Il gruppo dei pari è il contesto privilegiato di questa costruzione condivisa.", "19|Damon|Verifica i principi del peer learning (1984)": "D.215: William Damon (1984) verifica empiricamente i principi del peer learning (apprendimento tra pari) — l'interazione tra coetanei produce apprendimento più efficace di quello adulto-bambino in certi contesti, perché la parità facilita il confronto cognitivo.", "19|Johnson et al.|Modello 'learning together' (1996)": "D.217: Johnson e colleghi (1996) elaborano il modello di apprendimento cooperativo \"learning together\" — basato su 5 elementi: interdipendenza positiva, interazione diretta costruttiva, abilità sociali, responsabilità individuale e valutazione del lavoro di gruppo.", "19|Johnson et al.|Interdipendenza positiva + interazione costruttiva": "D.217: nel modello «learning together» — interdipendenza positiva (il successo di uno dipende dal successo degli altri) e interazione diretta costruttiva (i membri si aiutano e si incoraggiano). Questi elementi distinguono la cooperazione dalla semplice coabitazione.", "19|Johnson et al.|Abilità sociali + responsabilità individuale": "D.217: nel modello «learning together» — abilità sociali (comunicazione, gestione dei conflitti) e responsabilità individuale (ognuno contribuisce e viene valutato individualmente). Senza responsabilità individuale si cade nel social loafing di Ringelmann.", "20|Lewin, Lippit & White|Stili: autoritario, democratico, laissez-faire": "D.230: Lewin, Lippit e White (1939) classificano gli stili di leadership: autoritario (il leader decide da solo), democratico (decisioni prese con il gruppo, leader che facilita), laissez-faire (leadership permissiva — nominale ma non sostanziale).", "20|Bales & Slater|Leader socio-emozionale": "D.228: Bales e Slater distinguono due tipi di leader nel piccolo gruppo: il leader orientato al compito (task leader) e il leader socio-emozionale — estremamente dotato di espressività emotiva — che si occupa del benessere relazionale del gruppo.", "20|Stogdill|Leader: fiducia in sé e forte senso d'identità": "D.223: gli studi di Stogdill sull'approccio dei tratti indicano che il leader deve mostrare fiducia in sé stesso e forte senso d'identità. Tuttavia, non esiste un profilo universale del leader efficace — il contesto è determinante.", "20|Moscovici|Distingue potere e influenza": "D.224: Moscovici distingue potere (capacità di imporre attraverso risorse e coercizione) da influenza (capacità di cambiare atteggiamenti e comportamenti senza coercizione). Il leader carismatico agisce sull'influenza più che sul potere formale.", "20|Fiedler|Modello della contingenza (punteggi LCP)": "D.222: Fiedler propone il modello della contingenza — l'efficacia del leader dipende dalla corrispondenza tra il suo stile (misurato con i punteggi LCP — Least Preferred Coworker) e le caratteristiche della situazione. Non esiste uno stile universalmente migliore.", "21|Tajfel|Docente Bristol: studi sui rapporti intergruppi": "D.231: Henri Tajfel (1919-1982), sopravvissuto ad Auschwitz e docente dell'Università di Bristol, concentrò i suoi studi sui rapporti intergruppi e sulla categorizzazione sociale. La sua esperienza della discriminazione lo spinse a studiare scientificamente questi meccanismi.", "21|Tajfel|Esperimento con 8 linee di diversa lunghezza": "D.232: esperimento di Tajfel e Wilkes (1963) — ai partecipanti venivano presentate 8 linee di diversa lunghezza. Chi riceveva gli stimoli nella condizione di «classificazione» (linee etichettate per categoria) mostrava accentuazione delle differenze tra categorie e somiglianze interne.", "21|Tajfel|Accentuazione somiglianza intracategoriale": "D.234: accentuazione della somiglianza intracategoriale — percepiamo i membri dello stesso gruppo come più simili tra loro di quanto siano realmente. L'outgroup ci sembra «tutto uguale». È uno dei meccanismi alla base degli stereotipi.", "21|Tajfel|Accentuazione differenza intercategoriale": "D.235: accentuazione della differenza intercategoriale — percepiamo le differenze tra ingroup e outgroup come più grandi di quanto siano realmente. Insieme all'accentuazione intracategoriale produce distorsioni percettive sistematiche.", "21|Tajfel|Favoritismo per il proprio gruppo": "D.236: favoritismo per il proprio gruppo (ingroup bias) — tendenza a favorire i comportamenti dell'ingroup e discriminare quelli dell'outgroup, anche quando la distinzione è arbitraria. È il cuore della Teoria dell'Identità Sociale.", "21|Tajfel|I conflitti sono una dimensione naturale": "D.373: Tajfel — i conflitti sono una dimensione naturale delle relazioni sociali: non sono patologie da eliminare ma espressione normale della differenziazione tra gruppi e della difesa dell'identità sociale.", "21|Tajfel|Continuum interpersonale/intergruppi → identità": "D.374-375: Tajfel propone un continuum — a un estremo il comportamento interpersonale (guidato da caratteristiche individuali), all'altro il comportamento intergruppi (guidato dall'appartenenza categoriale). Il meccanismo che collega i due estremi è l'identità.", "21|Turner|Senso del Noi = gruppo psicologico": "D.376: Turner — il senso del «Noi» e lo spirito di solidarietà indicano la formazione di un gruppo psicologico. Quando le persone si percepiscono come «noi» contrapposti a «loro», si è formata un'identità collettiva condivisa.", "21|Allport|Ipotesi del contatto": "D.250: Allport formula l'ipotesi del contatto — il pregiudizio si riduce attraverso il contatto tra gruppi in condizioni ottimali: parità di status, obiettivi comuni, cooperazione, supporto istituzionale.", "22|Freud|Bisogno di un nemico fuori dal gruppo": "D.243: Freud — necessità di individuare un nemico al di fuori del proprio gruppo perché questo sia libero da conflitti interni. L'aggressività interna viene proiettata verso l'esterno attraverso il meccanismo del capro espiatorio.", "22|Freud|Aggressività: tensione eros vs thanatos": "D.253: per Freud l'aggressività è inevitabile perché deriva dalla tensione strutturale tra eros (pulsione di vita, costruzione) e thanatos (pulsione di morte, distruzione). Queste due forze sono in perenne conflitto.", "22|Freud|Relazioni sociali = frustrazione civile": "D.254: per Freud le relazioni sociali sono dominate da una frustrazione civile — la civiltà richiede la rinuncia alle pulsioni, producendo una frustrazione strutturale alla base dei conflitti sociali.", "22|Lewin|I dittatori inventano un nemico esterno": "D.244: Lewin afferma che è tipico dei dittatori «inventare» un nemico esterno per convogliare su di esso l'aggressività generata all'interno del gruppo che governano. Il nemico esterno è uno strumento politico di coesione interna.", "22|Lewin|Convegliano l'aggressività interna verso l'esterno": "D.244: il meccanismo di Lewin — i dittatori creano o amplificano un nemico esterno per deviare l'aggressività interna del gruppo verso quel bersaglio, evitando che si rivolga contro il leader o il gruppo stesso.", "22|Allport|Ipotesi/teoria del contatto": "D.250: Allport — per ridurre il pregiudizio è necessario il contatto tra gruppi in condizioni di parità di status, obiettivi comuni, cooperazione e supporto istituzionale. Senza queste condizioni il contatto può rafforzare i pregiudizi.", "22|Tajfel|Conflitti = dimensione naturale": "D.373: Tajfel — i conflitti intergruppi sono una dimensione naturale delle relazioni sociali: emergono dalla differenziazione tra gruppi e dalla difesa dell'identità sociale. Non sono anomalie ma componenti strutturali della vita sociale.", "22|Sherif|La sconfitta non rafforza sempre la solidarietà intra-gruppo": "D.239-240: Sherif mostra che la competizione tra gruppi non rafforza sempre la solidarietà intra-gruppo — la sconfitta nel gioco competitivo portava a conflitti interni nel gruppo perdente. La solidarietà interna aumenta con certi tipi di conflitto intergruppi.", "22|Sherif|Ricerche nei campi estivi": "D.240: le ricerche di Sherif nei campi estivi (1948-52) — divide i ragazzi in gruppi, crea competizione per risorse scarse generando conflitti violenti, poi introduce obiettivi sovraordinati (che richiedono cooperazione) per ridurre i conflitti.", "23|Berkowitz|Tutti i sentimenti negativi possono indurre aggressività": "D.261: Berkowitz allarga il modello frustrazione-aggressività — non solo la frustrazione ma tutti i sentimenti negativi possono indurre aggressività, perché è una delle varianti di risposte possibili agli stati emotivi negativi.", "23|Berkowitz|Aggressività predomina con stimoli associati a connotazione negativa": "D.262: per Berkowitz, l'aggressività diventa la risposta predominante solo se si presentano stimoli a cui la persona ha già precedentemente associato una connotazione negativa (cue aggressivi). La sola frustrazione non basta.", "23|Berkowitz|Esperimento del fucile/racchetta": "D.263: nell'esperimento di Berkowitz — i soggetti frustrati somministravano più scosse quando sul tavolo era presente un fucile (stimolo aggressivo cue) rispetto a quando c'era una racchetta (stimolo neutro). I cue aggressivi amplificano la risposta aggressiva.", "23|Berkowitz|Dolore fisico → più aggressività (acqua gelata)": "D.281: Berkowitz — gli studenti che avevano avvertito dolore immergendo una mano nell'acqua gelata mostravano più comportamenti aggressivi verso un collega. Il dolore fisico attiva stati emotivi negativi che aumentano la propensione all'aggressività.", "23|Dollard & Miller|Teoria frustrazione-aggressività": "D.167/D.260: Dollard e Miller — la frustrazione (blocco di un obiettivo) produce sempre aggressività, e l'aggressività è sempre prodotta dalla frustrazione. Rapporto biunivoco. Questa aggressività può spostarsi verso un capro espiatorio.", "23|Dollard & Miller|Rapporto biunivoco frustrazione-aggressività": "D.260: per Dollard e Miller, frustrazione e aggressività hanno un rapporto biunivoco — ogni frustrazione produce aggressività E ogni aggressività presuppone una frustrazione previa. Doppia implicazione, non solo associazione.", "23|Le Bon|Prima teoria della deindividuazione": "D.282: Le Bon è il primo a elaborare la teoria della deindividuazione — nella folla le persone perdono l'identità personale, il senso critico e la responsabilità morale, venendo dominate da una mentalità collettiva primitiva.", "23|Le Bon|Suggestione come ipnosi collettiva": "D.265: Le Bon spiega il comportamento della folla con la suggestione — una sorta di ipnosi collettiva che si trasmette tra i membri, inibendo il pensiero razionale e amplificando le reazioni emotive primitive.", "23|Le Bon|Perdita controllo razionale nella folla": "D.283: Le Bon — le persone sono capaci di razionalità ma perdono il controllo di questa capacità quando si trovano a far parte della folla. La suggestione collettiva sopprime il pensiero critico individuale.", "23|Tarde|Imitazione = principio base del comportamento sociale nei grandi gruppi": "D.264: Gabriel Tarde — l'imitazione è il principio alla base del comportamento sociale, soprattutto nei grandi gruppi. Le persone si imitano reciprocamente. Anticipò il concetto di contagio sociale.", "23|Hobbes|Ontologia deterministica e materialistica": "D.251: Hobbes — ontologia deterministica e materialistica: l'essere umano è fondamentalmente egoista e aggressivo («homo homini lupus»). Senza il controllo dello Stato vivrebbe in guerra di tutti contro tutti.", "23|Rousseau|La società corrompe l'uomo": "D.252: Rousseau sostiene la posizione opposta a Hobbes — l'essere umano è naturalmente buono («buon selvaggio»), ed è la società a corrompere l'uomo con le sue istituzioni, disuguaglianze e condizionamenti.", "23|Lombroso|Teoria della 'degenerazione'": "D.258: Lombroso — teoria della degenerazione: il criminale è un individuo biologicamente inferiore, atavicamente regredito, riconoscibile da caratteristiche fisiche. Oggi completamente superata ma ebbe enorme influenza nel XIX secolo.", "23|Schneider|Classificazione della Personalità Psicopatica": "D.259: Schneider fornisce una classificazione della Personalità Psicopatica — individui che soffrono per la propria anomalia di personalità o fanno soffrire la società per essa.", "24|Berkowitz|Stimoli cue aggressivi + frustrazione previa → aggressività": "D.263: Berkowitz — la sola presenza di stimoli aggressivi non basta: è necessaria una precedente attivazione emotiva negativa (frustrazione, dolore) affinché il cue aggressivo attivi la risposta aggressiva. Due condizioni insieme.", "24|Milgram|Gente normale complice di distruzione": "D.268: Milgram — «gente normale può, da un momento all'altro, rendersi complice di un processo di distruzione». Non servono persone malvagie: basta un sistema autoritario che crea lo stato eteronomico.", "24|Milgram|Stato eteronomico": "D.269: nello stato eteronomico i soggetti perdono la propria autonomia comportamentale e si percepiscono come strumenti dell'autorità. Il comportamento non è più sentito come proprio — questo allevia il senso di responsabilità personale.", "24|Le Bon|Teoria della deindividuazione": "D.282-283: Le Bon formula la prima teoria della deindividuazione — nella folla le persone perdono identità personale, senso critico e responsabilità morale, venendo dominate dalla suggestione collettiva come una sorta di ipnosi.", "24|Zimbardo|Esperimento carcerario: i soggetti dimenticarono la propria identità": "D.286: nell'esperimento di Stanford le persone entrarono così profondamente nei ruoli da dimenticare le loro identità personali e il proprio senso di umanità. La situazione aveva più potere della personalità individuale.", "24|Zimbardo|Deindividuazione indebolisce i processi inibitori": "D.288-289: la deindividuazione indebolisce i processi che inibiscono l'espressione di comportamenti distruttivi — quando ci si sente anonimi nel gruppo, i freni normativi e morali si abbassano. Spiega la violenza collettiva e degli abusi istituzionali.", "25|Olweus|Principale esponente degli studi sul bullismo": "D.271: Dan Olweus è il principale esponente degli studi sul bullismo internazionale. Ha condotto i primi studi sistematici nei paesi scandinavi negli anni '70, dopo le reazioni pubbliche al suicidio di studenti vittime di prepotenze.", "25|Olweus|Bullismo = esposizione ripetuta ad azioni offensive": "D.271/D.277: Olweus definisce il bullismo come l'esposizione ripetuta nel corso del tempo ad azioni offensive da parte di uno o più compagni. I tre elementi chiave: intenzionalità, ripetizione nel tempo e squilibrio di potere. La ripetitività è sempre presente nel bullo.", "25|Olweus|Vittima può essere sottomessa": "D.279: Olweus distingue la vittima passiva/sottomessa (ansiosa, insicura, con scarsa autostima, non reagisce alle provocazioni) dalla vittima provocatrice (che presenta sintomi sia ansiosi che aggressivi, D.275). La vittima passiva è il tipo più comune.", "25|Olweus|Tutte le ripetività sempre presente nel bullo": "D.277: tra i tratti sempre presenti nei comportamenti del bullo vi è la ripetitività — il bullismo non è un episodio isolato ma un pattern sistematico di comportamenti oppressivi ripetuti nel tempo verso la stessa vittima.", "25|Fonzi|Le bulle prediligono calunnie e ricatti": "D.278: Fonzi evidenzia che le bulle (bullismo femminile) prediligono forme indirette di aggressività: calunnie, ricatti, esclusione sociale, diffusione di voci false. Il bullismo femminile è spesso più nascosto rispetto a quello maschile (più fisico e diretto).", "25|Farrington|Definizione completa di bullismo (1991)": "D.271: Farrington (1991) — bullismo come oppressione psicologica o fisica, ripetuta e continuata nel tempo, perpetuata da una persona o gruppo più potente nei confronti di un'altra percepita come più debole. Tre elementi: oppressione, ripetizione, squilibrio di potere.", "25|Farrington|Oppressione ripetuta da chi è più potente verso il più debole": "D.271: la definizione di Farrington sottolinea tre elementi strutturali del bullismo: oppressione (non semplice conflitto), ripetizione nel tempo (non episodio isolato), squilibrio di potere (il bullo è percepito come più forte). Tutti e tre insieme definiscono il fenomeno.", "26|Le Bon|Prima teoria della deindividuazione": "D.282: Le Bon (1841-1931) elabora per primo la teoria della deindividuazione — nella folla le persone perdono l'identità personale, il senso critico e la responsabilità morale, venendo dominate da una mentalità collettiva primitiva.", "26|Le Bon|Perdita dell'identità personale nella folla": "D.283/D.287: nella folla Le Bon osserva una riduzione del senso di individualità e di responsabilità personale. L'individuo si fonde nella massa e perde i tratti che lo definiscono come tale — identità e comunità.", "26|Le Bon|Suggestione = sorta di ipnosi collettiva": "D.265: Le Bon spiega la folla con la suggestione — una sorta di ipnosi collettiva che si trasmette tra i membri, inibendo il pensiero razionale e amplificando le reazioni emotive primitive. È il meccanismo base della deindividuazione.", "26|Zimbardo|Esperimento carcerario di Stanford": "D.284-289: Zimbardo (1971) — la potenza della deindividuazione istituzionale: studenti normali assegnati casualmente al ruolo di guardie mostravano comportamenti sadici in pochi giorni. Il ruolo e il contesto avevano più potere della personalità individuale.", "26|Zimbardo|Abbigliamento = condizione di deindividuazione": "D.284: nell'esperimento di Stanford l'abbigliamento — uniforme per le guardie, camice senza nome per i prigionieri — poneva entrambi i gruppi in una condizione di deindividuazione: l'identità individuale veniva soppressa a favore dell'identità di ruolo.", "26|Zimbardo|Soggetti dimenticarono identità personali": "D.285-286: i soggetti di Stanford assunsero così profondamente i propri ruoli da dimenticare le loro identità personali e il proprio senso di umanità, costringendo i ricercatori a interrompere l'esperimento prima del previsto.", "26|Zimbardo|Ruolo istituzionale → adozione delle norme dell'istituzione": "D.289: assumere un ruolo istituzionale di controllo induce ad assumere le norme e le regole dell'istituzione come unico valore guida — il ruolo diventa più potente della persona che lo ricopre. Spiega gli abusi nelle istituzioni totali.", "26|Festinger et al.|Deindividuazione = ridotto senso di individualità e responsabilità": "D.287: Festinger, Pepitone e Newcomb modernizzano il concetto di Le Bon — la deindividuazione è una sensazione psicologica caratterizzata dalla riduzione del senso di individualità e di responsabilità personale provata da chi si sente anonimo in una situazione di gruppo.", "26|Festinger et al.|Indebolisce i processi inibitori verso i comportamenti distruttivi": "D.288: la deindividuazione indebolisce i processi che inibiscono l'espressione di comportamenti distruttivi — quando ci si sente anonimi nel gruppo, i freni normativi e morali si abbassano. Spiega la violenza collettiva e il vandalismo di massa.", "27|Zimbardo|Effetto Lucifero = errore di attribuzione": "D.292: l'Effetto Lucifero di Zimbardo si fonda sull'errore fondamentale di attribuzione (Heider) — la tendenza a spiegare il male attribuendolo alla personalità cattiva degli individui invece che alle forze situazionali. Zimbardo ribalta questa prospettiva con il situazionismo.", "27|Zimbardo|Sistema politico/economico con forti ideologie": "D.294: il sistema sociale in cui si genera l'Effetto Lucifero deve avere forti ideologie — il contesto ideologico fornisce la giustificazione morale per comportamenti altrimenti inaccettabili. Le istituzioni con forte ideologia facilitano il disimpegno morale collettivo.", "27|Zimbardo|10 passi per costruire resistenza all'influenza": "D.319: Zimbardo propone un programma di 10 passi per costruire la resistenza all'influenza sociale non desiderata e promuovere la resilienza personale e la virtù civica — tra cui: riconoscere i propri errori, non sacrificare le libertà per la sicurezza, evitare situazioni totalizzanti.", "27|Zimbardo|Non sacrificare libertà personali per sicurezza astratta": "D.320: uno dei 10 passi di Zimbardo — non sacrificare mai le libertà personali di base per la promessa di una sicurezza, perché i sacrifici sono reali e immediati, mentre la sicurezza promessa è un concetto astratto, un'illusione distante.", "27|Milgram|Studi sull'obbedienza all'autorità": "D.293: gli studi sull'obbedienza all'autorità sono stati condotti da Milgram — dimostrano che la maggioranza delle persone normali obbedisce agli ordini di un'autorità anche quando ciò comporta infliggere dolore a innocenti. Sono la base empirica dell'Effetto Lucifero.", "27|Milgram|Eterodirezione: comportamento percepito come non proprio": "D.300: l'eterodirezione — l'individuo percepisce il proprio comportamento come non suo, dettato dall'esterno dall'autorità. Meccanismo di deresponsabilizzazione centrale: «stavo solo seguendo gli ordini». Usato anche dai criminali di guerra come giustificazione.", "27|Heider|Errore fondamentale di attribuzione (FAE) alla base": "D.292: l'Effetto Lucifero si fonda sull'errore fondamentale di attribuzione di Heider — tendiamo a spiegare i comportamenti cattivi con la natura malvagia delle persone (disposizionismo), ignorando il potere delle forze situazionali. Zimbardo dimostra il contrario.", "27|Arendt|Assenza di responsabilità = incapacità di elaborare il proprio agire": "D.454: Arendt — l'assenza di responsabilità riguarda l'incapacità di elaborare il significato del proprio agire. Eichmann non era un mostro ma qualcuno che aveva smesso di pensare — la «banalità del male». Chiunque smetta di riflettere criticamente può diventare complice del male.", "27|Simon|Gli stati mentali per atti crudeli evolvono da processi psicologici comuni": "D.458: Simon — gli stati mentali che permettono di compiere atti crudeli evolvono da processi psicologici comuni a tutti. Tutti noi abbiamo un lato oscuro più o meno sopito. Non servono disturbi mentali speciali.", "28|Latané & Darley|Primo esperimento sul comportamento prosociale": "D.301: Latané e Darley (1968) — uno dei primi esperimenti sistematici sul comportamento prosociale. La probabilità di intervenire in caso di emergenza (attacco epilettico simulato) diminuisce al crescere del numero di testimoni presenti.", "28|Latané & Darley|Probabilità di aiutare dipende dalla situazione": "D.302: Latané e Darley — la probabilità di attuare comportamenti altruistici dipende anche da fattori relativi alla situazione: numero di testimoni, ambiguità dell'emergenza, responsabilità percepita. Non è solo una questione di personalità.", "28|Latané & Darley|Diffusione della responsabilità": "D.303: Latané e Darley spiegano i risultati con la diffusione della responsabilità — più persone sono presenti, meno ciascuna si sente responsabile di intervenire (\"lo farà qualcun altro\"). Il fattore più predittivo del comportamento prosociale è la percezione della propria efficacia (D.304).", "28|Hoffman|Ruolo dell'empatia nel comportamento prosociale": "D.305: Hoffman ha cercato di dare una spiegazione al comportamento prosociale a partire dal ruolo che in esso gioca l'empatia — è la capacità di immedesimarsi negli stati emotivi altrui il motore principale del comportamento d'aiuto genuinamente altruistico.", "28|Hoffman|Empatia = fattore motivante separante altruismo da prosocialità": "D.314: il fattore motivante che separa il comportamento prosociale dall'altruismo è proprio l'empatia. Il comportamento prosociale può avere motivazioni miste (egoismo incluso), mentre l'altruismo genuino è guidato esclusivamente dall'empatia verso l'altro.", "28|Cialdini et al.|Comportamenti prosociali = motivazione fondamentalmente egoistica": "D.307: Cialdini e colleghi — i comportamenti prosociali deriverebbero da una motivazione fondamentalmente egoistica: aiutiamo gli altri perché ci fa sentire bene, riduce il nostro senso di colpa o migliora la nostra immagine sociale.", "29|Zimbardo|10 passi per costruire resistenza all'influenza sociale": "D.319: Zimbardo ha messo a punto un programma di 10 passi per costruire la resistenza all'impatto dell'influenza sociale non desiderata e promuovere la resilienza personale e la virtù civica — tra cui pensiero critico, assertività, rifiuto di sacrificare libertà.", "29|Zimbardo|Non sacrificare libertà personali per sicurezza astratta": "D.320: Zimbardo — non sacrificare mai le libertà personali di base per la promessa di una sicurezza, perché i sacrifici sono reali e immediati, mentre la sicurezza è un concetto astratto, un'illusione distante. Un principio cardine contro l'influenza autoritaria.", "29|Zimbardo|Evitare situazioni totalizzanti (perdita del supporto sociale)": "D.318: uno dei 10 passi di Zimbardo — evitare le situazioni totalizzanti dove si rischia di perdere il contatto con il proprio supporto sociale e con la propria rete di informazioni. L'isolamento da reti di supporto rende vulnerabili all'influenza non desiderata.", "29|Milgram|Insegnare ai bambini a disobbedire all'autorità ingiusta": "D.315: insegnare ai bambini a disubbidire all'autorità ingiusta è possibile supportando in loro lo sviluppo delle abilità di pensiero critico e la loro assertività. È una delle misure preventive contro l'obbedienza cieca che porta all'effetto Lucifero.", "29|Milgram|Incoraggiare rispetto delle diversità: riduzione in-group biases": "D.316: incoraggiare il rispetto delle diversità e l'apprezzamento della variabilità umana è possibile riducendo i cosiddetti in-group biases e la discriminazione. Favorire il contatto interculturale e la valorizzazione delle differenze.", "30|Watzlawick|Pragmatica della comunicazione (1967)": "D.344-345: Watzlawick (1967) — la «Pragmatica della comunicazione umana» offre un parallelismo tra comunicazione e matematica. Come la matematica ha i suoi assiomi, la comunicazione ha i suoi 5 assiomi fondamentali. La Scuola di Palo Alto si occupa prevalentemente della funzione pragmatica della comunicazione.", "30|Watzlawick|Parallelismo comunicazione-matematica": "D.345: il parallelismo proposto da Watzlawick tra comunicazione e matematica — la comunicazione ha principi fondamentali (assiomi) che regolano tutti gli scambi comunicativi, proprio come la matematica ha i suoi assiomi. I 5 assiomi descrivono le leggi universali della comunicazione.", "30|Watzlawick|1° assioma: non si può non comunicare": "D.346-348: il 1° assioma di Watzlawick — non si può non comunicare. Qualsiasi comportamento in presenza di un altro ha valore di messaggio, anche il silenzio e l'immobilità. Il presupposto: l'impossibilità di non avere un comportamento. Concetto chiave dalla teoria cibernetica: retroazione (D.347).", "30|Watzlawick|4° assioma: comunicazione digitale o analogica": "D.350: il 4° assioma di Watzlawick — gli esseri umani comunicano sia in modo digitale (linguaggio verbale, simbolico, preciso) che analogico (comunicazione non verbale, gestica, tonale, meno precisa ma più emotiva). La disconferma equivale al messaggio «tu non esisti» (D.349).", "30|Watzlawick|Presupposto: impossibilità di non avere comportamento": "D.346: il presupposto dell'approccio pragmatico — è impossibile non avere un comportamento. Poiché tutto il comportamento è comunicazione (1° assioma), e non si può non avere un comportamento, è impossibile non comunicare.", "30|Watzlawick|Concetto di retroazione (cibernetica)": "D.347: il concetto chiave sviluppato dalla teoria cibernetica è la retroazione (feedback) — la risposta del ricevente influenza il messaggio del mittente in un circolo ricorsivo. Non esiste comunicazione lineare ma solo comunicazione circolare con feedback.", "30|Watzlawick|Disconferma = messaggio 'tu non esisti'": "D.349: la disconferma — la risposta più patogena nella comunicazione, che equivale al messaggio «tu non esisti», negando la realtà dell'altro come persona. Si distingue dal rifiuto («non sei d'accordo con me»: almeno ti riconosco).", "30|Erickson|L'approccio strategico deve i suoi natali a Erickson": "D.343: l'approccio strategico deve i suoi natali e il suo sviluppo all'opera di Milton Erickson, ipnoterapeuta americano, le cui tecniche di comunicazione indiretta e paradossale hanno ispirato la Scuola di Palo Alto e l'approccio strategico alla comunicazione.", "31|Watzlawick|Linguaggio = mezzo per favorire il cambiamento": "D.351: nell'approccio strategico il linguaggio rappresenta il mezzo di elezione per favorire il cambiamento — il terapeuta usa il linguaggio per modificare il punto di vista del cliente, renderlo consapevole e responsabile. L'obiettivo: de-strutturazione del sintomo (D.352).", "31|Watzlawick|Obiettivo: de-strutturazione del sintomo": "D.352: l'obiettivo dell'approccio strategico — de-strutturazione del sintomo: non eliminarlo reprimendolo, ma cambiare la struttura del problema che lo mantiene, rendendo il sintomo non più necessario. Si usa linguaggio suggestivo e ingiuntivo anziché descrittivo (D.353).", "31|Watzlawick|Tecnica della ristrutturazione: cornice alternativa": "D.355: la ristrutturazione — cambia lo sfondo concettuale ed emozionale in cui il cliente colloca il suo disagio, ponendolo in una cornice alternativa. Lo stesso evento, visto in una cornice diversa, acquista un significato completamente diverso. Tecnica cognitivo-comunicativa fondamentale.", "31|Watzlawick|Tecnica del paradosso: modifica la rigidità percettiva": "D.356: la tecnica del paradosso — modifica la rigidità percettiva e reattiva attraverso azioni e comunicazioni paradossali, illogiche e impreviste. Esempio: prescrivere il sintomo («sii ansioso per 30 minuti al giorno») porta paradossalmente alla sua riduzione.", "31|Watzlawick|Linguaggio suggestivo e ingiuntivo": "D.353: nell'approccio strategico, al posto del linguaggio descrittivo e indicativo tipico della spiegazione razionale, viene adoperato un linguaggio suggestivo e ingiuntivo — non spiega ma evoca, non descrive ma prescrive comportamenti in modo indiretto. La tecnica del ricalco usa il linguaggio del cliente (D.354).", "31|Watzlawick|Tecnica del ricalco: linguaggio e autorappresentazione": "D.354: la tecnica del ricalco — il terapeuta utilizza il linguaggio e il modo in cui la persona si rappresenta e si relaziona con se stessa e con la realtà. Il terapeuta «ricalca» il sistema di significati del cliente per poi guidarlo verso cambiamenti.", "31|Watzlawick|Dichiarazione di impotenza: con soggetti che vanificano la terapia": "D.357: la dichiarazione di impotenza è indicata con soggetti che vanificano il lavoro terapeutico — il terapeuta dichiara di non essere in grado di aiutarli, paradossalmente stimolando la loro motivazione al cambiamento attraverso la provocazione del contrario.", "31|Von Cranach & Harré|Goal-directed-action: triangolo concettuale gerarchico": "D.358: Von Cranach e Harré — la Goal-directed-action (GDA) descrive l'azione come un triangolo concettuale in cui ogni lato rappresenta un livello (comportamento manifesto, cognizioni coscienti, processi inconsci) che si interconnette con gli altri in interazioni gerarchiche e retroattive.", "31|De Leo|Cognizioni coscienti: piani, scopi, strategie": "D.359: De Leo — le cognizioni coscienti comprendono piani d'azione, scopi o obiettivi, strategie, intenzioni, valori ed emozioni con cui la persona prepara e porta avanti l'azione. Guidano il comportamento sociale a livello sia conscio che inconscio.", "31|De Leo|Aspetti trascurati dalla GDA: pragmatico-strumentali ed espressivo-comunicativi": "D.360: De Leo identifica i due aspetti trascurati dalla GDA di Von Cranach (1982): gli effetti pragmatico-strumentali (conseguenze concrete dell'azione sull'ambiente) e gli effetti espressivo-comunicativi (i messaggi che l'azione veicola sull'identità e le aspettative dell'autore).", "32|De Leo|Devianza = forma potente ed estrema di comunicazione": "D.364: De Leo e colleghi (2004) — la devianza è una forma potente, particolare ed estrema di comunicazione: l'azione deviante veicola significati sull'identità del suo autore e sulle sue aspettative circa le conseguenze del suo agire criminoso.", "32|De Leo|Analisi dell'azione deviante: tipo sequenziale": "D.365: l'analisi dell'azione deviante di tipo sequenziale permette di individuare al suo interno la storia personale dell'autore di reato, il significato soggettivo dell'azione rispetto alla continuazione del suo Sé e le sue aspettative circa le conseguenze del suo agire criminoso.", "32|De Leo|Il reo = attivo generatore di significati": "D.368: in questa prospettiva il reo viene definito come attivo generatore di significati — non è una vittima passiva della società o di forze biologiche, ma un soggetto che attraverso l'azione deviante comunica qualcosa di specifico. Sarà possibile arrivare alla GDA attraverso la narrazione del reo (D.369).", "32|De Leo|L'azione comunicativa: sunto passato/presente/futuro del reo": "D.370: l'azione comunicativa del reo si può considerare un sunto del passato, del presente e del futuro del soggetto deviante — include la sua storia, la sua situazione attuale e le sue aspettative sulle conseguenze. È la chiave interpretativa dell'azione deviante.", "32|De Leo|Funzione espressivo-comunicazionale": "D.366: la funzione espressivo-comunicazionale dell'azione deviante, in interazione con gli effetti strumentali anticipati e con i significati sociali convenzionali, orienta il sistema agente e ne organizza il significato dell'azione rispetto ai contesti e ai sistemi in cui è inserito.", "32|De Leo|Effetti di relazione: ruoli, obiettivi, poteri": "D.367: gli effetti di relazione sono quelli attraverso cui si ridefinisce l'azione stessa stabilendo ruoli, obiettivi e poteri — l'azione deviante non è solo uno strumento per ottenere qualcosa (effetti strumentali) ma anche un modo per posizionarsi nelle relazioni.", "32|Von Cranach|Goal-directed-action (GDA)": "D.358: la GDA di Von Cranach descrive l'azione umana come diretta a scopi: triangolo concettuale con tre livelli (comportamento manifesto, cognizioni coscienti, processi inconsci) che si interconnettono gerarchicamente. De Leo aggiunge la dimensione espressivo-comunicativa trascurata dalla GDA (D.360).", "32|Von Cranach|Cognizioni coscienti guidano il comportamento": "D.359: nella GDA di Von Cranach le cognizioni coscienti — piani, obiettivi, strategie, intenzioni — guidano il comportamento sociale a livello consapevole. De Leo aggiunge che anche i processi inconsci (valori, emozioni profonde) orientano l'azione.", "32|Van Dijk|Il discorso = azione sociale compiuta attraverso il linguaggio": "D.391: Van Dijk — il discorso è l'azione sociale compiuta da coloro che utilizzano il linguaggio per comunicare fra loro e nell'ambito della società e della cultura. Il linguaggio non descrive solo la realtà ma la costruisce e la trasforma.", "33|Tajfel|Conflitti = dimensione naturale": "D.373: Tajfel — i conflitti sono una dimensione naturale dell'esistenza umana e sociale: non sono patologie da eliminare ma espressione normale della differenziazione tra gruppi e della difesa dell'identità sociale. Possono essere risolvibili o intrattabili (D.377).", "33|Tajfel|Continuum interpersonale/intergruppi": "D.374: Tajfel propone un continuum teorico del comportamento umano — a un estremo il comportamento interpersonale (guidato da caratteristiche individuali), all'altro il comportamento intergruppi (guidato dall'appartenenza categoriale). Nei conflitti estremi si parla di effetto totalizzante (D.378).", "33|Tajfel|Meccanismo: identità collega i due estremi": "D.375: il meccanismo che collega i due estremi del continuum interpersonale/intergruppi è quello dell'identità — attraverso il processo di identificazione con il proprio gruppo e di differenziazione dagli altri gruppi, il comportamento si sposta dall'interpersonale all'intergruppi.", "33|Turner|Senso del Noi e solidarietà = gruppo psicologico": "D.376: Turner — il senso del «Noi» e lo spirito di solidarietà indicano la formazione di un gruppo psicologico. Quando le persone si percepiscono come «noi» contrapposti a «loro», si è formata un'identità collettiva condivisa che va al di là della semplice aggregazione fisica.", "33|Bar-Tal|Delegittimazione: desiderio di elevare e differenziare il proprio gruppo": "D.379: Bar-Tal — la delegittimazione ha origine dal desiderio di elevare e differenziare il proprio gruppo e/o di sfruttare gli altri gruppi. Si esclude l'outgroup dalle norme morali condivise attraverso etichette negative estreme. Può portare alla deumanizzazione (D.380).", "33|Freud|Aggressività inevitabile: eros vs thanatos": "D.253: per Freud l'aggressività umana è inevitabile perché deriva dalla tensione strutturale tra eros (pulsione di vita e costruzione) e thanatos (pulsione di morte e distruzione). Queste due forze sono in perenne conflitto e non possono essere eliminate, solo sublimate.", "33|Freud|Relazioni sociali = frustrazione civile": "D.254: per Freud le relazioni sociali sono dominate da una frustrazione civile — la civiltà richiede la rinuncia alle pulsioni, producendo una frustrazione strutturale che è la base dei conflitti sociali e collettivi.", "34|Allport|Pregiudizio manifesto: rifiuto esplicito degli altri gruppi": "D.387: il pregiudizio manifesto si contraddistingue per il rifiuto esplicito degli altri gruppi — atteggiamenti di ostilità intenzionali, visibili e diretti verso l'outgroup percepito come minaccioso. Si oppone al pregiudizio sottile che è implicito, freddo e distante (D.386).", "34|Allport|Pregiudizio pone la vittima in svantaggio": "D.383: l'effetto ultimo del pregiudizio — porre l'oggetto in una posizione di svantaggio non giustificata dalla sua condotta. La persona viene discriminata non per quello che ha fatto ma per il gruppo di appartenenza. Il pregiudizio riluttante è la forma più indiretta (D.384).", "34|Pettigrew & Meertens|Pregiudizio sottile: freddezza e distanza": "D.386: Pettigrew e Meertens (1995) — il pregiudizio sottile si caratterizza per freddezza e distanza emotiva: si esprime non con l'ostilità aperta ma con la mancanza di calore, l'enfatizzazione delle differenze culturali e la negazione di emozioni positive verso l'outgroup.", "34|McConahay|Razzismo riluttante: forma indiretta": "D.384-385: McConahay — il razzismo riluttante (o simbolico/moderno): le persone rinnegano le vecchie espressioni esplicite di razzismo e si dichiarano assolutamente egualitarie, ma di fatto esprimono il pregiudizio in forme più sottili (opposizione alle politiche di discriminazione positiva).", "34|McConahay|Le persone rinnegano il vecchio razzismo ma non sono egualitarie": "D.385: il razzismo moderno di McConahay — le persone rinnegano le vecchie espressioni di razzismo e si dichiarano assolutamente egualitarie, ma esprimono il pregiudizio in forme più sottili. L'elemento particolare è la negazione del vecchio razzismo combinata con nuove forme di esclusione.", "34|Sidanius & Pratto|Orientamento alla dominanza sociale (SDO)": "D.388: Sidanius e Pratto — l'orientamento alla dominanza sociale (SDO): tendenza a considerare l'esistenza caratterizzata dalla competizione tra gruppi e dal desiderio di sostenere il dominio dei gruppi superiori sugli inferiori. Alto SDO predice molte forme di pregiudizio e discriminazione.", "34|Sidanius & Pratto|Tendenza a sostenere il dominio dei gruppi superiori sugli inferiori": "D.388: l'SDO si manifesta nella tendenza ad accettare e promuovere la gerarchia tra gruppi — chi ha alto SDO tende a sostenere politiche che mantengono la disuguaglianza tra gruppi percepiti come superiori e inferiori.", "34|Devine|Modello della dissociazione": "D.381-382: Patricia Devine propone il Modello della Dissociazione — tutti sono esposti agli stessi stereotipi culturali, ma chi è motivato a ridurre il pregiudizio impara a sopprimere le risposte automatiche stereotipate. Stereotipo (cognitivo) + pregiudizio (emotivo) → discriminazione (comportamentale).", "34|Devine|Stereotipo (cogn.) + pregiudizio (emotivo) → discriminazione (comportamento)": "D.381-382: il Modello della Dissociazione di Devine distingue tre componenti: stereotipo (attribuzione di caratteristiche basata sul gruppo — componente cognitiva), pregiudizio (reazione emotiva verso l'individuo basata sul gruppo — componente affettiva), discriminazione (svantaggio comportamentale).", "35|Eysenck|Ricerca: colore blu preferito dalla maggioranza": "D.406: nella ricerca di Eysenck, la maggior parte dei soggetti preferiva il colore blu. Il blu è associato a calma, fiducia e affidabilità. La percezione visiva del colore corrisponde alla sintesi di due diversi processi: bottom-up e top-down (D.403).", "35|Carruthers et al.|72% valuta positivo il colore giallo (2010)": "D.407: nella ricerca di Carruthers e colleghi (2010), il 72% dei partecipanti aveva valutato come positivo il colore giallo. Il giallo è associato a ottimismo, energia e chiarezza. Il fenomeno della costanza del colore (D.404) e la percezione dell'affordance (D.405) sono concetti chiave di questo capitolo.", "35|Valdez & Mehrabian|Le donne più sensibili alle variazioni di colore (1994)": "D.408: Valdez e Mehrabian (1994) — rispetto alle differenze di genere, le donne sembrerebbero essere più sensibili alle variazioni di colore rispetto agli uomini.", "35|Hill & Barton|Completo rosso può incentivare alla vittoria (2005)": "D.409: Hill e Barton (2005) — a parità di altri fattori, vestire un completo rosso durante le competizioni sportive può incentivare una squadra alla vittoria: il rosso è associato a dominanza, aggressività e forza.", "35|Baker|Influenzare il comportamento del consumatore tramite l'ambiente (1986)": "D.412: gli studi di Baker (1986) in psicologia ambientale dimostrano come sia possibile influenzare il comportamento del consumatore attraverso informazioni apparentemente casuali dell'ambiente — colori, musica, illuminazione creano stati psicologici positivi.", "36|Baker|Studi su influenza dell'ambiente sul consumatore": "D.412: Baker (1986) — l'ambiente fisico interno (\"Atmospheric\") può influenzare il comportamento del consumatore: colori piacevoli, musica gradevole e altri elementi sensoriali creano stati psicologici positivi che si traducono in comportamenti specifici come maggiore permanenza e acquisti impulsivi.", "36|Lammers|Musica a ritmo sostenuto → consumare di più e più velocemente": "D.413: Lammers (2003) — i responsabili di bar e discoteche avrebbero tutto l'interesse a diffondere musiche dal ritmo sostenuto al fine di spingere i clienti a consumare più velocemente e probabilmente in quantità maggiori. Il ritmo della musica modula la velocità dei comportamenti.", "36|Cain-Smith & Curnow|Volume alto della musica → meno tempo nel negozio": "D.414: Cain-Smith e Curnow (1966) — il tempo che un potenziale acquirente trascorre nel negozio è minore in condizione di volume alto della musica diffusa. Musica ad alto volume = clienti che comprano più velocemente e se ne vanno prima.", "36|McCraty et al.|Le donne trovano il negozio più piacevole con musica lenta": "D.416: McCraty e colleghi (1996) — le donne trovavano un negozio più piacevole e più di lusso se in esso il tempo della musica era lento. La musica lenta è associata a un'esperienza di acquisto più rilassata e piacevole per le consumatrici.", "36|McCraty et al.|La musica è un antistress rapido ed economico": "D.417: McCraty e colleghi (1996) — la musica è un antistress rapido e a buon prezzo: riduce il cortisolo e migliora il tono dell'umore in tempi brevi e con costi minimi. Studio di Hui e Dube (1997, D.415) conferma: la musica ha impatto positivo sull'emozione del cliente.", "36|Malaguzzi|Ambiente scolastico = 'terzo insegnante'": "D.420: Loris Malaguzzi, fondatore del metodo Reggio Emilia — l'ambiente scolastico non è un elemento neutro nel processo di apprendimento: le sue caratteristiche fisiche equivalgono a un «terzo insegnante» (dopo i docenti e i coetanei). I risultati di Wright e colleghi (D.419) confermano l'impatto sull'arricchimento cognitivo.", "36|Hui & Dube|Musica come antistress: impatto positivo sull'emozione del cliente": "D.415: Hui e Dube (1997) — la musica, oltre a fungere da antistress, ha un impatto positivo sull'emozione del cliente e la sua percezione, tale da elicitare un comportamento tendente all'acquisto. La fidelity (D.418) riguarda le relazioni a lungo termine con i clienti.", "37|Wilson|Introduce il termine 'biofilia'": "D.421: Edward O. Wilson (1984) introduce il termine «biofilia» per descrivere una forma di amore e sensibilità verso la natura e gli esseri viventi, considerata caratteristica insita nel patrimonio evolutivo umano. La restorativeness (D.422) è la capacità di rigenerazione cognitiva degli ambienti naturali.", "37|Wilson|Amore e sensibilità verso la natura: patrimonio evolutivo": "D.421: secondo Wilson, la predisposizione dell'essere umano verso la natura (biofilia) non è acquisita ma fa parte del patrimonio evolutivo: milioni di anni di vita in ambienti naturali hanno selezionato questa affinità biologica verso la natura.", "37|Kaplan & Kaplan|Restorativeness: rigenerazione cognitiva degli ambienti": "D.422: Kaplan e Kaplan — la restorativeness è la capacità di rigenerazione cognitiva da parte degli ambienti fisici e di facilitare il recupero dallo stress psicofisico e dalla fatica mentale. Il concetto di salutogenesi (D.423) è una visione olistica che considera l'interazione tra fattori biologici, psicologici, socio-culturali ed ecologici.", "37|Kaplan & Kaplan|Salutogenesi: interazione biolog./psicol./socio-culturale/ecologica": "D.423: la salutogenesi è una visione olistica del processo di salute che tiene conto della costante interazione tra fattori biologici, psicologici, socio-culturali ed ecologici. Gli ambienti verdi e blu contribuiscono positivamente a tutti questi fattori.", "37|MacKerron & Mourato|Correlazione positiva: ambienti naturali → benessere soggettivo (2013)": "D.424: MacKerron e Mourato (2013) — trovano una correlazione positiva tra l'esposizione ad ambienti verdi o naturali nella vita quotidiana e il senso di benessere soggettivo momentaneo (Subjective WellBeing). Le persone si sentono significativamente meglio quando si trovano in natura.", "38|Küller et al.|Intensità luminosa → influenza fortemente l'umore (2006)": "D.432: Küller e colleghi (2006) — variando l'intensità luminosa all'interno della postazione di lavoro si influenza fortemente l'umore: luce fioca = umore basso; all'aumentare dell'intensità l'umore del lavoratore migliora. Una corretta illuminazione influisce su buon umore e salute psicofisica (D.431).", "38|Areni & Kim|Fonte di luce può canalizzare l'attenzione (1994)": "D.433: Areni e Kim (1994) — una fonte di luce può aiutare a canalizzare l'attenzione di una persona verso un determinato elemento dell'ambiente. L'illuminazione mirata è uno strumento di guida percettiva utile nei contesti di apprendimento e acquisto.", "38|Bonaiuto et al.|Arredi disposti lungo le pareti, non al centro (2004)": "D.435: Bonaiuto e colleghi (2004) — gli arredi vanno disposti lungo le pareti anziché al centro delle stanze: favorisce la circolazione, riduce la percezione di affollamento e migliora il comfort degli ambienti di lavoro e apprendimento.", "38|Gifford|QI di 26 punti in più in stanze con colori brillanti (2007)": "D.436: Gifford (2007) — i punteggi del QI erano di 26 punti maggiori se ottenuti in stanze dipinte con colori brillanti (giallo, arancio o blu) rispetto a stanze con colori spenti. Il colore dell'ambiente influenza significativamente le prestazioni cognitive.", "38|Pellegrini|Variazioni tonali del colore → aumento comportamenti cooperativi (1985)": "D.437: Pellegrini (1985) — le variazioni del tono del colore all'interno di un ambiente lavorativo sono spesso associate a un aumento dei comportamenti cooperativi tra i lavoratori. Il design cromatico degli spazi influenza anche le relazioni sociali sul lavoro.", "39|Douglas|Distingue criminale organizzato e disorganizzato": "D.443: Douglas distingue due profili criminali — il criminale organizzato (pianifica il crimine, controlla la scena, seleziona le vittime, rimuove le prove) e il disorganizzato (impulsivo, scena caotica, vittima casuale, molte prove lasciate). Questa distinzione guida il criminal profiling.", "39|Ward-Gannon & Keown|Modello del giudizio delle distorsioni cognitive": "D.444: Ward, Gannon e Keown propongono il modello del giudizio delle distorsioni cognitive per comprendere come i criminali giustifichino i loro comportamenti. Al mesolivello si evidenzia il rapporto tra i progetti di vita e le condizioni ambientali.", "39|Arendt|Assenza di responsabilità = incapacità di elaborare il proprio agire": "D.454: Arendt — l'assenza di responsabilità riguarda l'incapacità di elaborare il significato del proprio agire. Eichmann non era un mostro ma qualcuno che aveva smesso di pensare — la «banalità del male». Chiunque smetta di riflettere criticamente può diventare complice del male.", "39|Simon|Atti crudeli evolvono da processi psicologici comuni": "D.458: Simon — gli stati mentali che permettono di compiere atti crudeli evolvono da processi psicologici comuni a tutti. Non servono disturbi mentali speciali o nature malvagie eccezionali. Tutti noi abbiamo un lato oscuro più o meno sopito.", "39|Cleckley|Gli psicopatici agiscono per manipolare gli altri": "D.459: Cleckley — gli psicopatici agiscono con lo scopo di manipolare gli altri. Il nucleo centrale della psicopatia è la «maschera della sanità mentale» (D.456): l'apparenza normale che nasconde la mancanza di empatia e l'uso strumentale degli altri. I criminali psicopatici mostrano estrema impulsività (D.453).", "39|Cleckley|Nucleo centrale della psicopatia: la maschera": "D.456: il concetto chiave di Cleckley — la «maschera»: lo psicopatico appare normale, addirittura affascinante, ma nasconde una totale mancanza di empatia, rimorso e legami emotivi profondi. La maschera permette di ingannare e manipolare gli altri senza essere scoperti.", "40|Canter|Inventore della psicologia investigativa": "D.455: David Canter è l'inventore della psicologia investigativa — disciplina che applica i principi della psicologia all'investigazione criminale. Per Canter ogni comportamento criminale è una transazione interpersonale (D.457): rispecchia il modo in cui il criminale si relaziona agli altri nella vita quotidiana.", "40|Canter|Ogni comportamento criminale = transazione interpersonale": "D.457: secondo la psicologia investigativa di Canter, ogni comportamento criminale è una transazione interpersonale — il modo in cui il criminale tratta la vittima riflette le sue relazioni interpersonali abituali. Analizzando il crimine si può inferire la personalità del criminale.", "40|Teten|Il metodo: analisi della natura del crimine per identificare l'autore": "D.482: Teten — il metodo per identificare l'autore di un reato si basa sull'analisi della natura del crimine: le caratteristiche specifiche del crimine (modalità, firma, vittimologia) permettono di inferire le caratteristiche del criminale. La Routine Activity Theory rientra nel decision process model (D.486).", "40|Brussell|Dallo stato mentale del criminale → scena del crimine": "D.489: Brussell — si parte dallo stato mentale e psicologico del criminale per poi sovrapporlo e rapportarlo alla scena del crimine. Approccio deduttivo: dal profilo psicologico si interpreta la scena. Lo staging è la messa in scena sul luogo del crimine (D.490).", "40|Wilson|Si rifà ai bisogni progressivi di Maslow": "D.451: Wilson — nell'analisi dei crimini a sfondo sessuale si rifà ai bisogni progressivi di Maslow: i crimini sessuali possono essere compresi in relazione alla gerarchia dei bisogni. Le variazioni dimensionali dell'amigdala implicano la totale assenza di rimorso (D.452).", "41|De Leo|Devianza come forma estrema di comunicazione": "D.364: De Leo — la devianza minorile è una forma potente ed estrema di comunicazione: il comportamento deviante veicola messaggi sul Sé del minore, sulle sue relazioni e sui suoi bisogni insoddisfatti. Il D.P.R. 448/88 (D.461) prevede tra i suoi principi la de-stigmatizzazione.", "41|De Leo|Analisi sequenziale dell'azione deviante": "D.365: l'analisi sequenziale dell'azione deviante di De Leo permette di ricostruire la storia personale del minore, il significato soggettivo delle sue azioni e le sue aspettative sulle conseguenze. Il reo minore è messo in condizione di co-responsabile del proprio cambiamento (D.462).", "41|De Leo|Reo = attivo generatore di significati": "D.368: nella prospettiva di De Leo, il reo minore è un attivo generatore di significati — attraverso le sue azioni comunica qualcosa di specifico sul proprio Sé. L'art. 9 del D.P.R. 448/88 (D.464) riguarda gli accertamenti sulla personalità del minorenne.", "42|Carver|Dissonanza cognitiva applicata alle relazioni violente (2002)": "D.519: Carver (2002) applica la teoria della dissonanza cognitiva alle relazioni violente — la donna sperimenta una dissonanza tra la credenza nel valore della relazione e la realtà degli abusi. Per ridurre la tensione cognitiva, minimizza gli abusi o spera nel cambiamento del partner. Alla base della dinamica violenta vi è il controllo (D.518).", "42|Carver|Investimento emozionale trattiene la donna nel rapporto disfunzionale": "D.520: Carver — l'investimento emozionale (sentimenti, pianti, preoccupazioni, anni di vita condivisi) trattiene la donna in un rapporto disfunzionale spingendola a credere che la relazione valga la pena nonostante gli abusi. È un fattore psicologico potentissimo nel mantenere la vittima.", "42|Cupach & Spitzeberg|5 strategie di coping della vittima di violenza (2004)": "D.533: Cupach e Spitzeberg (2004) distinguono 5 strategie di coping messe in atto dalla vittima di violenza. Il disturbo più frequente nelle vittime è il Post Traumatic Stress Disorder — PTSD (D.534). Le difficoltà nel coping rientrano tra le conseguenze dell'abuso psicologico (D.537).", "43|Canter|Inventore della psicologia investigativa": "D.455: David Canter è l'inventore della psicologia investigativa — disciplina che applica i principi della psicologia alla comprensione e all'investigazione dei crimini. Ogni comportamento criminale è una transazione interpersonale che riflette le relazioni abituali del criminale (D.457).", "43|Canter|Ogni comportamento criminale = transazione interpersonale": "D.457: per Canter, il comportamento criminale è una transazione interpersonale — il modo in cui il criminale tratta la vittima rispecchia il suo modo abituale di relazionarsi agli altri. Analizzando il crimine si inferisce la personalità del criminale.", "43|Douglas|Criminale organizzato vs disorganizzato": "D.443: Douglas distingue il criminale organizzato (pianifica, controlla la scena, seleziona la vittima, rimuove prove) dal criminale disorganizzato (impulsivo, scena caotica, vittima casuale, lascia molte prove). Questa distinzione guida il profiling criminale.", "43|Brussell|Dallo stato mentale del criminale → scena del crimine": "D.489: Brussell — si parte dallo stato mentale e psicologico del criminale per poi sovrapporlo alla scena del crimine. È un approccio deduttivo: dal profilo psicologico si interpreta la scena. L'autopsia psicologica (D.483) è una delle fasi della psicologia investigativa.", "43|Teten|Analisi della natura del crimine per identificare l'autore": "D.482: Teten — il metodo per identificare l'autore si basa sull'analisi della natura del crimine. Le caratteristiche specifiche permettono di inferire le caratteristiche del criminale. L'inductive criminal profiling (D.484) permette una rapida elaborazione dei profili con approccio scientifico incisivo.", "43|Bond|Primo contributo sul criminal profiling": "D.485: Bond ha fornito il primo contributo sul criminal profiling — è considerato un precursore della disciplina, avendo per primo tentato di costruire profili psicologici dei criminali sulla base delle caratteristiche del crimine. L'approccio antropologico (D.487) investiga sui fattori organici e motivazionali.", "44|Carver|Dissonanza cognitiva applicata alle relazioni violente (2002)": "D.519: Carver (2002) — dissonanza cognitiva nelle relazioni violente: la donna sperimenta tensione tra la credenza nel valore della relazione e la realtà degli abusi. Per ridurre la dissonanza, minimizza gli abusi o spera nel cambiamento. Alla base della dinamica violenta vi è il controllo (D.518).", "44|Carver|Investimento emozionale trattiene la donna": "D.520: Carver — l'investimento emozionale (sentimenti, pianti, preoccupazioni, anni condivisi) trattiene la donna in un rapporto disfunzionale spingendola a credere che la relazione valga la pena nonostante gli abusi. Caratterizzato da sentimenti e investimento emotivo continuo.", "44|Cupach & Spitzeberg|5 strategie di coping della vittima (2004)": "D.533: Cupach e Spitzeberg (2004) distinguono 5 strategie di coping della vittima. L'ossessività è un precursore potenzialmente comune per lo stalking (D.532). I contenuti prevalenti nelle comunicazioni degli stalker riguardano l'amore o il desiderio (D.538). Il PTSD è il disturbo più frequente (D.534).", "44|Cupach & Spitzeberg|Ossessività come precursore dello stalking": "D.532: Cupach e Spitzeberg — l'ossessività è un precursore potenzialmente comune per lo stalking. Le dinamiche dello stalking sono agite prevalentemente nelle relazioni di coppia (D.531). È importante studiare questo elemento nelle intrusioni relazionali prima che degenerino in stalking.", "44|Walker|Ciclo della violenza: tensione → esplosione → luna di miele": "D.511: Walker descrive il ciclo della violenza in tre fasi: tensione (accumulo di tensioni, piccole provocazioni) → esplosione (episodio acuto di violenza) → luna di miele (riconciliazione, scuse, promesse di cambiamento). L'alternanza tra queste fasi crea dipendenza emotiva nella vittima (trauma bonding).", "45|Carver|Dissonanza cognitiva nella relazione violenta": "D.519-520: nella relazione violenta (Carver) la teoria della dissonanza cognitiva spiega perché la vittima rimane. C'è una dissonanza tra «questa persona mi ama» (credenza) e «questa persona mi maltratta» (realtà). Per ridurre la dissonanza si minimizzano gli abusi o si valorizzano i momenti positivi della luna di miele.", "45|Cupach & Spitzeberg|5 strategie di coping della vittima": "D.533-537: le cinque strategie di coping della vittima (Cupach e Spitzeberg, 2004) rappresentano i modi in cui le vittime cercano di fronteggiare la situazione abusante. Il PTSD è il disturbo più frequente (D.534). Vittime croniche (D.535) vs rivittimizzate (D.536). Difficoltà nel coping = conseguenze dell'abuso psicologico (D.537).", "45|Walker|Ciclo della violenza (fase luna di miele → attaccamento paradossale)": "D.511: il ciclo della violenza di Walker (tensione → esplosione → luna di miele) spiega il trauma bonding: l'alternanza tra violenza e momenti positivi crea un attaccamento paradossale alla figura maltrattante, simile alla sindrome di Stoccolma. La relazione vittima-carnefice è un intreccio complesso di dinamiche psicologiche e di potere.", "45|Seligman|Impotenza appresa nelle vittime di violenza": "D.525: Seligman — l'impotenza appresa (learned helplessness): le vittime di violenza ripetuta, non riuscendo a sfuggire agli abusi nonostante i tentativi, imparano che le loro azioni non hanno effetto sulla situazione e smettono di provare a cambiare le cose. Spiega psicologicamente perché non se ne vanno.", "16|Lewin, Lippit & White|Stile autoritario, democratico, laissez-faire": "D.230: Lewin, Lippit e White (1939) classificano gli stili di leadership: autoritario (il leader decide tutto, impartisce ordini), democratico (decisioni prese con il gruppo, leader che facilita), laissez-faire (leadership permissiva — nominale ma non sostanziale).", "16|Moscovici|Distingue tra potere e influenza": "D.224: Moscovici distingue potere (capacità di imporre attraverso risorse e coercizione) da influenza (capacità di cambiare atteggiamenti e comportamenti senza coercizione). Le minoranze influenzano attraverso coerenza nel tempo, non attraverso potere formale.", "27|Zimbardo|Non sacrificare libertà personali per sicurezza": "D.320: Zimbardo — non sacrificare mai le libertà personali di base per la promessa di una sicurezza, perché i sacrifici sono reali e immediati, mentre la sicurezza promessa è un concetto astratto, un'illusione distante. Un principio cardine contro l'influenza autoritaria.", "42|Carver|Teoria della dissonanza cognitiva applicata alle relazioni violente (2002)": "D.519: Carver (2002) applica la teoria della dissonanza cognitiva alle relazioni violente — la donna sperimenta una dissonanza tra la credenza nel valore della relazione e la realtà degli abusi. Per ridurre la tensione cognitiva, minimizza gli abusi o spera nel cambiamento del partner. Alla base della dinamica violenta vi è il controllo (D.518)."};
+
+// ── STATE ──────────────────────────────────────────────────────────────────────
+let currentChapter=CHAPTERS[0],openAuthorIdx=null,selectedConcept=null;
+let tick=0,nodes=[],hoveredNode=null;
+
+// ── SIDEBAR ────────────────────────────────────────────────────────────────────
+function renderSidebar(filter){
+  const list=document.getElementById('chapter-list');list.innerHTML='';
+  const q=(filter||'').toLowerCase();
+  CHAPTERS.forEach(ch=>{
+    if(q&&!ch.title.toLowerCase().includes(q)&&!ch.authors.some(a=>a.name.toLowerCase().includes(q)))return;
+    const btn=document.createElement('button');
+    btn.className='ch-btn'+(ch.n===currentChapter.n?' active':'');
+    btn.innerHTML=`<span class="ch-num">Cap. ${ch.n}</span><span class="ch-title">${ch.title}</span><span class="ch-authors">${ch.authors.map(a=>a.name).join(', ')}</span>`;
+    btn.addEventListener('click',()=>selectChapter(ch));
+    list.appendChild(btn);
+  });
+}
+document.getElementById('search').addEventListener('input',e=>renderSidebar(e.target.value));
+
+function selectChapter(ch){
+  currentChapter=ch;openAuthorIdx=null;selectedConcept=null;
+  hideExplain();renderSidebar(document.getElementById('search').value);
+  renderTopBar();renderAuthorPanel();renderLegend();computeLayout();
+  if(window.loadAudioForChapter) loadAudioForChapter(ch);
+}
+
+// ── TOP BAR ───────────────────────────────────────────────────────────────────
+function renderTopBar(){
+  document.getElementById('cap-badge').textContent='Cap. '+currentChapter.n;
+  document.getElementById('cap-title').textContent=currentChapter.title;
+  const total=currentChapter.authors.reduce((s,a)=>s+a.concepts.length,0);
+  document.getElementById('cap-stats').textContent=currentChapter.authors.length+' autori · '+total+' concetti';
+}
+
+// ── LEGEND ─────────────────────────────────────────────────────────────────────
+function renderLegend(){
+  document.getElementById('legend').innerHTML=currentChapter.authors.map(a=>
+    `<span class="legend-item"><span class="legend-dot" style="background:${a.color}"></span>${a.name} <span style="color:#484f58">(${a.concepts.length})</span></span>`
+  ).join('');
+}
+
+// ── AUTHOR PANEL ──────────────────────────────────────────────────────────────
+function renderAuthorPanel(){
+  const body=document.getElementById('ap-body');body.innerHTML='';
+  currentChapter.authors.forEach((a,ai)=>{
+    const block=document.createElement('div');block.className='author-block';
+    const tog=document.createElement('button');
+    tog.className='author-toggle';
+    tog.style.color=openAuthorIdx===ai?a.color:'#e6edf3';
+    tog.style.borderColor=openAuthorIdx===ai?a.color:'#21262d';
+    tog.style.background=openAuthorIdx===ai?a.color+'18':'transparent';
+    tog.innerHTML=`<span class="author-dot" style="background:${a.color}"></span><span class="author-name" style="color:${openAuthorIdx===ai?a.color:'#e6edf3'}">${a.name}</span><span class="author-count">${openAuthorIdx===ai?'▲':'▼'} ${a.concepts.length}</span>`;
+    tog.addEventListener('click',()=>{openAuthorIdx=openAuthorIdx===ai?null:ai;renderAuthorPanel();});
+    const cl=document.createElement('div');
+    cl.className='concepts-list'+(openAuthorIdx===ai?' open':'');
+    a.concepts.forEach((c,ci)=>{
+      const isSel=selectedConcept&&selectedConcept.author.name===a.name&&selectedConcept.concept.text===c.text;
+      const btn=document.createElement('button');
+      btn.className='concept-btn'+(isSel?' selected':'');
+      btn.style.borderLeftColor=isSel?a.color:a.color+'44';
+      btn.style.background=isSel?a.color+'18':'transparent';
+      btn.innerHTML=`<span class="concept-text">${isSel?'<span style="color:'+a.color+'">▶ </span>':''}${c.text}</span><span class="concept-exam" style="color:${a.color}">${c.exam}</span>`;
+      btn.addEventListener('click',()=>{
+        selectedConcept={author:a,concept:c,chapter:currentChapter};
+        renderAuthorPanel();showExplain(a,c);
+      });
+      cl.appendChild(btn);
+    });
+    block.appendChild(tog);block.appendChild(cl);body.appendChild(block);
+  });
+}
+
+// ── EXPLANATION PANEL ─────────────────────────────────────────────────────────
+function showExplain(author,concept){
+  const panel=document.getElementById('explain-panel');
+  const inner=document.getElementById('ep-inner');
+  panel.classList.remove('hidden');
+  inner.style.borderLeftColor=author.color+'55';
+  inner.style.boxShadow='-6px 0 28px '+author.color+'18';
+  document.getElementById('ep-header').style.background='#161b22';
+  document.getElementById('ep-author-name').style.color=author.color;
+  document.getElementById('ep-dot').style.background=author.color;
+  document.getElementById('ep-aname').textContent=author.name;
+  const box=document.getElementById('ep-concept-box');
+  box.style.background='#21262d';box.style.border='1px solid '+author.color+'66';
+  document.getElementById('ep-concept-text').textContent=concept.text;
+  const examEl=document.getElementById('ep-concept-exam');
+  examEl.textContent=concept.exam;examEl.style.color=author.color;
+  const key=currentChapter.n+'|'+author.name+'|'+concept.text;
+  const explanation=EXPLANATIONS[key]||'Spiegazione non disponibile per questo concetto.';
+  document.getElementById('ep-text').textContent=explanation;
+}
+
+function hideExplain(){
+  document.getElementById('explain-panel').classList.add('hidden');
+  selectedConcept=null;
+}
+document.getElementById('ep-close').addEventListener('click',hideExplain);
+
+// ── CANVAS / MIND MAP ─────────────────────────────────────────────────────────
+const canvas=document.getElementById('cv');
+const ctx=canvas.getContext('2d');
+const tooltip=document.getElementById('tooltip');
+
+function resize(){
+  const wrap=document.getElementById('canvas-wrap');
+  const dpr=window.devicePixelRatio||1;
+  canvas.width=wrap.clientWidth*dpr;canvas.height=wrap.clientHeight*dpr;
+  ctx.setTransform(dpr,0,0,dpr,0,0);computeLayout();
+}
+
+function computeLayout(){
+  const W=canvas.width/(window.devicePixelRatio||1);
+  const H=canvas.height/(window.devicePixelRatio||1);
+  const cx=W/2,cy=H/2;
+  nodes=[];
+  nodes.push({type:'center',x:cx,y:cy,r:50,label:'Cap. '+currentChapter.n,sub:currentChapter.title});
+  currentChapter.authors.forEach((a,ai)=>{
+    const angle=(2*Math.PI*ai/currentChapter.authors.length)-Math.PI/2;
+    const aR=Math.min(W,H)*0.28;
+    const ax=cx+aR*Math.cos(angle),ay=cy+aR*Math.sin(angle);
+    nodes.push({type:'author',x:ax,y:ay,r:30,label:a.name,color:a.color,ai});
+    a.concepts.forEach((c,ci)=>{
+      const nC=a.concepts.length;
+      const spread=Math.min(Math.PI*0.55,nC*0.18);
+      const cAngle=angle+(ci-(nC-1)/2)*(spread/Math.max(nC-1,1));
+      const cR=aR+112+(ci%2)*18;
+      nodes.push({type:'concept',x:cx+cR*Math.cos(cAngle),y:cy+cR*Math.sin(cAngle),r:6,label:c.text,exam:c.exam,color:a.color,ai});
+    });
+  });
+}
+
+function wrapText(ctx,text,x,y,maxW,lh){
+  const words=text.split(' ');let line='',lines=[];
+  words.forEach(w=>{const t=line?line+' '+w:w;if(ctx.measureText(t).width>maxW&&line){lines.push(line);line=w;}else line=t;});
+  lines.push(line);
+  const sy=y-(lines.length-1)*lh/2;
+  lines.forEach((l,i)=>ctx.fillText(l,x,sy+i*lh));
+}
+
+function draw(){
+  tick++;
+  const W=canvas.width/(window.devicePixelRatio||1);
+  const H=canvas.height/(window.devicePixelRatio||1);
+  ctx.clearRect(0,0,W,H);
+  const center=nodes[0];
+  // edges
+  currentChapter.authors.forEach((a,ai)=>{
+    const aN=nodes.find(n=>n.type==='author'&&n.ai===ai);if(!aN)return;
+    ctx.beginPath();ctx.moveTo(center.x,center.y);ctx.lineTo(aN.x,aN.y);
+    ctx.strokeStyle=a.color+'55';ctx.lineWidth=2;ctx.stroke();
+    nodes.filter(n=>n.type==='concept'&&n.ai===ai).forEach(cn=>{
+      ctx.beginPath();ctx.moveTo(aN.x,aN.y);ctx.lineTo(cn.x,cn.y);
+      ctx.strokeStyle=a.color+'3a';ctx.lineWidth=1.2;ctx.stroke();
+    });
+  });
+  // concept nodes
+  nodes.filter(n=>n.type==='concept').forEach(n=>{
+    const hov=hoveredNode===n;
+    ctx.save();ctx.beginPath();ctx.arc(n.x,n.y,hov?9:6,0,Math.PI*2);
+    ctx.fillStyle=n.color;ctx.globalAlpha=hov?1:0.8;ctx.fill();ctx.restore();
+    ctx.save();ctx.font=hov?'bold 10px monospace':'9.5px monospace';
+    ctx.fillStyle=hov?'#fff':'#c9d1d9';ctx.globalAlpha=hov?1:0.82;ctx.textAlign='center';
+    wrapText(ctx,n.label,n.x,n.y+16,115,11);ctx.restore();
+  });
+  // author nodes
+  nodes.filter(n=>n.type==='author').forEach(n=>{
+    const hov=hoveredNode===n;const pulse=hov?Math.sin(tick*0.05)*3:0;const r=n.r+pulse;
+    const g=ctx.createRadialGradient(n.x,n.y,r*.3,n.x,n.y,r*1.8);
+    g.addColorStop(0,n.color+'44');g.addColorStop(1,'transparent');
+    ctx.beginPath();ctx.arc(n.x,n.y,r*1.8,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
+    ctx.beginPath();ctx.arc(n.x,n.y,r,0,Math.PI*2);ctx.fillStyle='#161b22';ctx.fill();
+    ctx.strokeStyle=n.color;ctx.lineWidth=hov?2.5:1.8;ctx.stroke();
+    ctx.font='bold 10px monospace';ctx.fillStyle=n.color;ctx.textAlign='center';ctx.textBaseline='middle';
+    wrapText(ctx,n.label,n.x,n.y,52,11);ctx.textBaseline='alphabetic';
+  });
+  // center
+  const pc=Math.sin(tick*0.03)*4;const rc=center.r+pc;
+  const gc=ctx.createRadialGradient(center.x,center.y,rc*.1,center.x,center.y,rc*2);
+  gc.addColorStop(0,'#1f6feb66');gc.addColorStop(1,'transparent');
+  ctx.beginPath();ctx.arc(center.x,center.y,rc*2,0,Math.PI*2);ctx.fillStyle=gc;ctx.fill();
+  ctx.beginPath();ctx.arc(center.x,center.y,rc,0,Math.PI*2);
+  ctx.fillStyle='#161b22';ctx.fill();ctx.strokeStyle='#58a6ff';ctx.lineWidth=2.5;ctx.stroke();
+  ctx.font='bold 11px monospace';ctx.fillStyle='#58a6ff';ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText(center.label,center.x,center.y-7);
+  ctx.font='9px monospace';ctx.fillStyle='#8b949e';
+  wrapText(ctx,center.sub,center.x,center.y+8,rc*1.8,10);ctx.textBaseline='alphabetic';
+  requestAnimationFrame(draw);
+}
+
+// Touch support for canvas
+canvas.addEventListener('touchstart',e=>{
+  e.preventDefault();
+  const touch=e.changedTouches[0];
+  const rect=canvas.getBoundingClientRect();
+  const x=touch.clientX-rect.left,y=touch.clientY-rect.top;
+  for(const n of nodes){
+    const dx=n.x-x,dy=n.y-y;
+    if(Math.sqrt(dx*dx+dy*dy)<(n.type==='concept'?28:n.r+10)){
+      if(n.type==='concept'){
+        // Find author for this concept
+        const a=currentChapter.authors[n.ai];
+        const c=a.concepts.find(cc=>cc.text===n.label);
+        if(c){selectedConcept={author:a,concept:c,chapter:currentChapter};renderAuthorPanel();showExplain(a,c);}
+      }
+      break;
+    }
+  }
+},{passive:false});
+
+canvas.addEventListener('mousemove',e=>{
+  const rect=canvas.getBoundingClientRect();
+  const x=e.clientX-rect.left,y=e.clientY-rect.top;
+  let found=null;
+  for(const n of nodes){const dx=n.x-x,dy=n.y-y;if(Math.sqrt(dx*dx+dy*dy)<(n.type==='concept'?20:n.r+5)){found=n;break;}}
+  hoveredNode=found;canvas.style.cursor=found?'pointer':'default';
+  if(found&&found.type==='concept'){
+    tooltip.style.display='block';tooltip.style.left=(e.clientX+14)+'px';tooltip.style.top=(e.clientY-18)+'px';
+    tooltip.style.borderColor=found.color;
+    document.getElementById('tooltip-exam').style.color=found.color;
+    document.getElementById('tooltip-exam').textContent=found.exam;
+    document.getElementById('tooltip-text').textContent=found.label;
+  }else tooltip.style.display='none';
+});
+canvas.addEventListener('mouseleave',()=>{hoveredNode=null;tooltip.style.display='none';});
+window.addEventListener('resize',resize);
+
+
+// ── SERVICE WORKER (PWA offline cache) ───────────────────────────────────────
+if('serviceWorker' in navigator){
+  const swCode=`
+self.addEventListener('install',e=>{self.skipWaiting();});
+self.addEventListener('fetch',e=>{e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)));});
+`;
+  const blob=new Blob([swCode],{type:'application/javascript'});
+  const swUrl=URL.createObjectURL(blob);
+  navigator.serviceWorker.register(swUrl).catch(()=>{});
+}
+
+// ── SIDEBAR TOGGLE for iPad ───────────────────────────────────────────────────
+(function(){
+  const sidebar=document.getElementById('sidebar');
+  const toggleBtn=document.createElement('button');
+  toggleBtn.id='sidebar-toggle';
+  toggleBtn.textContent='☰';
+  toggleBtn.style.cssText='position:fixed;top:12px;left:12px;z-index:500;background:#161b22;border:1px solid #21262d;border-radius:6px;color:#58a6ff;font-size:18px;width:36px;height:36px;cursor:pointer;display:none;align-items:center;justify-content:center;';
+  document.body.appendChild(toggleBtn);
+
+  let sidebarOpen=true;
+  function checkLayout(){
+    if(window.innerWidth<900){
+      toggleBtn.style.display='flex';
+      if(sidebarOpen){
+        sidebar.style.cssText='width:260px;min-width:260px;position:fixed;left:0;top:0;height:100vh;z-index:400;transition:transform .25s ease;';
+      } else {
+        sidebar.style.cssText='width:260px;min-width:260px;position:fixed;left:0;top:0;height:100vh;z-index:400;transition:transform .25s ease;transform:translateX(-100%);';
+      }
+    } else {
+      toggleBtn.style.display='none';
+      sidebar.style.cssText='width:220px;min-width:220px;position:relative;transform:none;';
+    }
+  }
+  toggleBtn.addEventListener('click',()=>{sidebarOpen=!sidebarOpen;checkLayout();});
+  window.addEventListener('resize',checkLayout);
+  checkLayout();
+})();
+
+
+// ── GOOGLE DRIVE AUDIO IDS ────────────────────────────────────────────────────
+// Format: chapter number -> {lec: 'drive_file_id', pod: 'drive_file_id'}
+// To get a file ID: right-click file in Drive → Get link → copy the long ID
+// Direct play URL: https://drive.google.com/uc?export=download&id=FILE_ID
+const DRIVE_IDS = {
+  1:{lec:"1QsJExp30WYdozkTKm268CdynDJm-2Yep",pod:"1svuIAY1wRrFToBs2L2Q3PwuAtBhvEPZ3",ris:"10FLhOnOSg9WzmJouYN_28tKEoywYipqN"},
+  2:{lec:"1xPl5sEuGlh-gVfxdnMDPqsO23OwBJxjy",pod:"1NKwo7MEx2zQ_efA9BQntRq3sYGKrMmPd",ris:"14UqRM4nT-nu9MtaJno-TMuW-eAyjnE2a"},
+  3:{lec:"1lvmTg9PTs79nZbuSLSJIyONNPpqX4uET",pod:"1Fd2r0VVaXFmZBFc2jbapxfc1fAU-SjgC",ris:"14wrtbkwlwDUSsNFE2h5x1ZYAgjYwemh8"},
+  4:{lec:"1S2n4hwO4bHs2A5ceNgcZITjb_gmHtn0f",pod:"16FBT7o-hJYBwCTKXB5hJozkXrzYdMm_K",ris:"15204j216Nn7pMAsqhsOXYl965VvToQBy"},
+  5:{lec:"1d5pqLkiu-_TS1hvbT-HeGFLT3pVuh_v5",pod:"1Wit1HZVhCIpgNxMW_EGs5awUqDf3Ep6m",ris:"17NHUbgKezEw1FiuTvhgBAKVIqcwho2Am"},
+  6:{lec:"10A5GjKn5lryN6i8smZFPyghg1dzdvyHt",pod:"10jhkldBvhohFNgXTtouaF3u6DQJzjPnO",ris:"19ej_S13PnoKQSkwGrgJv0Htrsf6WehLZ"},
+  7:{lec:"1aaJnfrebv24fMKunbY6D_SeKqeYXT-dv",pod:"1FJUaqiVgmLxj3Z40msX84iKDF_rNXlH2",ris:"1BWVDzBcEtKauZUpif9bKM4TJZ2sAmPxn"},
+  8:{lec:"1s1QcWzrA-HxJaoiGwmhd5rZXpK6xCpZw",pod:"1w3kKP20MjXOvowUoPf4ZBE7FsvAa5aUP",ris:"1DTjSfDQRngRz9SNjQZW5QvOnZNnISVHU"},
+  9:{lec:"1zw47APiF47IiXUCbUyE86V2SutRn0-iV",pod:"1r_BiBf33snCi2Qadda7F9-dn4etlyAyO",ris:"1DVkWoZ1PfDv21pcyhlFzxh4eG6yR5uPp"},
+  10:{lec:"18Oa87qb92dSK-dRBvP4gdlkM7WNbbMnD",pod:"1HM7zhCgI1tDjrYgRdGCJWC7eQmbUBDqJ",ris:"1EMucFROKyspJDp5vxzwZXw6PqhI1XK-p"},
+  11:{lec:"1Euu2OxFSH0PxGxy6HBOoWvy57Oil3BR5",pod:"1Dgb7o8Csm52ZuasJCeErrs4CK_PwCAz4",ris:"1Eu0RMLfW3lF_QwmXCL0VKOwzarhE1cKC"},
+  12:{lec:"1hObKeq8cv8qTFIXmQSg0WsGfDM_LuX3U",pod:"1ugVanpTld0U-wsz2DbVZ1eMB8MQ49UwF",ris:"1EzBmJqpO5STzI407JSSqbIlYXCu1iNbW"},
+  13:{lec:"1dd0Vrgp2Vhym6qROqv-qOk_1ibyUg6PN",pod:"1ymsQAY55SjuNSX8fL7hMQMDRqXBOjhOd",ris:"1F70B4sgtfX7-hzp-5ajhDwEjYlRstsEM"},
+  14:{lec:"1ADQ5Apew2UyhfvpuuWNFJOOYL1NJAqtJ",pod:"1Zb9jzs2HheyueZAHOR_SwvcHbnzf4wTE",ris:"1IBpnTXE3uOELh82xJKm-TGcF2hPfIAyd"},
+  15:{lec:"1niqc5lOMHiB6cVJjxR_qU9bNXVawyVZR",pod:"15hLh0R4z7PtKv6vswSbOoKMLc3quSl2D",ris:"1Jl38BdAabRoZ4gHDI2sW1--TeobgW2Gf"},
+  16:{lec:"1-pUuoChhDj4AH_tpbXfHQPEWsBdNw7Ot",pod:"1NUJiWRzSxVo68NOf8x81y69FWSUxbmsn",ris:"1KPAn8nyhCQpfSbLjmJTnllJbwG9vNEdq"},
+  17:{lec:"1X39cbVgC18vM4DFhZkZD6uJ2su7SO7m0",pod:"1nD0qE5WKJR3EWE3umSJvdRdl8ASxD9IK",ris:"1OITYjrnV7eV0AOAX3Rs5na7fu_m8Jqrj"},
+  18:{lec:"1vQaBwJ47J2_pDzd7ENKJExeUsqVxlRFr",pod:"13HnVWtfj4cdxuZALq4N0n2oR0m9sfFJU",ris:"1OPK_T2t8PaGOPmP6q9JDhGrn1F639eu9"},
+  19:{lec:"1eDqHo0uhkomB86woJX6r46ZH7VOXa6O3",pod:"1nMLIdlrTWKHPbljQmtmJ1xRot0MFJsIR",ris:"1OXHClsQC1w1uKHAqJRLScZPCQ9LX2yEA"},
+  20:{lec:"1IlkFVxgF6zT9SrOEV9PMPFhgQCjo-_oR",pod:"1LprCalRlO80H6rCNfCVOdf_ShkQX-Vi4",ris:"1P1ElVeTzTg4SDewnr_YuHzQxlKsjyuw3"},
+  21:{lec:"1mw5sm-UBQPA4KuATv4cKdpgVj_xGKFyE",pod:"1w9nJZmj56VArY1tXp9MrVBImKzvgXa3e",ris:"1Q7qLxm7lDB7P_ROGCTEAgt3FCszEQ995"},
+  22:{lec:"1LJWoQWE9I0M-s7wyOKsFC0cpw4BhugpJ",pod:"1sBFmBgUakvpP7Zz7ccwojHnayojQimXh",ris:"1RpSWI2wzfV42Nqpj_GpQUm7JNBrnSMlk"},
+  23:{lec:"1-CdsNIaf-fEMX83K3DFriXnMnByjamVV",pod:"1LDYuW8NB-_FKDHIaDrcriKSjmsKimDYm",ris:"1RwRAK5SDXFrO-8Y75u9AqqanFi7_vmXi"},
+  24:{lec:"1HbA3_KJp_ZKNNKclJYz1Uz5UuC2JSUHr",pod:"18PS7hU_Es5CEwabo4PzHmUbyq8CiPlaR",ris:"1_gjC1B43oweVwx32P9Mlc-tl2uSa6GGD"},
+  25:{lec:"13WiAjBk0Dffds1_UhGb1JFpTfSBWyYFx",pod:"1OrtJDXEHdG8p6Pq9xDVxbdzQz98UuR0u",ris:"1_gjUnNSciw4ZRNdznAkFKMa-knKmvmi4"},
+  26:{lec:"11L4Fpax2aVJYt_TUH2WODmDKRZqsPn6z",pod:"1j30S4_n5jmHvmDnoewpgg1ijuOGD3yy5",ris:"1_jrqCNc92oKrw1SPWeYodflZLp93GyKB"},
+  27:{lec:"1Uj6AtOaIDonVTxvhNQNvDjo17WGwF9CT",pod:"1jRKbnuZl5mj4fqM1QTCAibPlLFIBCawK",ris:"1au3u-t7OC2P1KQAOicZViBiof_lWC1sz"},
+  28:{lec:"1iiemCxJj9woQL-M8sxOmUHOGjLmloWc0",pod:"1IPXHmK43XHyzKbDlexIidHcxjvGWTEET",ris:"1b-nU3EHW776HweCSseVqYCyRmYIh1jwR"},
+  29:{lec:"1pTo9dYaY2_rCsVDrIK4J34i1NAWco0zu",pod:"1yYhVGo8rqaXKM6EKZkNYs9Rly-ZcW1sd",ris:"1b_9btihAxW0XmN5NttSPi3AcwjBajR4t"},
+  30:{lec:"1-p7XvM9Exv-Bb6R3kB8PfZv643E9kkxR",pod:"1B1Lsb-azP8mzZi8NWwKaJ14DbT_akbV6",ris:"1c4-6quYL3pw7PyDjNgFaOsTn4JjIkXcn"},
+  31:{lec:"1sAMLzPkcPZmXtFqcKF84tVuo7KVUpanB",pod:"1k-iVJGxY8eL0WJygpGibFXPgVrt6SBIW",ris:"1f8Rqoauf_fznaV7SZ7WnSPn5A3YDCUu1"},
+  32:{lec:"1mYng4pi8RJeqNkDicKXzrS3DG7u_IXrG",pod:"1VnINB2V110EkQnrhv8Cp80--zb1O-28a",ris:"1gAhoDSmhrYtQg4Crm8iXabzgCdIIbi2P"},
+  33:{lec:"1xqOvChfP8zajEp-DQlLe-SnBsdYa9QV4",pod:"1c0maucJsZSUyYrsNV2obaJVQOT08qllW",ris:"1hEBg55NnGqrJyjrIg-jjaTk0v-s-cPJl"},
+  34:{lec:"1kgaT_-9f_xLwYn6-ft1QGNNhMx01z64n",pod:"1K0LAVxkR8D4B3oqwe5w4HlyiIuehkA4W",ris:"1hHWGUU7cdPS4J2BCZH_SaZvn5HYGqpk2"},
+  35:{lec:"16bjNAEjQBNe-ncEK3xV70e8gYpr9hO_a",pod:"1nk3zAEDOqUVhJVA3ZnxZQjsJZHDguY8C",ris:"1ijYQKEnciy6g-tFNQnpIqYE7fMmwnikx"},
+  36:{lec:"1Ej6pYMb0v2BZNYpQ9jj0K2HdeUZGk-nQ",pod:"1vO5KaNRXwD1wrVYy2MQnHdw1sXY9z17Z",ris:"1kd4WOxEMxjpLy-GcUh-kgyAJlBSijuPy"},
+  37:{lec:"1REU5o6UBhDiHo9BaejaNIxo0TZ5gqTeU",pod:"14uLjQcazyNSdSwu6S7nKcp9UkNf_ufW7",ris:"1pUGkRO57btq87VWwX6v0hSJatgU6fHkG"},
+  38:{lec:"1Om0AJFZDtDc2Sdt_gYBnG9v8zNe6LuLR",pod:"1TTmnTU2l7Kx1hS_AAnpnLSTgmYzxjMw7",ris:"1pvZjzSXPSNsYH_-WzF5K3Rh0dTAY-ydE"},
+  39:{lec:"18fvUTdfVQrmC0OqLU7saJiwozFwlJ1BV",pod:"1bgUGyFKOHNqcvasgjp20RcsZ1594wrsx",ris:"1q3yNaDI2MGnZE_rlsxkdglos5iT2Nkln"},
+  40:{lec:"1ttpvKdDZMap6RDCd8XFIbwgE3yog2Vm0",pod:"1Ey0WT1APdnyO4L5ximtHVz0StB0_8Msu",ris:"1q7fWkT_EAadwmIhf27nNL5dkbRgbWi8p"},
+  41:{lec:"1r2wmNNWYP2DyHYrGKT1RU9zL-L2EvjgS",pod:"14bZppoG0bVvivtpgOJHL0qwagRY4MnmT",ris:"1qV5ljG2Nxk85-B0UKwVM-VNnPYz0_fuC"},
+  42:{lec:"1bO27Xr_UwXv1zWDu6-GR8NUdqLCJ2C6r",pod:"14pb4Jw8EgXepmCwdKGxZ1jTBcQ9-P1xv",ris:"1si5t92i1_3BJTWzTJIskUtoiWwhGRh57"},
+  43:{lec:"1IobvKYGn0kSDC8sqh-Nf1XrYpjZ7EQZO",pod:"1dLyborJDbP07yedAB9Yx672VfwryOHEU",ris:"1vbT-aTXts8vxkU6gwi6bYcTZKhr-p_eo"},
+  44:{lec:"1L-RjFK7UDrw688uDlxflnx4e_F9IwNyu",pod:"1q7iDjxOl-RtDIHtulUQlLqiXLYW720mT",ris:"1wbWl_1pX5anZ-skoJG-LkTV-Pt6ohGJS"},
+  45:{lec:"1MY16IHy-C_1CaGSa5GI1ul4jnczNAF4H",pod:"1r4DjfSAYy9AO3TOng6P0Fq_fzfRDgf8u",ris:"1xXSSf0-X7nmXX1Mhbwo288yXE_d3baT-"}
+};
+
+function driveUrl(fileId){
+  // URL per streaming audio da Google Drive
+  return 'https://docs.google.com/uc?export=open&id=' + fileId;
+}
+function driveTextUrl(fileId){
+  return 'https://drive.google.com/uc?export=download&id=' + fileId;
+}
+
+
+// ── VIEW TOGGLE ───────────────────────────────────────────────────────────────
+function setView(mode){
+  const canvasWrap = document.getElementById('canvas-wrap');
+  const textWrap   = document.getElementById('text-wrap');
+  const btnMap     = document.getElementById('btn-view-map');
+  const btnText    = document.getElementById('btn-view-text');
+
+  if(mode === 'map'){
+    canvasWrap.style.display = '';
+    textWrap.style.display   = 'none';
+    btnMap.style.background  = '#1f6feb44';
+    btnMap.style.borderColor = '#58a6ff';
+    btnMap.style.color       = '#58a6ff';
+    btnText.style.background = 'transparent';
+    btnText.style.borderColor= '#21262d';
+    btnText.style.color      = '#8b949e';
+  } else {
+    canvasWrap.style.display = 'none';
+    textWrap.style.display   = 'flex';
+    textWrap.style.flexDirection = 'column';
+    btnText.style.background  = '#3fb95044';
+    btnText.style.borderColor = '#3fb950';
+    btnText.style.color       = '#3fb950';
+    btnMap.style.background   = 'transparent';
+    btnMap.style.borderColor  = '#21262d';
+    btnMap.style.color        = '#8b949e';
+    renderSummary(currentChapter);
+  }
+}
+
+function renderSummary(chapter){
+  const titleEl = document.getElementById('chapter-summary-title');
+  const bodyEl  = document.getElementById('chapter-summary-body');
+  titleEl.textContent = 'Cap. ' + chapter.n + ' — ' + chapter.title;
+  bodyEl.textContent  = 'Caricamento riassunto…';
+  bodyEl.style.color  = '#484f58';
+
+  const ids = DRIVE_IDS[chapter.n];
+  if(!ids || !ids.ris){
+    bodyEl.textContent = 'Riassunto non disponibile per questo capitolo.';
+    return;
+  }
+
+  // Fetch testo da Google Drive
+  // Prova URL diretto, poi fallback al proxy CORS pubblico
+  const directUrl = 'https://drive.google.com/uc?export=download&id=' + ids.ris;
+  const proxyUrl  = 'https://corsproxy.io/?' + encodeURIComponent(directUrl);
+  
+  fetch(directUrl, {mode:'cors'})
+    .then(r => { if(!r.ok) throw new Error(r.status); return r.text(); })
+    .catch(() => fetch(proxyUrl).then(r => { if(!r.ok) throw new Error(r.status); return r.text(); }))
+    .then(text => {
+      // Se Drive risponde con HTML (pagina di conferma) mostra fallback
+      if(text.trim().startsWith('<!') || text.trim().startsWith('<html')){
+        throw new Error('html_response');
+      }
+      bodyEl.textContent = text;
+      bodyEl.style.color = '#c9d1d9';
+    })
+    .catch(err => {
+      // Fallback: mostra riassunto generato dalle spiegazioni
+      let lines = [];
+      chapter.authors.forEach(author => {
+        lines.push('\n● ' + author.name.toUpperCase());
+        author.concepts.forEach(concept => {
+          const key = chapter.n + '|' + author.name + '|' + concept.text;
+          const expl = EXPLANATIONS[key];
+          if(expl){ lines.push('  ' + concept.text + '\n  ' + expl + '\n'); }
+        });
+      });
+      bodyEl.textContent = lines.join('\n');
+      bodyEl.style.color = '#c9d1d9';
+    });
+}
+
+// ── AUDIO PLAYER ──────────────────────────────────────────────────────────────
+(function(){
+  let audLec = new Audio();
+  let audPod = new Audio();
+  let currentCap = null;
+
+  function fmt(s){
+    if(isNaN(s)||!isFinite(s)) return '0:00';
+    const m=Math.floor(s/60), sec=Math.floor(s%60);
+    return m+':'+(sec<10?'0':'')+sec;
+  }
+
+  function setupTrack(aud, btnId, fillId, timeId, progId){
+    const btn  = document.getElementById(btnId);
+    const fill = document.getElementById(fillId);
+    const time = document.getElementById(timeId);
+    const prog = document.getElementById(progId);
+
+    aud.addEventListener('timeupdate', ()=>{
+      const pct = aud.duration ? (aud.currentTime/aud.duration*100) : 0;
+      fill.style.width = pct+'%';
+      time.textContent = fmt(aud.currentTime);
+    });
+    aud.addEventListener('ended', ()=>{
+      btn.textContent='▶'; btn.classList.remove('playing');
+      fill.style.width='0%'; time.textContent='0:00';
+    });
+    aud.addEventListener('error', ()=>{
+      btn.textContent='✕'; btn.title='File audio non trovato';
+    });
+
+    btn.addEventListener('click', ()=>{
+      if(aud.paused){
+        aud.play().then(()=>{ btn.textContent='⏸'; btn.classList.add('playing'); })
+          .catch(()=>{ btn.textContent='✕'; });
+      } else {
+        aud.pause(); btn.textContent='▶'; btn.classList.remove('playing');
+      }
+    });
+
+    // click on progress bar to seek
+    prog.addEventListener('click', e=>{
+      if(!aud.duration) return;
+      const r = prog.getBoundingClientRect();
+      const pct = (e.clientX - r.left) / r.width;
+      aud.currentTime = pct * aud.duration;
+    });
+  }
+
+  setupTrack(audLec,'btn-lec','fill-lec','time-lec','prog-lec');
+  setupTrack(audPod,'btn-pod','fill-pod','time-pod','prog-pod');
+
+  function resetBtn(btnId, fillId, timeId){
+    document.getElementById(btnId).textContent='▶';
+    document.getElementById(btnId).classList.remove('playing');
+    document.getElementById(btnId).title='';
+    document.getElementById(fillId).style.width='0%';
+    document.getElementById(timeId).textContent='0:00';
+  }
+
+  window.loadAudioForChapter = function(ch){
+    if(currentCap === ch.n) return; // same chapter, don't reload
+    currentCap = ch.n;
+
+    // Pause and reset both tracks
+    audLec.pause(); audPod.pause();
+    resetBtn('btn-lec','fill-lec','time-lec');
+    resetBtn('btn-pod','fill-pod','time-pod');
+
+    const ids = DRIVE_IDS[ch.n];
+    if(ids){
+      audLec.src = driveUrl(ids.lec);
+      audPod.src = driveUrl(ids.pod);
+    }
+
+    // Update title
+    document.getElementById('audio-cap-num').textContent = ch.n;
+    const short = ch.title.length > 30 ? ch.title.substring(0,28)+'…' : ch.title;
+    document.getElementById('audio-cap-short').textContent = short;
+  };
+})();
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+renderSidebar();renderTopBar();renderAuthorPanel();renderLegend();resize();draw();
+if(window.loadAudioForChapter) loadAudioForChapter(CHAPTERS[0]);
+</script>
+</body>
+</html>
