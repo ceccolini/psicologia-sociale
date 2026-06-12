@@ -1,0 +1,1749 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Psicologia Sociale – Libro di Testo</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;font-size:15px;line-height:1.65;background:#f4f6fa;color:#1a1a2e}
+#sb{position:fixed;top:0;left:0;width:260px;height:100vh;overflow-y:auto;background:#1F4E79;z-index:100;transition:transform .3s}
+#sb h2{padding:16px 14px 8px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#7dbfff;border-bottom:1px solid #2E74B5}
+#sb ul{list-style:none;padding:4px 0 40px}
+#sb ul li a{display:block;padding:4px 14px;font-size:12px;color:#cde;text-decoration:none;transition:background .15s}
+#sb ul li a:hover,#sb ul li a.active{background:#2E74B5;color:#fff}
+#sb ul li .n{display:inline-block;width:24px;font-weight:700;color:#7dbfff;font-size:11px}
+#main{margin-left:260px;padding:28px 38px 60px}
+#cover{text-align:center;padding:70px 20px;background:#1F4E79;color:#fff;border-radius:12px;margin-bottom:36px}
+#cover h1{font-size:2.6em;letter-spacing:.04em;margin-bottom:8px}
+#cover .sub{font-size:1.15em;color:#7dbfff;margin-bottom:4px}
+#cover .auth{font-size:.95em;color:#cde;margin-top:28px;font-style:italic}
+.ch{background:#fff;border-radius:10px;padding:34px 38px 38px;margin-bottom:34px;box-shadow:0 2px 12px rgba(0,0,0,.07)}
+.cl{font-size:11px;font-weight:700;color:#2E74B5;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+h1.ct{font-size:1.65em;color:#1F4E79;border-bottom:3px solid #2E74B5;padding-bottom:10px;margin-bottom:22px}
+h2{font-size:1.08em;color:#1F4E79;margin:22px 0 7px;padding-bottom:4px;border-bottom:2px solid #D0E4F4}
+h3{font-size:.98em;color:#2E74B5;margin:12px 0 5px;font-style:italic}
+p{margin-bottom:9px;text-align:justify}
+.def{background:#FFF8F2;border-left:4px solid #C55A11;border-radius:4px;padding:9px 13px;margin:9px 0 13px;line-height:1.6}
+.da{color:#C55A11;font-weight:700;margin-right:5px}
+.dl{font-weight:700}
+.ds{color:#888}
+.dt{font-style:italic;color:#333}
+ul,ol{margin:5px 0 11px 20px}
+li{margin-bottom:3px}
+.tw{overflow-x:auto;margin:10px 0 16px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+thead tr th{background:#2E74B5;color:#fff;padding:7px 11px;text-align:left;font-weight:600}
+tbody tr td{padding:6px 11px;border-bottom:1px solid #e0eaf5}
+tbody tr.a td{background:#EBF4FB}
+tbody tr:hover td{background:#D0E4F4}
+#toc{background:#fff;border-radius:10px;padding:30px 38px;margin-bottom:34px;box-shadow:0 2px 12px rgba(0,0,0,.07)}
+#toc h2{font-size:1.35em;color:#1F4E79;border-bottom:2px solid #2E74B5;padding-bottom:7px;margin-bottom:14px}
+.tl{list-style:none;columns:2;column-gap:28px}
+.tl li{margin-bottom:4px}
+.tl li a{color:#2E74B5;text-decoration:none;font-size:13px}
+.tl li a:hover{text-decoration:underline}
+.tl .nn{display:inline-block;width:26px;font-weight:700;color:#C55A11;font-size:12px}
+#tog{display:none;position:fixed;top:10px;left:10px;z-index:200;background:#1F4E79;color:#fff;border:none;border-radius:6px;padding:7px 11px;cursor:pointer;font-size:17px}
+#tb{position:fixed;bottom:22px;right:22px;background:#2E74B5;color:#fff;border:none;border-radius:50%;width:42px;height:42px;font-size:19px;cursor:pointer;display:none;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+@media(max-width:860px){#sb{transform:translateX(-100%)}#sb.open{transform:translateX(0)}#main{margin-left:0;padding:18px}#tog{display:block}.tl{columns:1}}
+
+.audio-box{background:linear-gradient(135deg,#1F4E79 0%,#2E74B5 100%);border-radius:10px;padding:16px 20px;margin-bottom:24px;display:flex;flex-direction:column;gap:10px}
+.audio-box .ab-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7dbfff;margin-bottom:2px}
+.audio-tracks{display:flex;gap:10px;flex-wrap:wrap}
+.audio-track{flex:1;min-width:220px;background:rgba(255,255,255,.08);border-radius:8px;padding:10px 14px;cursor:pointer;transition:background .2s;border:2px solid transparent}
+.audio-track:hover{background:rgba(255,255,255,.15)}
+.audio-track.active{border-color:#C55A11;background:rgba(197,90,17,.15)}
+.audio-track .at-label{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px}
+.audio-track.lz .at-label{color:#7dbfff}
+.audio-track.pd .at-label{color:#FFB347}
+.audio-track .at-desc{font-size:12px;color:#dde;line-height:1.4}
+.audio-player{width:100%;margin-top:6px;display:none}
+.audio-player audio{width:100%;height:36px}
+.audio-player.show{display:block}
+
+</style>
+</head>
+<body>
+<button id="tog">☰</button>
+<nav id="sb">
+<h2>Psicologia Sociale</h2>
+<ul>
+<li><a href="#cover"><span class="n">◉</span> Copertina</a></li>
+<li><a href="#toc"><span class="n">≡</span> Indice</a></li>
+<li><a href="#cap1"><span class="n">01</span> Definizioni e origini della psicologia sociale</a></li>
+<li><a href="#cap2"><span class="n">02</span> L'interazionismo simbolico</a></li>
+<li><a href="#cap3"><span class="n">03</span> La teoria dell'apprendimento sociale</a></li>
+<li><a href="#cap4"><span class="n">04</span> La nascita del sé sociale</a></li>
+<li><a href="#cap5"><span class="n">05</span> Il mantenimento del sé sociale</a></li>
+<li><a href="#cap6"><span class="n">06</span> I processi di autoregolazione e di autocontrollo</a></li>
+<li><a href="#cap7"><span class="n">07</span> L'autoefficacia</a></li>
+<li><a href="#cap8"><span class="n">08</span> L'autostima</a></li>
+<li><a href="#cap9"><span class="n">09</span> Il disimpegno morale</a></li>
+<li><a href="#cap10"><span class="n">10</span> L'attribuzione causale e il locus of control</a></li>
+<li><a href="#cap11"><span class="n">11</span> La cognizione sociale</a></li>
+<li><a href="#cap12"><span class="n">12</span> Le rappresentazioni sociali</a></li>
+<li><a href="#cap13"><span class="n">13</span> Gli atteggiamenti sociali</a></li>
+<li><a href="#cap14"><span class="n">14</span> I pregiudizi</a></li>
+<li><a href="#cap15"><span class="n">15</span> Gli stereotipi</a></li>
+<li><a href="#cap16"><span class="n">16</span> L'influenza sociale e il conformismo</a></li>
+<li><a href="#cap17"><span class="n">17</span> L'obbedienza e l'autorità</a></li>
+<li><a href="#cap18"><span class="n">18</span> I gruppi sociali</a></li>
+<li><a href="#cap19"><span class="n">19</span> Il gruppo dei pari</a></li>
+<li><a href="#cap20"><span class="n">20</span> La leadership</a></li>
+<li><a href="#cap21"><span class="n">21</span> Categorizzazione e relazioni intergruppi</a></li>
+<li><a href="#cap22"><span class="n">22</span> Interazione sociale e relazioni intergruppi</a></li>
+<li><a href="#cap23"><span class="n">23</span> Aggressività</a></li>
+<li><a href="#cap24"><span class="n">24</span> Il comportamento antisociale</a></li>
+<li><a href="#cap25"><span class="n">25</span> Il bullismo</a></li>
+<li><a href="#cap26"><span class="n">26</span> La deindividuazione</a></li>
+<li><a href="#cap27"><span class="n">27</span> L'effetto Lucifero</a></li>
+<li><a href="#cap28"><span class="n">28</span> Il comportamento prosociale</a></li>
+<li><a href="#cap29"><span class="n">29</span> Eroismo</a></li>
+<li><a href="#cap30"><span class="n">30</span> La comunicazione sociale secondo l'approccio strategico</a></li>
+<li><a href="#cap31"><span class="n">31</span> L'approccio strategico alla comunicazione</a></li>
+<li><a href="#cap32"><span class="n">32</span> L'azione deviante comunicativa</a></li>
+<li><a href="#cap33"><span class="n">33</span> I conflitti sociali</a></li>
+<li><a href="#cap34"><span class="n">34</span> Le nuove forme di pregiudizio</a></li>
+<li><a href="#cap35"><span class="n">35</span> Psicologia ambientale e architettonica</a></li>
+<li><a href="#cap36"><span class="n">36</span> Buone prassi per progettare ambienti interni</a></li>
+<li><a href="#cap37"><span class="n">37</span> Impatto degli spazi verdi e delle aree blu sul benessere</a></li>
+<li><a href="#cap38"><span class="n">38</span> Caratteristiche funzionali al benessere delle aree di lavoro</a></li>
+<li><a href="#cap39"><span class="n">39</span> I profili criminogeni complessi</a></li>
+<li><a href="#cap40"><span class="n">40</span> Gli autori di reato a sfondo sessuale</a></li>
+<li><a href="#cap41"><span class="n">41</span> Il minore deviante</a></li>
+<li><a href="#cap42"><span class="n">42</span> Il danno psichico ed esistenziale</a></li>
+<li><a href="#cap43"><span class="n">43</span> La psicologia sociale criminologica</a></li>
+<li><a href="#cap44"><span class="n">44</span> Violenza di genere</a></li>
+<li><a href="#cap45"><span class="n">45</span> La relazione autore-vittima nella violenza di genere</a></li>
+</ul>
+</nav>
+<main id="main">
+<div id="cover">
+<h1>PSICOLOGIA SOCIALE</h1>
+<div class="sub">Libro di Testo – 45 Lezioni</div>
+<div class="sub" style="font-size:.9em;color:#acd">Dai fondamenti della disciplina alla psicologia criminologica</div>
+<div class="auth">Prof.ssa Irene Petruccelli</div>
+</div>
+<div id="toc">
+<h2>Indice</h2>
+<ul class="tl">
+<li><a href="#cap1"><span class="nn">01.</span> Definizioni e origini della psicologia sociale</a></li>
+<li><a href="#cap2"><span class="nn">02.</span> L'interazionismo simbolico</a></li>
+<li><a href="#cap3"><span class="nn">03.</span> La teoria dell'apprendimento sociale</a></li>
+<li><a href="#cap4"><span class="nn">04.</span> La nascita del sé sociale</a></li>
+<li><a href="#cap5"><span class="nn">05.</span> Il mantenimento del sé sociale</a></li>
+<li><a href="#cap6"><span class="nn">06.</span> I processi di autoregolazione e di autocontrollo</a></li>
+<li><a href="#cap7"><span class="nn">07.</span> L'autoefficacia</a></li>
+<li><a href="#cap8"><span class="nn">08.</span> L'autostima</a></li>
+<li><a href="#cap9"><span class="nn">09.</span> Il disimpegno morale</a></li>
+<li><a href="#cap10"><span class="nn">10.</span> L'attribuzione causale e il locus of control</a></li>
+<li><a href="#cap11"><span class="nn">11.</span> La cognizione sociale</a></li>
+<li><a href="#cap12"><span class="nn">12.</span> Le rappresentazioni sociali</a></li>
+<li><a href="#cap13"><span class="nn">13.</span> Gli atteggiamenti sociali</a></li>
+<li><a href="#cap14"><span class="nn">14.</span> I pregiudizi</a></li>
+<li><a href="#cap15"><span class="nn">15.</span> Gli stereotipi</a></li>
+<li><a href="#cap16"><span class="nn">16.</span> L'influenza sociale e il conformismo</a></li>
+<li><a href="#cap17"><span class="nn">17.</span> L'obbedienza e l'autorità</a></li>
+<li><a href="#cap18"><span class="nn">18.</span> I gruppi sociali</a></li>
+<li><a href="#cap19"><span class="nn">19.</span> Il gruppo dei pari</a></li>
+<li><a href="#cap20"><span class="nn">20.</span> La leadership</a></li>
+<li><a href="#cap21"><span class="nn">21.</span> Categorizzazione e relazioni intergruppi</a></li>
+<li><a href="#cap22"><span class="nn">22.</span> Interazione sociale e relazioni intergruppi</a></li>
+<li><a href="#cap23"><span class="nn">23.</span> Aggressività</a></li>
+<li><a href="#cap24"><span class="nn">24.</span> Il comportamento antisociale</a></li>
+<li><a href="#cap25"><span class="nn">25.</span> Il bullismo</a></li>
+<li><a href="#cap26"><span class="nn">26.</span> La deindividuazione</a></li>
+<li><a href="#cap27"><span class="nn">27.</span> L'effetto Lucifero</a></li>
+<li><a href="#cap28"><span class="nn">28.</span> Il comportamento prosociale</a></li>
+<li><a href="#cap29"><span class="nn">29.</span> Eroismo</a></li>
+<li><a href="#cap30"><span class="nn">30.</span> La comunicazione sociale secondo l'approccio strategico</a></li>
+<li><a href="#cap31"><span class="nn">31.</span> L'approccio strategico alla comunicazione</a></li>
+<li><a href="#cap32"><span class="nn">32.</span> L'azione deviante comunicativa</a></li>
+<li><a href="#cap33"><span class="nn">33.</span> I conflitti sociali</a></li>
+<li><a href="#cap34"><span class="nn">34.</span> Le nuove forme di pregiudizio</a></li>
+<li><a href="#cap35"><span class="nn">35.</span> Psicologia ambientale e architettonica</a></li>
+<li><a href="#cap36"><span class="nn">36.</span> Buone prassi per progettare ambienti interni</a></li>
+<li><a href="#cap37"><span class="nn">37.</span> Impatto degli spazi verdi e delle aree blu sul benessere</a></li>
+<li><a href="#cap38"><span class="nn">38.</span> Caratteristiche funzionali al benessere delle aree di lavoro</a></li>
+<li><a href="#cap39"><span class="nn">39.</span> I profili criminogeni complessi</a></li>
+<li><a href="#cap40"><span class="nn">40.</span> Gli autori di reato a sfondo sessuale</a></li>
+<li><a href="#cap41"><span class="nn">41.</span> Il minore deviante</a></li>
+<li><a href="#cap42"><span class="nn">42.</span> Il danno psichico ed esistenziale</a></li>
+<li><a href="#cap43"><span class="nn">43.</span> La psicologia sociale criminologica</a></li>
+<li><a href="#cap44"><span class="nn">44.</span> Violenza di genere</a></li>
+<li><a href="#cap45"><span class="nn">45.</span> La relazione autore-vittima nella violenza di genere</a></li>
+</ul></div>
+<section class="ch" id="cap1"><div class="cl">Capitolo 1</div><h1 class="ct">Definizioni e origini della psicologia sociale</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at1L" onclick="playTrack(1,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at1P" onclick="playTrack(1,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap1"><audio controls preload="none"></audio></div></div>
+
+<h2>DEFINIZIONE E OGGETTO</h2>
+<div class="def"><span class="da">►</span><span class="dl">Psicologia Sociale (Allport, 1985)</span><span class="ds"> — </span><span class="dt">Studio di come i pensieri, i sentimenti e i comportamenti degli individui siano influenzati dalla presenza <em>attuale</em>, <em>immaginata</em> o <em>implicita</em> di altre persone.</span></div>
+<div class="def"><span class="da">►</span><span class="dl">Psicologia Sociale (Amerio, 2007)</span><span class="ds"> — </span><span class="dt">Disciplina che connette i processi psicologici individuali con le dinamiche sociali; studia come esperienza, attività mentale e comportamenti si articolano con il contesto.</span></div>
+<p>L'altro può essere presente in tre forme: <strong>attuale</strong> (fisicamente presente), <strong>immaginata</strong> (pensata), <strong>implicita</strong> (norme interiorizzate che agiscono inconsapevolmente).</p>
+<h2>PROCESSI SOCIALI E COGNITIVI</h2>
+<div class="tw"><table><thead><tr><th>Processi Sociali</th><th>Processi Cognitivi</th></tr></thead><tbody>
+<tr class="a"><td>Influenze di gruppi, relazioni, modelli culturali e pressioni altrui</td><td>Ricordi, percezioni, schemi mentali, aspettative che guidano la comprensione della situazione</td></tr>
+<tr><td>Direzione: esterno → mente</td><td>Direzione: interno → interpreta il sociale</td></tr>
+</tbody></table></div>
+<h2>DUE ASSIOMI FONDAMENTALI</h2>
+<ul>
+<li>Le persone <strong>costruiscono</strong> la propria realtà — la visione del mondo non è oggettiva ma una costruzione cognitiva e sociale.</li>
+<li>L'<strong>influenza sociale è pervasiva</strong> — gli altri influenzano i nostri pensieri anche quando crediamo di agire in piena autonomia.</li>
+</ul>
+<h2>RADICI STORICHE: DUE APPROCCI A CONFRONTO</h2>
+<div class="tw"><table><thead><tr><th>Approccio</th><th>Autore</th><th>Nucleo teorico</th></tr></thead><tbody>
+<tr class="a"><td>Centrato sulla persona</td><td>J. Bentham (1748–1832)</td><td>Principio di utilità: ogni azione mira al piacere e all'evitamento del dolore.</td></tr>
+<tr><td>Centrato sul sociale</td><td>G.W.F. Hegel (1770–1831)</td><td>Lo Stato come mente sociale; coscienza collettiva che trascende i singoli.</td></tr>
+<tr class="a"><td>Centrato sul sociale</td><td>Auguste Comte (1798–1857)</td><td>Fondatore del positivismo: la società va studiata con metodo scientifico.</td></tr>
+<tr><td>Psicologia delle folle</td><td>G. Le Bon (1895)</td><td>In grandi gruppi le persone perdono capacità critica, diventano suggestionabili e impulsive.</td></tr>
+</tbody></table></div>
+<h2>I PRIMI ESPERIMENTI</h2>
+<div class="tw"><table><thead><tr><th>Fenomeno</th><th>Autore</th><th>Condizione chiave</th><th>Effetto</th></tr></thead><tbody>
+<tr class="a"><td>Facilitazione sociale</td><td>Triplett (1897)</td><td>Contributo identificabile</td><td>↑ Prestazione</td></tr>
+<tr><td>Pigrizia sociale</td><td>Ringelmann (1880)</td><td>Contributo anonimo</td><td>↓ Prestazione</td></tr>
+</tbody></table></div>
+<h2>I QUATTRO LIVELLI DI ANALISI</h2>
+<ol>
+<li>Intrapsichico — come la persona costruisce la propria immagine del mondo sociale.</li>
+<li>Intragruppo — dinamiche tra membri dello stesso gruppo (leadership, conformismo, coesione).</li>
+<li>Intergruppo — relazioni tra gruppi diversi (contatto, conflitto, pregiudizio).</li>
+<li>Collettivo — processi legati al contesto culturale e storico.</li>
+</ol>
+<h2>TAPPE STORICHE FONDAMENTALI</h2>
+<div class="tw"><table><thead><tr><th>Anno</th><th>Autore/Evento</th><th>Contributo</th></tr></thead><tbody>
+<tr class="a"><td>1935</td><td>Sherif – effetto autocinetico</td><td>Le norme emergono nell'interazione e vengono interiorizzate</td></tr>
+<tr><td>1939–45</td><td>II Guerra Mondiale</td><td>La PS si orienta verso pregiudizio, obbedienza e propaganda</td></tr>
+<tr class="a"><td>1954</td><td>Allport – ipotesi del contatto</td><td>Il contatto riduce il pregiudizio se: obiettivi comuni, cooperazione, parità di status, sostegno istituzionale</td></tr>
+<tr><td>Anni '50</td><td>Sherif – campo estivo</td><td>Competizione → ostilità; obiettivi sovraordinati → riduzione del conflitto</td></tr>
+<tr class="a"><td>Anni '50</td><td>Asch – conformismo</td><td>Pressione di gruppo porta a risposte errate pur sapendo di sbagliare</td></tr>
+<tr><td>2008</td><td>Henrich – campioni WEIRD</td><td>La ricerca psicologica è biasata verso campioni Occidentali, Istruiti, Industrializzati, Ricchi, Democratici</td></tr>
+</tbody></table></div>
+</section>
+<section class="ch" id="cap2"><div class="cl">Capitolo 2</div><h1 class="ct">L'interazionismo simbolico</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at2L" onclick="playTrack(2,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at2P" onclick="playTrack(2,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap2"><audio controls preload="none"></audio></div></div>
+
+<h2>RADICI FILOSOFICHE E ASSUNTI DI BASE</h2>
+<p>Nasce nella sociologia statunitense con fondamenta nel <strong>pragmatismo</strong> (Peirce, James, Dewey, Mead). La realtà si costruisce nell'azione e nell'esperienza concreta.</p>
+<div class="def"><span class="da">►</span><span class="dl">Assunto fondamentale</span><span class="ds"> — </span><span class="dt">Il comportamento umano è mediato dai significati che il soggetto attribuisce alla situazione. Tali significati emergono nell'interazione sociale.</span></div>
+<h3>Tre assunti principali</h3>
+<ol>
+<li>Il comportamento è socialmente strutturato e si basa su significati emersi nell'interazione.</li>
+<li>Significato e interazione sono due facce della stessa medaglia.</li>
+<li>L'essere umano è autoreferenziale: è sia soggetto agente sia oggetto della propria esperienza.</li>
+</ol>
+<h2>IL SIMBOLO SIGNIFICATIVO</h2>
+<div class="def"><span class="da">►</span><span class="dl">Simbolo significativo (Mead)</span><span class="ds"> — </span><span class="dt">Gesto (vocale o non) che suscita in chi lo usa la stessa risposta che produce in chi lo riceve. Il significato è condiviso e reciproco.</span></div>
+<div class="tw"><table><thead><tr><th>Segno Naturale</th><th>Simbolo (Segno Inventato)</th></tr></thead><tbody>
+<tr class="a"><td>Connessione diretta/fisica con ciò che significa (fumo→fuoco)</td><td>Relazione arbitraria e convenzionale (parola 'albero'→pianta)</td></tr>
+<tr><td>Appare solo in presenza del referente</td><td>Usabile in assenza della cosa che rappresenta</td></tr>
+<tr class="a"><td>Non sotto controllo del soggetto</td><td>Sotto controllo diretto del parlante</td></tr>
+</tbody></table></div>
+<h3>Cinque caratteristiche dei simboli</h3>
+<ol>
+<li>Segni convenzionali senza connessioni naturali.</li>
+<li>Relazione arbitraria e condivisa con ciò che rappresentano.</li>
+<li>Significato pubblico (comprensibile da più persone).</li>
+<li>Utilizzabili in assenza del referente.</li>
+<li>Influenzano profondamente il comportamento.</li>
+</ol>
+<h2>OGGETTO SOCIALE E ATTO</h2>
+<div class="def"><span class="da">►</span><span class="dl">Oggetto sociale</span><span class="ds"> — </span><span class="dt">Tutto ciò che può essere indicato o a cui ci si può riferire; nasce da un atto sociale.</span></div>
+<div class="tw"><table><thead><tr><th>Fase dell'atto</th><th>Descrizione</th></tr></thead><tbody>
+<tr class="a"><td>1. Impulso</td><td>Rottura dell'equilibrio (es. brontolio allo stomaco)</td></tr>
+<tr><td>2. Percezione</td><td>L'impulso prende direzione; si nominano gli oggetti rilevanti</td></tr>
+<tr class="a"><td>3. Manipolazione</td><td>Si intraprende l'azione concreta verso la meta</td></tr>
+<tr><td>4. Consumazione</td><td>L'equilibrio viene ristabilito</td></tr>
+</tbody></table></div>
+<h2>GEORGE HERBERT MEAD: IL SÉ</h2>
+<div class="tw"><table><thead><tr><th>Componente</th><th>Natura</th><th>Funzione</th></tr></thead><tbody>
+<tr class="a"><td>IO (I)</td><td>Istanza spontanea; risposta attiva e originale agli atteggiamenti altrui</td><td>Innovazione, creatività, imprevedibilità</td></tr>
+<tr><td>ME (Me)</td><td>Organizzazione interiorizzata degli atteggiamenti altrui; voce della società</td><td>Valutazione, giudizio, senso di appartenenza</td></tr>
+<tr class="a"><td>SÉ (Self)</td><td>Organizzazione riflessiva e dinamica che emerge dal dialogo IO–ME</td><td>Autoriconoscimento, identità stabile</td></tr>
+</tbody></table></div>
+<h2>SVILUPPO DEL SÉ ATTRAVERSO IL GIOCO</h2>
+<div class="tw"><table><thead><tr><th>Fase</th><th>Tipo di gioco</th><th>Capacità sviluppata</th><th>Esito</th></tr></thead><tbody>
+<tr class="a"><td>Prima fase</td><td>Play (gioco semplice)</td><td>Assume ruoli singoli in successione (mamma, dottore)</td><td>Costruisce sé parziali</td></tr>
+<tr><td>Seconda fase</td><td>Game (gioco organizzato)</td><td>Interiorizza simultaneamente i ruoli di tutti i partecipanti</td><td>Si forma l'Altro Generalizzato</td></tr>
+</tbody></table></div>
+<div class="def"><span class="da">►</span><span class="dl">Altro Generalizzato</span><span class="ds"> — </span><span class="dt">Intera comunità o gruppo sociale interiorizzata come istanza normativa astratta. È la voce della società organizzata che fornisce unità e coerenza al Sé.</span></div>
+</section>
+<section class="ch" id="cap3"><div class="cl">Capitolo 3</div><h1 class="ct">La teoria dell'apprendimento sociale</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at3L" onclick="playTrack(3,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at3P" onclick="playTrack(3,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap3"><audio controls preload="none"></audio></div></div>
+
+<h2>IL DETERMINISMO TRIADICO RECIPROCO</h2>
+<div class="def"><span class="da">►</span><span class="dl">Determinismo triadico reciproco (Bandura)</span><span class="ds"> — </span><span class="dt">Interazione reciproca continua tra <strong>Persona</strong> (cognitiva/affettiva/biologica), <strong>Ambiente</strong> (fisico e sociale) e <strong>Comportamento</strong>. Nessuno dei tre elementi agisce in isolamento.</span></div>
+<h2>L'ESPERIMENTO DEL PUPAZZO BOBO (1961)</h2>
+<div class="tw"><table><thead><tr><th>Gruppo</th><th>Condizione</th><th>Risultati</th></tr></thead><tbody>
+<tr class="a"><td>Sperimentale 1</td><td>Adulto aggressivo verso Bobo (colpi, calci, frasi ostili)</td><td>Alta incidenza di comportamenti aggressivi imitativi e creativi</td></tr>
+<tr><td>Sperimentale 2</td><td>Adulto pacifico (gioco con costruzioni)</td><td>Bassa aggressività</td></tr>
+<tr class="a"><td>Controllo</td><td>Nessun modello adulto</td><td>Aggressività baseline</td></tr>
+</tbody></table></div>
+<p>Conclusione: l'aggressività si apprende per imitazione anche senza rinforzo diretto.</p>
+<h2>LE QUATTRO FUNZIONI DELL'APPRENDIMENTO OSSERVATIVO</h2>
+<div class="tw"><table><thead><tr><th>Funzione</th><th>Descrizione</th><th>Fattori chiave</th></tr></thead><tbody>
+<tr class="a"><td>1. Attenzione</td><td>Concentrarsi sugli aspetti rilevanti del modello</td><td>Somiglianza, prestigio, complessità, esperienze passate</td></tr>
+<tr><td>2. Ritenzione</td><td>Memorizzare tramite codici verbali e immagini mentali; ripetizione mentale</td><td>Capacità simbolica, organizzazione cognitiva</td></tr>
+<tr class="a"><td>3. Riproduzione motoria</td><td>Tradurre i simboli in azioni concrete; esercizio progressivo</td><td>Abilità fisiche disponibili o acquisibili</td></tr>
+<tr><td>4. Motivazione</td><td>Scopo che spinge all'esibizione del comportamento appreso</td><td>Rinforzo diretto, vicario, autosoddisfazione</td></tr>
+</tbody></table></div>
+<h2>TRE FASI DEL MODELLAMENTO OSSERVATIVO</h2>
+<ol>
+<li>Acquisizione — arricchimento del repertorio comportamentale.</li>
+<li>Esecuzione (Performance) — il comportamento è messo in atto se consonante con bisogni, aspettative e immagine di sé.</li>
+<li>Mantenimento — stabilizzazione come modalità stabile: richiede identificazione con il modello e risultati gratificanti.</li>
+</ol>
+<h2>TRE CONCETTI CHIAVE DELLA TEORIA</h2>
+<div class="def"><span class="da">►</span><span class="dl">Human Agency</span><span class="ds"> — </span><span class="dt">La persona è agente attivo capace di pianificare, autoregolarsi e riflettere.</span></div>
+<div class="def"><span class="da">►</span><span class="dl">Autoefficacia percepita</span><span class="ds"> — </span><span class="dt">Convinzione di essere in grado di organizzare ed eseguire le azioni necessarie per affrontare una situazione specifica. Riguarda la credenza soggettiva, non le abilità oggettive.</span></div>
+<div class="def"><span class="da">►</span><span class="dl">Disimpegno morale</span><span class="ds"> — </span><span class="dt">Meccanismi cognitivi che consentono di giustificare condotte moralmente riprovevoli mantenendo una buona immagine di sé.</span></div>
+</section>
+<section class="ch" id="cap4"><div class="cl">Capitolo 4</div><h1 class="ct">La nascita del sé sociale</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at4L" onclick="playTrack(4,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at4P" onclick="playTrack(4,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap4"><audio controls preload="none"></audio></div></div>
+
+<h2>IL NEONATO COME AGENTE ATTIVO</h2>
+<p>La ricerca ha smantellato il mito della <em>tabula rasa</em> (Locke/comportamentismo). Il neonato preferisce i volti umani, regola il ritmo dell'interazione con la madre, mostra mutualità fin dai primi giorni di vita.</p>
+<h2>AUTORI DI RIFERIMENTO</h2>
+<div class="tw"><table><thead><tr><th>Autore</th><th>Anno</th><th>Contributo</th></tr></thead><tbody>
+<tr class="a"><td>William James</td><td>1890</td><td>Prima definizione di consapevolezza del Sé (IO vs ME)</td></tr>
+<tr><td>George Herbert Mead</td><td>1934</td><td>Il Sé non è innato: si costruisce attraverso gli atteggiamenti degli altri</td></tr>
+<tr class="a"><td>Jean Piaget</td><td>1932</td><td>Epistemologia genetica: sviluppo come adattamento attivo all'ambiente</td></tr>
+<tr><td>Erik Erikson</td><td>1950</td><td>8 stadi psicosociali dall'infanzia alla vecchiaia</td></tr>
+<tr class="a"><td>Urie Bronfenbrenner</td><td>1979</td><td>Modello ecologico: sviluppo come adattamento tra individuo e contesto</td></tr>
+<tr><td>Anthony Greenwald</td><td>1980</td><td>Il Sé come costrutto totalitario (egocentralità, beneficienza, conservatorismo)</td></tr>
+<tr class="a"><td>Albert Bandura</td><td>vari</td><td>Determinismo triadico; apprendimento sociale come motore dello sviluppo</td></tr>
+</tbody></table></div>
+<h2>IL SÉ SECONDO WILLIAM JAMES</h2>
+<div class="tw"><table><thead><tr><th>Componente del ME</th><th>Descrizione</th></tr></thead><tbody>
+<tr class="a"><td>Sé materiale</td><td>Corpo, vestiti, proprietà — tutto ciò che è sentito come 'mio'</td></tr>
+<tr><td>Sé sociale</td><td>Immagini e rappresentazioni che gli altri hanno di noi</td></tr>
+<tr class="a"><td>Sé spirituale</td><td>Autoconoscenza delle proprie capacità psicologiche, atteggiamenti e motivazioni</td></tr>
+</tbody></table></div>
+<h2>ERIKSON: OTTO STADI PSICOSOCIALI</h2>
+<div class="tw"><table><thead><tr><th>Stadio</th><th>Età</th><th>Conflitto centrale</th><th>Esito positivo</th></tr></thead><tbody>
+<tr class="a"><td>1°</td><td>0–1 anno</td><td>Fiducia vs Sfiducia</td><td>Speranza</td></tr>
+<tr><td>2°</td><td>2–3 anni</td><td>Autonomia vs Vergogna/Dubbio</td><td>Volontà</td></tr>
+<tr class="a"><td>3°</td><td>4–5 anni</td><td>Iniziativa vs Senso di colpa</td><td>Determinazione</td></tr>
+<tr><td>4°</td><td>6–pubertà</td><td>Competenza vs Inferiorità</td><td>Abilità operative e sociali</td></tr>
+<tr class="a"><td>5°</td><td>Adolescenza</td><td>Identità vs Dispersione</td><td>Fedeltà a valori</td></tr>
+<tr><td>6°</td><td>Giovane adulto</td><td>Intimità vs Isolamento</td><td>Amore</td></tr>
+<tr class="a"><td>7°</td><td>Adulto medio</td><td>Generatività vs Stagnazione</td><td>Cura delle generazioni future</td></tr>
+<tr><td>8°</td><td>Anzianità</td><td>Integrità vs Disperazione</td><td>Saggezza</td></tr>
+</tbody></table></div>
+<h2>PIAGET: EPISTEMOLOGIA GENETICA</h2>
+<div class="def"><span class="da">►</span><span class="dl">Assimilazione</span><span class="ds"> — </span><span class="dt">Le nuove informazioni vengono incorporate negli schemi mentali preesistenti.</span></div>
+<div class="def"><span class="da">►</span><span class="dl">Accomodamento</span><span class="ds"> — </span><span class="dt">Gli schemi esistenti si modificano in base alle nuove informazioni.</span></div>
+<h2>BRONFENBRENNER: MODELLO ECOLOGICO</h2>
+<div class="tw"><table><thead><tr><th>Livello</th><th>Definizione</th><th>Esempi</th></tr></thead><tbody>
+<tr class="a"><td>Microsistema</td><td>Contesti di vita diretta</td><td>Famiglia, scuola, gruppo dei pari</td></tr>
+<tr><td>Mesosistema</td><td>Relazioni tra microsistemi</td><td>Rapporto famiglia–scuola</td></tr>
+<tr class="a"><td>Esosistema</td><td>Ambienti indiretti che influenzano</td><td>Luogo di lavoro dei genitori</td></tr>
+<tr><td>Macrosistema</td><td>Cornice culturale, storica e politica</td><td>Norme sociali, ideologie, leggi</td></tr>
+</tbody></table></div>
+<h2>IL SÉ TOTALITARIO (GREENWALD, 1980)</h2>
+<ol>
+<li>Egocentralità — il Sé come centro focale di giudizio e memoria.</li>
+<li>Beneficienza — tendenza a percepirsi come buoni e competenti; selezione dei successi nel ricordo.</li>
+<li>Conservatorismo cognitivo — resistenza al cambiamento; conferma delle ipotesi iniziali.</li>
+</ol>
+</section>
+<section class="ch" id="cap5"><div class="cl">Capitolo 5</div><h1 class="ct">Il mantenimento del sé sociale</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at5L" onclick="playTrack(5,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at5P" onclick="playTrack(5,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap5"><audio controls preload="none"></audio></div></div>
+
+<h2>SCHEMI DI SÉ</h2>
+<div class="def"><span class="da">►</span><span class="dl">Schemi di Sé</span><span class="ds"> — </span><span class="dt">Strutture cognitive che organizzano le informazioni su noi stessi. Lenti attraverso cui guardiamo chi siamo.</span></div>
+<h3>Sviluppo progressivo degli schemi</h3>
+<ol>
+<li>Astratti — a maglie larghe, poco legati a casi concreti.</li>
+<li>Ricchi — arricchimento progressivo con l'accumulo di esperienze di confronto.</li>
+<li>Compatti — legami fittissimi; attivazione tutto-o-niente.</li>
+<li>Flessibili — capaci di incorporare le eccezioni senza invalidarsi.</li>
+</ol>
+<h2>IL CONFRONTO SOCIALE (FESTINGER, 1954)</h2>
+<div class="def"><span class="da">►</span><span class="dl">Teoria del Confronto Sociale</span><span class="ds"> — </span><span class="dt">Definiamo il Sé sociale confrontandoci con gli altri perché non disponiamo di un metro oggettivo per valutare capacità, prestazioni e opinioni.</span></div>
+<div class="tw"><table><thead><tr><th>Tipo di confronto</th><th>Funzione principale</th><th>Rischio</th></tr></thead><tbody>
+<tr class="a"><td>Con versioni ideali di sé</td><td>Motivazione al cambiamento</td><td>Manca validazione esterna</td></tr>
+<tr><td>Con altre persone (verso l'alto)</td><td>Sprone al miglioramento</td><td>Frustrazione se la distanza è incolmabile</td></tr>
+<tr class="a"><td>Con altre persone (verso il basso)</td><td>Protezione dell'autostima minacciata</td><td>Auto-inganni e compiacenza</td></tr>
+</tbody></table></div>
+<h2>TRE LIVELLI DEL SÉ (BREWER E GARDNER)</h2>
+<div class="tw"><table><thead><tr><th>Livello</th><th>Definizione</th><th>Esempio</th></tr></thead><tbody>
+<tr class="a"><td>Sé individuale</td><td>Tratti che ci distinguono da tutti gli altri</td><td>'Io sono timido / creativo'</td></tr>
+<tr><td>Sé relazionale</td><td>Definito dalle relazioni con persone importanti</td><td>'Sono il partner di... / il figlio di...'</td></tr>
+<tr class="a"><td>Sé collettivo</td><td>Appartenenza a gruppi sociali condivisi</td><td>'Sono italiano / tifoso della Roma'</td></tr>
+</tbody></table></div>
+<h2>STRATEGIE PER IL MANTENIMENTO DEL SÉ</h2>
+<h3>A) Strategie di autoconferma</h3>
+<ul>
+<li>Attenzione orientata — il faro cognitivo illumina le informazioni coerenti con il Sé.</li>
+<li>Selezione dell'informazione — si esamina più a lungo ciò che conferma l'immagine di sé.</li>
+<li>Interpretazione orientata — l'ambiguità è interpretata a proprio favore.</li>
+<li>Affiliazione mirata — si frequentano persone che apprezzano e sostengono il Sé.</li>
+<li>Self-serving bias — successi → cause interne; fallimenti → cause esterne.</li>
+</ul>
+<h3>B) Comparazione temporale (Arcuri e Maass, 1995)</h3>
+<div class="tw"><table><thead><tr><th>Principio</th><th>Uso</th><th>Meccanismo</th></tr></thead><tbody>
+<tr class="a"><td>Cambiamento</td><td>Dimostrare un miglioramento</td><td>Si ricostruisce il passato come peggiore del presente</td></tr>
+<tr><td>Stabilità</td><td>Dimostrare coerenza nel tempo</td><td>Si appiattisce il passato per farlo somigliare al presente</td></tr>
+</tbody></table></div>
+<h3>C) Completamento simbolico (Wicklund e Gollwitzer, 1982)</h3>
+<p>Chi desidera raggiungere un'identità ma non ne possiede ancora il simbolo formale (es. laurea) tende a ostentare simboli sostitutivi (abbigliamento, gergo tecnico) per legittimare quell'identità.</p>
+<h3>D) Self-handicapping (Autoimpedimento)</h3>
+<p>Si creano ostacoli in anticipo per giustificare eventuali insuccessi senza minacciare l'autostima. Funziona come paracadute psicologico.</p>
+<h2>SCHEMI DI SÉ NEGATIVI E DEPRESSIONE</h2>
+<p>Derry e Kuiper (1981): le persone con schema di Sé negativo sono rapide nell'identificare ciò che non sono, lente nel riconoscere caratteristiche positive, e ricordano più facilmente parole negative legate al Sé.</p>
+<p>Circolo vizioso: schema negativo → ricordi spiacevoli → interpretazioni pessimistiche → aspettative negative → comportamenti che confermano lo schema.</p>
+</section>
+<section class="ch" id="cap6"><div class="cl">Capitolo 6</div><h1 class="ct">I processi di autoregolazione e di autocontrollo</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at6L" onclick="playTrack(6,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at6P" onclick="playTrack(6,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap6"><audio controls preload="none"></audio></div></div>
+
+<h2>AUTOREGOLAZIONE E AUTOCONTROLLO</h2>
+<div class="def"><span class="da">►</span><span class="dl">Autoregolazione</span><span class="ds"> — </span><span class="dt">Forma di cognitive self-management: metacognizione applicata al problem solving. La persona riflette su come pensa e usa questa riflessione per guidare comportamenti verso uno scopo.</span></div>
+<h2>STRATEGIE CONTRO LE TENTAZIONI</h2>
+<ol>
+<li>Auto-ricompense e auto-punizioni — rinforzi pianificati per rispettare gli obiettivi.</li>
+<li>Impegni vincolanti — investire risorse non rimborsabili per aumentare la compliance.</li>
+<li>Pensiero in termini positivi — associare l'azione ai valori fondamentali; trasforma 'devo' in 'voglio'.</li>
+</ol>
+<div class="def"><span class="da">►</span><span class="dl">Autoaffermazione</span><span class="ds"> — </span><span class="dt">Azione o evento che accresce il senso individuale di integrità. Permette di ristabilire l'autocontrollo quando le risorse interiori scarseggiano.</span></div>
+<h2>TEORIA DELL'AUTOCONSAPEVOLEZZA</h2>
+<div class="tw"><table><thead><tr><th>Tipo</th><th>Oggetto di attenzione</th><th>Effetto tipico</th></tr></thead><tbody>
+<tr class="a"><td>Autoconsapevolezza privata</td><td>Aspetti interni, personali e nascosti (pensieri, emozioni)</td><td>Riflessione profonda sul Sé</td></tr>
+<tr><td>Autoconsapevolezza pubblica</td><td>Come si appare agli altri; aderenza agli standard sociali</td><td>Preoccupazione per il giudizio altrui</td></tr>
+</tbody></table></div>
+<h2>LE CONVINZIONI DI CONTROLLO (BANDURA, 1995)</h2>
+<div class="tw"><table><thead><tr><th>Aspetto</th><th>Definizione</th><th>Domanda chiave</th></tr></thead><tbody>
+<tr class="a"><td>Controllare</td><td>Regolazione effettiva in atto di un processo</td><td>'Sto esercitando controllo ora?'</td></tr>
+<tr><td>Controllo</td><td>Possibilità di controllare se necessario</td><td>'Posso intervenire se voglio?'</td></tr>
+<tr class="a"><td>Convinzioni di controllo</td><td>Rappresentazioni soggettive delle proprie capacità</td><td>'Credo di essere capace di controllare?'</td></tr>
+</tbody></table></div>
+<ul>
+<li>Convinzioni di contingenza — 'Se faccio X, ottengo Y?'</li>
+<li>Convinzioni di competenza — 'Sono in grado di fare X?'</li>
+</ul>
+<h2>CONTROLLO PRIMARIO E SECONDARIO</h2>
+<div class="tw"><table><thead><tr><th>Tipo</th><th>Obiettivo</th><th>Quando prevalente</th></tr></thead><tbody>
+<tr class="a"><td>Controllo primario</td><td>Modificare l'ambiente esterno per adattarlo alle proprie aspirazioni</td><td>Quando è possibile agire sulla realtà</td></tr>
+<tr><td>Controllo secondario</td><td>Modificare stati soggettivi (aspettative, percezioni) per adattarsi</td><td>Dopo il fallimento del controllo primario</td></tr>
+</tbody></table></div>
+<h2>IMPOTENZA APPRESA E LOCUS OF CONTROL</h2>
+<div class="def"><span class="da">►</span><span class="dl">Impotenza appresa</span><span class="ds"> — </span><span class="dt">Stato in cui esperienze ripetute di mancanza di controllo portano la persona a rinunciare a tentare di controllare il proprio destino.</span></div>
+<div class="def"><span class="da">►</span><span class="dl">Locus of Control (Rotter, 1966)</span><span class="ds"> — </span><span class="dt">Luogo psicologico dove si colloca il controllo della propria vita. Continuum da interno (cause in sé) a esterno (cause fuori di sé).</span></div>
+<div class="tw"><table><thead><tr><th>LOC</th><th>Attribuzione degli eventi</th><th>Implicazioni psicologiche</th></tr></thead><tbody>
+<tr class="a"><td>Interno</td><td>Successi/insuccessi = capacità e impegno propri</td><td>↑ Motivazione e responsabilità; rischio tratti ansiosi</td></tr>
+<tr><td>Esterno</td><td>Gli eventi dipendono da destino, fortuna, altri</td><td>↓ Impegno; rischio tratti depressivi e impotenza appresa</td></tr>
+<tr class="a"><td>Bilocale</td><td>Combinazione flessibile in base alla situazione</td><td>Strategia più adattiva; ↓ stress</td></tr>
+</tbody></table></div>
+</section>
+<section class="ch" id="cap7"><div class="cl">Capitolo 7</div><h1 class="ct">L'autoefficacia</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at7L" onclick="playTrack(7,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at7P" onclick="playTrack(7,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap7"><audio controls preload="none"></audio></div></div>
+
+<h2>DEFINIZIONE E CARATTERISTICHE</h2>
+<div class="def"><span class="da">►</span><span class="dl">Autoefficacia percepita (Bandura, 1986)</span><span class="ds"> — </span><span class="dt">Percezione della propria competenza in un compito specifico. Non è un giudizio globale sulla personalità ma una credenza contesto- e compito-specifica.</span></div>
+<h2>SEI FONTI DELL'AUTOEFFICACIA (BANDURA, 1989)</h2>
+<div class="tw"><table><thead><tr><th>Fonte</th><th>Descrizione</th><th>Potenza</th></tr></thead><tbody>
+<tr class="a"><td>1. Esperienze dirette</td><td>Successi/fallimenti personali passati</td><td>★★★★★ (massima)</td></tr>
+<tr><td>2. Esperienze vicarie</td><td>Osservare persone simili riuscire o fallire</td><td>★★★★</td></tr>
+<tr class="a"><td>3. Capacità immaginativa</td><td>Visualizzare mentalmente successi e reazioni future</td><td>★★★</td></tr>
+<tr><td>4. Persuasione verbale</td><td>Incoraggiamento realistico da figure di fiducia</td><td>★★★</td></tr>
+<tr class="a"><td>5. Stato fisiologico</td><td>Battito, sudorazione, tensione — dipende dall'interpretazione</td><td>★★</td></tr>
+<tr><td>6. Stato emotivo</td><td>Ansia, entusiasmo, calma</td><td>★★</td></tr>
+</tbody></table></div>
+<h2>TRE DIMENSIONI DELL'AUTOEFFICACIA</h2>
+<div class="tw"><table><thead><tr><th>Dimensione</th><th>Significato</th><th>Correlato pratico</th></tr></thead><tbody>
+<tr class="a"><td>Grandezza</td><td>Livello di difficoltà che ci si sente in grado di affrontare</td><td>Quanti gradini della 'scala di difficoltà' si è disposti a salire</td></tr>
+<tr><td>Forza</td><td>Tenacia del convincimento nonostante ostacoli e emozioni negative</td><td>Resistenza di fronte ai fallimenti; persistenza</td></tr>
+<tr class="a"><td>Generalizzazione</td><td>Capacità di trasferire la fiducia da un ambito ad altri simili</td><td>Ampiezza del transfer della credenza di efficacia</td></tr>
+</tbody></table></div>
+<h2>PROFILO COMPARATO: ALTA VS BASSA AUTOEFFICACIA</h2>
+<div class="tw"><table><thead><tr><th>Aspetto</th><th>Alta autoefficacia</th><th>Bassa autoefficacia</th></tr></thead><tbody>
+<tr class="a"><td>Approccio alle sfide</td><td>Proattivo; cerca soluzioni alternative</td><td>Evitante; abbandona precocemente</td></tr>
+<tr><td>Persistenza</td><td>Continua anche in situazioni critiche</td><td>Cede presto all'insuccesso</td></tr>
+<tr class="a"><td>Autovalutazione</td><td>Positiva; lucida valutazione di sé</td><td>Negativa; circolo vizioso di sconforto</td></tr>
+<tr><td>Aspirazioni</td><td>Elevate</td><td>Ridotte</td></tr>
+<tr class="a"><td>Ansia scolastica</td><td>Bassa vulnerabilità</td><td>Alta vulnerabilità</td></tr>
+<tr><td>Comportamento sociale</td><td>Più popolare; comportamenti prosociali</td><td>Più aggressivo/a; meno popolare</td></tr>
+</tbody></table></div>
+<h2>AUTOEFFICACIA IN AMBITO SCOLASTICO</h2>
+<h3>Tre pilastri (Bandura, 1995)</h3>
+<ol>
+<li>Convinzioni degli studenti sulla propria capacità di regolare l'apprendimento.</li>
+<li>Convinzioni degli insegnanti sulla propria capacità di motivare e promuovere l'apprendimento.</li>
+<li>Senso di efficacia collettivo del corpo insegnante sull'efficacia della scuola.</li>
+</ol>
+<h3>Meta-analisi Multon et al. (1991) — 68 ricerche</h3>
+<ul>
+<li>Autoefficacia spiega ~14% della varianza del rendimento scolastico.</li>
+<li>Autoefficacia spiega ~12% della varianza della persistenza.</li>
+<li>L'effetto è ancora più marcato per studenti a basso rendimento.</li>
+</ul>
+<h2>AUTOEFFICACIA EMOTIVA E SCALE DI MISURAZIONE</h2>
+<div class="def"><span class="da">►</span><span class="dl">Competenza emotiva individuale</span><span class="ds"> — </span><span class="dt">Duplice capacità: (1) moderare emozioni negative; (2) godere e condividere emozioni positive.</span></div>
+<div class="tw"><table><thead><tr><th>Scala</th><th>Acronimo</th><th>N° item</th><th>Target</th></tr></thead><tbody>
+<tr class="a"><td>Aut. Percepita Gestione Emozioni Negative</td><td>APEN/G</td><td>8</td><td>Adolescenti</td></tr>
+<tr><td>Aut. Percepita Gestione Emozioni Positive</td><td>APEP/G</td><td>7</td><td>Adolescenti</td></tr>
+</tbody></table></div>
+</section>
+<section class="ch" id="cap8"><div class="cl">Capitolo 8</div><h1 class="ct">L'autostima</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at8L" onclick="playTrack(8,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at8P" onclick="playTrack(8,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap8"><audio controls preload="none"></audio></div></div>
+
+<h2>DEFINIZIONE E ORIGINI</h2>
+<div class="def"><span class="da">►</span><span class="dl">Autostima</span><span class="ds"> — </span><span class="dt">Processo soggettivo e duraturo che porta a valutare e apprezzare sé stessi attraverso l'auto-approvazione del proprio valore. Dal latino <em>aestimare</em> (valutare).</span></div>
+<div class="tw"><table><thead><tr><th>Concetto</th><th>Definizione</th><th>Domanda chiave</th></tr></thead><tbody>
+<tr class="a"><td>Concetto di Sé</td><td>Insieme di tutte le conoscenze su sé stessi (nome, valori, preferenze, descrizioni fisiche)</td><td>'Chi sono?'</td></tr>
+<tr><td>Autostima</td><td>Reazione emotiva a quelle conoscenze; il termometro di quanto ci piacciono quegli elementi</td><td>'Quanto valgo? Mi piaccio?'</td></tr>
+</tbody></table></div>
+<h2>WILLIAM JAMES: L'AUTOSTIMA COME RAPPORTO</h2>
+<div class="def"><span class="da">►</span><span class="dl">Formula di James</span><span class="ds"> — </span><span class="dt">Autostima = Sé percepito / Sé ideale. Se il Sé percepito non raggiunge il Sé ideale → bassa autostima, anche in presenza di successi oggettivi.</span></div>
+<h2>AUTOSTIMA VS AUTOEFFICACIA</h2>
+<div class="tw"><table><thead><tr><th>Dimensione</th><th>Autostima</th><th>Autoefficacia (Bandura)</th></tr></thead><tbody>
+<tr class="a"><td>Natura</td><td>Giudizio di valore globale su sé stessi</td><td>Credenza specifica sulla competenza in un compito</td></tr>
+<tr><td>Risponde a</td><td>'Quanto valgo come persona?'</td><td>'Sono capace di fare questo compito specifico?'</td></tr>
+<tr class="a"><td>Ambito</td><td>Generale, trasversale</td><td>Contesto- e compito-specifica</td></tr>
+</tbody></table></div>
+<h2>COME SI FORMA L'AUTOSTIMA (MANNETTI, 2002)</h2>
+<ol>
+<li>Introspezione — guardarsi dentro.</li>
+<li>Osservazione dei propri comportamenti — come se ci guardassimo dall'esterno.</li>
+<li>Interazione sociale — conoscersi attraverso lo specchio degli altri.</li>
+</ol>
+<h2>I SEI PILASTRI DELL'AUTOSTIMA (BRANDEN)</h2>
+<div class="tw"><table><thead><tr><th>Pilastro</th><th>Principio</th></tr></thead><tbody>
+<tr class="a"><td>1. Vivere consapevolmente</td><td>Accettare le situazioni reali senza negarle o rifugiarsi in illusioni</td></tr>
+<tr><td>2. Accettare sé stessi</td><td>Evitare l'auto-sabotaggio; scegliere di essere propri alleati</td></tr>
+<tr class="a"><td>3. Responsabilità personale</td><td>Assumersi la responsabilità delle proprie scelte, buone o cattive</td></tr>
+<tr><td>4. Farsi valere</td><td>Difendere le proprie idee e valori con assertività</td></tr>
+<tr class="a"><td>5. Avere uno scopo</td><td>Definire una direzione e compiere azioni concrete verso gli obiettivi</td></tr>
+<tr><td>6. Fedeltà ai propri principi</td><td>Coerenza tra ciò in cui si crede e come si agisce</td></tr>
+</tbody></table></div>
+</section>
+<section class="ch" id="cap9"><div class="cl">Capitolo 9</div><h1 class="ct">Il disimpegno morale</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at9L" onclick="playTrack(9,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at9P" onclick="playTrack(9,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap9"><audio controls preload="none"></audio></div></div>
+
+<h2>INQUADRAMENTO TEORICO</h2>
+<div class="def"><span class="da">►</span><span class="dl">Disimpegno morale (Bandura)</span><span class="ds"> — </span><span class="dt">Insieme di strategie cognitivo-sociali che consentono all'individuo di svincolarsi dalle norme morali e dalla responsabilità, commettendo atti dannosi senza provare forte senso di colpa.</span></div>
+<p>Le convinzioni morali derivano da: genitori, coetanei, altri adulti, modelli simbolici (media). Differenza di genere: i maschi tendono a usare questi meccanismi più delle femmine.</p>
+<p>Il cambiamento è graduale: inizialmente si compiono atti solo leggermente scorretti → l'autocensura si attenua → la soglia del tollerabile si alza progressivamente.</p>
+<h2>GLI OTTO MECCANISMI DI DISIMPEGNO MORALE</h2>
+<h3>Categoria 1 — Ridefinizione della condotta</h3>
+<div class="tw"><table><thead><tr><th>Meccanismo</th><th>Definizione</th><th>Esempio tipico</th></tr></thead><tbody>
+<tr class="a"><td>1. Giustificazione morale</td><td>La condotta dannosa diventa accettabile come mezzo per fini superiori</td><td>'Sto difendendo la patria'</td></tr>
+<tr><td>2. Etichettamento eufemistico</td><td>Dare un nome positivo/neutro all'azione deviante</td><td>'Danni collaterali'; 'interrogatorio avanzato'</td></tr>
+<tr class="a"><td>3. Confronto vantaggioso</td><td>Sminuire la propria azione confrontandola con atti altrui molto peggiori</td><td>'Ho barato ma non ho ucciso nessuno'</td></tr>
+</tbody></table></div>
+<h3>Categoria 2 — Distorsione della responsabilità</h3>
+<div class="tw"><table><thead><tr><th>Meccanismo</th><th>Definizione</th><th>Esempio tipico</th></tr></thead><tbody>
+<tr class="a"><td>4. Diffusione della responsabilità</td><td>Nel gruppo la responsabilità si frammenta tra i membri</td><td>'Lo hanno fatto tutti'</td></tr>
+<tr><td>5. Dislocamento della responsabilità</td><td>La colpa viene attribuita a figure autorevoli che hanno ordinato</td><td>'Stavo solo eseguendo gli ordini'</td></tr>
+<tr class="a"><td>6. Distorsione delle conseguenze</td><td>Minimizzare o negare i danni prodotti</td><td>'Non se ne accorgerà mai'</td></tr>
+</tbody></table></div>
+<h3>Categoria 3 — Rivalutazione della vittima</h3>
+<div class="tw"><table><thead><tr><th>Meccanismo</th><th>Definizione</th><th>Esempio tipico</th></tr></thead><tbody>
+<tr class="a"><td>7. Attribuzione di colpa alla vittima</td><td>Responsabilità scaricata sul presunto comportamento provocatorio della vittima</td><td>'Se l'è cercata' / 'Mi ha provocato'</td></tr>
+<tr><td>8. Deumanizzazione della vittima</td><td>La vittima è privata di dignità umana, ridotta a oggetto subumano</td><td>Etichette denigratorie in guerre e reati sessuali</td></tr>
+</tbody></table></div>
+<h2>LA SCALA DEL DISIMPEGNO MORALE (CAPRARA ET AL., 1996)</h2>
+<ul>
+<li>Strumento: 32 affermazioni, 4 per ciascuno degli 8 meccanismi.</li>
+<li>Risposta: scala Likert a 5 punti (1 = completamente in disaccordo; 5 = completamente d'accordo).</li>
+<li>Limite: soggetta a desiderabilità sociale; in contesti forensi i soggetti possono falsificare le risposte.</li>
+</ul>
+</section>
+<section class="ch" id="cap10"><div class="cl">Capitolo 10</div><h1 class="ct">L'attribuzione causale e il locus of control</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at10L" onclick="playTrack(10,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at10P" onclick="playTrack(10,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap10"><audio controls preload="none"></audio></div></div>
+
+<h2>LA TEORIA DELL'ATTRIBUZIONE CAUSALE (HEIDER)</h2>
+<div class="def"><span class="da">►</span><span class="dl">Attribuzione causale</span><span class="ds"> — </span><span class="dt">Processo mentale con cui individuiamo le cause delle azioni e degli eventi. L'essere umano agisce come 'psicologo ingenuo' che cerca regolarità nel mondo sociale.</span></div>
+<div class="tw"><table><thead><tr><th>Categoria di forze</th><th>Tipo</th><th>Componenti</th></tr></thead><tbody>
+<tr class="a"><td>Forze personali</td><td>Interne</td><td>Potere (abilità, fiducia) + Tentare (sforzo, motivazione)</td></tr>
+<tr><td>Forze ambientali</td><td>Esterne</td><td>Fattori fisici, sociali e pressioni/norme del contesto</td></tr>
+</tbody></table></div>
+<h3>Quattro dimensioni dell'attribuzione</h3>
+<div class="tw"><table><thead><tr><th>Dimensione</th><th>Polo A</th><th>Polo B</th></tr></thead><tbody>
+<tr class="a"><td>Locus causale</td><td>Interno (proprie capacità)</td><td>Esterno (caso, fortuna, altri)</td></tr>
+<tr><td>Stabilità</td><td>Stabile (tratto duraturo)</td><td>Instabile (umore, fatica, circostanza)</td></tr>
+<tr class="a"><td>Controllabilità</td><td>Controllabile (sforzo)</td><td>Incontrollabile (difficoltà del compito)</td></tr>
+<tr><td>Globalità (Seligman)</td><td>Globale (agisce su molti eventi)</td><td>Specifica (riguarda solo questo evento)</td></tr>
+</tbody></table></div>
+<h2>TEORIA DELL'INFERENZA CORRISPONDENTE (JONES E DAVIS, 1965)</h2>
+<div class="def"><span class="da">►</span><span class="dl">Inferenza corrispondente</span><span class="ds"> — </span><span class="dt">Dal comportamento osservabile si inferisce l'intenzione dell'attore, da cui si deducono disposizioni stabili di personalità.</span></div>
+<ul>
+<li>Effetti specifici e non comuni — più rari gli effetti, più facile risalire all'intenzione.</li>
+<li>Bassa desiderabilità sociale — azioni con costi sociali rivelano di più sulla personalità autentica.</li>
+<li>Alta libertà di scelta — se l'attore ha scelto liberamente, l'inferenza è più forte.</li>
+</ul>
+<h2>IL LOCUS OF CONTROL (ROTTER, 1954)</h2>
+<div class="tw"><table><thead><tr><th>Caratteristica</th><th>LOC Interno</th><th>LOC Esterno</th></tr></thead><tbody>
+<tr class="a"><td>Attribuzione</td><td>Successi/insuccessi = capacità e impegno propri</td><td>Gli eventi dipendono da destino, fortuna, altri</td></tr>
+<tr><td>Motivazione</td><td>Alta; le azioni hanno conseguenze</td><td>Bassa; le azioni sembrano non fare differenza</td></tr>
+<tr class="a"><td>Rischio psicologico</td><td>Tratti ansiosi (pressione di dover controllare)</td><td>Tratti depressivi; impotenza appresa</td></tr>
+</tbody></table></div>
+<h2>BIAS ED ERRORI DI ATTRIBUZIONE</h2>
+<div class="tw"><table><thead><tr><th>Bias/Errore</th><th>Autore</th><th>Descrizione</th></tr></thead><tbody>
+<tr class="a"><td>Bias di autocompiacimento</td><td>Beauvois e Dubois (1988)</td><td>Successi → cause interne; fallimenti → cause esterne, per proteggere l'autostima</td></tr>
+<tr><td>Errore fondamentale di attribuzione</td><td>L. Ross (1977)</td><td>Sovrastimiamo le cause disposizionali e sottostimiamo le cause situazionali nel comportamento altrui</td></tr>
+<tr class="a"><td>Errore definitivo di attribuzione</td><td>Pettigrew (1979)</td><td>Le attribuzioni sono distorte dall'appartenenza di gruppo: ingroup positivo → cause interne; outgroup positivo → cause esterne</td></tr>
+</tbody></table></div>
+</section>
+<section class="ch" id="cap11"><div class="cl">Capitolo 11</div><h1 class="ct">La cognizione sociale</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at11L" onclick="playTrack(11,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at11P" onclick="playTrack(11,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap11"><audio controls preload="none"></audio></div></div>
+
+<h2>RADICI FILOSOFICHE: LA MENTE ATTIVA</h2>
+<p>Approccio olistico (Kant): la mente non registra passivamente stimoli, ma connette elementi e contesti per produrre significato.</p>
+<div class="def"><span class="da">►</span><span class="dl">Teoria del Campo (Lewin, 1951)</span><span class="ds"> — </span><span class="dt">C = f(S; P, A): il comportamento (C) è funzione dello spazio di vita (S), composto dall'interazione tra la persona (P) e l'ambiente (A).</span></div>
+<h2>MODELLI DELLA COGNIZIONE SOCIALE</h2>
+<h3>Modello Valore-Aspettativa</h3>
+<div class="tw"><table><thead><tr><th>Elemento</th><th>Tipo</th><th>Definizione</th></tr></thead><tbody>
+<tr class="a"><td>Aspettative</td><td>Probabilità</td><td>Probabilità che una certa azione produca il risultato desiderato</td></tr>
+<tr><td>Valore</td><td>Importanza</td><td>Valutazione del beneficio o del rischio di quell'azione</td></tr>
+</tbody></table></div>
+<h3>Cinque fasi del cambiamento comportamentale</h3>
+<div class="tw"><table><thead><tr><th>Fase</th><th>Descrizione</th></tr></thead><tbody>
+<tr class="a"><td>1. Precontemplazione</td><td>Non si considera ancora il cambiamento</td></tr>
+<tr><td>2. Motivazionale</td><td>Si valutano pro e contro; nasce la spinta interiore</td></tr>
+<tr class="a"><td>3. Pianificazione</td><td>Si stabiliscono obiettivi concreti e strategie</td></tr>
+<tr><td>4. Azione</td><td>Il nuovo comportamento viene messo in pratica</td></tr>
+<tr class="a"><td>5. Mantenimento</td><td>Si consolida il cambiamento e si prevengono ricadute</td></tr>
+</tbody></table></div>
+<h2>EURISTICHE E BIAS COGNITIVI</h2>
+<div class="def"><span class="da">►</span><span class="dl">Modello dell'individuo come economizzatore di risorse (Taylor, 1981)</span><span class="ds"> — </span><span class="dt">Sotto stress o pressione, gli individui ricorrono a scorciatoie mentali (euristiche) che risparmiano tempo ma producono errori sistematici.</span></div>
+<div class="tw"><table><thead><tr><th>Euristica</th><th>Uso</th><th>Rischio di errore</th></tr></thead><tbody>
+<tr class="a"><td>Rappresentatività (Tversky e Kahneman)</td><td>Valutare l'appartenenza a una categoria per somiglianza con il prototipo</td><td>Ignora probabilità di base; giudizi per stereotipo</td></tr>
+<tr><td>Disponibilità</td><td>Stimare la probabilità di un evento in base alla facilità di recupero di esempi in memoria</td><td>Sovrastima eventi facilmente ricordati (es. incidenti aerei)</td></tr>
+<tr class="a"><td>Simulazione (controfattuale)</td><td>Formulare ipotesi su come avrebbero potuto evolversi gli eventi</td><td>Amplifica le emozioni negative in prossimità di esiti diversi</td></tr>
+</tbody></table></div>
+<h2>AUTORI CHIAVE</h2>
+<h3>Solomon Asch — Modello configurazionale (1956)</h3>
+<ul>
+<li>Effetto di centralità — alcuni tratti (es. caldo/freddo) strutturano l'intera percezione.</li>
+<li>Effetto primacy — le prime informazioni guidano la valutazione complessiva.</li>
+<li>Cambio di significato — un tratto assume sfumature diverse in base al contesto.</li>
+</ul>
+<h3>Harold Kelley — Modello della covarianza (1972)</h3>
+<div class="def"><span class="da">►</span><span class="dl">Covarianza</span><span class="ds"> — </span><span class="dt">Per attribuire una causa si analizzano: consenso (è comune a molti?), distintività (avviene solo con questo stimolo?) e coerenza nel tempo (si ripete?).</span></div>
+<div class="tw"><table><thead><tr><th>Consenso</th><th>Distintività</th><th>Coerenza</th><th>Attribuzione probabile</th></tr></thead><tbody>
+<tr class="a"><td>Alto</td><td>Alta</td><td>Alta</td><td>Causa esterna (lo stimolo)</td></tr>
+<tr><td>Basso</td><td>Bassa</td><td>Alta</td><td>Causa interna (la persona)</td></tr>
+<tr class="a"><td>Basso</td><td>Alta</td><td>Bassa</td><td>Causa circostanziale</td></tr>
+</tbody></table></div>
+</section>
+<section class="ch" id="cap12"><div class="cl">Capitolo 12</div><h1 class="ct">Le rappresentazioni sociali</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at12L" onclick="playTrack(12,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at12P" onclick="playTrack(12,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap12"><audio controls preload="none"></audio></div></div>
+
+<h2>DEFINIZIONE E FUNZIONI</h2>
+<div class="def"><span class="da">►</span><span class="dl">Rappresentazioni sociali (Moscovici, 1961)</span><span class="ds"> — </span><span class="dt">Elaborazione che un gruppo crea di un oggetto sociale per permettere ai propri membri di comportarsi e comunicare in maniera comprensibile. Sistemi integrati di valori, nozioni e pratiche a metà tra concetti e immagini concrete.</span></div>
+<ul>
+<li>Costruire la realtà e darle forma.</li>
+<li>Rendere familiare ciò che è estraneo o minaccioso.</li>
+<li>Consentire la comunicazione e l'interazione sociale.</li>
+<li>Demarcare i confini del gruppo e orientare la socializzazione dei nuovi membri.</li>
+</ul>
+<h2>DUE PROCESSI GENERATORI</h2>
+<div class="def"><span class="da">►</span><span class="dl">Ancoraggio</span><span class="ds"> — </span><span class="dt">Agganciare il nuovo a qualcosa di già noto tramite denominazione, classificazione ed etichettamento. La memoria tende a prevalere sulla logica; il passato sul presente.</span></div>
+<p>Esempio: il setting psicoanalitico viene ancorato alla confessione religiosa, già nota, creando le categorie 'persona con complessi' e 'persona senza complessi'.</p>
+<div class="def"><span class="da">►</span><span class="dl">Oggettivazione</span><span class="ds"> — </span><span class="dt">Rendere concreto ciò che è astratto: trasformare un concetto in un'immagine accessibile. Fasi: ritenzione selettiva, decontestualizzazione, riorganizzazione in schema figurativo.</span></div>
+<p>Esempio: 'l'inconscio' viene oggettivato nell'immagine dell'iceberg (punta emersa = conscio; parte sommersa = inconscio).</p>
+<h2>STRUTTURA INTERNA</h2>
+<div class="tw"><table><thead><tr><th>Componente</th><th>Caratteristiche</th><th>Funzioni</th></tr></thead><tbody>
+<tr class="a"><td>Nucleo centrale</td><td>Rigido, non negoziabile; base di consenso quasi unanime</td><td>Stabilizzatrice + generatrice + organizzatrice</td></tr>
+<tr><td>Elementi periferici</td><td>Flessibili, concreti, vicini all'esperienza personale; proteggono il nucleo</td><td>Prescrivono comportamenti quotidiani; permettono personalizzazione ed evoluzione</td></tr>
+</tbody></table></div>
+<h2>METODI PER IDENTIFICARE LA STRUTTURA</h2>
+<div class="tw"><table><thead><tr><th>Metodo</th><th>Autore</th><th>Procedura</th></tr></thead><tbody>
+<tr class="a"><td>Metodo del rifiuto</td><td>Flament (1982)</td><td>Si chiede di immaginare l'oggetto senza una certa caratteristica. Ciò che viene rifiutato con più forza = nucleo centrale</td></tr>
+<tr><td>Scenario ambiguo</td><td>Abric e Tafani (1995)</td><td>Si presenta uno scenario vago; le dimensioni usate anche in condizione ambigua appartengono al nucleo</td></tr>
+<tr class="a"><td>Messa in discussione</td><td>—</td><td>Uso della doppia negazione per indurre elaborazione cognitiva autentica</td></tr>
+</tbody></table></div>
+</section>
+<section class="ch" id="cap13"><div class="cl">Capitolo 13</div><h1 class="ct">Gli atteggiamenti sociali</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at13L" onclick="playTrack(13,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at13P" onclick="playTrack(13,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap13"><audio controls preload="none"></audio></div></div>
+
+<h2>EVOLUZIONE DELLA DEFINIZIONE DI ATTEGGIAMENTO</h2>
+<div class="tw"><table><thead><tr><th>Autore/Periodo</th><th>Definizione</th><th>Focus</th></tr></thead><tbody>
+<tr class="a"><td>Thomas e Znaniecki (anni '20)</td><td>Processo mentale individuale che determina le risposte verso un valore sociale</td><td>Dimensione individuale + significato nel gruppo</td></tr>
+<tr><td>Allport (1920)</td><td>Stato mentale di prontezza organizzato attraverso l'esperienza; esercita influenza dinamica sulle risposte</td><td>Non osservabile; variabile tra stimolo e risposta</td></tr>
+<tr class="a"><td>Cognitivismo (anni '60–'70)</td><td>Valutazione sommaria lungo dimensioni (buono/cattivo); formata elaborando consapevolmente le informazioni</td><td>Elaborazione cognitiva; struttura in memoria</td></tr>
+<tr><td>Post-moderno</td><td>Costruzioni situate: forme di rapporto tra attori sociali e ambiente; emergenti dal discorso sociale</td><td>Variabilità, mobilità, dimensione culturale e collettiva</td></tr>
+</tbody></table></div>
+<h2>COME SI FORMANO GLI ATTEGGIAMENTI</h2>
+<ol>
+<li>Contatto diretto con l'oggetto — esperienze personali dirette; più resistenti al cambiamento.</li>
+<li>Mera esposizione (Zajonc, 1968) — più veniamo esposti a qualcosa, più tende a piacerci.</li>
+<li>Osservazione del comportamento altrui (Bandura, 1977) — apprendimento osservativo.</li>
+<li>Osservazione del proprio comportamento (Bem, 1972) — deduciamo le nostre preferenze da ciò che facciamo.</li>
+<li>Racconti e narrazioni degli altri — genitori, amici, media, cultura.</li>
+</ol>
+<h2>ATTEGGIAMENTO E COMPORTAMENTO</h2>
+<h3>Studio LaPiere (1934)</h3>
+<p>Accompagnò una coppia cinese in &gt;200 strutture: solo 1 rifiuto. A distanza di mesi, il 92% dichiarò di non voler accettare clienti cinesi. Motivo: scarto tra stereotipo astratto e persone reali in contesto specifico.</p>
+<h3>Teoria del comportamento pianificato (Ajzen, 1978)</h3>
+<div class="tw"><table><thead><tr><th>Componente</th><th>Definizione</th></tr></thead><tbody>
+<tr class="a"><td>Atteggiamenti personali</td><td>Valutazione individuale del comportamento specifico</td></tr>
+<tr><td>Norme soggettive</td><td>Pressione sociale percepita</td></tr>
+<tr class="a"><td>Controllo percepito</td><td>Quanto ci si sente capaci di mettere in atto il comportamento</td></tr>
+</tbody></table></div>
+<p>Intenzione = combinazione dei tre fattori → comportamento.</p>
+<h2>ATTEGGIAMENTI COME COSTRUZIONI CULTURALI</h2>
+<div class="tw"><table><thead><tr><th>Aspetto</th><th>Famiglie italiane</th><th>Famiglie americane</th></tr></thead><tbody>
+<tr class="a"><td>Cibo (Pontecorvo et al., 1997)</td><td>Piacere; i bambini esprimono liberamente preferenze</td><td>Nutrimento e ricompensa; obbligazione morale</td></tr>
+<tr><td>Tempo in famiglia (Kremer-Sadlik et al., 2008)</td><td>Momenti spontanei nelle routine quotidiane; apertura alla comunità</td><td>Tempo di qualità pianificato; protezione del nucleo familiare</td></tr>
+</tbody></table></div>
+</section>
+<section class="ch" id="cap14"><div class="cl">Capitolo 14</div><h1 class="ct">I pregiudizi</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at14L" onclick="playTrack(14,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at14P" onclick="playTrack(14,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap14"><audio controls preload="none"></audio></div></div>
+
+<h2>DEFINIZIONE DI PREGIUDIZIO</h2>
+<div class="def"><span class="da">►</span><span class="dl">Pregiudizio</span><span class="ds"> — </span><span class="dt">Giudizio formulato prima di avere una conoscenza diretta; generalizzazione arbitraria e ipersemplificazione basata su conoscenze superficiali e stereotipate.</span></div>
+<div class="def"><span class="da">►</span><span class="dl">Pregiudizio (Allport, 1954)</span><span class="ds"> — </span><span class="dt">Antipatia fondata su generalizzazioni rigide e considerate false o non verificabili, difficilissime da modificare.</span></div>
+<h2>TRE COMPONENTI DEL PREGIUDIZIO</h2>
+<div class="tw"><table><thead><tr><th>Componente</th><th>Natura</th><th>Descrizione</th></tr></thead><tbody>
+<tr class="a"><td>Affettiva</td><td>Sentimentale</td><td>Sentimenti di ostilità di intensità variabile verso il gruppo giudicato</td></tr>
+<tr><td>Conoscitiva</td><td>Cognitiva</td><td>Conoscenze spesso incongruenti e negative; assenza di contatti diretti; matrice irrazionale</td></tr>
+<tr class="a"><td>Tendenza all'azione</td><td>Comportamentale</td><td>Traduzione in comportamenti aperti o nascosti a seconda del contesto sociale</td></tr>
+</tbody></table></div>
+<h2>PREGIUDIZIO MANIFESTO VS SOTTILE (PETTIGREW E MEERTENS, 1995)</h2>
+<div class="tw"><table><thead><tr><th>Dimensione</th><th>Manifesto (diretto)</th><th>Sottile (subdolo)</th></tr></thead><tbody>
+<tr class="a"><td>Espressione</td><td>Intenzionale, dichiarata</td><td>Automatica, inconsapevole, socialmente accettabile</td></tr>
+<tr><td>Percezione outgroup</td><td>Geneticamente/culturalmente inferiore; minaccioso</td><td>Diverso; le tradizioni proprie da difendere</td></tr>
+<tr class="a"><td>Caratteristiche</td><td>Rifiuto esplicito; convinzione di superiorità dell'ingroup</td><td>Misto: credenze ostili + credenze apparentemente favorevoli</td></tr>
+</tbody></table></div>
+<h2>TEORIE SULLA FORMAZIONE DEL PREGIUDIZIO</h2>
+<div class="def"><span class="da">►</span><span class="dl">Teoria frustrazione-aggressività (Dollard e Miller, 1939)</span><span class="ds"> — </span><span class="dt">La frustrazione genera tensione che spinge ad aggredire. Se l'oggetto diretto è irraggiungibile, l'aggressività è spostata su un capro espiatorio.</span></div>
+<div class="def"><span class="da">►</span><span class="dl">Teoria dell'identità sociale (Tajfel e Turner, 1979)</span><span class="ds"> — </span><span class="dt">Il favoritismo per l'ingroup nasce dal bisogno di mantenere un'identità sociale positiva. Produce attivazione di stereotipi denigratori verso l'outgroup.</span></div>
+<h2>RAZZISMO DI FRONTSTAGE E DI BACKSTAGE</h2>
+<div class="tw"><table><thead><tr><th>Spazio</th><th>Comportamento</th><th>Caratteristiche</th></tr></thead><tbody>
+<tr class="a"><td>Frontstage (pubblico)</td><td>Presentarsi come liberi da pregiudizi</td><td>Performatività; maschera intenzionale; 'Io non sono razzista, ma...'</td></tr>
+<tr><td>Backstage (privato)</td><td>Esprimere pregiudizi senza filtri</td><td>Meno inibizioni; commenti, battute, emozioni negative esplicite</td></tr>
+</tbody></table></div>
+</section>
+<section class="ch" id="cap15"><div class="cl">Capitolo 15</div><h1 class="ct">Gli stereotipi</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at15L" onclick="playTrack(15,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at15P" onclick="playTrack(15,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap15"><audio controls preload="none"></audio></div></div>
+
+<h2>DEFINIZIONE E CARATTERISTICHE</h2>
+<div class="def"><span class="da">►</span><span class="dl">Stereotipo</span><span class="ds"> — </span><span class="dt">Dal greco <em>stereòs</em> (rigido) + <em>typos</em> (impronta). Struttura cognitiva rigida che generalizza caratteristiche a tutti i membri di un gruppo. Scorciatoia cognitiva che riduce la complessità a scapito dell'accuratezza.</span></div>
+<h2>FORMAZIONE E MANTENIMENTO</h2>
+<div class="tw"><table><thead><tr><th>Processo</th><th>Descrizione</th></tr></thead><tbody>
+<tr class="a"><td>Correlazione illusoria</td><td>Si percepisce un'associazione tra gruppo minoritario e comportamento raro/negativo anche quando non esiste</td></tr>
+<tr><td>Conferma delle aspettative</td><td>Si notano e ricordano le informazioni coerenti con lo stereotipo; si ignorano quelle contraddittorie</td></tr>
+<tr class="a"><td>Profezia autoavverantesi</td><td>Lo stereotipo influenza il comportamento di chi lo attua e di chi lo subisce, producendo le condotte previste</td></tr>
+<tr><td>Sottotipizzazione</td><td>Le eccezioni vengono inserite in una 'sottocategoria' speciale, proteggendo lo stereotipo generale</td></tr>
+</tbody></table></div>
+<h2>FUNZIONI DEGLI STEREOTIPI</h2>
+<div class="tw"><table><thead><tr><th>Funzione</th><th>Descrizione</th></tr></thead><tbody>
+<tr class="a"><td>Cognitiva</td><td>Semplificazione della realtà; risparmio di risorse cognitive</td></tr>
+<tr><td>Identitaria</td><td>Definizione dell'ingroup per contrasto con l'outgroup</td></tr>
+<tr class="a"><td>Giustificatrice</td><td>Legittimazione delle disuguaglianze sociali</td></tr>
+<tr><td>Difensiva</td><td>Riduzione dell'ansia e dell'incertezza di fronte all'ignoto</td></tr>
+</tbody></table></div>
+<h2>STEREOTYPE THREAT (STEELE E ARONSON, 1995)</h2>
+<div class="def"><span class="da">►</span><span class="dl">Stereotype threat</span><span class="ds"> — </span><span class="dt">Rischio per un individuo di confermare uno stereotipo negativo sul proprio gruppo. La sola consapevolezza dello stereotipo può ridurre le prestazioni cognitive.</span></div>
+<p>Meccanismo: attivazione stereotipo → ansia da prestazione → ↓ risorse cognitive → ↓ prestazioni → apparente conferma dello stereotipo.</p>
+<h2>MISURA IMPLICITA: IAT (GREENWALD, 1998)</h2>
+<div class="def"><span class="da">►</span><span class="dl">Implicit Association Test (IAT)</span><span class="ds"> — </span><span class="dt">Misura le associazioni implicite in memoria confrontando i tempi di risposta. Tempi più brevi = associazione più forte. Supera la desiderabilità sociale; rileva stereotipi inconsapevoli.</span></div>
+<h2>IL PROCESSO DI INDIVIDUAZIONE</h2>
+<div class="def"><span class="da">►</span><span class="dl">Individuazione</span><span class="ds"> — </span><span class="dt">Processo cognitivo di vedere una persona come individuo unico piuttosto che come membro di una categoria stereotipata.</span></div>
+<div class="tw"><table><thead><tr><th>Percorso</th><th>Trigger</th><th>Processo</th></tr></thead><tbody>
+<tr class="a"><td>Categorizzazione (top-down)</td><td>Caratteristiche di categoria salienti</td><td>Applicazione automatica dello stereotipo</td></tr>
+<tr><td>Individuazione (bottom-up)</td><td>Motivazione + informazioni individuanti</td><td>Raccolta di informazioni specifiche → giudizio personalizzato</td></tr>
+</tbody></table></div>
+</section>
+<section class="ch" id="cap16"><div class="cl">Capitolo 16</div><h1 class="ct">L'influenza sociale e il conformismo</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at16L" onclick="playTrack(16,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at16P" onclick="playTrack(16,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap16"><audio controls preload="none"></audio></div></div>
+
+<h2>DEFINIZIONI FONDAMENTALI</h2>
+<div class="def"><span class="da">►</span><span class="dl">Influenza sociale</span><span class="ds"> — </span><span class="dt">Processo per cui le persone modificano i propri pensieri, sentimenti o comportamenti in risposta alla presenza reale o immaginaria degli altri.</span></div>
+<div class="def"><span class="da">►</span><span class="dl">Conformismo</span><span class="ds"> — </span><span class="dt">Tendenza a modificare il proprio comportamento, atteggiamento o credenza per allinearsi a quello di un gruppo o della maggioranza.</span></div>
+<h2>TIPI DI CONFORMISMO</h2>
+<div class="tw"><table><thead><tr><th>Tipo</th><th>Definizione</th><th>Durata</th></tr></thead><tbody>
+<tr class="a"><td>Acquiescenza (compliance)</td><td>Cambio esterno del comportamento senza cambiamento interno</td><td>Temporanea; scompare con la pressione</td></tr>
+<tr><td>Identificazione</td><td>Cambiamento interno per somiglianza con un gruppo ammirato</td><td>Dura finché dura l'identificazione</td></tr>
+<tr class="a"><td>Internalizzazione</td><td>Cambiamento profondo: il nuovo atteggiamento entra nel sistema valoriale</td><td>Permanente; indipendente dalla pressione</td></tr>
+</tbody></table></div>
+<h2>ESPERIMENTI CLASSICI</h2>
+<h3>Sherif (1935) — Effetto autocinetico</h3>
+<p>In situazione ambigua, le stime individuali convergono verso una norma di gruppo. Le norme vengono interiorizzate e trasmesse ai nuovi partecipanti.</p>
+<h3>Asch (1951–1956) — Giudizio sulle linee</h3>
+<p>~37% dei partecipanti si conformarono alla risposta errata del gruppo almeno una volta; ~25% nella maggior parte dei trial, nonostante il compito fosse semplice e oggettivo.</p>
+<h3>Fattori che aumentano il conformismo</h3>
+<div class="tw"><table><thead><tr><th>Fattore</th><th>Effetto</th></tr></thead><tbody>
+<tr class="a"><td>Dimensione del gruppo</td><td>Max con 3–4 complici; oltre non aumenta</td></tr>
+<tr><td>Unanimità del gruppo</td><td>Un solo alleato riduce drasticamente il conformismo</td></tr>
+<tr class="a"><td>Difficoltà del compito</td><td>↑ Ambiguità = ↑ pressione normativa</td></tr>
+<tr><td>Status del gruppo</td><td>↑ Competenza percepita = ↑ pressione</td></tr>
+</tbody></table></div>
+<h2>DUE TIPI DI INFLUENZA SOCIALE (DEUTSCH E GERARD, 1955)</h2>
+<div class="tw"><table><thead><tr><th>Tipo</th><th>Meccanismo</th><th>Motivazione</th></tr></thead><tbody>
+<tr class="a"><td>Informazionale</td><td>Si usano le risposte altrui come informazione su cosa è corretto</td><td>Desiderio di essere accurati</td></tr>
+<tr><td>Normativa</td><td>Ci si conforma per ottenere approvazione o evitare rifiuto/esclusione</td><td>Desiderio di essere accettati</td></tr>
+</tbody></table></div>
+<h2>INFLUENZA DELLA MINORANZA (MOSCOVICI, 1976)</h2>
+<div class="def"><span class="da">►</span><span class="dl">Influenza minoritaria</span><span class="ds"> — </span><span class="dt">Una minoranza consistente e coerente può influenzare la maggioranza attraverso la propria coerenza nel tempo, la persistenza e uno stile di negoziazione aperto.</span></div>
+</section>
+<section class="ch" id="cap17"><div class="cl">Capitolo 17</div><h1 class="ct">L'obbedienza e l'autorità</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at17L" onclick="playTrack(17,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at17P" onclick="playTrack(17,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap17"><audio controls preload="none"></audio></div></div>
+
+<h2>OBBEDIENZA: DEFINIZIONE E RILEVANZA</h2>
+<div class="def"><span class="da">►</span><span class="dl">Obbedienza</span><span class="ds"> — </span><span class="dt">Tipo di influenza sociale in cui un individuo si conforma alle richieste dirette di una persona in posizione di autorità.</span></div>
+<h2>ESPERIMENTO DI MILGRAM (1963–1974)</h2>
+<div class="tw"><table><thead><tr><th>Variazione sperimentale</th><th>% di obbedienza (max 450V)</th></tr></thead><tbody>
+<tr class="a"><td>Condizione base (voce registrata)</td><td>65%</td></tr>
+<tr><td>Allievo nella stessa stanza (prossimità)</td><td>40%</td></tr>
+<tr class="a"><td>Ricercatore per telefono (autorità distante)</td><td>20,5%</td></tr>
+<tr><td>Due ricercatori discordanti</td><td>0%</td></tr>
+<tr class="a"><td>Pari dissenziente presente</td><td>10%</td></tr>
+<tr><td>Istituzione 'ordinaria' (non Yale)</td><td>47,5%</td></tr>
+</tbody></table></div>
+<h2>FATTORI CHE MODULANO L'OBBEDIENZA</h2>
+<div class="tw"><table><thead><tr><th>Aumentano l'obbedienza</th><th>Riducono l'obbedienza</th></tr></thead><tbody>
+<tr class="a"><td>Legittimità e prestigio dell'autorità</td><td>Presenza di un pari dissenziente</td></tr>
+<tr><td>Distanza fisica dalla vittima</td><td>Autorità contraddittoria o illegittima</td></tr>
+<tr class="a"><td>Ingresso graduale (piede nella porta)</td><td>Prossimità fisica alla vittima</td></tr>
+<tr><td>Diffusione della responsabilità</td><td>Consapevolezza delle conseguenze delle proprie azioni</td></tr>
+</tbody></table></div>
+<h2>STATO AGENTE VS STATO AUTONOMO (MILGRAM)</h2>
+<div class="tw"><table><thead><tr><th>Stato</th><th>Percezione di sé</th><th>Responsabilità sentita</th></tr></thead><tbody>
+<tr class="a"><td>Autonomo</td><td>Agente libero; responsabile delle proprie azioni</td><td>Alta; valuta moralmente le proprie azioni</td></tr>
+<tr><td>Agente</td><td>Strumento di un'autorità legittima; esecutore</td><td>Bassa; responsabilità spostata sull'autorità</td></tr>
+</tbody></table></div>
+<h2>NORME SOCIALI E COMPORTAMENTO</h2>
+<div class="def"><span class="da">►</span><span class="dl">Norma descrittiva</span><span class="ds"> — </span><span class="dt">Ciò che la maggioranza delle persone fa in un dato contesto (comportamento prevalente).</span></div>
+<div class="def"><span class="da">►</span><span class="dl">Norma prescrittiva (iniuntiva)</span><span class="ds"> — </span><span class="dt">Ciò che si dovrebbe fare; ciò che è approvato o disapprovato socialmente.</span></div>
+<p>Implicazione fondamentale: il contesto situazionale ha un potere enorme nel plasmare il comportamento di persone ordinarie, spesso maggiore dei tratti di personalità individuale.</p>
+</section>
+<section class="ch" id="cap18"><div class="cl">Capitolo 18</div><h1 class="ct">I gruppi sociali</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at18L" onclick="playTrack(18,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at18P" onclick="playTrack(18,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap18"><audio controls preload="none"></audio></div></div>
+
+<h2>DEFINIZIONE E CARATTERISTICHE DEL GRUPPO</h2>
+<div class="def"><span class="da">►</span><span class="dl">Gruppo sociale</span><span class="ds"> — </span><span class="dt">Insieme di due o più persone che si percepiscono come appartenenti alla stessa entità, condividono obiettivi, valori e norme, interagiscono reciprocamente e si influenzano.</span></div>
+<h3>Criteri per definire un gruppo (Lewin)</h3>
+<ul>
+<li>Interdipendenza tra i membri.</li>
+<li>Identità comune — il gruppo è percepito come 'noi'.</li>
+<li>Presenza di struttura (ruoli, norme, gerarchie).</li>
+<li>Interazione diretta o mediata tra i membri.</li>
+</ul>
+<h2>CLASSIFICAZIONE DEI GRUPPI</h2>
+<div class="tw"><table><thead><tr><th>Criterio</th><th>Tipi</th><th>Esempi</th></tr></thead><tbody>
+<tr class="a"><td>Dimensione</td><td>Piccolo / Grande</td><td>Famiglia, team / nazione, movimento</td></tr>
+<tr><td>Coesione</td><td>Primario / Secondario</td><td>Famiglia, amici intimi / colleghi, associazioni</td></tr>
+<tr class="a"><td>Formalità</td><td>Formale / Informale</td><td>Azienda, partito / gruppo di amici</td></tr>
+<tr><td>Appartenenza</td><td>Ingroup / Outgroup</td><td>Il proprio gruppo / gli altri gruppi</td></tr>
+</tbody></table></div>
+<h2>PROCESSI DI GRUPPO FONDAMENTALI</h2>
+<h3>Polarizzazione di gruppo (Moscovici e Zavalloni, 1969)</h3>
+<div class="def"><span class="da">►</span><span class="dl">Polarizzazione di gruppo</span><span class="ds"> — </span><span class="dt">Le discussioni di gruppo spostano le posizioni verso posizioni più estreme nella direzione già dominante nel gruppo (risky shift o cautious shift).</span></div>
+<h3>Pensiero di gruppo — Groupthink (Janis, 1972)</h3>
+<div class="def"><span class="da">►</span><span class="dl">Groupthink</span><span class="ds"> — </span><span class="dt">Deterioramento del giudizio critico in gruppi coesi per effetto del desiderio di conformità e consenso. Porta a decisioni sbagliate.</span></div>
+<div class="tw"><table><thead><tr><th>Sintomo</th><th>Descrizione</th></tr></thead><tbody>
+<tr class="a"><td>Illusione di invulnerabilità</td><td>Eccessivo ottimismo; si ignorano i rischi</td></tr>
+<tr><td>Razionalizzazione collettiva</td><td>Si scartano gli avvertimenti contrari</td></tr>
+<tr class="a"><td>Stereotipi dell'outgroup</td><td>Sottovalutazione dei rivali</td></tr>
+<tr><td>Auto-censura</td><td>I dissidenti non parlano per non turbare l'armonia</td></tr>
+<tr class="a"><td>Guardiani del pensiero</td><td>Alcuni membri proteggono il gruppo da informazioni contrarie</td></tr>
+</tbody></table></div>
+</section>
+<section class="ch" id="cap19"><div class="cl">Capitolo 19</div><h1 class="ct">Il gruppo dei pari</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at19L" onclick="playTrack(19,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at19P" onclick="playTrack(19,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap19"><audio controls preload="none"></audio></div></div>
+
+<h2>IL GRUPPO DEI PARI: DEFINIZIONE E FUNZIONI</h2>
+<div class="def"><span class="da">►</span><span class="dl">Gruppo dei pari (peer group)</span><span class="ds"> — </span><span class="dt">Insieme di individui di età simile che condividono interessi, attività e status equiparabile. È il contesto primario di socializzazione secondaria dopo la famiglia.</span></div>
+<div class="tw"><table><thead><tr><th>Funzione</th><th>Descrizione</th></tr></thead><tbody>
+<tr class="a"><td>Specchio sociale</td><td>Riflette l'identità emergente; permette confronto e feedback</td></tr>
+<tr><td>Palestra di vita</td><td>Spazio intermedio tra famiglia e mondo; contiene ansie e incertezze</td></tr>
+<tr class="a"><td>Costruzione dell'identità</td><td>Attraverso identificazione, proiezione e differenziazione</td></tr>
+<tr><td>Apprendimento sociale</td><td>Osservazione e imitazione di comportamenti tra pari</td></tr>
+<tr class="a"><td>Supporto emotivo</td><td>Sostegno nelle crisi evolutive, specialmente in adolescenza</td></tr>
+</tbody></table></div>
+<h2>SVILUPPO DELLE RELAZIONI CON I PARI NELLE VARIE ETÀ</h2>
+<div class="tw"><table><thead><tr><th>Fase</th><th>Caratteristiche principali</th></tr></thead><tbody>
+<tr class="a"><td>Prima infanzia (0–3 anni)</td><td>Interazioni brevi; orientamento sull'oggetto più che sul pari</td></tr>
+<tr><td>Età prescolare (3–6 anni)</td><td>Gioco parallelo → cooperativo; prime amicizie; role-playing</td></tr>
+<tr class="a"><td>Età scolare (6–11 anni)</td><td>Gruppi dello stesso sesso; giochi con regole; reciprocità; lealtà</td></tr>
+<tr><td>Preadolescenza (11–13 anni)</td><td>Cliques (piccoli gruppi chiusi); confidenza; confronto identitario</td></tr>
+<tr class="a"><td>Adolescenza (14–18 anni)</td><td>Crowds (aggregati più ampi); relazioni romantiche; esplorazione ruoli sociali</td></tr>
+</tbody></table></div>
+<h2>MECCANISMI DI INFLUENZA DEL GRUPPO DEI PARI</h2>
+<div class="tw"><table><thead><tr><th>Meccanismo</th><th>Descrizione</th></tr></thead><tbody>
+<tr class="a"><td>Pressione di gruppo</td><td>Conformismo alle norme del gruppo per evitare esclusione o ottenere approvazione</td></tr>
+<tr><td>Omofilia</td><td>Tendenza a scegliere amici simili a sé; i comportamenti si rafforzano reciprocamente</td></tr>
+<tr class="a"><td>Peer modeling</td><td>Osservazione e imitazione; più efficace se il modello ha status elevato</td></tr>
+<tr><td>Deindividuazione</td><td>Nel gruppo si può agire in modo più rischioso perché la responsabilità è diffusa</td></tr>
+</tbody></table></div>
+</section>
+<section class="ch" id="cap20"><div class="cl">Capitolo 20</div><h1 class="ct">La leadership</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at20L" onclick="playTrack(20,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at20P" onclick="playTrack(20,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap20"><audio controls preload="none"></audio></div></div>
+
+<h2>DEFINIZIONE DI LEADERSHIP</h2>
+<div class="def"><span class="da">►</span><span class="dl">Leadership</span><span class="ds"> — </span><span class="dt">Processo di influenza sociale per cui una persona guida, motiva e coordina i membri di un gruppo verso il raggiungimento di obiettivi condivisi.</span></div>
+<h2>PRINCIPALI TEORIE DELLA LEADERSHIP</h2>
+<h3>A) Teorie dei tratti (fine '800 – metà '900)</h3>
+<p>La teoria del grande uomo: i leader nascono, non si fanno. Esistono tratti universali (intelligenza, dominanza, carisma, integrità). <strong>Limite</strong>: non esiste un profilo universale; i tratti efficaci variano in base al contesto.</p>
+<h3>B) Teorie comportamentali (anni '40–'50)</h3>
+<div class="tw"><table><thead><tr><th>Dimensione</th><th>Focus</th><th>Stile</th></tr></thead><tbody>
+<tr class="a"><td>Orientamento al compito</td><td>Obiettivi, produttività, strutturazione del lavoro</td><td>Direttivo, orientato ai risultati</td></tr>
+<tr><td>Orientamento alle relazioni</td><td>Benessere, soddisfazione dei membri</td><td>Supportivo, orientato alle persone</td></tr>
+</tbody></table></div>
+<h3>C) Teorie contingenti/situazionali (anni '60–'70)</h3>
+<ul>
+<li>Modello di Fiedler (1967): l'efficacia dipende dalla corrispondenza tra stile del leader e favorevolezza della situazione.</li>
+<li>Teoria path-goal (House, 1971): il leader rimuove ostacoli e chiarisce il percorso, adattando lo stile ai bisogni dei seguaci.</li>
+<li>Modello situazionale di Hersey e Blanchard: lo stile si adatta al livello di maturità (competenza + motivazione) dei seguaci.</li>
+</ul>
+<h3>D) Leadership trasformazionale vs transazionale (Burns, 1978; Bass, 1985)</h3>
+<div class="tw"><table><thead><tr><th>Dimensione</th><th>Transazionale</th><th>Trasformazionale</th></tr></thead><tbody>
+<tr class="a"><td>Meccanismo</td><td>Scambio: ricompense per prestazioni</td><td>Ispirazione: visione, valori, significato</td></tr>
+<tr><td>Motivazione</td><td>Estrinseca (rinforzi materiali)</td><td>Intrinseca (identificazione con la missione)</td></tr>
+<tr class="a"><td>Effetto</td><td>Conformità; mantenimento dello status quo</td><td>Cambiamento; innovazione; commitment elevato</td></tr>
+</tbody></table></div>
+<h2>GENERE E LEADERSHIP</h2>
+<p>Le donne tendono più verso la leadership democratica/partecipativa; gli uomini verso quella autocratica. Le differenze di efficacia sono minime. Il <strong>'think manager, think male' bias</strong> (Schein) associa stereotipicamente la leadership al genere maschile.</p>
+</section>
+<section class="ch" id="cap21"><div class="cl">Capitolo 21</div><h1 class="ct">Categorizzazione e relazioni intergruppi</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at21L" onclick="playTrack(21,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at21P" onclick="playTrack(21,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap21"><audio controls preload="none"></audio></div></div>
+
+<h2>LA CATEGORIZZAZIONE SOCIALE</h2>
+<div class="def"><span class="da">►</span><span class="dl">Categorizzazione sociale (Tajfel, 1969)</span><span class="ds"> — </span><span class="dt">Processo cognitivo con cui si organizzano le informazioni sulle persone raggruppandole in categorie sociali. Riduce la complessità ma introduce distorsioni.</span></div>
+<h3>Quattro effetti della categorizzazione</h3>
+<ol>
+<li>Accentuazione delle differenze intergruppi — le differenze tra categorie sono percepite più grandi di quanto siano.</li>
+<li>Accentuazione delle somiglianze intragruppi — i membri della stessa categoria sembrano più simili.</li>
+<li>Outgroup homogeneity effect — 'loro si assomigliano tutti'; l'outgroup è percepito come più omogeneo dell'ingroup.</li>
+<li>Favoritismo per l'ingroup — valutazioni più positive del proprio gruppo anche senza storia di conflitto.</li>
+</ol>
+<h2>TEORIA DELL'IDENTITÀ SOCIALE (TAJFEL E TURNER, 1979)</h2>
+<div class="def"><span class="da">►</span><span class="dl">Identità sociale</span><span class="ds"> — </span><span class="dt">Componente dell'identità derivante dall'appartenenza a gruppi sociali: consapevolezza dell'appartenenza + valenza emotiva + valore associato.</span></div>
+<h3>Processo di costruzione in 4 passi</h3>
+<ol>
+<li>Categorizzazione — si identifica il gruppo a cui si appartiene.</li>
+<li>Identificazione — ci si identifica emotivamente con il gruppo.</li>
+<li>Confronto sociale intergruppi — si compara il proprio gruppo con l'outgroup su dimensioni rilevanti.</li>
+<li>Distinzione positiva — si cerca di affermare la superiorità del proprio gruppo.</li>
+</ol>
+<h2>STRATEGIE PER MANTENERE UN'IDENTITÀ SOCIALE POSITIVA</h2>
+<div class="tw"><table><thead><tr><th>Strategia</th><th>Condizione</th><th>Descrizione</th></tr></thead><tbody>
+<tr class="a"><td>Mobilità individuale</td><td>Confini del gruppo permeabili</td><td>Si lascia il gruppo di basso status per uno di status più alto</td></tr>
+<tr><td>Creatività sociale</td><td>Confini impermeabili + confronto sfavorevole</td><td>Si cambia dimensione di confronto o si rivaluta la caratteristica negativa</td></tr>
+<tr class="a"><td>Competizione sociale</td><td>Confini impermeabili + instabilità dello status</td><td>Il gruppo di basso status agisce collettivamente per cambiare la gerarchia</td></tr>
+</tbody></table></div>
+<h2>PARADIGMA DEL GRUPPO MINIMALE (TAJFEL ET AL., 1971)</h2>
+<p>Partecipanti divisi in gruppi arbitrari (es. preferenza per Klee vs Kandinsky): nonostante la totale arbitrarietà, distribuivano risorse favorendo l'ingroup. Dimostrazione: la sola categorizzazione è sufficiente a produrre discriminazione intergruppi, senza conflitto reale.</p>
+</section>
+<section class="ch" id="cap22"><div class="cl">Capitolo 22</div><h1 class="ct">Interazione sociale e relazioni intergruppi</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at22L" onclick="playTrack(22,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at22P" onclick="playTrack(22,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap22"><audio controls preload="none"></audio></div></div>
+
+<h2>TIPOLOGIE DI INTERAZIONE SOCIALE</h2>
+<div class="tw"><table><thead><tr><th>Tipo</th><th>Descrizione</th></tr></thead><tbody>
+<tr class="a"><td>Cooperazione</td><td>Azioni coordinate verso un obiettivo condiviso; interdipendenza positiva</td></tr>
+<tr><td>Competizione</td><td>Contesa di risorse percepite come limitate; interdipendenza negativa</td></tr>
+<tr class="a"><td>Conflitto</td><td>Incompatibilità percepita di obiettivi, valori o risorse</td></tr>
+<tr><td>Accomodamento</td><td>Aggiustamento reciproco per evitare il conflitto; compromesso</td></tr>
+</tbody></table></div>
+<h2>IPOTESI DEL CONTATTO (ALLPORT, 1954)</h2>
+<div class="def"><span class="da">►</span><span class="dl">Ipotesi del contatto</span><span class="ds"> — </span><span class="dt">Il contatto tra gruppi diversi riduce il pregiudizio se soddisfa quattro condizioni.</span></div>
+<div class="tw"><table><thead><tr><th>Condizione</th><th>Descrizione</th></tr></thead><tbody>
+<tr class="a"><td>1. Parità di status</td><td>I gruppi interagiscono sullo stesso piano, senza gerarchie</td></tr>
+<tr><td>2. Obiettivi comuni</td><td>Si perseguono scopi condivisi che non possono essere raggiunti singolarmente</td></tr>
+<tr class="a"><td>3. Cooperazione</td><td>Il raggiungimento degli obiettivi richiede la collaborazione</td></tr>
+<tr><td>4. Sostegno istituzionale</td><td>Le autorità supportano e legittimano il contatto</td></tr>
+</tbody></table></div>
+<p>Meta-analisi Pettigrew e Tropp (2006): su &gt;500 studi, il contatto riduce il pregiudizio nella grande maggioranza dei casi, anche senza tutte le condizioni di Allport.</p>
+<h2>TEORIA DEL CONFLITTO REALISTICO (SHERIF, 1966)</h2>
+<div class="def"><span class="da">►</span><span class="dl">Teoria del conflitto realistico</span><span class="ds"> — </span><span class="dt">L'ostilità intergruppi emerge dalla competizione per risorse reali limitate. La cooperazione verso obiettivi sovraordinati la riduce.</span></div>
+<h2>STRATEGIE DI RIDUZIONE DEL PREGIUDIZIO</h2>
+<div class="tw"><table><thead><tr><th>Strategia</th><th>Meccanismo</th><th>Autore/Modello</th></tr></thead><tbody>
+<tr class="a"><td>Contatto strutturato</td><td>Condizioni di Allport</td><td>Allport (1954)</td></tr>
+<tr><td>Classroom puzzle (Jigsaw)</td><td>Interdipendenza positiva: ogni studente ha un pezzo da insegnare agli altri</td><td>Aronson (1978)</td></tr>
+<tr class="a"><td>Decategorizzazione</td><td>Ridurre la salienza delle categorie; trattare l'altro come individuo</td><td>Brewer e Miller</td></tr>
+<tr><td>Ricategorizzazione</td><td>Creare una categoria sovraordinata comune</td><td>Gaertner e Dovidio</td></tr>
+<tr class="a"><td>Cross-categorizzazione</td><td>Far emergere più appartenenze simultane</td><td>Crisp e Hewstone</td></tr>
+</tbody></table></div>
+<h2>MODELLI DI ACCULTURAZIONE (BERRY)</h2>
+<div class="tw"><table><thead><tr><th>Strategia</th><th>Mantiene cultura d'origine</th><th>Partecipa alla cultura ospitante</th><th>Benessere psicologico</th></tr></thead><tbody>
+<tr class="a"><td>Integrazione</td><td>Sì</td><td>Sì</td><td>Migliore</td></tr>
+<tr><td>Assimilazione</td><td>No</td><td>Sì</td><td>Intermedio</td></tr>
+<tr class="a"><td>Separazione</td><td>Sì</td><td>No</td><td>Intermedio</td></tr>
+<tr><td>Marginalizzazione</td><td>No</td><td>No</td><td>Peggiore</td></tr>
+</tbody></table></div>
+</section>
+<section class="ch" id="cap23"><div class="cl">Capitolo 23</div><h1 class="ct">Aggressività</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at23L" onclick="playTrack(23,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at23P" onclick="playTrack(23,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap23"><audio controls preload="none"></audio></div></div>
+
+<h2>DEFINIZIONE E TIPOLOGIE</h2>
+<div class="def"><span class="da">►</span><span class="dl">Aggressività</span><span class="ds"> — </span><span class="dt">Comportamento intenzionale diretto a causare danno fisico o psicologico a un'altra persona che non desidera essere danneggiata.</span></div>
+<div class="tw"><table><thead><tr><th>Dimensione</th><th>Polo A</th><th>Polo B</th></tr></thead><tbody>
+<tr class="a"><td>Modalità</td><td>Fisica (colpi, violenza)</td><td>Verbale (insulti, minacce)</td></tr>
+<tr><td>Scopo</td><td>Ostile/affettiva (rabbia; danno come fine)</td><td>Strumentale (danno come mezzo per un altro fine)</td></tr>
+<tr class="a"><td>Espressione</td><td>Diretta (verso il target)</td><td>Indiretta/relazionale (esclusione, pettegolezzi)</td></tr>
+</tbody></table></div>
+<h2>PRINCIPALI TEORIE SULL'AGGRESSIVITÀ</h2>
+<div class="tw"><table><thead><tr><th>Teoria</th><th>Autore</th><th>Nucleo</th></tr></thead><tbody>
+<tr class="a"><td>Istintiva</td><td>Freud (thanatos); Lorenz</td><td>L'aggressività è innata; pressione interna che richiede scarica</td></tr>
+<tr><td>Frustrazione-aggressività</td><td>Dollard e Miller (1939); Berkowitz (1989)</td><td>Frustrazione → arousal emotivo negativo → aggressione in presenza di stimoli attivanti</td></tr>
+<tr class="a"><td>Apprendimento sociale</td><td>Bandura</td><td>L'aggressività si apprende per osservazione (Bobo Doll). Fonti: famiglia, subcultura, media</td></tr>
+<tr><td>GAM (General Aggression Model)</td><td>Anderson e Bushman (2002)</td><td>Fattori personali + situazionali → pensieri, sentimenti, arousal → valutazione → aggressione</td></tr>
+</tbody></table></div>
+<h2>FATTORI CHE INFLUENZANO L'AGGRESSIVITÀ</h2>
+<div class="tw"><table><thead><tr><th>Fattore</th><th>Effetto</th></tr></thead><tbody>
+<tr class="a"><td>Temperatura elevata</td><td>↑ (specialmente per aggressività ostile)</td></tr>
+<tr><td>Frustrazione percepita come ingiusta</td><td>↑ Forte trigger</td></tr>
+<tr class="a"><td>Alcol e droghe</td><td>↑ Riducono autocontrollo e attenzione ai segnali sociali</td></tr>
+<tr><td>Esposizione a media violenti</td><td>↑ Piccolo ma robusto effetto</td></tr>
+<tr class="a"><td>Provocazione</td><td>↑ Forte trigger per aggressività reattiva</td></tr>
+</tbody></table></div>
+<h2>IL CICLO DELLA VIOLENZA DOMESTICA (WALKER, 1979)</h2>
+<div class="tw"><table><thead><tr><th>Fase</th><th>Caratteristiche</th></tr></thead><tbody>
+<tr class="a"><td>1. Accumulo di tensione</td><td>Piccoli episodi di violenza verbale; la vittima cerca di placare il partner</td></tr>
+<tr><td>2. Esplosione</td><td>Episodio acuto di violenza fisica o verbale grave</td></tr>
+<tr class="a"><td>3. Luna di miele/Riconciliazione</td><td>Il partner si scusa, promette di cambiare; la vittima ci crede e perdona</td></tr>
+<tr><td>4. Riaccumulo</td><td>La tensione riprende; il ciclo ricomincia con intensità crescente</td></tr>
+</tbody></table></div>
+</section>
+<section class="ch" id="cap24"><div class="cl">Capitolo 24</div><h1 class="ct">Il comportamento antisociale</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at24L" onclick="playTrack(24,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at24P" onclick="playTrack(24,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap24"><audio controls preload="none"></audio></div></div>
+
+<h2>DEFINIZIONE E FATTORI DI RISCHIO</h2>
+<div class="def"><span class="da">►</span><span class="dl">Comportamento antisociale</span><span class="ds"> — </span><span class="dt">Insieme di azioni che violano le norme sociali e i diritti altrui causando danno a individui o alla collettività. Spazia dalla piccola trasgressione al crimine grave.</span></div>
+<div class="tw"><table><thead><tr><th>Livello</th><th>Fattori di rischio principali</th></tr></thead><tbody>
+<tr class="a"><td>Individuale</td><td>Temperamento difficile, impulsività, bassa intelligenza emotiva, disturbi di personalità antisociale, abuso di sostanze</td></tr>
+<tr><td>Familiare</td><td>Violenza domestica, pratiche educative coercitive, supervisione inadeguata, criminalità dei genitori</td></tr>
+<tr class="a"><td>Pari/Scuola</td><td>Associazione con pari devianti, fallimento scolastico, rifiuto dai pari</td></tr>
+<tr><td>Comunitario</td><td>Povertà, quartieri degradati, scarsa coesione sociale, norme che tollerano violenza</td></tr>
+</tbody></table></div>
+<h2>TEORIE ESPLICATIVE</h2>
+<div class="def"><span class="da">►</span><span class="dl">Associazione differenziale (Sutherland)</span><span class="ds"> — </span><span class="dt">Il comportamento criminale si impara per contatto con persone che portano definizioni favorevoli alla violazione della legge.</span></div>
+<div class="def"><span class="da">►</span><span class="dl">Legame sociale (Hirschi, 1969)</span><span class="ds"> — </span><span class="dt">Il comportamento antisociale emerge quando il legame con la società convenzionale è debole. Quattro elementi: attaccamento, commitment, coinvolgimento, credenza nelle norme.</span></div>
+<h2>ESPERIMENTO CARCERARIO DI STANFORD (ZIMBARDO, 1971)</h2>
+<p>Studenti assegnati casualmente a ruoli di 'guardie' e 'prigionieri'. L'esperimento fu interrotto dopo 6 giorni (previsto 2 settimane): le guardie divennero sadiche, i prigionieri mostrarono grave distress. Dimostrazione: ruoli e contesto istituzionale plasmano i comportamenti in modo potente e rapido, indipendentemente dai tratti individuali.</p>
+<h2>PREVENZIONE E INTERVENTO</h2>
+<div class="tw"><table><thead><tr><th>Livello</th><th>Esempi di interventi</th></tr></thead><tbody>
+<tr class="a"><td>Primario (universale)</td><td>Programmi scolastici di sviluppo delle competenze sociali ed emotive</td></tr>
+<tr><td>Secondario (a rischio)</td><td>Mentoring, tutoring, lavoro con famiglie ad alto rischio</td></tr>
+<tr class="a"><td>Terziario (trattamento)</td><td>Terapia cognitivo-comportamentale per autori di reato; programmi di riabilitazione</td></tr>
+</tbody></table></div>
+</section>
+<section class="ch" id="cap25"><div class="cl">Capitolo 25</div><h1 class="ct">Il bullismo</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at25L" onclick="playTrack(25,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at25P" onclick="playTrack(25,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap25"><audio controls preload="none"></audio></div></div>
+
+<h2>DEFINIZIONE E CRITERI</h2>
+<div class="def"><span class="da">►</span><span class="dl">Bullismo (Olweus, 1993)</span><span class="ds"> — </span><span class="dt">Comportamento aggressivo intenzionale, ripetuto nel tempo, che si verifica in una relazione caratterizzata da uno squilibrio di potere. Il target non riesce a difendersi da solo.</span></div>
+<h3>Tre criteri fondamentali</h3>
+<ol>
+<li>Intenzionalità — l'atto è deliberato.</li>
+<li>Ripetizione — avviene più volte nel tempo.</li>
+<li>Asimmetria di potere — il bullo è più forte fisicamente, socialmente o psicologicamente.</li>
+</ol>
+<h2>TIPOLOGIE DI BULLISMO</h2>
+<div class="tw"><table><thead><tr><th>Tipo</th><th>Descrizione</th></tr></thead><tbody>
+<tr class="a"><td>Fisico</td><td>Colpi, spinte, furto o distruzione di oggetti</td></tr>
+<tr><td>Verbale</td><td>Insulti, prese in giro, minacce, epiteti denigratori</td></tr>
+<tr class="a"><td>Relazionale/Sociale</td><td>Esclusione, pettegolezzi, manipolazione delle relazioni</td></tr>
+<tr><td>Cyberbullismo</td><td>Molestie tramite dispositivi digitali: messaggi, social, foto/video imbarazzanti</td></tr>
+</tbody></table></div>
+<h2>PROFILI NEL BULLISMO</h2>
+<div class="tw"><table><thead><tr><th>Ruolo</th><th>Caratteristiche principali</th></tr></thead><tbody>
+<tr class="a"><td>Bullo</td><td>Cerca potere e status; scarsa empatia; buone abilità sociali per manipolare</td></tr>
+<tr><td>Vittima passiva</td><td>Bassa autostima, ansiosa, insicura; pochi amici; tende a ritirarsi</td></tr>
+<tr class="a"><td>Vittima-bullo (provocatrice)</td><td>Sia vittime che autori; impulsivi, ansiosi, alta vulnerabilità emotiva</td></tr>
+<tr><td>Osservatori</td><td>Rinforzi attivi, sostenitori, spettatori passivi o difensori; la maggioranza sono osservatori passivi</td></tr>
+</tbody></table></div>
+<h2>CONSEGUENZE DEL BULLISMO</h2>
+<div class="tw"><table><thead><tr><th>Su chi</th><th>Conseguenze</th></tr></thead><tbody>
+<tr class="a"><td>Vittima</td><td>Depressione, ansia, solitudine, bassa autostima, problemi scolastici; in casi estremi comportamenti autolesivi o suicidari</td></tr>
+<tr><td>Bullo</td><td>↑ Rischio di delinquenza giovanile e adulta; problemi relazionali; bassa empatia</td></tr>
+<tr class="a"><td>Osservatori</td><td>Desensibilizzazione, senso di colpa, clima di paura nella classe</td></tr>
+</tbody></table></div>
+<h2>STRATEGIE DI INTERVENTO</h2>
+<ul>
+<li>Programmi scolastici sistemici (es. programma Olweus, KiVa): coinvolgono l'intera comunità scolastica.</li>
+<li>Formazione degli insegnanti sul riconoscimento e la gestione.</li>
+<li>Empowerment degli osservatori: formarli a intervenire o a segnalare.</li>
+<li>Supporto psicologico a vittime e bulli.</li>
+<li>Educazione all'uso responsabile della tecnologia (per il cyberbullismo).</li>
+</ul>
+</section>
+<section class="ch" id="cap26"><div class="cl">Capitolo 26</div><h1 class="ct">La deindividuazione</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at26L" onclick="playTrack(26,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at26P" onclick="playTrack(26,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap26"><audio controls preload="none"></audio></div></div>
+
+<h2>DEFINIZIONE DI DEINDIVIDUAZIONE</h2>
+<div class="def"><span class="da">►</span><span class="dl">Deindividuazione (Festinger et al., 1952; Zimbardo, 1969)</span><span class="ds"> — </span><span class="dt">Stato psicologico in cui l'individuo, immerso in una folla o in un gruppo, perde la propria identità individuale, riduce l'automonitoraggio e diventa più vulnerabile all'influenza del gruppo, agendo spesso in modo antisociale.</span></div>
+<h2>CONDIZIONI CHE LA FAVORISCONO</h2>
+<div class="tw"><table><thead><tr><th>Fattore</th><th>Effetto</th></tr></thead><tbody>
+<tr class="a"><td>Anonimato</td><td>↓ Responsabilità individuale; ↑ licenza di agire in modo deviante</td></tr>
+<tr><td>Dimensione del gruppo</td><td>Diffusione della responsabilità</td></tr>
+<tr class="a"><td>Eccitazione fisiologica (arousal)</td><td>↓ Capacità di pensiero razionale</td></tr>
+<tr><td>Alterazione della coscienza (alcol, droghe)</td><td>↓ Freni inibitori</td></tr>
+<tr class="a"><td>Concentrazione sull'azione immediata</td><td>↓ Considerazione delle conseguenze</td></tr>
+<tr><td>Senso di potere del gruppo</td><td>↑ Impunità percepita</td></tr>
+</tbody></table></div>
+<h2>MODELLO DI DIENER (1980)</h2>
+<ol>
+<li>Condizioni antecedenti (anonimato, arousal, gruppo) riducono l'autoconsapevolezza.</li>
+<li>Ridotta autoconsapevolezza → ↓ automonitoraggio del comportamento.</li>
+<li>Le norme di gruppo diventano il principale regolatore dell'azione.</li>
+<li>I comportamenti sono guidati dagli stimoli immediati del contesto, non dai valori interni.</li>
+</ol>
+<h2>MODELLO SIDE (REICHER ET AL.)</h2>
+<div class="def"><span class="da">►</span><span class="dl">SIDE — Social Identity model of Deindividuation Effects</span><span class="ds"> — </span><span class="dt">L'anonimato non porta al caos ma amplifica l'identità del gruppo saliente nel momento. Il comportamento non è casuale ma normato dalle norme del gruppo attivato.</span></div>
+<p>Implicazione: per prevenire comportamenti antisociali in folle/online, non basta ridurre l'anonimato; è necessario rendere salienti norme prosociali e identità positive.</p>
+</section>
+<section class="ch" id="cap27"><div class="cl">Capitolo 27</div><h1 class="ct">L'effetto Lucifero</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at27L" onclick="playTrack(27,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at27P" onclick="playTrack(27,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap27"><audio controls preload="none"></audio></div></div>
+
+<h2>CONCETTO FONDAMENTALE</h2>
+<div class="def"><span class="da">►</span><span class="dl">Effetto Lucifero (Zimbardo, 2007)</span><span class="ds"> — </span><span class="dt">Il processo attraverso cui individui normali e moralmente integri possono trasformarsi in agenti di crudeltà sotto l'influenza di potenti forze situazionali. Il contesto può 'fare il mostro'.</span></div>
+<h2>L'ESPERIMENTO CARCERARIO DI STANFORD (SPE, 1971)</h2>
+<div class="tw"><table><thead><tr><th>Ruolo</th><th>Comportamenti osservati</th></tr></thead><tbody>
+<tr class="a"><td>Guardie</td><td>Sadismo, umiliazioni, privazione del sonno, punizioni arbitrarie; escalation del comportamento autoritario</td></tr>
+<tr><td>Prigionieri</td><td>Grave distress psicologico, ribellione poi passività, depressione, disintegrazione del senso di sé</td></tr>
+</tbody></table></div>
+<p>Previsto: 2 settimane. Interrotto: dopo 6 giorni. Il contesto (ruolo, uniforme, regole) ha definito l'identità più dei tratti individuali.</p>
+<h2>FATTORI SITUAZIONALI DELL'EFFETTO LUCIFERO</h2>
+<div class="tw"><table><thead><tr><th>Fattore</th><th>Meccanismo</th></tr></thead><tbody>
+<tr class="a"><td>Ruolo e uniforme</td><td>Depersonalizzazione; il ruolo diventa identità</td></tr>
+<tr><td>Regole e norme del contesto</td><td>Autorizzano e normalizzano certi comportamenti</td></tr>
+<tr class="a"><td>Autorità legittima</td><td>Trasferisce la responsabilità verso l'alto (come in Milgram)</td></tr>
+<tr><td>Gradualità dell'escalation</td><td>Piccoli passi portano a grandi violazioni senza percepire il cambiamento</td></tr>
+<tr class="a"><td>Disumanizzazione dell'altro</td><td>L'outgroup perde caratteristiche umane; l'empatia si azzera</td></tr>
+<tr><td>Diffusione della responsabilità</td><td>Nel gruppo nessuno si sente pienamente responsabile</td></tr>
+</tbody></table></div>
+<h2>COME RESISTERE ALL'EFFETTO LUCIFERO</h2>
+<ul>
+<li>Ammettere la propria vulnerabilità alle pressioni situazionali.</li>
+<li>Esercitare il pensiero critico sul proprio comportamento (mindfulness).</li>
+<li>Distinguere il ruolo dalla persona.</li>
+<li>Rispettare l'autorità solo se giusta; disobbedire all'autorità ingiusta.</li>
+<li>Celebrare l'eroismo quotidiano — atti prosociali piccoli ma significativi.</li>
+</ul>
+</section>
+<section class="ch" id="cap28"><div class="cl">Capitolo 28</div><h1 class="ct">Il comportamento prosociale</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at28L" onclick="playTrack(28,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at28P" onclick="playTrack(28,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap28"><audio controls preload="none"></audio></div></div>
+
+<h2>DEFINIZIONI</h2>
+<div class="def"><span class="da">►</span><span class="dl">Comportamento prosociale</span><span class="ds"> — </span><span class="dt">Qualsiasi azione volontaria intesa a beneficiare un'altra persona o un gruppo, indipendentemente dalla motivazione del soccorritore.</span></div>
+<div class="def"><span class="da">►</span><span class="dl">Altruismo</span><span class="ds"> — </span><span class="dt">Sottoinsieme del comportamento prosociale motivato da preoccupazione genuina per il benessere altrui, senza attesa di ricompensa personale.</span></div>
+<h2>TEORIE SULLA MOTIVAZIONE PROSOCIALE</h2>
+<div class="tw"><table><thead><tr><th>Teoria</th><th>Autore</th><th>Meccanismo</th></tr></thead><tbody>
+<tr class="a"><td>Empatia-altruismo</td><td>Batson (1991)</td><td>L'empatia per la sofferenza altrui genera motivazione altruistica genuina</td></tr>
+<tr><td>Riduzione dell'arousal</td><td>Piliavin et al.</td><td>Il disagio osservando qualcuno in pericolo motiva l'aiuto per ridurre il proprio malessere</td></tr>
+<tr class="a"><td>Gestione dell'immagine</td><td>Cialdini</td><td>Si aiuta anche per mantenere l'autoimmagine di persona generosa</td></tr>
+<tr><td>Selezione familiare/reciprocità</td><td>Evoluzionismo</td><td>Si aiutano i consanguinei e chi ci ha aiutato</td></tr>
+</tbody></table></div>
+<h2>EFFETTO SPETTATORE (BYSTANDER EFFECT)</h2>
+<div class="def"><span class="da">►</span><span class="dl">Effetto spettatore (Darley e Latané, 1968)</span><span class="ds"> — </span><span class="dt">Al crescere del numero di testimoni, la probabilità che ognuno intervenga diminuisce.</span></div>
+<h3>Processo decisionale in 5 fasi (Latané e Darley)</h3>
+<div class="tw"><table><thead><tr><th>Fase</th><th>Domanda</th><th>Ostacolo al soccorso</th></tr></thead><tbody>
+<tr class="a"><td>1</td><td>Notare l'evento?</td><td>Distrazione, fretta</td></tr>
+<tr><td>2</td><td>Interpretarlo come emergenza?</td><td>Ignoranza pluralistica: gli altri sembrano calmi</td></tr>
+<tr class="a"><td>3</td><td>Assumersi la responsabilità?</td><td>Diffusione della responsabilità</td></tr>
+<tr><td>4</td><td>Sapere come aiutare?</td><td>Mancanza di competenza specifica</td></tr>
+<tr class="a"><td>5</td><td>Decidere di aiutare?</td><td>Timori di imbarazzo, errore, costi personali</td></tr>
+</tbody></table></div>
+<h2>FATTORI CHE AUMENTANO IL SOCCORSO</h2>
+<ul>
+<li>Pochi testimoni o solitudine.</li>
+<li>Forte chiarezza sull'emergenza.</li>
+<li>Identità dell'ingroup tra soccorritore e vittima.</li>
+<li>Basso costo del soccorso.</li>
+<li>Competenza specifica del soccorritore.</li>
+</ul>
+</section>
+<section class="ch" id="cap29"><div class="cl">Capitolo 29</div><h1 class="ct">Eroismo</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at29L" onclick="playTrack(29,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at29P" onclick="playTrack(29,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap29"><audio controls preload="none"></audio></div></div>
+
+<h2>EROISMO: DEFINIZIONE E TIPI</h2>
+<div class="def"><span class="da">►</span><span class="dl">Eroismo (Zimbardo e Franco)</span><span class="ds"> — </span><span class="dt">Atto di rischio volontario intrapreso per il beneficio di altri, senza attesa di ricompensa esterna, in condizioni di incertezza e potenziale danno per sé.</span></div>
+<div class="tw"><table><thead><tr><th>Tipo</th><th>Caratteristiche</th><th>Esempi</th></tr></thead><tbody>
+<tr class="a"><td>Eroismo fisico</td><td>Rischio fisico immediato e concreto</td><td>Soccorrere in caso di incendio; intervenire in un'aggressione</td></tr>
+<tr><td>Eroismo civile</td><td>Rischio sociale, economico o professionale</td><td>Denuncia di corruzione, whistleblowing, difesa di minoranze</td></tr>
+</tbody></table></div>
+<h2>FATTORI CHE FAVORISCONO L'EROISMO</h2>
+<div class="tw"><table><thead><tr><th>Fattore</th><th>Descrizione</th></tr></thead><tbody>
+<tr class="a"><td>Empatia elevata</td><td>Capacità di sentire la sofferenza altrui come propria</td></tr>
+<tr><td>Senso di efficacia personale</td><td>Convinzione di poter fare la differenza</td></tr>
+<tr class="a"><td>Forte senso morale</td><td>Valori chiari su giustizia e responsabilità</td></tr>
+<tr><td>Orientamento verso gli altri</td><td>Atteggiamento prosociale stabile</td></tr>
+<tr class="a"><td>Pratica mentale</td><td>Aver riflettuto in anticipo su come si agirebbe in situazioni critiche</td></tr>
+</tbody></table></div>
+<h2>RESILIENZA</h2>
+<div class="def"><span class="da">►</span><span class="dl">Resilienza</span><span class="ds"> — </span><span class="dt">Capacità di adattarsi positivamente di fronte a situazioni avverse, traumatiche o altamente stressanti. Non è assenza di dolore, ma capacità di riprendersi e crescere.</span></div>
+<h3>Fattori protettivi della resilienza</h3>
+<ul>
+<li>Sostegno sociale (famiglia, amici, comunità).</li>
+<li>Autoefficacia e senso di controllo.</li>
+<li>Capacità di trovare significato nelle avversità.</li>
+<li>Competenze di regolazione emotiva.</li>
+<li>Flessibilità cognitiva (reframing).</li>
+</ul>
+</section>
+<section class="ch" id="cap30"><div class="cl">Capitolo 30</div><h1 class="ct">La comunicazione sociale secondo l'approccio strategico</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at30L" onclick="playTrack(30,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at30P" onclick="playTrack(30,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap30"><audio controls preload="none"></audio></div></div>
+
+<h2>LA COMUNICAZIONE COME COSTRUZIONE DELLA REALTÀ</h2>
+<p>L'approccio strategico (Petruccelli) si fonda sul <strong>costruttivismo sociale</strong>: gli individui costruiscono attivamente la propria realtà attraverso la comunicazione. Ogni interazione è una negoziazione di significati.</p>
+<div class="def"><span class="da">►</span><span class="dl">Comunicazione</span><span class="ds"> — </span><span class="dt">Processo di co-costruzione del significato tra interlocutori, non semplice trasmissione di informazioni da mittente a ricevente.</span></div>
+<h2>GLI ASSIOMI DELLA COMUNICAZIONE (WATZLAWICK ET AL., 1967)</h2>
+<div class="tw"><table><thead><tr><th>Assioma</th><th>Enunciato</th><th>Implicazione</th></tr></thead><tbody>
+<tr class="a"><td>1°</td><td>Non si può non comunicare — qualsiasi comportamento è comunicazione</td><td>Il silenzio, il ritiro, l'assenza comunicano</td></tr>
+<tr><td>2°</td><td>Ogni comunicazione ha un aspetto di contenuto e uno di relazione</td><td>Il 'come' (relazione) definisce il 'cosa' (contenuto)</td></tr>
+<tr class="a"><td>3°</td><td>La natura di una relazione dipende dalla punteggiatura delle sequenze</td><td>Il conflitto nasce spesso da punteggiature diverse degli stessi eventi</td></tr>
+<tr><td>4°</td><td>Gli esseri umani comunicano in modo digitale (verbale) e analogico (non verbale)</td><td>Il non verbale è spesso più affidabile del verbale</td></tr>
+<tr class="a"><td>5°</td><td>Ogni scambio è simmetrico o complementare</td><td>Simmetrico = parità; complementare = asimmetria di ruoli</td></tr>
+</tbody></table></div>
+<h2>LIVELLI DELLA COMUNICAZIONE</h2>
+<div class="tw"><table><thead><tr><th>Livello</th><th>Canale</th><th>Contenuto</th></tr></thead><tbody>
+<tr class="a"><td>Verbale</td><td>Parole, proposizioni</td><td>Contenuto esplicito, logico-digitale</td></tr>
+<tr><td>Para-verbale</td><td>Tono, ritmo, volume, pause</td><td>Emozioni, stati d'animo, intenzione</td></tr>
+<tr class="a"><td>Non verbale</td><td>Gesti, postura, espressioni, spazio, contatto visivo</td><td>Relazione, status, autenticità</td></tr>
+</tbody></table></div>
+<h2>PRINCIPI DELLA COMUNICAZIONE STRATEGICA</h2>
+<ol>
+<li>La comunicazione crea la realtà relazionale, non solo la descrive.</li>
+<li>La ridefinizione del problema è più efficace della logica contraddittoria.</li>
+<li>Ogni problema è mantenuto dalle soluzioni tentate disfunzionali.</li>
+<li>Il cambiamento avviene nel contesto delle relazioni, non solo nell'individuo.</li>
+</ol>
+</section>
+<section class="ch" id="cap31"><div class="cl">Capitolo 31</div><h1 class="ct">L'approccio strategico alla comunicazione</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at31L" onclick="playTrack(31,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at31P" onclick="playTrack(31,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap31"><audio controls preload="none"></audio></div></div>
+
+<h2>IL COSTRUTTIVISMO COME FONDAMENTO</h2>
+<p>L'approccio strategico parte dal costruttivismo: la realtà non è scoperta ma costruita attraverso la comunicazione e la negoziazione di significati.</p>
+<div class="def"><span class="da">►</span><span class="dl">Soluzione tentata (Watzlawick)</span><span class="ds"> — </span><span class="dt">Le tentative di soluzione di un problema che, invece di risolverlo, lo mantengono o amplificano. Cambiare le soluzioni tentate è la chiave del cambiamento.</span></div>
+<h2>IL MODELLO SISTEMICO-STRATEGICO: PALO ALTO GROUP</h2>
+<h3>Autori di riferimento</h3>
+<ul>
+<li>Gregory Bateson — fondatore; concetto di doppio legame comunicativo.</li>
+<li>Paul Watzlawick — <em>Pragmatica della comunicazione umana</em> (1967).</li>
+<li>Jay Haley — terapia strategica; focus sulle manovre comunicative.</li>
+<li>Milton Erickson — ipnosi ericksoniana; uso del linguaggio indiretto.</li>
+</ul>
+<h3>Principi fondamentali</h3>
+<ol>
+<li>Il problema è nel sistema relazionale, non nell'individuo.</li>
+<li>La comunicazione è circolare (non causa-effetto lineare).</li>
+<li>Il cambiamento può avvenire rapidamente modificando le soluzioni tentate.</li>
+<li>La resistenza del cliente è una risorsa, non un ostacolo.</li>
+</ol>
+<h2>TIPI DI CAMBIAMENTO (WATZLAWICK)</h2>
+<div class="tw"><table><thead><tr><th>Tipo</th><th>Natura</th><th>Descrizione</th></tr></thead><tbody>
+<tr class="a"><td>Cambiamento 1°</td><td>Quantitativo, nello stesso sistema</td><td>Fare di più lo stesso (es. rimproverare di più il figlio per lo stesso risultato)</td></tr>
+<tr><td>Cambiamento 2°</td><td>Qualitativo, del sistema</td><td>Uscire dalle soluzioni tentate disfunzionali; cambiare la struttura del sistema</td></tr>
+</tbody></table></div>
+<h2>TECNICHE DELL'APPROCCIO STRATEGICO</h2>
+<div class="tw"><table><thead><tr><th>Tecnica</th><th>Descrizione</th></tr></thead><tbody>
+<tr class="a"><td>Ridefinizione</td><td>Cambiare il significato attribuito a un problema senza cambiare i fatti</td></tr>
+<tr><td>Prescrizione del sintomo</td><td>Ordinare di mantenere o esasperare il problema per rompere il pattern automatico</td></tr>
+<tr class="a"><td>Compiti fuori seduta</td><td>Azioni concrete per interrompere le soluzioni tentate</td></tr>
+<tr><td>Tecnica del 'come se'</td><td>Agire come se il cambiamento fosse già avvenuto</td></tr>
+<tr class="a"><td>Domande circolari</td><td>Chiedere come gli altri percepiscono il problema per attivare nuove prospettive</td></tr>
+</tbody></table></div>
+<h2>IL DOPPIO LEGAME COMUNICATIVO (BATESON)</h2>
+<div class="def"><span class="da">►</span><span class="dl">Doppio legame</span><span class="ds"> — </span><span class="dt">Situazione in cui un individuo riceve messaggi contraddittori su livelli diversi (verbale/non verbale), senza poter commentare la contraddizione né uscire dalla relazione.</span></div>
+</section>
+<section class="ch" id="cap32"><div class="cl">Capitolo 32</div><h1 class="ct">L'azione deviante comunicativa</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at32L" onclick="playTrack(32,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at32P" onclick="playTrack(32,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap32"><audio controls preload="none"></audio></div></div>
+
+<h2>L'AZIONE DEVIANTE COME COMUNICAZIONE</h2>
+<div class="def"><span class="da">►</span><span class="dl">Azione deviante comunicativa</span><span class="ds"> — </span><span class="dt">Comportamento che viola le norme sociali e che, in una prospettiva psicosociale, veicola un messaggio: racconta qualcosa di chi lo compie, del suo mondo interiore e delle relazioni circostanti.</span></div>
+<h2>TEORIE SOCIOLOGICHE DELLA DEVIANZA</h2>
+<div class="tw"><table><thead><tr><th>Teoria</th><th>Autore</th><th>Nucleo</th></tr></thead><tbody>
+<tr class="a"><td>Anomia</td><td>Durkheim; Merton</td><td>La devianza emerge quando le strutture sociali non forniscono i mezzi legittimi per raggiungere gli obiettivi culturali</td></tr>
+<tr><td>Etichettamento (labeling)</td><td>Becker (1963)</td><td>La devianza è una qualità attribuita da chi ha il potere di etichettare; il label produce carriera deviante</td></tr>
+<tr class="a"><td>Associazione differenziale</td><td>Sutherland</td><td>La devianza si apprende nel contatto con definizioni favorevoli alla violazione della legge</td></tr>
+<tr><td>Controllo sociale</td><td>Hirschi</td><td>La devianza emerge quando il legame con la società convenzionale si indebolisce</td></tr>
+</tbody></table></div>
+<h2>LA CARRIERA DEVIANTE (BECKER, 1963)</h2>
+<div class="def"><span class="da">►</span><span class="dl">Carriera deviante</span><span class="ds"> — </span><span class="dt">Processo in cui l'individuo, una volta etichettato come deviante, internalizza l'etichetta come parte dell'identità e si orienta verso subculture che la confermano.</span></div>
+<h3>Fasi della carriera deviante</h3>
+<ol>
+<li>Primo atto deviante (spesso casuale o sperimentale).</li>
+<li>Scoperta e reazione sociale (etichettamento).</li>
+<li>Internalizzazione dell'etichetta ('io sono un deviante').</li>
+<li>Ingresso in subcultura deviante.</li>
+<li>Devianza secondaria — la devianza come risposta adattiva all'etichetta ricevuta.</li>
+</ol>
+<h2>DEVIANZA COME COMUNICAZIONE DELLA SOFFERENZA</h2>
+<ul>
+<li>Bisogno di riconoscimento e di identità.</li>
+<li>Protesta contro un sistema percepito come ingiusto.</li>
+<li>Richiesta d'aiuto mascherata da aggressività.</li>
+<li>Risposta a traumi, abusi o deprivazioni.</li>
+</ul>
+<h2>IMPLICAZIONI PER L'INTERVENTO</h2>
+<ul>
+<li>Non solo punire il comportamento ma comprenderne il messaggio.</li>
+<li>Lavorare sul contesto relazionale e familiare, non solo sull'individuo.</li>
+<li>Evitare l'etichettamento precoce per non innescare carriere devianti.</li>
+<li>Costruire relazioni significative e stabili con figure adulte di riferimento.</li>
+</ul>
+</section>
+<section class="ch" id="cap33"><div class="cl">Capitolo 33</div><h1 class="ct">I conflitti sociali</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at33L" onclick="playTrack(33,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at33P" onclick="playTrack(33,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap33"><audio controls preload="none"></audio></div></div>
+
+<h2>DEFINIZIONE E TIPOLOGIE DI CONFLITTO</h2>
+<div class="def"><span class="da">►</span><span class="dl">Conflitto sociale</span><span class="ds"> — </span><span class="dt">Processo in cui due o più parti percepiscono obiettivi, valori, risorse o interessi incompatibili e agiscono di conseguenza.</span></div>
+<div class="tw"><table><thead><tr><th>Tipo</th><th>Descrizione</th></tr></thead><tbody>
+<tr class="a"><td>Intrapersonale</td><td>Valori o bisogni in opposizione nella stessa persona</td></tr>
+<tr><td>Interpersonale</td><td>Tra due o più individui</td></tr>
+<tr class="a"><td>Intragruppo</td><td>Tra membri dello stesso gruppo</td></tr>
+<tr><td>Intergruppo</td><td>Tra gruppi diversi (classi sociali, nazioni, etnie)</td></tr>
+</tbody></table></div>
+<h2>DINAMICHE DI ESCALATION DEL CONFLITTO</h2>
+<div class="tw"><table><thead><tr><th>Fase</th><th>Caratteristiche</th></tr></thead><tbody>
+<tr class="a"><td>Latente</td><td>Differenze reali ma non ancora percepite come incompatibili</td></tr>
+<tr><td>Percepita</td><td>Le parti riconoscono la divergenza di interessi</td></tr>
+<tr class="a"><td>Sentita</td><td>Emergono emozioni negative (rabbia, paura, frustrazione)</td></tr>
+<tr><td>Manifesta</td><td>Il conflitto si esprime in comportamenti osservabili</td></tr>
+<tr class="a"><td>Escalation</td><td>Intensificazione; le tattiche diventano più dure; si perde di vista l'obiettivo</td></tr>
+<tr><td>Stasi/De-escalation</td><td>Equilibrio di forze o intervento esterno riduce l'intensità</td></tr>
+</tbody></table></div>
+<h2>STRATEGIE DI GESTIONE DEL CONFLITTO</h2>
+<div class="tw"><table><thead><tr><th>Strategia</th><th>Approccio</th><th>Adeguata quando</th></tr></thead><tbody>
+<tr class="a"><td>Competizione</td><td>Vincere a spese dell'altro</td><td>Emergenza; questioni etiche non negoziabili</td></tr>
+<tr><td>Collaborazione</td><td>Win-win: entrambi soddisfatti</td><td>Relazioni importanti; soluzioni creative possibili</td></tr>
+<tr class="a"><td>Compromesso</td><td>Entrambi cedono qualcosa</td><td>Risorse limitate; urgenza; soluzioni temporanee</td></tr>
+<tr><td>Accomodamento</td><td>Cedere alle richieste dell'altro</td><td>La relazione è più importante della questione</td></tr>
+<tr class="a"><td>Evitamento</td><td>Ritiro o rinvio</td><td>Problema irrilevante o troppo alta l'emotività del momento</td></tr>
+</tbody></table></div>
+<h2>NEGOZIAZIONE INTEGRATIVA (FISHER E URY, 'GETTING TO YES')</h2>
+<ol>
+<li>Separare le persone dal problema.</li>
+<li>Concentrarsi sugli interessi (non sulle posizioni).</li>
+<li>Generare opzioni a vantaggio reciproco.</li>
+<li>Usare criteri oggettivi per valutare le soluzioni.</li>
+</ol>
+</section>
+<section class="ch" id="cap34"><div class="cl">Capitolo 34</div><h1 class="ct">Le nuove forme di pregiudizio</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at34L" onclick="playTrack(34,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at34P" onclick="playTrack(34,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap34"><audio controls preload="none"></audio></div></div>
+
+<h2>EVOLUZIONE DEL PREGIUDIZIO: FORME MODERNE</h2>
+<div class="tw"><table><thead><tr><th>Forma</th><th>Caratteristiche</th></tr></thead><tbody>
+<tr class="a"><td>Razzismo tradizionale/flagrante</td><td>Esplicito; basato su superiorità biologica; oggi socialmente non accettato</td></tr>
+<tr><td>Razzismo simbolico/moderno</td><td>Oppone valori tradizionali a politiche pro-minoranze: 'loro non si impegnano abbastanza'</td></tr>
+<tr class="a"><td>Razzismo aversivo (Gaertner e Dovidio, 1986)</td><td>Conflitto tra valori egalitari coscienti e sentimenti negativi inconsci</td></tr>
+<tr><td>Razzismo ambivalente</td><td>Mix di sentimenti positivi e negativi verso l'outgroup; porta a risposte estreme</td></tr>
+</tbody></table></div>
+<h2>RAZZISMO AVERSIVO</h2>
+<div class="def"><span class="da">►</span><span class="dl">Razzismo aversivo</span><span class="ds"> — </span><span class="dt">Forma di pregiudizio dei liberali: si professano valori egalitari ma si nutrono inconsciamente pregiudizi. Emerge in situazioni ambigue dove si può razionalizzare la discriminazione.</span></div>
+<h2>SESSISMO AMBIVALENTE (GLICK E FISKE, 1996)</h2>
+<div class="tw"><table><thead><tr><th>Dimensione</th><th>Contenuto</th><th>Esempio</th></tr></thead><tbody>
+<tr class="a"><td>Sessismo ostile</td><td>Donne come troppo ambiziose, minacciose, manipolatrici</td><td>'Le donne usano la sessualità per ottenere vantaggi'</td></tr>
+<tr><td>Sessismo benevolo</td><td>Visione idealizzata ma infantilizzante; le donne vanno protette</td><td>'Una buona donna deve essere messa su un piedistallo'</td></tr>
+</tbody></table></div>
+<p>Paradosso: il sessismo benevolo è percepito positivamente ma produce gli stessi effetti negativi sull'autonomia e le aspirazioni delle donne.</p>
+<h2>AGEISMO</h2>
+<div class="def"><span class="da">►</span><span class="dl">Ageismo</span><span class="ds"> — </span><span class="dt">Pregiudizio, stereotipo e discriminazione basati sull'età, tipicamente verso gli anziani. La forma di pregiudizio più socialmente tollerata.</span></div>
+<h2>MICROAGGRESSIONI (SUE, 2010)</h2>
+<div class="def"><span class="da">►</span><span class="dl">Microaggressioni</span><span class="ds"> — </span><span class="dt">Insulti quotidiani, sottili, spesso involontari, verbali e non verbali, che comunicano messaggi sminuenti a persone di gruppi emarginati.</span></div>
+<ul>
+<li>Micro-insulti — comunicano sgarbatezza o insensibilità.</li>
+<li>Micro-invalidazioni — escludono o negano le esperienze del gruppo.</li>
+<li>Micro-aggressioni ambientali — contesti che escludono visivamente i gruppi.</li>
+</ul>
+<p>L'effetto cumulativo è più dannoso dei singoli episodi.</p>
+</section>
+<section class="ch" id="cap35"><div class="cl">Capitolo 35</div><h1 class="ct">Psicologia ambientale e architettonica</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at35L" onclick="playTrack(35,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at35P" onclick="playTrack(35,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap35"><audio controls preload="none"></audio></div></div>
+
+<h2>DEFINIZIONE E OGGETTO</h2>
+<div class="def"><span class="da">►</span><span class="dl">Psicologia ambientale</span><span class="ds"> — </span><span class="dt">Disciplina che studia l'interazione bidirezionale tra esseri umani e ambiente fisico (costruito e naturale): come gli spazi influenzano pensieri, emozioni e comportamenti, e come gli esseri umani trasformano gli ambienti.</span></div>
+<h2>IL COLORE COME VARIABILE PSICOLOGICA</h2>
+<div class="tw"><table><thead><tr><th>Colore</th><th>Effetti psicologici principali</th></tr></thead><tbody>
+<tr class="a"><td>Rosso</td><td>↑ Eccitazione, frequenza cardiaca, senso di urgenza; può ↑ aggressività</td></tr>
+<tr><td>Blu</td><td>↓ Stress e pressione sanguigna; favorisce creatività e calma</td></tr>
+<tr class="a"><td>Verde</td><td>Associato al benessere; ↓ ansia; favorisce la concentrazione</td></tr>
+<tr><td>Giallo</td><td>Stimola ottimismo ed energia; in eccesso può produrre ansia</td></tr>
+<tr class="a"><td>Arancione</td><td>Stimola energia e socievolezza; usato in spazi di convivialità</td></tr>
+<tr><td>Bianco</td><td>Senso di pulizia e ordine; può risultare freddo e asettico</td></tr>
+</tbody></table></div>
+<h2>LUCE E BENESSERE</h2>
+<ul>
+<li>Luce naturale — riduce la fatica visiva, regola i ritmi circadiani, migliora l'umore e la produttività.</li>
+<li>Luce blu (mattina) — stimola l'allerta; sopprime la melatonina.</li>
+<li>Luce calda (sera) — facilita il rilassamento e il sonno.</li>
+<li>Disturbo affettivo stagionale (SAD) — causato da carenza di luce; trattato con fototerapia.</li>
+</ul>
+<h2>SPAZIO E COMPORTAMENTO: PROSSEMIA (HALL, 1966)</h2>
+<div class="tw"><table><thead><tr><th>Zona prossemale</th><th>Distanza</th><th>Contesto tipico</th></tr></thead><tbody>
+<tr class="a"><td>Intima</td><td>0–45 cm</td><td>Partner, familiari stretti, cure fisiche</td></tr>
+<tr><td>Personale</td><td>45–120 cm</td><td>Amici, conversazioni informali</td></tr>
+<tr class="a"><td>Sociale</td><td>1,2–3,6 m</td><td>Colleghi, conoscenti, transazioni sociali</td></tr>
+<tr><td>Pubblica</td><td>&gt;3,6 m</td><td>Discorsi pubblici, figure di autorità</td></tr>
+</tbody></table></div>
+<h2>PSICOLOGIA ARCHITETTONICA</h2>
+<div class="def"><span class="da">►</span><span class="dl">Psicologia architettonica</span><span class="ds"> — </span><span class="dt">Studia come le caratteristiche fisiche dell'architettura (forma, scala, materiali, layout) influenzano i comportamenti e il benessere degli occupanti.</span></div>
+<h3>Principi di progettazione psicologicamente informata</h3>
+<ul>
+<li>Chiarezza e leggibilità degli spazi — facilita l'orientamento e ↓ stress.</li>
+<li>Controllo sull'ambiente — possibilità di regolare luce, temperatura, rumore.</li>
+<li>Connessione con la natura (biofilia) — finestre, piante, materiali naturali.</li>
+<li>Alternanza di spazi privati e collettivi.</li>
+</ul>
+</section>
+<section class="ch" id="cap36"><div class="cl">Capitolo 36</div><h1 class="ct">Buone prassi per progettare ambienti interni</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at36L" onclick="playTrack(36,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at36P" onclick="playTrack(36,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap36"><audio controls preload="none"></audio></div></div>
+
+<h2>PROGETTAZIONE BIOPHILICA</h2>
+<div class="def"><span class="da">►</span><span class="dl">Biofilia (Wilson, 1984)</span><span class="ds"> — </span><span class="dt">Tendenza innata degli esseri umani ad affiliarsi con la vita naturale. La progettazione biophilica integra elementi naturali negli spazi costruiti per promuovere il benessere.</span></div>
+<h3>Tre dimensioni della progettazione biophilica</h3>
+<ol>
+<li>Natura nello spazio — presenza diretta di piante, acqua, animali, luce naturale.</li>
+<li>Analoghi naturali — materiali, forme e pattern che evocano la natura (legno, pietra, forme organiche).</li>
+<li>Natura dello spazio — configurazioni che rispecchiano ambienti naturali (rifugio, veduta, mistero).</li>
+</ol>
+<h2>QUALITÀ AMBIENTALI PER IL BENESSERE NEGLI INTERNI</h2>
+<div class="tw"><table><thead><tr><th>Qualità</th><th>Descrizione</th><th>Implicazione progettuale</th></tr></thead><tbody>
+<tr class="a"><td>Qualità dell'aria (IAQ)</td><td>CO₂, VOC, umidità, temperatura</td><td>Ventilazione adeguata, materiali a bassa emissione, piante purificanti</td></tr>
+<tr><td>Illuminazione</td><td>Luce naturale, temperatura del colore, abbagliamento</td><td>Finestre ampie, orientamento, controllo dell'abbagliamento</td></tr>
+<tr class="a"><td>Acustica</td><td>Rumore di fondo, riverbero, privacy acustica</td><td>Materiali fonoassorbenti, zoning acustico, mascheramento sonoro</td></tr>
+<tr><td>Termica</td><td>Temperatura, umidità, velocità dell'aria</td><td>Controllo individuale della temperatura</td></tr>
+<tr class="a"><td>Ergonomia</td><td>Posture, sforzo fisico, interfacce</td><td>Mobilio regolabile, layout adattativo</td></tr>
+</tbody></table></div>
+<h2>AMBIENTI SCOLASTICI EFFICACI</h2>
+<ul>
+<li>Illuminazione naturale adeguata (studi CHPS, 2003).</li>
+<li>Qualità acustica — il rumore ↓ comprensione verbale e concentrazione.</li>
+<li>Temperatura controllata — temperature sopra i 23°C ↓ prestazioni cognitive.</li>
+<li>Flessibilità dello spazio — arredi mobili per diverse configurazioni.</li>
+<li>Connessione con spazi verdi esterni — ↓ comportamenti problema, ↑ attenzione.</li>
+<li>Identità visiva del gruppo — rafforza il senso di appartenenza.</li>
+</ul>
+<h2>AMBIENTI SANITARI: EVIDENZE (ULRICH, 1984)</h2>
+<ul>
+<li>Vista su spazi verdi → ↓ dolore percepito, ↓ richiesta di antidolorifici.</li>
+<li>Stanze singole → ↓ tasso di infezioni, ↑ qualità del sonno.</li>
+<li>Luce naturale nei reparti → ↓ durata della degenza.</li>
+<li>Arte rilassante → ↓ ansia preoperatoria.</li>
+<li>Controllo del rumore → ↑ qualità del sonno e ↓ stress del personale.</li>
+</ul>
+</section>
+<section class="ch" id="cap37"><div class="cl">Capitolo 37</div><h1 class="ct">Impatto degli spazi verdi e delle aree blu sul benessere</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at37L" onclick="playTrack(37,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at37P" onclick="playTrack(37,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap37"><audio controls preload="none"></audio></div></div>
+
+<h2>NATURA E BENESSERE: TEORIE ESPLICATIVE</h2>
+<div class="tw"><table><thead><tr><th>Teoria</th><th>Autore</th><th>Meccanismo</th></tr></thead><tbody>
+<tr class="a"><td>Teoria del Ripristino dell'Attenzione (ART)</td><td>Kaplan e Kaplan (1989)</td><td>La natura permette alla corteccia prefrontale di recuperare dalla fatica attentiva diretta. Caratteristiche rigenerative: distanza, ampiezza, fascino, compatibilità</td></tr>
+<tr><td>Teoria della Riduzione dello Stress (SRT)</td><td>Ulrich (1983)</td><td>Esposizione alla natura → risposta di recupero dallo stress (sistema parasimpatico)</td></tr>
+<tr class="a"><td>Ipotesi della biofilia</td><td>Wilson (1984)</td><td>L'affiliazione con la natura è innata; ambienti naturali attivano risorse psicologiche positive</td></tr>
+</tbody></table></div>
+<h2>EFFETTI DEGLI SPAZI VERDI</h2>
+<div class="tw"><table><thead><tr><th>Ambito</th><th>Effetti positivi documentati</th></tr></thead><tbody>
+<tr class="a"><td>Salute mentale</td><td>↓ Ansia, depressione, stress; ↑ umore</td></tr>
+<tr><td>Funzione cognitiva</td><td>↑ Attenzione diretta, memoria di lavoro, creatività</td></tr>
+<tr class="a"><td>Salute fisica</td><td>↓ Pressione arteriosa, cortisolo, frequenza cardiaca; ↑ attività fisica</td></tr>
+<tr><td>Sviluppo dei bambini</td><td>↓ Sintomi ADHD; ↑ prestazioni scolastiche; sviluppo del gioco creativo</td></tr>
+<tr class="a"><td>Comportamento sociale</td><td>↑ Coesione sociale nei quartieri con verde; ↓ criminalità</td></tr>
+</tbody></table></div>
+<h2>AREE BLU: EFFETTI DELL'ACQUA</h2>
+<div class="def"><span class="da">►</span><span class="dl">Blue space</span><span class="ds"> — </span><span class="dt">Ambienti urbani e naturali dominati dalla presenza dell'acqua: coste, fiumi, laghi, canali.</span></div>
+<div class="def"><span class="da">►</span><span class="dl">Blue mind (Nichols, 2014)</span><span class="ds"> — </span><span class="dt">Stato cognitivo caratterizzato da calma, creatività e connessione, favorito dalla vicinanza all'acqua.</span></div>
+<h2>NATURE-BASED INTERVENTIONS (NBI)</h2>
+<div class="tw"><table><thead><tr><th>Intervento</th><th>Descrizione</th><th>Efficacia</th></tr></thead><tbody>
+<tr class="a"><td>Ecoterapia/Green care</td><td>Terapia condotta in ambienti naturali; giardinaggio terapeutico</td><td>Depressione, ansia, dipendenze</td></tr>
+<tr><td>Forest bathing (Shinrin-yoku)</td><td>Immersione sensoriale in ambienti forestali</td><td>↓ Cortisolo, pressione, frequenza cardiaca</td></tr>
+<tr class="a"><td>Blue health activities</td><td>Attività fisiche in prossimità dell'acqua</td><td>↑ Benessere rispetto ad attività equivalenti terrestri</td></tr>
+<tr><td>Green prescriptions</td><td>Medici prescrivono attività in ambienti naturali</td><td>↓ Costi sanitari; ↑ attività fisica</td></tr>
+</tbody></table></div>
+</section>
+<section class="ch" id="cap38"><div class="cl">Capitolo 38</div><h1 class="ct">Caratteristiche funzionali al benessere delle aree di lavoro</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at38L" onclick="playTrack(38,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at38P" onclick="playTrack(38,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap38"><audio controls preload="none"></audio></div></div>
+
+<h2>BENESSERE NEGLI AMBIENTI DI LAVORO</h2>
+<div class="def"><span class="da">►</span><span class="dl">Well-being lavorativo</span><span class="ds"> — </span><span class="dt">Stato di soddisfazione fisica, psicologica e sociale nell'ambiente di lavoro: salute fisica, benessere emotivo, soddisfazione lavorativa, relazioni positive, senso di scopo.</span></div>
+<h2>MODELLI DI LAYOUT DEGLI UFFICI</h2>
+<div class="tw"><table><thead><tr><th>Layout</th><th>Pro</th><th>Contro</th></tr></thead><tbody>
+<tr class="a"><td>Uffici chiusi/cellulari</td><td>Privacy, concentrazione, ↓ rumore</td><td>Isolamento, barriere alla comunicazione</td></tr>
+<tr><td>Open space tradizionale</td><td>Comunicazione facile, uso efficiente dello spazio</td><td>Rumore, mancanza di privacy, distrazioni, stress</td></tr>
+<tr class="a"><td>Activity-based working (ABW)</td><td>Flessibilità, collaborazione, efficienza</td><td>Perdita di personalizzazione; conflitti per le postazioni</td></tr>
+<tr><td>Biophilic office</td><td>↓ Stress, ↑ creatività e produttività</td><td>Costi maggiori; manutenzione</td></tr>
+</tbody></table></div>
+<p>Kimball/Jeong-Nam (2019): contro l'intuizione, gli open space riducono le interazioni faccia-a-face del 70% e aumentano quelle digitali. Le persone si isolano digitalmente per difendere la privacy.</p>
+<h2>CARATTERISTICHE FUNZIONALI AL BENESSERE</h2>
+<div class="tw"><table><thead><tr><th>Caratteristica</th><th>Implicazione</th></tr></thead><tbody>
+<tr class="a"><td>Controllo individuale sull'ambiente</td><td>Possibilità di regolare luce, temperatura, rumore → ↑ autonomia → ↓ stress</td></tr>
+<tr><td>Spazi per la concentrazione</td><td>Aree silenziose, cabine insonorizzate, 'quiet zones'</td></tr>
+<tr class="a"><td>Spazi per la collaborazione</td><td>Sale riunioni diverse (formali, informali, brainstorming)</td></tr>
+<tr><td>Spazi di recupero (break areas)</td><td>Zone relax, mensa, aree esterne → ripristino dell'attenzione</td></tr>
+<tr class="a"><td>Connessione con l'esterno</td><td>Finestre, terrazze, spazi verdi adiacenti → ↓ fatica mentale</td></tr>
+<tr><td>Personalizzazione</td><td>Possibilità di personalizzare la postazione → ↑ senso di appartenenza</td></tr>
+</tbody></table></div>
+<h2>ACUSTICA NEGLI SPAZI DI LAVORO</h2>
+<ul>
+<li>Materiali fonoassorbenti (soffitti, pannelli, tappeti).</li>
+<li>Sound masking — rumore di fondo bianco/rosa che maschera le conversazioni altrui.</li>
+<li>Zoning acustico — separare aree ad alta comunicazione da aree di concentrazione.</li>
+<li>Cabine telefoniche — spazi insonorizzati per chiamate.</li>
+</ul>
+</section>
+<section class="ch" id="cap39"><div class="cl">Capitolo 39</div><h1 class="ct">I profili criminogeni complessi</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at39L" onclick="playTrack(39,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at39P" onclick="playTrack(39,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap39"><audio controls preload="none"></audio></div></div>
+
+<h2>PROFILI CRIMINOGENI: DEFINIZIONE</h2>
+<div class="def"><span class="da">►</span><span class="dl">Profilo criminogeno</span><span class="ds"> — </span><span class="dt">Insieme delle caratteristiche psicologiche, relazionali, biologiche e sociali che aumentano la probabilità che un individuo commetta atti criminali. Non determina il crimine ma aumenta il rischio.</span></div>
+<h2>PSICOPATIA</h2>
+<div class="def"><span class="da">►</span><span class="dl">Psicopatia (Hare, 1991)</span><span class="ds"> — </span><span class="dt">Disturbo di personalità caratterizzato da mancanza di empatia e rimorso, manipolazione interpersonale, narcisismo, impulsività e comportamento antisociale persistente.</span></div>
+<div class="tw"><table><thead><tr><th>Fattore PCL-R</th><th>Tratti caratteristici</th></tr></thead><tbody>
+<tr class="a"><td>Fattore 1 — Interpersonale/affettivo</td><td>Charme superficiale, grandiosità, menzogna patologica, manipolazione, assenza di empatia e rimorso</td></tr>
+<tr><td>Fattore 2 — Stile di vita antisociale</td><td>Impulsività, irresponsabilità, promiscuità sessuale, comportamento antisociale precoce</td></tr>
+</tbody></table></div>
+<p>Psicopatici: ~1% della popolazione generale, ~20–30% della popolazione carceraria. ↑ Recidiva, maggiore versatilità criminale, ↑ pericolosità.</p>
+<h2>CRIMINAL PROFILING</h2>
+<div class="def"><span class="da">►</span><span class="dl">Criminal profiling</span><span class="ds"> — </span><span class="dt">Tecnica investigativa che inferisce le caratteristiche psicologiche, demografiche e comportamentali di un ignoto sospettato a partire dai dati della scena del crimine e del modus operandi.</span></div>
+<div class="tw"><table><thead><tr><th>Approccio</th><th>Origine</th><th>Metodo</th></tr></thead><tbody>
+<tr class="a"><td>Inductive profiling (FBI)</td><td>Behavioral Science Unit, anni '70</td><td>Classificazione in tipi (organizzato vs disorganizzato) basata su interviste a criminali condannati</td></tr>
+<tr><td>Deductive profiling (Canter)</td><td>Psicologia investigativa (UK)</td><td>Analisi statistica delle scene; profilo dedotto dai pattern comportamentali del caso specifico</td></tr>
+</tbody></table></div>
+<h3>Crimine organizzato vs disorganizzato (FBI)</h3>
+<div class="tw"><table><thead><tr><th>Dimensione</th><th>Organizzato</th><th>Disorganizzato</th></tr></thead><tbody>
+<tr class="a"><td>Scena del crimine</td><td>Ordinata; prove rimosse; vittima nota</td><td>Caotica; prove abbondanti; vittima casuale</td></tr>
+<tr><td>Profilo probabile</td><td>Buona intelligenza; pianificazione; stabile socialmente</td><td>Bassa intelligenza; impulsivo; isolato socialmente</td></tr>
+</tbody></table></div>
+<h2>TIPOLOGIE DI SERIAL KILLER</h2>
+<div class="tw"><table><thead><tr><th>Tipo</th><th>Motivazione</th></tr></thead><tbody>
+<tr class="a"><td>Visionario</td><td>Allucinazioni/deliri; missione divina o demoniaca</td></tr>
+<tr><td>Missionario</td><td>Credenza di 'ripulire' la società da certi tipi di persone</td></tr>
+<tr class="a"><td>Edonistico</td><td>Piacere: thrill, comfort materiale, sesso</td></tr>
+<tr><td>Power/Control</td><td>Dominio totale sulla vittima</td></tr>
+</tbody></table></div>
+</section>
+<section class="ch" id="cap40"><div class="cl">Capitolo 40</div><h1 class="ct">Gli autori di reato a sfondo sessuale</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at40L" onclick="playTrack(40,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at40P" onclick="playTrack(40,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap40"><audio controls preload="none"></audio></div></div>
+
+<h2>DEFINIZIONE E TIPOLOGIE</h2>
+<div class="def"><span class="da">►</span><span class="dl">Sex offender</span><span class="ds"> — </span><span class="dt">Individuo che ha commesso un atto criminale a contenuto sessuale: abuso su adulti o minori, molestie, esibizionismo, voyeurismo, stalking sessuale, produzione/distribuzione di CSAM.</span></div>
+<div class="tw"><table><thead><tr><th>Tipo</th><th>Vittima</th><th>Caratteristiche</th></tr></thead><tbody>
+<tr class="a"><td>Pedofilo preferenziale</td><td>Bambini prepuberi</td><td>Attrazione sessuale stabile verso minori; fantasia elaborata; agisce spesso a lungo</td></tr>
+<tr><td>Pedofilo situazionale</td><td>Bambini (circostanziale)</td><td>Non ha attrazione primaria verso minori; agisce in momenti di stress o opportunità</td></tr>
+<tr class="a"><td>Autore di violenza su adulti</td><td>Adulti (tipicamente donne)</td><td>Motivazioni eterogenee: potere, rabbia, sadismo, opportunismo</td></tr>
+<tr><td>Autore di reato online</td><td>Minori</td><td>Grooming digitale; accesso a CSAM</td></tr>
+</tbody></table></div>
+<h2>MODELLI ESPLICATIVI — TEORIA QUADRIPARTITA (HALL E HIRSCHMAN, 1992)</h2>
+<ol>
+<li>Eccitazione fisiologica deviante.</li>
+<li>Distorsioni cognitive che giustificano l'abuso.</li>
+<li>Disregolazione affettiva (stati emotivi negativi precedenti al reato).</li>
+<li>Fattori di personalità (tratti antisociali, mancanza di empatia).</li>
+</ol>
+<h2>DISTORSIONI COGNITIVE E DISIMPEGNO MORALE</h2>
+<ul>
+<li>Minimizzazione — riduzione della gravità ('non le ho fatto del male').</li>
+<li>Negazione — rifiuto della responsabilità.</li>
+<li>Attribuzione di colpa alla vittima — 'il suo comportamento lo ha provocato'.</li>
+<li>Deumanizzazione della vittima — privazione dell'umanità per ridurre l'empatia.</li>
+<li>Giustificazione — 'le sto dando affetto/educazione sessuale'.</li>
+</ul>
+<h2>PROCESSO DI GROOMING</h2>
+<div class="def"><span class="da">►</span><span class="dl">Grooming</span><span class="ds"> — </span><span class="dt">Processo con cui un adulto costruisce progressivamente una relazione di fiducia con un minore per abbassare le difese e facilitare l'abuso sessuale.</span></div>
+<h3>Fasi del grooming</h3>
+<ol>
+<li>Selezione della vittima (vulnerabilità, isolamento, bisogno di attenzione).</li>
+<li>Guadagno di fiducia del bambino e dell'ambiente.</li>
+<li>Costruzione di una relazione di dipendenza.</li>
+<li>Introduzione graduale di contenuto sessuale.</li>
+<li>Mantenimento del segreto (minacce, senso di colpa, normalizzazione).</li>
+</ol>
+<h2>VALUTAZIONE E TRATTAMENTO</h2>
+<div class="tw"><table><thead><tr><th>Aspetto</th><th>Strumenti/Approcci</th></tr></thead><tbody>
+<tr class="a"><td>Valutazione del rischio di recidiva</td><td>Static-99, SVR-20; combinano fattori statici (storia) e dinamici (atteggiamenti, antisocialità)</td></tr>
+<tr><td>Trattamento psicologico</td><td>CBT specifici per sex offender; gestione dell'arousal deviante</td></tr>
+<tr class="a"><td>Trattamento farmacologico</td><td>Antiandrogeni (↓ drive sessuale) per i casi ad alto rischio</td></tr>
+<tr><td>Prevenzione della recidiva</td><td>Supervisione post-carcere; relapse prevention</td></tr>
+</tbody></table></div>
+</section>
+<section class="ch" id="cap41"><div class="cl">Capitolo 41</div><h1 class="ct">Il minore deviante</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at41L" onclick="playTrack(41,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at41P" onclick="playTrack(41,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap41"><audio controls preload="none"></audio></div></div>
+
+<h2>IL MINORE DEVIANTE: PROSPETTIVA EVOLUTIVA</h2>
+<div class="def"><span class="da">►</span><span class="dl">Devianza minorile</span><span class="ds"> — </span><span class="dt">Comportamento di un minore (sotto i 18 anni) che viola le norme legali o sociali. Va distinta tra comportamenti adattivi (normalità dell'adolescenza) e comportamenti persistenti che richiedono intervento.</span></div>
+<h2>IL SISTEMA DI GIUSTIZIA MINORILE ITALIANO (DPR 448/1988)</h2>
+<h3>Principi fondamentali</h3>
+<ul>
+<li>Finalità educativa prevalente su quella punitiva.</li>
+<li>Minori responsabili delle proprie azioni ma oggetto di protezione.</li>
+<li>Processo specifico con misure alternative alla detenzione.</li>
+</ul>
+<div class="tw"><table><thead><tr><th>Misura</th><th>Descrizione</th></tr></thead><tbody>
+<tr class="a"><td>Irrilevanza del fatto</td><td>Il procedimento si estingue se il fatto è tenue e non è pericoloso</td></tr>
+<tr><td>Messa alla prova (MAP)</td><td>Il minore svolge un progetto educativo; se va bene il reato è estinto</td></tr>
+<tr class="a"><td>Misure cautelari</td><td>Prescrizioni, permanenza in casa, collocamento in comunità, custodia cautelare</td></tr>
+<tr><td>Perdono giudiziale</td><td>Per reati minori; il giudice rinuncia alla punizione in condizioni favorevoli</td></tr>
+</tbody></table></div>
+<h2>FATTORI DI RISCHIO PER LA DEVIANZA MINORILE</h2>
+<div class="tw"><table><thead><tr><th>Fattore di rischio</th><th>Area</th></tr></thead><tbody>
+<tr class="a"><td>Trauma infantile (abuso, trascuratezza)</td><td>Individuale/familiare</td></tr>
+<tr><td>Attaccamento insicuro o disorganizzato</td><td>Familiare</td></tr>
+<tr class="a"><td>Fallimento scolastico precoce</td><td>Scolastico</td></tr>
+<tr><td>Associazione con pari devianti</td><td>Sociale</td></tr>
+<tr class="a"><td>Appartenenza a gang</td><td>Sociale</td></tr>
+<tr><td>Abuso di sostanze</td><td>Individuale</td></tr>
+<tr class="a"><td>Esposizione alla violenza comunitaria</td><td>Comunitario</td></tr>
+</tbody></table></div>
+<h2>INTERVENTI EVIDENCE-BASED</h2>
+<div class="tw"><table><thead><tr><th>Approccio</th><th>Descrizione</th></tr></thead><tbody>
+<tr class="a"><td>Multisystemic Therapy (MST)</td><td>Intervento intensivo su famiglia, scuola e pari; efficace per ↓ recidiva in adolescenti ad alto rischio</td></tr>
+<tr><td>Functional Family Therapy (FFT)</td><td>Lavora sulle dinamiche familiari disfunzionali</td></tr>
+<tr class="a"><td>CBT per adolescenti</td><td>Problem solving, gestione della rabbia, pensiero consequenziale</td></tr>
+<tr><td>Mentoring</td><td>Relazione con un adulto positivo extra-familiare</td></tr>
+<tr class="a"><td>Messa alla prova (MAP)</td><td>Reinserimento guidato con progetto educativo individualizzato</td></tr>
+</tbody></table></div>
+</section>
+<section class="ch" id="cap42"><div class="cl">Capitolo 42</div><h1 class="ct">Il danno psichico ed esistenziale</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at42L" onclick="playTrack(42,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at42P" onclick="playTrack(42,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap42"><audio controls preload="none"></audio></div></div>
+
+<h2>DEFINIZIONI FONDAMENTALI</h2>
+<div class="def"><span class="da">►</span><span class="dl">Danno psichico</span><span class="ds"> — </span><span class="dt">Compromissione clinicamente significativa e duratura della salute mentale causata da un evento traumatico. Va distinto da una normale reazione emotiva di fronte a un evento avverso.</span></div>
+<div class="def"><span class="da">►</span><span class="dl">Danno esistenziale</span><span class="ds"> — </span><span class="dt">Compromissione della qualità della vita nelle dimensioni relazionali, sociali, emotive e progettuali. Non richiede necessariamente una diagnosi psichiatrica.</span></div>
+<div class="tw"><table><thead><tr><th>Dimensione</th><th>Danno psichico</th><th>Danno esistenziale</th></tr></thead><tbody>
+<tr class="a"><td>Natura</td><td>Menomazione psichica certificabile</td><td>Peggioramento qualitativo della vita</td></tr>
+<tr><td>Standard</td><td>DSM/ICD; nosologico</td><td>Giuridico-valutativo; anche senza diagnosi</td></tr>
+<tr class="a"><td>Durata</td><td>Permanente o di lunga durata</td><td>Può essere temporaneo</td></tr>
+<tr><td>Risarcibilità</td><td>Danno non patrimoniale – biologico</td><td>Danno non patrimoniale – esistenziale/morale</td></tr>
+</tbody></table></div>
+<h2>DIAGNOSI E VALUTAZIONE DEL DANNO PSICHICO</h2>
+<h3>PTSD (DSM-5) — il disturbo più frequente nelle valutazioni forensi</h3>
+<div class="tw"><table><thead><tr><th>Criterio</th><th>Contenuto</th></tr></thead><tbody>
+<tr class="a"><td>A</td><td>Esposizione a evento traumatico</td></tr>
+<tr><td>B</td><td>Sintomi intrusivi (flashback, incubi, disagio intenso agli stimoli correlati)</td></tr>
+<tr class="a"><td>C</td><td>Evitamento (stimoli associati al trauma)</td></tr>
+<tr><td>D</td><td>Alterazioni cognitive e dell'umore (pensieri negativi su sé e il mondo, distacco)</td></tr>
+<tr class="a"><td>E</td><td>Alterazioni dell'arousal (ipervigilanza, insonnia, risposte esagerate di allarme)</td></tr>
+</tbody></table></div>
+<p>Durata: &gt;1 mese. Compromissione funzionale significativa.</p>
+<h2>STRUMENTI DI VALUTAZIONE</h2>
+<div class="tw"><table><thead><tr><th>Strumento</th><th>Tipo</th><th>Uso</th></tr></thead><tbody>
+<tr class="a"><td>MMPI-2 / MMPI-2-RF</td><td>Questionario autosomministrato</td><td>Profilo di personalità; scale di validità per rilevare simulazione</td></tr>
+<tr><td>PCL-5</td><td>Autosomministrato (20 item, DSM-5)</td><td>Screening e monitoraggio PTSD</td></tr>
+<tr class="a"><td>CAPS-5</td><td>Intervista strutturata</td><td>Gold standard diagnostico per PTSD</td></tr>
+<tr><td>SCL-90-R</td><td>Autosomministrato (90 item)</td><td>Ansia, depressione, somatizzazione</td></tr>
+</tbody></table></div>
+<h2>SIMULAZIONE E DISSIMULAZIONE IN CONTESTI FORENSI</h2>
+<ul>
+<li>Malingering (simulazione) — esagerazione o finzione di sintomi per vantaggio secondario (risarcimento, esenzione da responsabilità).</li>
+<li>Dissimulazione — minimizzazione dei sintomi per apparire 'normali' (es. affidamento dei figli).</li>
+</ul>
+<p>Il MMPI-2 include scale di validità (F, Fb, Fp, Ds, FBS) per rilevare entrambe le tendenze. Le scale cliniche vanno interpretate solo in combinazione con le scale di validità.</p>
+</section>
+<section class="ch" id="cap43"><div class="cl">Capitolo 43</div><h1 class="ct">La psicologia sociale criminologica</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at43L" onclick="playTrack(43,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at43P" onclick="playTrack(43,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap43"><audio controls preload="none"></audio></div></div>
+
+<h2>PSICOLOGIA CRIMINOLOGICA: DEFINIZIONE E AREE</h2>
+<div class="def"><span class="da">►</span><span class="dl">Psicologia criminologica</span><span class="ds"> — </span><span class="dt">Disciplina che applica le teorie e i metodi della psicologia allo studio del comportamento criminale, dei suoi determinanti, delle vittime, del sistema della giustizia e degli interventi di prevenzione e trattamento.</span></div>
+<h3>Aree di applicazione principali</h3>
+<ul>
+<li>Comprensione eziologica del crimine (fattori bio-psico-sociali).</li>
+<li>Valutazione psicologica forense (imputabilità, danno psichico, pericolosità).</li>
+<li>Criminal profiling e supporto alle indagini.</li>
+<li>Vittimologia: effetti del crimine sulla vittima; bisogni; supporto.</li>
+<li>Trattamento degli autori di reato (riabilitazione, prevenzione della recidiva).</li>
+<li>Psicologia del testimone (accuratezza della memoria, suggestibilità).</li>
+</ul>
+<h2>IMPUTABILITÀ E CAPACITÀ DI INTENDERE E VOLERE</h2>
+<div class="tw"><table><thead><tr><th>Condizione</th><th>Effetto giuridico (diritto italiano)</th></tr></thead><tbody>
+<tr class="a"><td>Vizio totale di mente (art. 88 c.p.)</td><td>Non imputabilità → misura di sicurezza, non pena</td></tr>
+<tr><td>Vizio parziale di mente (art. 89 c.p.)</td><td>Imputabilità diminuita → riduzione di pena</td></tr>
+<tr class="a"><td>Minore sotto i 14 anni</td><td>Non imputabile</td></tr>
+<tr><td>Minore tra 14–18 anni</td><td>Imputabilità accertata caso per caso</td></tr>
+</tbody></table></div>
+<h2>PSICOLOGIA DELLA TESTIMONIANZA</h2>
+<div class="def"><span class="da">►</span><span class="dl">Testimonianza</span><span class="ds"> — </span><span class="dt">Resoconto di ciò che un individuo ha visto o sentito. La memoria è ricostruttiva (non riproduttiva): soggetta a distorsioni pre, durante e post-evento.</span></div>
+<div class="tw"><table><thead><tr><th>Fase</th><th>Fattori di distorsione principali</th></tr></thead><tbody>
+<tr class="a"><td>Encoding</td><td>Condizioni di osservazione, stress, focus-on-weapon effect</td></tr>
+<tr><td>Ritenzione</td><td>Tempo trascorso, informazioni post-evento (effetto misinformazione, Loftus, 1974)</td></tr>
+<tr class="a"><td>Recupero</td><td>Domande suggestive, pressione sociale, riconoscimento errato in lineup</td></tr>
+</tbody></table></div>
+<h2>VITTIMOLOGIA</h2>
+<div class="def"><span class="da">►</span><span class="dl">Vittimologia</span><span class="ds"> — </span><span class="dt">Studio scientifico delle vittime di reato: caratteristiche, bisogni, impatto psicologico del crimine, relazione vittima-autore, vittimizzazione secondaria.</span></div>
+<p>Vittimizzazione secondaria: il danno aggiuntivo causato dal sistema giudiziario stesso (interrogatori invasivi, disbelief, esposizione mediatica). Elevato rischio per vittime di reati sessuali e violenza domestica.</p>
+</section>
+<section class="ch" id="cap44"><div class="cl">Capitolo 44</div><h1 class="ct">Violenza di genere</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at44L" onclick="playTrack(44,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at44P" onclick="playTrack(44,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap44"><audio controls preload="none"></audio></div></div>
+
+<h2>DEFINIZIONE E FORME DI VIOLENZA DI GENERE</h2>
+<div class="def"><span class="da">►</span><span class="dl">Violenza di genere (ONU, 1993)</span><span class="ds"> — </span><span class="dt">Qualunque atto di violenza sessista che produca, o possa produrre, danni o sofferenze fisiche, sessuali o psicologiche, incluse la minaccia di tali atti, la coercizione o la privazione arbitraria della libertà, nella vita pubblica o privata.</span></div>
+<div class="tw"><table><thead><tr><th>Forma</th><th>Descrizione</th></tr></thead><tbody>
+<tr class="a"><td>Violenza fisica</td><td>Percosse, schiaffi, pugni, sevizie fisiche</td></tr>
+<tr><td>Violenza verbale</td><td>Ingiurie, insulti per sminuire e ferire psicologicamente</td></tr>
+<tr class="a"><td>Violenza sessuale</td><td>Rapporti non voluti o secondo modalità non desiderate</td></tr>
+<tr><td>Violenza economica</td><td>Ostacolare l'accesso al reddito, negare il diritto al lavoro, creare dipendenza economica</td></tr>
+<tr class="a"><td>Violenza psicologica</td><td>Intimidazioni, minacce, isolamento sociale, lavaggio del cervello, plagio</td></tr>
+<tr><td>Stalking</td><td>Telefonate ossessive, messaggi, pedinamenti, aggressioni, uso di intermediari</td></tr>
+</tbody></table></div>
+<div class="def"><span class="da">►</span><span class="dl">IPV — Intimate Partner Violence</span><span class="ds"> — </span><span class="dt">Violenza perpetrata da un partner (attuale o passato) nell'ambito di una relazione intima. Mira a controllare e annientare l'autonomia e la libertà della vittima.</span></div>
+<h2>DATI EPIDEMIOLOGICI</h2>
+<ul>
+<li>OMS: almeno 1 donna su 5 ha subito abusi fisici o sessuali da parte di un uomo nel corso della vita.</li>
+<li>Il 38% delle donne uccise muore per mano del proprio partner (OMS, 2013).</li>
+<li>Prima causa di morte per le donne 16–44 anni: violenza in famiglia (Consiglio d'Europa).</li>
+<li>Italia: nel 2020, chiamate al numero 1522 aumentate del 70% rispetto al 2019 (effetto lockdown COVID-19).</li>
+</ul>
+<h2>IL CICLO DELLA VIOLENZA (WALKER, 1979)</h2>
+<div class="tw"><table><thead><tr><th>Fase</th><th>Caratteristiche</th></tr></thead><tbody>
+<tr class="a"><td>1. Accumulo di tensione</td><td>L'uomo si mostra irritabile; la donna cerca di placarlo; violenza non ancora esplicita</td></tr>
+<tr><td>2. Esplosione acuta</td><td>Violenza fisica vera e propria; la donna difficilmente reagisce per paura di peggiorare</td></tr>
+<tr class="a"><td>3. Scuse e minimizzazione</td><td>L'uomo minimizza o dà la colpa alla vittima; lei si sente in colpa</td></tr>
+<tr><td>4. Luna di miele</td><td>L'uomo è dolce e premuroso; la donna spera nel cambiamento → ciclo si ripete con intensità crescente</td></tr>
+</tbody></table></div>
+<h2>INVESTIMENTI CHE TRATTENGONO LA VITTIMA (CARVER, 2002)</h2>
+<div class="tw"><table><thead><tr><th>Tipo di investimento</th><th>Meccanismo</th></tr></thead><tbody>
+<tr class="a"><td>Emozionale</td><td>I sentimenti spingono a credere che la sofferenza non sia stata inutile</td></tr>
+<tr><td>Sociale</td><td>Si rimane per evitare l'imbarazzo di fronte ad amici e parenti</td></tr>
+<tr class="a"><td>Familiare</td><td>Presenza di figli; paura di spezzare la famiglia</td></tr>
+<tr><td>Economico</td><td>Il partner controlla le finanze; mancanza di autonomia economica</td></tr>
+<tr class="a"><td>Stile di vita</td><td>Non voler rinunciare a condizioni percepite come privilegiate</td></tr>
+<tr><td>Intimità</td><td>Ricatti sulla reputazione; distruzione dell'autostima sessuale</td></tr>
+</tbody></table></div>
+<h3>Segnali di allarme (Carver)</h3>
+<ul>
+<li>Temperamento aggressivo — scoppi di rabbia verso oggetti o terze persone.</li>
+<li>Eliminazione del sostegno sociale della partner.</li>
+<li>'È sempre colpa della partner' — non si assume mai la responsabilità.</li>
+<li>Controllo ossessivo — inizia come gelosia; diventa comportamento paranoico.</li>
+<li>'Test della cameriera' — il modo in cui tratta le estranee sarà il modo in cui tratterà la partner dopo la luna di miele.</li>
+</ul>
+</section>
+<section class="ch" id="cap45"><div class="cl">Capitolo 45</div><h1 class="ct">La relazione autore-vittima nella violenza di genere</h1><div class="audio-box"><div class="ab-title">🎧 Ascolta il capitolo</div><div class="audio-tracks"><div class="audio-track lz" id="at45L" onclick="playTrack(45,'L')"><div class="at-label">📖 Lezione</div><div class="at-desc">Lettura frontale del testo — voce del professore</div></div><div class="audio-track pd" id="at45P" onclick="playTrack(45,'P')"><div class="at-label">🎙 Podcast</div><div class="at-desc">Discussione approfondita tra due conduttori</div></div></div><div class="audio-player" id="ap45"><audio controls preload="none"></audio></div></div>
+
+<h2>SPECIFICITÀ DELLA RELAZIONE AUTORE–VITTIMA</h2>
+<ul>
+<li>La vittima conosce e spesso ama ancora l'autore.</li>
+<li>Esistono legami economici, figli, storia condivisa.</li>
+<li>La dipendenza emotiva è una caratteristica frequente di entrambi.</li>
+<li>Il rischio aumenta drammaticamente nella fase di separazione.</li>
+</ul>
+<h2>CONTROLLO COERCITIVO (STARK, 2007)</h2>
+<div class="def"><span class="da">►</span><span class="dl">Controllo coercitivo</span><span class="ds"> — </span><span class="dt">Pattern di comportamento usato dall'autore per sottomettere e controllare la vittima attraverso una combinazione di violenza, intimidazione, isolamento, privazione e monitoraggio. È il pattern più pericoloso e predittivo del femminicidio.</span></div>
+<div class="tw"><table><thead><tr><th>Tattica</th><th>Descrizione</th></tr></thead><tbody>
+<tr class="a"><td>Isolamento</td><td>Allontanamento da famiglia, amici e rete di supporto</td></tr>
+<tr><td>Micromanagement</td><td>Controllo degli spostamenti, delle finanze, dell'abbigliamento</td></tr>
+<tr class="a"><td>Monitoraggio digitale</td><td>Controllo del telefono, social; installazione di spyware</td></tr>
+<tr><td>Degradazione</td><td>Critica costante; umiliazione pubblica e privata</td></tr>
+<tr class="a"><td>Privazione</td><td>Negazione di denaro, libertà di movimento, sonno</td></tr>
+<tr><td>Minacce</td><td>Verso i figli, gli animali, i parenti; di uccidere o di suicidio</td></tr>
+</tbody></table></div>
+<h2>PERCHÉ LE VITTIME NON DENUNCIANO</h2>
+<div class="tw"><table><thead><tr><th>Barriera</th><th>Descrizione</th></tr></thead><tbody>
+<tr class="a"><td>Dipendenza economica</td><td>Nessuna autonomia finanziaria</td></tr>
+<tr><td>Paura di ritorsioni</td><td>Timore di violenze peggiori o di minacce verso i figli</td></tr>
+<tr class="a"><td>Vergogna e colpa</td><td>Internalizzazione di narrazioni che la rendono responsabile</td></tr>
+<tr><td>Speranza di cambiamento</td><td>Fase di luna di miele; legame emotivo con il partner</td></tr>
+<tr class="a"><td>Sfiducia nel sistema</td><td>Esperienze passate di non-ascolto; stigma</td></tr>
+<tr><td>Trauma bonding</td><td>Legame affettivo paradossale creato dall'alternanza di violenza e affetto</td></tr>
+</tbody></table></div>
+<h2>TRAUMA BONDING</h2>
+<div class="def"><span class="da">►</span><span class="dl">Trauma bonding</span><span class="ds"> — </span><span class="dt">Legame affettivo paradossale che si sviluppa tra vittima e autore di abuso a causa dell'alternanza di violenza e ricompensa/affetto. Simile alla sindrome di Stoccolma.</span></div>
+<p>Meccanismo: violenza → terrore → fase di luna di miele → sollievo e affetto → il contrasto intensifica il legame → dipendenza emotiva. Più il ciclo si ripete, più il legame si rafforza.</p>
+<h2>FATTORI DI RISCHIO PER IL FEMMINICIDIO</h2>
+<p>Il momento della separazione è il periodo di massimo rischio.</p>
+<div class="tw"><table><thead><tr><th>Fattore di rischio</th><th>Peso predittivo</th></tr></thead><tbody>
+<tr class="a"><td>Precedenti violenze fisiche gravi</td><td>Alto</td></tr>
+<tr><td>Strangolamento pregrasso</td><td>Molto alto (forte predittore specifico di omicidio)</td></tr>
+<tr class="a"><td>Minacce di morte o suicidio</td><td>Alto</td></tr>
+<tr><td>Stalking post-separazione</td><td>Alto</td></tr>
+<tr class="a"><td>Accesso ad armi</td><td>Molto alto</td></tr>
+<tr><td>Abuso di alcol/sostanze</td><td>Alto</td></tr>
+</tbody></table></div>
+<h3>Strumenti di risk assessment</h3>
+<ul>
+<li>SARA — Spousal Assault Risk Assessment.</li>
+<li>ODARA — Ontario Domestic Assault Risk Assessment.</li>
+<li>DASH — Domestic Abuse, Stalking and Honour-based violence.</li>
+</ul>
+<h2>STRATEGIE DI CONTRASTO E PROTEZIONE</h2>
+<ol>
+<li>Formazione degli operatori di primo intervento (forze dell'ordine, pronto soccorso, assistenti sociali).</li>
+<li>Centri antiviolenza e case rifugio — garantire rifugio sicuro e supporto psicologico.</li>
+<li>Ordini di protezione — allontanamento dell'autore dall'abitazione e dalla vittima.</li>
+<li>Percorsi di supporto alla vittima — ricostruzione dell'autonomia economica e sociale.</li>
+<li>Programmi per autori di violenza — interventi cognitivo-comportamentali per ridurre la recidiva.</li>
+<li>Educazione scolastica e culturale — sfida agli stereotipi di genere fin dalla prima infanzia.</li>
+</ol>
+</section>
+</main>
+<button id="tb" title="Torna su">↑</button>
+<script>
+const tog=document.getElementById('tog'),sb=document.getElementById('sb'),tb=document.getElementById('tb');
+tog.addEventListener('click',()=>sb.classList.toggle('open'));
+const secs=document.querySelectorAll('.ch'),lks=document.querySelectorAll('#sb a');
+window.addEventListener('scroll',()=>{
+  let cur='';secs.forEach(s=>{if(window.scrollY>=s.offsetTop-80)cur=s.id;});
+  lks.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+cur));
+  tb.style.display=window.scrollY>400?'block':'none';
+});
+tb.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'});if(sb.classList.contains('open'))sb.classList.remove('open');});
+});
+
+function playTrack(capN, type) {
+  const base = 'https://archive.org/download/psicologia-sociale-mercatorum/';
+  const num  = String(capN).padStart(2,'0');
+  const url  = base + num + '.' + (type === 'L' ? 'mp3' : 'm4a');
+  const player = document.getElementById('ap' + capN);
+  const audio  = player.querySelector('audio');
+  // update track highlight
+  document.querySelectorAll('#cap'+capN+' .audio-track').forEach(t=>t.classList.remove('active'));
+  document.getElementById('at'+capN+type).classList.add('active');
+  // show player
+  player.classList.add('show');
+  audio.src = url;
+  audio.play();
+}
+
+</script>
+</body></html>
