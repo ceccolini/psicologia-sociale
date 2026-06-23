@@ -554,6 +554,94 @@
     letter-spacing: 0.5px;
   }
 
+  /* ---------- Cuoricino + splash credits/donazione ---------- */
+  #heartBtn{
+    display: none;
+    position: fixed;
+    bottom: 18px;
+    left: 18px;
+    z-index: 300;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: none;
+    background: var(--accent);
+    color: #fff;
+    font-size: 21px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 2px 10px -2px rgba(33,38,46,0.35);
+    transition: transform .15s ease, background .15s ease;
+  }
+  #heartBtn.ready{ display: block; }
+  #heartBtn:hover{ transform: translateY(-2px) scale(1.05); background: #6E2424; }
+
+  #heartOverlay{
+    display:none;
+    position: fixed;
+    inset: 0;
+    background: rgba(33,38,46,0.55);
+    z-index: 400;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  #heartOverlay.show{ display:flex; animation: fadeIn .2s ease; }
+
+  #heartModal{
+    position: relative;
+    width: min(640px, 100%);
+    height: min(720px, 90vh);
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px -10px rgba(0,0,0,0.4);
+  }
+  #heartFrame{
+    width: 100%;
+    height: calc(100% - 34px);
+    border: none;
+    display: block;
+  }
+  #heartFallback{
+    font-family: -apple-system, sans-serif;
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    background: var(--paper-dim);
+    padding: 8px 14px;
+    text-align: center;
+    border-top: 1px solid var(--rule);
+  }
+  #heartFallback code{
+    background: var(--white);
+    padding: 1px 5px;
+    border-radius: 3px;
+    border: 1px solid var(--rule);
+  }
+  #heartClose{
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(33,38,46,0.75);
+    color: #fff;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 1;
+  }
+  #heartClose:hover{ background: var(--accent); }
+
+  @media (max-width: 480px){
+    #heartBtn{ bottom: 14px; left: 14px; width: 42px; height: 42px; font-size: 19px; }
+    #heartModal{ width: 100%; height: 100%; border-radius: 0; }
+  }
+
+
   .chstats-list{ margin-bottom: 6px; }
   .chstats-row{
     display:flex;
@@ -724,6 +812,19 @@
   </section>
 
   <footer class="credit ui">452 domande &middot; 45 capitoli &middot; il progresso resta salvato su questo dispositivo</footer>
+</div>
+
+<!-- ===================== CUORICINO + SPLASH CREDITS/DONAZIONE ===================== -->
+<button id="heartBtn" class="ui" title="Credits e una causa a cui teniamo">&#9825;</button>
+
+<div id="heartOverlay">
+  <div id="heartModal">
+    <button id="heartClose" class="ui" title="Chiudi">&times;</button>
+    <iframe id="heartFrame" src="Credits.html" title="Credits e proposta di sostegno"></iframe>
+    <div id="heartFallback" class="ui">
+      Non vedi nulla qui sopra? Crea un file <code>Credits.html</code> nella stessa cartella di questo Quaderno: verrà mostrato automaticamente in questa finestra.
+    </div>
+  </div>
 </div>
 
 <script>
@@ -1203,6 +1304,43 @@ document.getElementById('btnRetrySame').addEventListener('click', ()=>{
   const pool = CARDS.filter(c=>ids.has(c.id));
   startSession(session.opts.shuffleAnswers!==undefined ? shuffle(pool) : pool, session.opts);
 });
+
+/* ===========================================================
+   CUORICINO / SPLASH CREDITS-DONAZIONE
+   Apre Credits.html in un iframe. Se il file non esiste ancora
+   (404 o caricamento bloccato da file://), mostra un messaggio
+   minimo invece di un iframe vuoto.
+   =========================================================== */
+const heartBtn = document.getElementById('heartBtn');
+const heartOverlay = document.getElementById('heartOverlay');
+const heartClose = document.getElementById('heartClose');
+const heartFrame = document.getElementById('heartFrame');
+
+function openHeart(){
+  heartOverlay.classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeHeart(){
+  heartOverlay.classList.remove('show');
+  document.body.style.overflow = '';
+}
+heartBtn.addEventListener('click', openHeart);
+heartClose.addEventListener('click', closeHeart);
+heartOverlay.addEventListener('click', (e)=>{ if(e.target === heartOverlay) closeHeart(); });
+document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && heartOverlay.classList.contains('show')) closeHeart(); });
+
+// Mostra il cuoricino solo se Credits.html esiste davvero (richiede http/https;
+// su file:// il fetch è bloccato dal browser per sicurezza e quindi, per non
+// nascondere per errore un file che in realtà c'è, il bottone resta visibile)
+(function checkCreditsFile(){
+  if(location.protocol === 'file:' || typeof fetch === 'undefined'){
+    heartBtn.classList.add('ready');
+    return;
+  }
+  fetch('Credits.html', {method:'GET', cache:'no-store'})
+    .then(res => { if(res.ok) heartBtn.classList.add('ready'); })
+    .catch(() => {});
+})();
 
 /* ===========================================================
    INIT
