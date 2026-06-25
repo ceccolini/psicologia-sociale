@@ -51,6 +51,24 @@ footer .stat{text-align:center}
 footer .stat b{display:block;font-size:18px;font-weight:700;color:#58a6ff}
 footer .stat span{display:block;font-size:10.5px;color:#484f58;text-transform:uppercase;letter-spacing:.05em;margin-top:2px}
 footer .credit{font-size:11px;color:#484f58}
+
+/* ── CUORICINO ── */
+#heartBtn{position:fixed;bottom:calc(env(safe-area-inset-bottom) + 18px);right:18px;width:46px;height:46px;border-radius:50%;background:#f85149;border:none;color:#fff;font-size:20px;display:none;align-items:center;justify-content:center;box-shadow:0 4px 16px #00000055;z-index:50;transition:transform .15s;cursor:pointer}
+#heartBtn.ready{display:flex}
+#heartBtn:active{transform:scale(.9)}
+@media (hover:hover) and (pointer:fine){
+  #heartBtn:hover{transform:scale(1.08);box-shadow:0 6px 20px #00000066}
+}
+
+/* ── CREDITS MODAL ── */
+#credits-backdrop{position:fixed;inset:0;background:#000000aa;z-index:400;opacity:0;pointer-events:none;transition:opacity .25s;display:flex;align-items:center;justify-content:center;padding:20px}
+#credits-backdrop.show{opacity:1;pointer-events:auto}
+#credits-modal{width:100%;max-width:560px;height:84vh;max-height:760px;background:#161b22;border-radius:18px;display:flex;flex-direction:column;overflow:hidden;transform:scale(.92) translateY(10px);opacity:0;transition:all .25s cubic-bezier(.22,.61,.36,1);box-shadow:0 20px 60px #000000aa}
+#credits-backdrop.show #credits-modal{transform:scale(1) translateY(0);opacity:1}
+#credits-modal-header{display:flex;justify-content:flex-end;padding:8px 8px 0;flex-shrink:0}
+#credits-close{background:#21262d;border:none;color:#8b949e;width:30px;height:30px;border-radius:50%;font-size:16px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+#credits-close:hover{background:#f8514933;color:#f85149}
+#credits-iframe{flex:1;border:none;width:100%;background:#fff}
 </style>
 </head>
 <body>
@@ -100,6 +118,45 @@ footer .credit{font-size:11px;color:#484f58}
     <div class="credit">Realizzato per lo studio personale</div>
   </footer>
 </div>
+
+<button id="heartBtn" onclick="openCredits()" title="Credits">♥</button>
+<div id="credits-backdrop" onclick="if(event.target===this)closeCredits()">
+  <div id="credits-modal">
+    <div id="credits-modal-header">
+      <button id="credits-close" onclick="closeCredits()">✕</button>
+    </div>
+    <iframe id="credits-iframe" src="" title="Credits"></iframe>
+  </div>
+</div>
+
+<script>
+let creditsLoaded = false;
+function openCredits(){
+  const iframe = document.getElementById('credits-iframe');
+  if(!creditsLoaded){
+    iframe.src = 'Credits.html';
+    creditsLoaded = true;
+  }
+  document.getElementById('credits-backdrop').classList.add('show');
+}
+function closeCredits(){
+  document.getElementById('credits-backdrop').classList.remove('show');
+}
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape' && document.getElementById('credits-backdrop').classList.contains('show')) closeCredits();
+});
+
+// Mostra il cuoricino solo se Credits.html esiste davvero (vedi stessa logica
+// usata in Lezioni.html). Su file:// il fetch è bloccato dal browser, quindi
+// il bottone resta visibile per non nascondere per errore un file che c'è.
+(function checkCreditsFile(){
+  const heartBtn = document.getElementById('heartBtn');
+  if(location.protocol === 'file:' || typeof fetch === 'undefined'){ heartBtn.classList.add('ready'); return; }
+  fetch('Credits.html', {method:'GET', cache:'no-store'})
+    .then(res => { if(res.ok) heartBtn.classList.add('ready'); })
+    .catch(() => {});
+})();
+</script>
 
 </body>
 </html>
