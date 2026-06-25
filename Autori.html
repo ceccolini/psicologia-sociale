@@ -10,7 +10,7 @@
 <meta name="theme-color" content="#0d1117">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;user-select:none}
-html,body{background:#0d1117;color:#e6edf3;font-family:-apple-system,'SF Pro Text',system-ui,sans-serif;height:100%;height:100dvh;overflow:hidden}
+html,body{background:#0d1117;color:#e6edf3;font-family:-apple-system,'SF Pro Text',system-ui,sans-serif;height:100%;overflow:hidden}
 body{display:flex;flex-direction:column;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
 
 /* ── TOP BAR ── */
@@ -29,9 +29,9 @@ body{display:flex;flex-direction:column;padding-top:env(safe-area-inset-top);pad
 .pdot.done{background:#3fb95066}
 
 /* ── MAIN SWIPE AREA ── */
-#main{flex:1;min-height:0;position:relative;overflow:hidden;touch-action:pan-y}
+#main{flex:1;position:relative;overflow:hidden;touch-action:pan-y}
 #track{display:flex;height:100%;transition:transform .28s cubic-bezier(.22,.61,.36,1)}
-.page{width:100vw;height:100%;flex-shrink:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:14px 14px 90px}
+.page{width:100vw;height:100%;flex-shrink:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:14px 14px 90px}
 .page::-webkit-scrollbar{display:none}
 
 /* ── CHAPTER HERO ── */
@@ -218,6 +218,16 @@ function escHtml(s){
   return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
+// Autori da mostrare per un capitolo: solo quelli collegati ad almeno una domanda
+// del testing, ordinati per numero di domande (i più interrogati prima), max 5.
+function shownAuthors(ch){
+  return ch.authors
+    .filter(a => a.concepts && a.concepts.length > 0)
+    .slice()
+    .sort((a, b) => b.concepts.length - a.concepts.length)
+    .slice(0, 5);
+}
+
 // ── BUILD PAGES ──────────────────────────────────────────────────────────────
 function buildPages(){
   track.innerHTML = CHAPTERS.map((ch, idx) => buildPageHTML(ch, idx)).join('');
@@ -226,7 +236,7 @@ function buildPages(){
 }
 
 function buildPageHTML(ch, idx){
-  const authorsHtml = ch.authors.map((a, ai) => {
+  const authorsHtml = shownAuthors(ch).map((a, ai) => {
     const initials = a.name.replace(/[^A-ZÀ-Ý]/g, '').slice(0,2) || a.name[0];
     const conceptsHtml = a.concepts.map(c => {
       return `<div class="concept-chip" onclick="openSheet('${ch.n}','${escAttr(a.name)}','${escAttr(c.exam)}')">
@@ -280,7 +290,7 @@ function updateTopbar(){
   const ch = CHAPTERS[currentIdx];
   document.getElementById('cap-num-badge').textContent = ch.n;
   document.getElementById('cap-title').textContent = ch.title;
-  document.getElementById('cap-sub').textContent = ch.authors.length + ' autori chiave';
+  document.getElementById('cap-sub').textContent = shownAuthors(ch).length + ' autori chiave';
   renderProgress();
 
   const prevBtn = document.getElementById('nav-prev');
