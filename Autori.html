@@ -10,7 +10,7 @@
 <meta name="theme-color" content="#0d1117">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;user-select:none}
-html,body{background:#0d1117;color:#e6edf3;font-family:-apple-system,'SF Pro Text',system-ui,sans-serif;height:100%;overflow:hidden}
+html,body{background:#0d1117;color:#e6edf3;font-family:-apple-system,'SF Pro Text',system-ui,sans-serif;height:100%;height:100dvh;overflow:hidden}
 body{display:flex;flex-direction:column;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
 
 /* ── TOP BAR ── */
@@ -29,9 +29,9 @@ body{display:flex;flex-direction:column;padding-top:env(safe-area-inset-top);pad
 .pdot.done{background:#3fb95066}
 
 /* ── MAIN SWIPE AREA ── */
-#main{flex:1;position:relative;overflow:hidden;touch-action:pan-y}
+#main{flex:1;min-height:0;position:relative;overflow:hidden;touch-action:pan-y}
 #track{display:flex;height:100%;transition:transform .28s cubic-bezier(.22,.61,.36,1)}
-.page{width:100vw;height:100%;flex-shrink:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:14px 14px 90px}
+.page{width:100vw;height:100%;flex-shrink:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:14px 14px 90px}
 .page::-webkit-scrollbar{display:none}
 
 /* ── CHAPTER HERO ── */
@@ -349,19 +349,33 @@ mainEl.addEventListener('touchend', () => {
   }
 });
 
-// Mouse drag support (desktop testing)
-let mouseDown = false;
-mainEl.addEventListener('mousedown', e => { mouseDown=true; startX=e.clientX; currentX=startX; track.style.transition='none'; });
+// Mouse drag support (desktop): con blocco di direzione e soglia,
+// così un click, una selezione di testo o uno scroll verticale NON cambiano capitolo.
+let mouseDown = false, mouseStartY = 0, mouseLocked = null;
+mainEl.addEventListener('mousedown', e => {
+  mouseDown = true; startX = e.clientX; mouseStartY = e.clientY; currentX = startX;
+  mouseLocked = null;
+});
 window.addEventListener('mousemove', e => {
   if(!mouseDown) return;
   currentX = e.clientX;
   const dx = currentX - startX;
-  const base = -currentIdx * window.innerWidth;
-  track.style.transform = `translateX(${base+dx}px)`;
+  const dy = e.clientY - mouseStartY;
+  if(mouseLocked === null){
+    if(Math.abs(dx) > 8 || Math.abs(dy) > 8){
+      mouseLocked = Math.abs(dx) > Math.abs(dy) ? 'h' : 'v';
+      if(mouseLocked === 'h') track.style.transition = 'none';
+    }
+  }
+  if(mouseLocked === 'h'){
+    const base = -currentIdx * window.innerWidth;
+    track.style.transform = `translateX(${base+dx}px)`;
+  }
 });
 window.addEventListener('mouseup', () => {
   if(!mouseDown) return;
   mouseDown = false;
+  if(mouseLocked !== 'h') return; // click o movimento verticale: nessun cambio capitolo
   const dx = currentX - startX;
   const threshold = window.innerWidth * 0.18;
   if(dx < -threshold && currentIdx < CHAPTERS.length-1) goTo(currentIdx+1);
@@ -432,9 +446,12 @@ function closeSheet(){
 // Swipe down to close sheet
 let sheetStartY = 0, sheetDragging = false;
 const sheetEl = document.getElementById('detail-sheet');
+const sheetBodyEl = document.getElementById('sheet-body');
 sheetEl.addEventListener('touchstart', e => {
   sheetStartY = e.touches[0].clientY;
-  sheetDragging = true;
+  // Avvia il drag-per-chiudere SOLO se il contenuto è già in cima:
+  // così lo scroll della spiegazione non fa scendere/chiudere la tendina.
+  sheetDragging = sheetBodyEl.scrollTop <= 0;
 }, {passive:true});
 sheetEl.addEventListener('touchmove', e => {
   if(!sheetDragging) return;
