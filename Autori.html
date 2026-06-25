@@ -29,9 +29,9 @@ body{display:flex;flex-direction:column;padding-top:env(safe-area-inset-top);pad
 .pdot.done{background:#3fb95066}
 
 /* ── MAIN SWIPE AREA ── */
-#main{flex:1;position:relative;overflow:hidden;touch-action:pan-y}
+#main{flex:1;min-height:0;position:relative;overflow:hidden;touch-action:pan-y}
 #track{display:flex;height:100%;transition:transform .28s cubic-bezier(.22,.61,.36,1)}
-.page{width:100vw;height:100%;flex-shrink:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:14px 14px 90px}
+.page{width:100vw;height:100%;flex-shrink:0;overflow-y:scroll;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-y;padding:14px 14px 90px}
 .page::-webkit-scrollbar{display:none}
 
 /* ── CHAPTER HERO ── */
@@ -133,7 +133,7 @@ body{display:flex;flex-direction:column;padding-top:env(safe-area-inset-top);pad
 #heart-btn:active{transform:scale(.9)}
 
 /* ── CREDITS MODAL ── */
-#credits-backdrop{position:fixed;inset:0;background:#000000aa;z-index:400;opacity:0;pointer-events:none;transition:opacity .25s;display:flex;align-items:center;justify-content:center;padding:env(safe-area-inset-top) 14px env(safe-area-inset-bottom)}
+#credits-backdrop{position:fixed;inset:0;height:100vh;height:100dvh;background:#000000aa;z-index:400;opacity:0;pointer-events:none;transition:opacity .25s;display:flex;align-items:center;justify-content:center;padding:env(safe-area-inset-top) 14px env(safe-area-inset-bottom)}
 #credits-backdrop.show{opacity:1;pointer-events:auto}
 #credits-modal{position:relative;width:100%;max-width:560px;height:84vh;max-height:760px;background:#161b22;border-radius:18px;z-index:401;display:flex;flex-direction:column;overflow:hidden;transform:scale(.92) translateY(10px);opacity:0;transition:all .25s cubic-bezier(.22,.61,.36,1);box-shadow:0 20px 60px #000000aa;pointer-events:none}
 #credits-modal.show{transform:scale(1) translateY(0);opacity:1;pointer-events:auto}
@@ -306,6 +306,12 @@ function goTo(idx, animate=true){
   track.style.transition = animate ? 'transform .28s cubic-bezier(.22,.61,.36,1)' : 'none';
   track.style.transform = `translateX(-${idx*100}vw)`;
   updateTopbar();
+  // Cambiare capitolo deve sempre chiudere qualsiasi overlay rimasto aperto
+  // (dettaglio domanda, lista capitoli), altrimenti il backdrop nero resta
+  // sopra la nuova pagina e nasconde tutto tranne ciò che era già visibile.
+  document.getElementById('detail-backdrop').classList.remove('show');
+  document.getElementById('detail-sheet').classList.remove('show');
+  document.getElementById('list-overlay').classList.remove('show');
 }
 
 // ── TOUCH SWIPE ───────────────────────────────────────────────────────────────
@@ -344,8 +350,12 @@ mainEl.addEventListener('touchend', () => {
   if(!dragging) return;
   dragging = false;
   if(swipeLocked !== 'h'){
-    // era uno scroll verticale (o un tap): non cambiare capitolo, ripristina la posizione
-    goTo(currentIdx, false);
+    // Era uno scroll verticale (o un tap): il track non è mai stato spostato,
+    // quindi NON richiamiamo goTo qui. Richiamare goTo (che resetta transform)
+    // durante/dopo uno scroll verticale in corso blocca lo scroll momentum
+    // di Safari su iOS, lasciando la pagina "congelata".
+    track.style.transition = 'transform .28s cubic-bezier(.22,.61,.36,1)';
+    swipeLocked = null;
     return;
   }
   const dx = currentX - startX;
